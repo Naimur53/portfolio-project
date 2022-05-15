@@ -1,7 +1,9 @@
 import '../styles/globals.css'
-
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+import { wrapper } from '../src/store/store'
+import { AnimatePresence } from 'framer-motion'
+function MyApp({ Component, pageProps, router }) {
+  const Layout = Component.Layout || EmptyLayout;
+  return <AnimatePresence exitBeforeEnter> <Component {...pageProps} key={router.route} /> </AnimatePresence>
 }
-
-export default MyApp
+const EmptyLayout = ({ children }) => <>{children}</>
+export default wrapper.withRedux(MyApp);
