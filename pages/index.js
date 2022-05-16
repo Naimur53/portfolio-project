@@ -10,6 +10,7 @@ export default function Home({ data }) {
       <motion.div exit={{ opacity: 0 }}>
         <HomeBanner></HomeBanner>
         <HomeCategory></HomeCategory>
+
       </motion.div>
     </Container>
   )
