@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import { HYDRATE } from 'next-redux-wrapper';
 
 const initialState = {
+    scrollValue: 0,
     user: {},
     homeCategory: [],
 }
@@ -15,6 +16,9 @@ export const dataSlice = createSlice({
         },
         addHomeCategory: (state, action) => {
             state.homeCategory = action.payload
+        },
+        addScrollValue: (state, action) => {
+            state.scrollValue = action.payload
         }
     },
     extraReducers: {
@@ -22,11 +26,12 @@ export const dataSlice = createSlice({
             console.log('HYDRATE...');
             state.user = action.payload.data.user
             state.homeCategory = action.payload.data.homeCategory;
+            state.addScrollValue = action.payload.data.addScrollValue;
         },
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { addUser, addHomeCategory } = dataSlice.actions
+export const { addUser, addHomeCategory, addScrollValue } = dataSlice.actions
 export const allData = (state) => state.data;
 export default dataSlice.reducer

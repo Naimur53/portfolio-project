@@ -28,7 +28,7 @@ const DashboardLayout = ({ children, window }) => {
             <Divider />
             <List>
                 <ListItem disablePadding>
-                    <Link href="/dashboard ">
+                    <Link href="/ ">
 
                         <ListItemButton>
                             <ListItemIcon>
@@ -46,6 +46,17 @@ const DashboardLayout = ({ children, window }) => {
                                 <InboxIcon />
                             </ListItemIcon>
                             <ListItemText primary={'Add Category'} />
+                        </ListItemButton>
+                    </Link>
+                </ListItem>
+                <ListItem disablePadding>
+                    <Link href="/dashboard/addBlog">
+
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <InboxIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={'Write a Blog'} />
                         </ListItemButton>
                     </Link>
                 </ListItem>

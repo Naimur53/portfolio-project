@@ -92,11 +92,11 @@ const AddCategory = () => {
                 <input {...register("thumbnailFile", { required: true })} type="file" accept="image/*" id='thumbnailFile' />
                 <label htmlFor='thumbnailFile'>thumbnail image</label>
 
-                <TextField color="success" id="filled-basic"  {...register("categoryName", { required: true })} label="categoryName" variant="filled" />
+                <TextField className="bg-gray-100" color="success" id="filled-basic"  {...register("categoryName", { required: true })} label="category name" variant="filled" />
 
-                <TextField color="success" id="standard-basic"  {...register("title", { required: true })} label="title" variant="filled" />
+                <TextField className="bg-gray-100" color="success" id="standard-basic"  {...register("title", { required: true })} label="title" variant="filled" />
 
-                <TextField color="success" id="standard-basic"  {...register("description", { required: true })} label="description" variant="filled" />
+                <TextField className="bg-gray-100" color="success" id="standard-basic"  {...register("description", { required: true })} label="description" variant="filled" />
 
                 <input {...register("url", { required: true })} type="file" accept="image/*" multiple={true} />
                 {

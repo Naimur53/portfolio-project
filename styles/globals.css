@@ -20,3 +20,45 @@ a {
 * {
   box-sizing: border-box;
 }
+
+/* home banner  */
+.innerBanner {
+  width: 100%;
+  height: 100%;
+  transition-property: clip-path, background-position-x, background-position-y;
+  transition-duration: 1s, 1s, 4s;
+  transition-delay: 0s, 0s, 1s;
+  position: relative;
+  z-index: 10;
+  background-position-x: 0%;
+  background-position-y: 0%;
+  clip-path: polygon(30% 73%, 18% 63%, 8% 66%, 6% 84%, 20% 100%, 46% 100%, 76% 90%, 81% 65%, 81% 19%, 49% 19%, 49% 73%, 39% 76%);
+
+  /* my create url https://i.ibb.co/LZs5rqc/pjimage-1.jpg */
+  background: url('https://i.ibb.co/10wMBYk/istockphoto-1272432175-170667a.jpg ');
+  animation: animate 10s ease-in 0s infinite alternate-reverse;
+
+}
+
+@keyframes animate {
+  from {
+    background-position-y: 0%;
+  }
+
+  to {
+    background-position-y: 100%;
+  }
+}
+
+/* chekcing */
+.letter {
+
+  background: url('https://i.ibb.co/10wMBYk/istockphoto-1272432175-170667a.jpg ');
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+
+
+  /* my create url https://i.ibb.co/LZs5rqc/pjimage-1.jpg */
+  animation: animate 10s ease-in 0s infinite alternate-reverse;
+}
