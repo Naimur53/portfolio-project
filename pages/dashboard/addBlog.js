@@ -1,18 +1,17 @@
 
-import { Button, Container, TextField } from '@mui/material';
+import { Autocomplete, Button, Chip, Container, IconButton, TextField } from '@mui/material';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import DashboardLayout from '../../src/Layouts/DashboardLayout'
 import { useEffect, useState } from 'react';
 import CreateBlogSection from '../../src/Components/CreateBlogSection/CreateBlogSection';
+import ClearIcon from '@mui/icons-material/Clear';
 const data = {
-    mainSection: {
-        img: "https://i.ibb.co/PMdzcvn/img-1.jpg",
-        heading: "ONE DAY FASHION SHOOT",
-        description: 'Curabitur eu congue erat. Donec posuere eu est eget egestas. Pellentesque porttitor blandit massa, nec luctus ligula facilisis sodales. Nam eu felis a ex efficitur faucibus in mollis arcu. Sed venenatis urna in lorem consequat rutrum. Nullam imperdiet arcu nec erat maximus faucibus...',
-        location: 'Klik hier voor Nederlands',
-        date: new Date().toDateString(),
-    },
+    img: "https://i.ibb.co/PMdzcvn/img-1.jpg",
+    heading: "ONE DAY FASHION SHOOT",
+    description: 'Curabitur eu congue erat. Donec posuere eu est eget egestas. Pellentesque porttitor blandit massa, nec luctus ligula facilisis sodales. Nam eu felis a ex efficitur faucibus in mollis arcu. Sed venenatis urna in lorem consequat rutrum. Nullam imperdiet arcu nec erat maximus faucibus...',
+    location: 'Klik hier voor Nederlands',
+    date: new Date().toDateString(),
     sections: [{
         title: "The disappointment comes at home. ",
         img: [{ title: 'Ait Ben Haddou  Morocco: A first attempt under poor light conditions', url: 'https://i.ibb.co/hVm9s2y/20161021-AIT-BEN-HABBOU-351-Pano-1200x406.jpg' }],
@@ -45,23 +44,27 @@ const AddBlog = () => {
     const [imgLoading, setImgLoading] = useState(false);
     const [photosLoading, setPhotosLoading] = useState(false);
     const [numSection, setNumSection] = useState([{ num: 1, complete: false }])
-    const { register, unregister, handleSubmit, reset, setValue, watch, formState: { errors } } = useForm();
+    const { register, unregister, handleSubmit, reset, setValue, watch, formState: { errors } } = useForm({ shouldUnregister: false });
+    // default
+    const createObj = (title, description, img, video) => {
+        return { title, description, img, video }
+    }
     console.log('errors', errors);
     const onSubmit = data => {
-        console.log(data);
-        // console.log(data.file[0]);
-        // var formData = new FormData();
-        // formData.append("video", data.file[0]);
+        const { tags, img, heading, description, address, tagsRaw } = data
+        if (!tags) {
+            alert('add tags for submit')
+            return;
+        }
 
-        // sending to api
-        // axios.post('http://localhost:5000/video', formData, {
-        //     headers: {
-        //         'Content-Type': 'multipart/form-data'
-        //     }
-        // })
-        //     .then(res => {
-        //         console.log(res, 'success');
-        //     })
+        // create section field
+        const sections = numSection.map(ele => {
+            return createObj(data['title' + ele.num], data['description' + ele.num], data['img' + ele.num], data['video' + ele.num])
+        })
+        // create main data for post 
+        const mainData = { img, tags, heading, description, address, sections };
+        console.log(mainData);
+        axios.post('http://localhost:5000/blog', mainData).then(res => console.log(res, 'response'))
     }
 
     // handle main section img upload
@@ -91,7 +94,7 @@ const AddBlog = () => {
 
 
     }, [watch('mainImg')])
-    console.log(numSection);
+    console.log('all', numSection);
     const handleComplete = (num, isComplete) => {
         if (isComplete) {
             const old = [...numSection];
@@ -99,11 +102,64 @@ const AddBlog = () => {
             old[num - 1] = { num, complete: true }
             setNumSection(old);
         }
-
+        ``
     }
     const handleDelete = (num) => {
         console.log(num);
+        //unregister that filed 
+        const fields = ['title', 'description', 'photosFile', 'file', 'img', 'video']
+        fields.forEach((field, i) => {
+            console.log(field + num);
+            console.log(field + (numSection.length));
+            unregister(field + num, { keepDirty: false });
+            unregister(field + numSection.length, { keepDirty: false });
+        })
+        unregister(`description${num}`, { keepDirty: false });
+        unregister(`photosFile${num}`, { keepDirty: false });
+        unregister(`file${num}`, { keepDirty: false });
+        unregister(`img${num}`, { keepDirty: false });
+        unregister(`video${num}`, { keepDirty: false });
+
+        setNumSection(pre => {
+            console.log(watch(`title${num}`));
+            pre.filter(preNum => preNum.num !== num).forEach((element, i) => {
+                console.log(i);
+                setValue(`title${i + 1}`, watch(`title${element.num}`))
+                setValue(`description${i + 1}`, watch(`description${element.num}`))
+                setValue(`photosFile${i + 1}`, watch(`photosFile${element.num}`))
+                setValue(`file${i + 1}`, watch(`file${element.num}`))
+                setValue(`img${i + 1}`, watch(`img${element.num}`))
+            });
+            const newRe = pre.filter(preNum => preNum.num !== num).map((ele, i) => {
+                return { num: ++i, complete: ele.complete }
+            });
+
+
+
+            return newRe;
+        })
     }
+    const addTags = e => {
+        if (e.key === 'Enter') {
+            console.log('add tages ', e.target.value);
+            if (watch('tags')) {
+
+                setValue('tags', [...watch('tags'), e.target.value])
+            }
+            else {
+                setValue('tags', [e.target.value])
+
+            }
+            e.target.value = '';
+        }
+    }
+    const handleDeleteTags = (i) => {
+        console.log(i);
+        const without = watch('tags').filter((tag, index) => index !== i)
+        setValue('tags', without)
+
+    }
+
     return (
         <>
             <form className=' ' onSubmit={handleSubmit(onSubmit)}>
@@ -112,7 +168,10 @@ const AddBlog = () => {
                     <TextField className='bg-white' {...register("heading", { required: true })} label="Enter Main Heading" color="secondary" />
                     <TextField className='bg-white' {...register("description", { required: true })} label="description" color="secondary" />
                     <TextField className='bg-white' type='address' {...register("address", { required: true })} label="Enter location" color="secondary" />
+
                     <input {...register("mainImg", { required: true })} type="file" accept="image/*" />
+
+
 
 
                 </div>
@@ -126,8 +185,26 @@ const AddBlog = () => {
                     }
                 </div>
 
-                <button type='submit'>submit</button>
+
+
+                <button type='submit' id='submit' className=' hidden '>submit</button>
             </form>
+            <div>
+                <h2>add tags </h2>
+                <div className='my-5'>
+                    {
+                        watch('tags')?.map((tag, i) => <span className='inline-block mb-2 p-2 border rounded-full mr-2' key={i}>
+                            #{tag}
+                            <IconButton onClick={() => handleDeleteTags(i)} sx={{ p: 0, mx: .5 }}>
+                                <ClearIcon sx={{ fontSize: '20px', color: 'red', p: 0 }}></ClearIcon>
+                            </IconButton>
+                        </span>
+                        )
+                    }
+                </div>
+                <TextField className='bg-white' onKeyDown={addTags} label="Enter tags" color="secondary" />
+            </div>
+            <label htmlFor="submit" className='bg-red-400 p-3 my-2 w-full'>submit</label>
 
         </>
     );

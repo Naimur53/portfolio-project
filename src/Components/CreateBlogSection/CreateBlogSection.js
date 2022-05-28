@@ -1,4 +1,4 @@
-import { Button, CircularProgress, Drawer, Grid, IconButton, TextField } from '@mui/material';
+import { Button, CircularProgress, Container, Drawer, Grid, IconButton, TextField } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Image from 'next/image';
@@ -9,10 +9,17 @@ const a = {
     video: "",
     description: "I have a few golden rules. One of these rules, ‘Don’t try to organize, be on time and stay until you are completely satisfied.’ So I was on time. Sunset was expected around 7:30 and I was there at five. Camera tripod set up and the Nikon D5 on it. New pack of Marlboro in my pocket for the usual ‘Time killing smoking’. Slowly, bit by bit I see the light change. At that moment the light plan starts in my head. I take in some reference points. When the sun goes down there …. that is my moment. I do some spot measurements and light up another Marlboro. Just wait, this is going to be all right."
 }
+
+
 const CreateBlogSection = ({ errors, unregister, handleComplete, setPhotosLoading, photosLoading, singleSec, register, setValue, watch, handleDelete }) => {
     let handleChange = watch(`photosFile${singleSec.num}`);
     const [isOpen, setIsOpen] = useState(false);
 
+    // create filed 
+    // useEffect(() => {
+    //     setValue(`img${singleSec.num}`, []);
+    //     setValue(`video${singleSec.num}`, '');
+    // }, []);
     useEffect(() => {
         const file = watch(`photosFile${singleSec.num}`);
         console.log('amar fiel', file);
@@ -55,7 +62,6 @@ const CreateBlogSection = ({ errors, unregister, handleComplete, setPhotosLoadin
         }
 
     }, [handleChange]);
-    console.log(photosLoading, watch(`photosFile${singleSec.num}`));
 
     useEffect(() => {
         if (watch(`file${singleSec.num}`)?.length) {
@@ -100,13 +106,10 @@ const CreateBlogSection = ({ errors, unregister, handleComplete, setPhotosLoadin
     //     setState({ ...state, [anchor]: open });
     //   };
     const handleTitleChange = (value, i) => {
-        console.log(value, i);
         const old = watch(`img${singleSec.num}`)
         old[i].title = value;
         setValue(`img${singleSec.num}`, old)
     }
-    console.log('the', errors[`description${singleSec.num}`]);
-    console.log('the', watch(`img${singleSec.num}`));
     return (
         <div>
             <TextField className='bg-white'  {...register(`title${singleSec.num}`, { required: true })} label="Enter Title" color="secondary" />
@@ -136,19 +139,24 @@ const CreateBlogSection = ({ errors, unregister, handleComplete, setPhotosLoadin
             <Drawer
                 anchor={'bottom'}
                 open={isOpen}
-                sx={{
-                    height: '40vh'
-                }}
             >
-                <Grid container spacing={2}>
-                    {watch(`img${singleSec.num}`)?.map((single, i) => <Grid key={i} item xs={12} md={3}>
-                        <Image src={single.url} alt={single.title} height={300} width={340}></Image>
-                        <TextField type="text" onChange={e => handleTitleChange(e.target.value, i)} className='w-full' defaultValue={single.title} />
-                    </Grid>)}
-                </Grid>
-                <div className='flex justify-end'>
+                <div className=' h-screen flex flex-col'>
+                    <div className="grow overflow-y-scroll ">
+                        <div>
 
-                    <button onClick={() => setIsOpen(false)} className='bg-red-400 p-2'>done </button>
+                            <Grid container spacing={2}>
+                                {watch(`img${singleSec.num}`)?.map((single, i) => <Grid key={i} item xs={12} md={3}>
+                                    <Image src={single.url} alt={single.title} height={300} width={340}></Image>
+                                    <TextField type="text" onChange={e => handleTitleChange(e.target.value, i)} className='w-full' defaultValue={single.title} />
+                                </Grid>)}
+                            </Grid>
+                        </div>
+
+                    </div>
+                    <div className='flex-none'>
+
+                        <button onClick={() => setIsOpen(false)} className='bg-red-400 p-2'>done </button>
+                    </div>
                 </div>
             </Drawer>
 
