@@ -43,6 +43,7 @@ const data = {
 const AddBlog = () => {
     const [imgLoading, setImgLoading] = useState(false);
     const [photosLoading, setPhotosLoading] = useState(false);
+
     const [numSection, setNumSection] = useState([{ num: 1, complete: false }])
     const { register, unregister, handleSubmit, reset, setValue, watch, formState: { errors } } = useForm({ shouldUnregister: false });
     // default
@@ -65,6 +66,7 @@ const AddBlog = () => {
         const mainData = { img, tags, heading, description, address, sections };
         console.log(mainData);
         axios.post('http://localhost:5000/blog', mainData).then(res => console.log(res, 'response'))
+        reset()
     }
 
     // handle main section img upload

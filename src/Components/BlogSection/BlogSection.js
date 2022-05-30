@@ -1,10 +1,11 @@
 import { Grid } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
+import ImgSlider from '../ImgSlider/ImgSlider';
 
 const BlogSection = ({ data }) => {
     console.log(data);
-    const { description, img, title } = data
+    const { description, img, title, video } = data
     let Des = [];
     if (description.length >= 300) {
         const lines = description.split('.')
@@ -23,7 +24,7 @@ const BlogSection = ({ data }) => {
     return (
         <div className='mt-10'>
             {
-                img.length === 2 ? <Grid container spacing={2}>
+                img.length ? img.length > 2 ? <ImgSlider data={img}></ImgSlider> : img.length === 2 ? <Grid container spacing={2}>
 
                     {
                         img.map(single => <Grid key={single.url} item md={6} xs={12}>
@@ -32,7 +33,11 @@ const BlogSection = ({ data }) => {
                         </Grid>)
                     }
 
-                </Grid> : ''
+                </Grid> : <>
+                    {img.map(single => <>
+                        <Image key={single.url} src={single.url} height={618} width={1060} alt='d'></Image>
+                        <em>{single.title}</em></>)}
+                </> : video ? <video preload="metadata" controls src={video + '#t=2'}></video> : ''
             }
 
             <div className='mt-5 text-gray-300'>

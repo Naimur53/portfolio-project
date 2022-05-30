@@ -11,7 +11,7 @@ const SingleBlog = () => {
     const { blogDetails } = useSelector(allData);
     const dispatch = useDispatch();
     return (
-        <div pages={4} >
+        <div >
             <div
                 style={
                     {

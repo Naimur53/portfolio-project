@@ -8,6 +8,8 @@ import CommentIcon from '@mui/icons-material/Comment';
 import Comments from "../Comment/Comments";
 import { useSelector } from "react-redux";
 import { allData } from "../../dataSlice/dataSlice";
+import CommentFrom from "../CommentFrom/CommentFrom";
+import ShareLove from "../ShareLove/ShareLove";
 const BlogRight = () => {
     const { blogDetails } = useSelector(allData);
     return (
@@ -20,34 +22,21 @@ const BlogRight = () => {
                 <div>
                     <LocalOfferIcon sx={{ color: 'yellow' }} className="mr-1"></LocalOfferIcon>
                     <span>TAGS:</span>
-                    {blogDetails.tags.map((tag, i) => <span key={i} className="ml-2 mb-2 inline-block p-2 rounded-lg bg-gray-900">#{tag}</span>)}
+                    {blogDetails.tags?.map((tag, i) => <span key={i} className="ml-2 mb-2 inline-block p-2 rounded-lg bg-gray-900">#{tag}</span>)}
 
                 </div>
-                <div className="flex justify-between">
-                    <div className="text-gray-300 flex hover:text-white transition-colors cursor-pointer mr-4">
-
-                        <ShareIcon></ShareIcon>
-                        <span className="ml-2 font-bold">Share</span>
-                    </div>
-                    <div className="text-gray-300 hover:text-white transition-colors cursor-pointer flex mr-4">
-
-                        <FavoriteBorderIcon></FavoriteBorderIcon>
-                        <span className="ml-2 font-bold">{blogDetails.love}</span>
-                    </div>
-                    <div className="text-gray-300 flex hover:text-white transition-colors cursor-pointer ">
-
-                        <CommentIcon></CommentIcon>
-                        <span className="ml-2 font-bold">{blogDetails.comments.length}</span>
-                    </div>
-                </div>
+                <ShareLove></ShareLove>
             </div>
             <hr className="border-gray-700" />
             <div>
-                <h2 className="mb-10 mt-4 text-3xl font-light text-gray-400">{blogDetails.comments.length} <span className="ml-2">COMMENTS:</span></h2>
+                <h2 className="mb-10 mt-4 text-3xl font-light text-gray-400">{blogDetails.comments?.length} <span className="ml-2">COMMENTS:</span></h2>
                 {
-                    blogDetails.comments.map((comment, i) => <Comments key={i} data={comment}></Comments>)
+                    blogDetails.comments?.map((comment, i) => <Comments key={i} data={comment}></Comments>)
                 }
             </div>
+            <>
+                <CommentFrom></CommentFrom>
+            </>
         </div>
     );
 };

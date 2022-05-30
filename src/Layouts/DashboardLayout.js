@@ -60,6 +60,17 @@ const DashboardLayout = ({ children, window }) => {
                         </ListItemButton>
                     </Link>
                 </ListItem>
+                <ListItem disablePadding>
+                    <Link href="/dashboard/allBlogs">
+
+                        <ListItemButton>
+                            <ListItemIcon>
+                                <InboxIcon />
+                            </ListItemIcon>
+                            <ListItemText primary={'Watch All Blogs'} />
+                        </ListItemButton>
+                    </Link>
+                </ListItem>
             </List>
 
         </div>

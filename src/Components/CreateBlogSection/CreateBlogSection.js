@@ -11,10 +11,10 @@ const a = {
 }
 
 
-const CreateBlogSection = ({ errors, unregister, handleComplete, setPhotosLoading, photosLoading, singleSec, register, setValue, watch, handleDelete }) => {
+const CreateBlogSection = ({ errors, unregister, handleComplete, setPhotosLoading, photosLoading, singleSec, register, setValue, watch, handleDelete, }) => {
     let handleChange = watch(`photosFile${singleSec.num}`);
     const [isOpen, setIsOpen] = useState(false);
-
+    const [videoLoading, setVideoLoading] = useState(false);
     // create filed 
     // useEffect(() => {
     //     setValue(`img${singleSec.num}`, []);
@@ -65,7 +65,7 @@ const CreateBlogSection = ({ errors, unregister, handleComplete, setPhotosLoadin
 
     useEffect(() => {
         if (watch(`file${singleSec.num}`)?.length) {
-
+            setVideoLoading(true)
             let formData = new FormData();
             formData.append("video", watch(`file${singleSec.num}`)[0]);
 
@@ -77,17 +77,20 @@ const CreateBlogSection = ({ errors, unregister, handleComplete, setPhotosLoadin
             })
                 .then(res => {
                     console.log(res, 'success');
-                    setValue(`video${singleSec.num}`, res.url)
+                    setValue(`video${singleSec.num}`, res.data.url)
+                    setVideoLoading(false)
                 })
                 .catch(e => {
                     alert('Error to uploading a video')
+                    console.log(e);
                     setValue(`file${singleSec.num}`, []);
                     setValue(`video${singleSec.num}`, '');
+                    setVideoLoading(false)
                 })
         }
 
     }, [watch(`file${singleSec.num}`)])
-
+    console.log(videoLoading);
     //handle complete 
     useEffect(() => {
         if (
@@ -126,7 +129,7 @@ const CreateBlogSection = ({ errors, unregister, handleComplete, setPhotosLoadin
             }
 
             {
-                !watch(`photosFile${singleSec.num}`)?.length ? <label htmlFor={'file' + singleSec.num} className='bg-green-500 p-4 inline-block '>Add video{watch}</label> : ""
+                !watch(`photosFile${singleSec.num}`)?.length ? videoLoading ? <CircularProgress></CircularProgress> : <label htmlFor={'file' + singleSec.num} className='bg-green-500 p-4 inline-block '>Add video-{watch(`file${singleSec.num}`)?.length}</label> : ""
             }
 
             {
