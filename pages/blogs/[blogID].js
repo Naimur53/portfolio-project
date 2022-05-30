@@ -6,12 +6,14 @@ import { addBlogDetails, allData } from '../../src/dataSlice/dataSlice'
 import BlogRight from '../../src/Components/BlogRight/BlogRight';
 import { wrapper } from '../../src/store/store';
 import { useDispatch, useSelector } from 'react-redux';
+import { Head } from '../../src/Components/Head/Head';
 
 const SingleBlog = () => {
     const { blogDetails } = useSelector(allData);
     const dispatch = useDispatch();
     return (
         <div >
+            <Head title={blogDetails.heading?.slice(0, 20)}></Head>
             <div
                 style={
                     {
@@ -27,9 +29,9 @@ const SingleBlog = () => {
                 }
             >
                 <div >
-                    <h1 className='text-3xl'>{blogDetails.heading}</h1>
+                    <h1 className='text-3xl font-family-mono font-thin'>{blogDetails.heading}</h1>
                     <div className="flex  justify-center mt-3">
-                        <div className='w-96  flex justify-between'>
+                        <div className='w-96  flex justify-between font-family-mono font-thin'>
                             <span>Home</span>
                             <span>/</span>
                             <span>Blogs</span>

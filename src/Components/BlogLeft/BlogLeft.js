@@ -161,40 +161,54 @@ const BlogLeft = () => {
             love: 0
         },
     ]
+    const Heading = ({ title }) => {
+        return <div>
+            <h2 className='font-family-mono font-normal uppercase text-gray-400 text-xl mt-10 '>{title}</h2>
+            <hr
+                style={{ backgroundSize: '40px' }}
+                className={`w-10 inline-block border-0 h-2 bg-center bg-[url('https://i.ibb.co/86hy94w/hr-light.png')]`}
+            />
+        </div>
+    }
     return (
         <div className='pr-4'>
             <div className='w-3/4 relative mb-5'>
                 <input type="text" placeholder='search' className='block w-full rounded-full p-2 px-3  border border-gray-600 bg-black' />
                 <SearchIcon className='absolute right-4 top-3 text-gray-400'></SearchIcon>
             </div>
-            <h2 className='font-light text-2xl mt-10 mb-5'>Recent posts</h2>
+            <Heading title='Recent post'></Heading>
             {
                 data.map((singleData, i) => <SingleRecent key={i} data={singleData}></SingleRecent>)
             }
             {
                 data.map((singleData, i) => <SingleRecent key={i} data={singleData}></SingleRecent>)
             }
-            <h2 className='font-light text-2xl mt-10 mb-5'>Most loved posts</h2>
+            <Heading title='Most loved posts'></Heading>
             {
                 data.map((singleData, i) => <SingleRecent key={i} data={singleData}></SingleRecent>)
             }
             <div>
-                <h2 className='font-light text-2xl mt-10 mb-5'>Recent comment</h2>
+                <Heading title='Recent comment'></Heading>
 
-                {data[0].comments.map((singleData, i) => <Comments small key={i} data={singleData}></Comments>)}
+                <div className='mt-5'>
+
+                    {data[0].comments.map((singleData, i) => <Comments small key={i} data={singleData}></Comments>)}
+                </div>
             </div>
             <div>
-                <h2 className='font-light text-2xl mt-10 mb-5'>PHOTO STREAM</h2>
-                <Grid container spacingY={1}>
-                    {
-                        photos.slice(0, 12).map(photo => <Grid item xs={3} key={photo._id}><Image src={photo.url} alt="gallary" height={85} width={85} ></Image></Grid>)
-                    }
-                    <Grid item xs={3}>
+                <Heading title='PHOTO STREAM'></Heading>
+                <div className="mt-4">
+                    <Grid container spacingY={1} >
+                        {
+                            photos.slice(0, 12).map(photo => <Grid item xs={3} key={photo._id}><Image src={photo.url} alt="gallary" height={85} width={85} ></Image></Grid>)
+                        }
+                        <Grid item xs={3}>
+
+                        </Grid>
 
                     </Grid>
 
-                </Grid>
-
+                </div>
             </div>
 
         </div>

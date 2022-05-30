@@ -10,9 +10,10 @@ const SingleRecent = ({ data }) => {
                         width: 60, height: 60
                     }}></Avatar>
                 </div>
-                <div>
-                    <h1 className='text-xl text-gray-300'>{data.mainSection.heading}</h1>
-                    <h3 className='font-light text-gray-300'>{data.mainSection.date}</h3>
+                <div className='font-family-mono'>
+                    <h1 className='text-sm   text-gray-300'>{data.mainSection.heading}</h1>
+                    <h1 className='text-sm  text-gray-400'>Malysiha Bankok</h1>
+                    <h3 className='font-light text-xs text-gray-400'>{data.mainSection.date}</h3>
                 </div>
             </div>
             <hr className='border-gray-800' />

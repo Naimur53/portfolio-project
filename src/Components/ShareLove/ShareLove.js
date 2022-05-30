@@ -26,7 +26,7 @@ const ShareLove = () => {
                     !user.email ? <Link href='#commentlogin' className='text-white hover:no-underline	'>
 
                         <FavoriteBorderIcon></FavoriteBorderIcon>
-                        <span className="ml-2 font-bold">{blogDetails.love}</span>
+                        <span className="ml-2 font-bold">{blogDetails?.love}</span>
                     </Link> : <>
 
                         <FavoriteBorderIcon></FavoriteBorderIcon>
@@ -38,17 +38,10 @@ const ShareLove = () => {
             </div>
             <div className="text-gray-300 flex hover:text-white transition-colors cursor-pointer ">
 
-
-                {
-                    !user.email ? <Link href='#commentlogin' className='text-white hover:no-underline	'>
-                        <CommentIcon></CommentIcon>
-                        <span className="ml-2 font-bold">{blogDetails.comments.length}</span>
-                    </Link> : <>
-
-                        <CommentIcon></CommentIcon>
-                        <span className="ml-2 font-bold">{blogDetails.comments.length}</span>
-                    </>
-                }
+                <Link href='#commentlogin' className=' text-gray-300 transition-colors  hover:text-white flex hover:no-underline	'>
+                    <CommentIcon></CommentIcon>
+                    <span className="ml-2 font-bold">{blogDetails?.comments?.length}</span>
+                </Link>
 
             </div>
         </div>

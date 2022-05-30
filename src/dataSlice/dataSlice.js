@@ -24,6 +24,9 @@ export const dataSlice = createSlice({
         addBlogDetails: (state, action) => {
             state.blogDetails = action.payload;
         },
+        addComments: (state, action) => {
+            state.blogDetails.comments = [...state.blogDetails.comments, action.payload];
+        },
         increaseLove: (state, action) => {
             state.blogDetails.love = state.blogDetails?.love + 1;
         },
@@ -44,6 +47,6 @@ export const dataSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { addUser, addHomeCategory, addScrollValue, addBlogDetails, increaseLove, decreaseLove } = dataSlice.actions
+export const { addUser, addHomeCategory, addComments, addScrollValue, addBlogDetails, increaseLove, decreaseLove } = dataSlice.actions
 export const allData = (state) => state.data;
 export default dataSlice.reducer

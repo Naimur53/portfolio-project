@@ -9,9 +9,10 @@ html,
 body {
   padding: 0;
   margin: 0;
+
   background-color: black;
   color: white;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: Roboto Mono, monospace, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
@@ -25,8 +26,7 @@ a {
 }
 
 .font-family-mono {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 100;
+  font-family: 'Roboto Mono', monospace;
 }
 
 /* home banner  */

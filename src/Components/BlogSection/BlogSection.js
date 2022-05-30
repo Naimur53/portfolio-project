@@ -4,7 +4,6 @@ import React from 'react';
 import ImgSlider from '../ImgSlider/ImgSlider';
 
 const BlogSection = ({ data }) => {
-    console.log(data);
     const { description, img, title, video } = data
     let Des = [];
     if (description.length >= 300) {
@@ -29,23 +28,25 @@ const BlogSection = ({ data }) => {
                     {
                         img.map(single => <Grid key={single.url} item md={6} xs={12}>
                             <Image src={single.url} height={618} width={1060} alt='d'></Image>
-                            <em>{single.title}</em>
+                            <em className='text-gray-400 '>{single.title}</em>
                         </Grid>)
                     }
 
                 </Grid> : <>
                     {img.map(single => <>
                         <Image key={single.url} src={single.url} height={618} width={1060} alt='d'></Image>
-                        <em>{single.title}</em></>)}
-                </> : video ? <video preload="metadata" controls src={video + '#t=2'}></video> : ''
+                        <em className='text-gray-400 '>{single.title}</em></>)}
+                </> : video ? <video preload="metadata" controls src={video + '#t=2'}></video> : <></>
             }
 
             <div className='mt-5 text-gray-300'>
-                <h1 className='text-2xl mb-2 '>{title}</h1>
+                <h1 className='text-2xl mb-2 text-gray-200 '>{title}</h1>
+                <div className='text-gray-300 font-light'>
 
-                {
-                    Des
-                }
+                    {
+                        Des
+                    }
+                </div>
             </div>
         </div>
     );

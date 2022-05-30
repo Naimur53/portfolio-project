@@ -17,15 +17,15 @@ const MainSection = () => {
                             width: 40, height: 40
                         }}></Avatar>
                     </div>
-                    <div>
-                        <h1 className='text-md text-gray-300 '>AUTHOR: MR JOHN</h1>
-                        <h3 className='text-sm font-light text-gray-300'>{new Date(blogDetails.date).toDateString()}</h3>
+                    <div className='border-l border-gray-800 pl-3'>
+                        <h1 className='text-sm text-gray-400 '>AUTHOR: MR JOHN</h1>
+                        <h3 className='text-sm font-light text-gray-400'>{new Date(blogDetails.date).toDateString()}</h3>
                     </div>
                 </div>
                 <ShareLove></ShareLove>
             </div>
             <div>
-                <p className='text-gray-300'>{blogDetails.description}</p>
+                <p className='text-gray-300 font-light'>{blogDetails.description}</p>
             </div>
         </>
     );

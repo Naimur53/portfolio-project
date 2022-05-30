@@ -13,7 +13,6 @@ import Image from 'next/image';
 import { EffectCube, Autoplay, EffectCreative, Navigation } from "swiper";
 
 const ImgSlider = ({ data }) => {
-    console.log(data);
     const [my_swiper, set_my_swiper] = useState({});
     const [my_swiper_status, set_my_swiper_status] = useState({
         isBeginning: true,
@@ -64,7 +63,7 @@ const ImgSlider = ({ data }) => {
                     {
                         data.map((single, i) => <SwiperSlide key={i}>
                             <Image src={single.url} height={618} width={1060} alt='d'></Image>
-                            <em>{single.title}</em>
+
                         </SwiperSlide>)
                     }
                 </Swiper>
