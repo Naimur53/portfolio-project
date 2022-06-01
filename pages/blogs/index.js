@@ -4,40 +4,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import BlogLeft from '../../src/Components/BlogLeft/BlogLeft';
 import BlogCard from '../../src/Components/BlogCard/BlogCard';
 import { Head } from '../../src/Components/Head/Head';
+import BlogPageBanner from '../../src/Components/BlogPageBanner/BlogPageBanner';
 const Blogs = ({ blogs }) => {
     console.log(blogs);
     return (
 
         <div >
-            <Head title='Blog'></Head>
-            <div
-                style={
-                    {
-                        background: `linear-gradient(to bottom,  rgba(0,0,0,0.6) 0%,rgba(19,19,19,1) 100%),url('https://demo.themetorium.net/html/agatha/dark/assets/img/headings/heading-10.jpg')`,
-                        backgroundPosition: 'center',
-                        backgroundSize: 'cover',
-                        backgroundAttachment: 'fixed',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        height: '60vh',
-                    }
-                }
-            >
-                <div >
-                    <h1 className='text-3xl text-center font-family-mono'>Writing my blog has saved me thousands on therapy</h1>
-                    <div className="flex  justify-center mt-3">
-                        <div className='w-52 flex justify-between'>
-                            <span>Home</span>
-                            <span>/</span>
-                            <span>Blogs</span>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
+            <Head title='John Blogs'></Head>
+            <BlogPageBanner default></BlogPageBanner>
             <Container maxWidth='lg' className='bg-transparent-black   py-10'>
                 <Grid container spacing={2}>
                     <Grid xs={4}>

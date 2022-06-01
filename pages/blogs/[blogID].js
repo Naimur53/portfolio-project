@@ -7,6 +7,7 @@ import BlogRight from '../../src/Components/BlogRight/BlogRight';
 import { wrapper } from '../../src/store/store';
 import { useDispatch, useSelector } from 'react-redux';
 import { Head } from '../../src/Components/Head/Head';
+import BlogPageBanner from '../../src/Components/BlogPageBanner/BlogPageBanner';
 
 const SingleBlog = () => {
     const { blogDetails } = useSelector(allData);
@@ -14,36 +15,7 @@ const SingleBlog = () => {
     return (
         <div >
             <Head title={blogDetails.heading?.slice(0, 20)}></Head>
-            <div
-                style={
-                    {
-                        background: `linear-gradient(to bottom,  rgba(0,0,0,0.6) 0%,rgba(19,19,19,1) 100%),url(${blogDetails.img})`,
-                        backgroundPosition: 'center',
-                        backgroundSize: 'cover',
-                        backgroundAttachment: 'fixed',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        height: '60vh',
-                    }
-                }
-            >
-                <div >
-                    <h1 className='text-3xl font-family-mono font-thin'>{blogDetails.heading}</h1>
-                    <div className="flex  justify-center mt-3">
-                        <div className='w-96  flex justify-between font-family-mono font-thin'>
-                            <span>Home</span>
-                            <span>/</span>
-                            <span>Blogs</span>
-                            <span>/</span>
-                            <span>{blogDetails.heading?.slice(0, 20)}...</span>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
+            <BlogPageBanner></BlogPageBanner>
             <Container maxWidth='lg' className='bg-transparent-black   py-10'>
                 <Grid container spacing={2}>
                     <Grid xs={4}>

@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import SingleRecent from '../SingleRecent/SingleRecent';
 import Comments from '../Comment/Comments'
 import { Grid } from '@mui/material';
 import Image from 'next/image';
+import axios from 'axios';
+import RecentLoadingCompo from '../AllLoading/RecentLoadingCompo';
 
 const BlogLeft = () => {
     const data = [
@@ -161,6 +163,33 @@ const BlogLeft = () => {
             love: 0
         },
     ]
+    const [recents, setRecents] = useState([]);
+    const [mostLoves, setMostLoves] = useState([]);
+    const [comments, setCommnets] = useState([]);
+    const [RecentLoading, setRecentLoading] = useState(true);
+    const [mostLovesLoading, setMostLovesLoading] = useState(true);
+    const [commentsLoading, setCommentsLoading] = useState(true);
+    useEffect(() => {
+        axios.get('http://localhost:5000/blog/recent')
+            .then(res => {
+                setRecents(res.data);
+                setRecentLoading(false);
+            })
+    }, [])
+    useEffect(() => {
+        axios.get('http://localhost:5000/blog/mostLoved')
+            .then(res => {
+                setMostLoves(res.data);
+                setMostLovesLoading(false);
+            })
+    }, [])
+    useEffect(() => {
+        axios.get('http://localhost:5000/blog/comment/recent')
+            .then(res => {
+                setCommnets(res.data);
+                setCommentsLoading(false);
+            })
+    }, [])
     const Heading = ({ title }) => {
         return <div>
             <h2 className='font-family-mono font-normal uppercase text-gray-400 text-xl mt-10 '>{title}</h2>
@@ -178,21 +207,20 @@ const BlogLeft = () => {
             </div>
             <Heading title='Recent post'></Heading>
             {
-                data.map((singleData, i) => <SingleRecent key={i} data={singleData}></SingleRecent>)
-            }
-            {
-                data.map((singleData, i) => <SingleRecent key={i} data={singleData}></SingleRecent>)
+                RecentLoading ?
+                    [...Array(5).keys()].map(num => <RecentLoadingCompo key={num}></RecentLoadingCompo>)
+
+                    : recents.map((singleData, i) => <SingleRecent key={i} data={singleData}></SingleRecent>)
             }
             <Heading title='Most loved posts'></Heading>
             {
-                data.map((singleData, i) => <SingleRecent key={i} data={singleData}></SingleRecent>)
+                mostLovesLoading ? [...Array(5).keys()].map(num => <RecentLoadingCompo key={num}></RecentLoadingCompo>) : mostLoves.map((singleData, i) => <SingleRecent key={i} data={singleData}></SingleRecent>)
             }
             <div>
                 <Heading title='Recent comment'></Heading>
-
                 <div className='mt-5'>
 
-                    {data[0].comments.map((singleData, i) => <Comments small key={i} data={singleData}></Comments>)}
+                    {comments.reverse().map((singleData, i) => <Comments small key={i} data={singleData.comments}></Comments>)}
                 </div>
             </div>
             <div>

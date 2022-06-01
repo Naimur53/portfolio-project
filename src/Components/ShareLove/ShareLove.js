@@ -3,17 +3,29 @@ import React from 'react';
 import CommentIcon from '@mui/icons-material/Comment';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import ShareIcon from '@mui/icons-material/Share';
-import { useSelector } from 'react-redux';
-import { allData } from '../../dataSlice/dataSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { addLove, allData } from '../../dataSlice/dataSlice';
 import { Link } from '@mui/material';
+import axios from 'axios';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 const ShareLove = () => {
     const { blogDetails, user } = useSelector(allData);
-
+    const dispatch = useDispatch()
     const handleShare = () => {
         navigator.share({
             url: location.href
         })
     }
+    const handleLove = () => {
+        if (user.email) {
+            dispatch(addLove(user))
+            axios.put(`http://localhost:5000/blog/love?id=${blogDetails._id}`, user)
+                .then(res => {
+                    console.log(res);
+                })
+        }
+    }
+    console.log(blogDetails.love)
     return (
         <div className="flex justify-between">
             <div onClick={handleShare} className="text-gray-300 flex hover:text-white transition-colors cursor-pointer mr-4">
@@ -26,11 +38,22 @@ const ShareLove = () => {
                     !user.email ? <Link href='#commentlogin' className='text-white hover:no-underline	'>
 
                         <FavoriteBorderIcon></FavoriteBorderIcon>
-                        <span className="ml-2 font-bold">{blogDetails?.love}</span>
+                        <span className="ml-2 font-bold">{blogDetails?.love?.length}</span>
                     </Link> : <>
+                        {
 
-                        <FavoriteBorderIcon></FavoriteBorderIcon>
-                        <span className="ml-2 font-bold">{blogDetails.love}</span>
+                            blogDetails.love?.filter(single => single.email === user.email).length ? <div className='flex'>
+                                <FavoriteIcon></FavoriteIcon>
+                                <span className="ml-2 font-bold">{blogDetails?.love?.length}</span>
+
+                            </div> : <div className='flex' onClick={handleLove}>
+                                <FavoriteBorderIcon></FavoriteBorderIcon>
+                                <span className="ml-2 font-bold">{blogDetails?.love?.length}</span>
+
+                            </div>
+                        }
+
+
                     </>
                 }
 

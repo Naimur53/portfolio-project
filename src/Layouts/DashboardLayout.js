@@ -1,5 +1,5 @@
 
-import { Container } from "@mui/material";
+import { Avatar, Button, Container } from "@mui/material";
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -19,22 +19,52 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { useState } from "react";
 import Link from "next/link";
+import { allData } from "../dataSlice/dataSlice";
+import { useSelector } from "react-redux";
+import useFirebase from "../hooks/useFirebase";
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import ControlPointDuplicateIcon from '@mui/icons-material/ControlPointDuplicate';
+import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
 const DashboardLayout = ({ children, window }) => {
     const [mobileOpen, setMobileOpen] = useState(false);
     const drawerWidth = 240;
+    const { user } = useSelector(allData)
+    const { } = useFirebase()
     const drawer = (
-        <div>
-            <Toolbar />
+        <div className="">
+            <Box
+                sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    mt: 2,
+                }}
+            >
+                <Avatar
+                    sx={{ width: 70, height: 70 }}
+                    src={user?.photoURL}
+                    alt='admin img'
+                />
+                <Typography variant="h6" gutterBottom mt={1}>
+                    {user?.displayName}
+                </Typography>
+            </Box>
             <Divider />
             <List>
                 <ListItem disablePadding>
-                    <Link href="/ ">
+
+                    <ListItemButton>
+                        <h2 className='ml-3 text-gray-400'>Main</h2>
+                    </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding>
+                    <Link href="/dashboard">
 
                         <ListItemButton>
-                            <ListItemIcon>
-                                <InboxIcon />
+                            <ListItemIcon sx={{ m: 0, p: 0 }} className="ml-0 text-gray-50">
+                                <RemoveRedEyeIcon />
                             </ListItemIcon>
-                            <ListItemText primary={'home'} />
+                            <h2>overview</h2>
                         </ListItemButton>
                     </Link>
                 </ListItem>
@@ -42,21 +72,20 @@ const DashboardLayout = ({ children, window }) => {
                     <Link href="/dashboard/addCategory">
 
                         <ListItemButton>
-                            <ListItemIcon>
-                                <InboxIcon />
+                            <ListItemIcon sx={{ m: 0, p: 0 }} className="ml-0 text-gray-50">
+                                <ControlPointDuplicateIcon />
                             </ListItemIcon>
-                            <ListItemText primary={'Add Category'} />
+                            <h2>Add category</h2>
                         </ListItemButton>
                     </Link>
                 </ListItem>
                 <ListItem disablePadding>
                     <Link href="/dashboard/addBlog">
-
                         <ListItemButton>
-                            <ListItemIcon>
-                                <InboxIcon />
+                            <ListItemIcon sx={{ m: 0, p: 0 }} className="ml-0 text-gray-50">
+                                <DriveFileRenameOutlineIcon />
                             </ListItemIcon>
-                            <ListItemText primary={'Write a Blog'} />
+                            <h2>Write a Blog</h2>
                         </ListItemButton>
                     </Link>
                 </ListItem>
@@ -64,10 +93,10 @@ const DashboardLayout = ({ children, window }) => {
                     <Link href="/dashboard/allBlogs">
 
                         <ListItemButton>
-                            <ListItemIcon>
+                            <ListItemIcon sx={{ m: 0, p: 0 }} className="ml-0 text-gray-50">
                                 <InboxIcon />
                             </ListItemIcon>
-                            <ListItemText primary={'Watch All Blogs'} />
+                            <h2>watch all blogs</h2>
                         </ListItemButton>
                     </Link>
                 </ListItem>
@@ -85,24 +114,41 @@ const DashboardLayout = ({ children, window }) => {
         <CssBaseline />
         <AppBar
             position="fixed"
+            className='bg-black'
             sx={{
                 width: { sm: `calc(100% - ${drawerWidth}px)` },
                 ml: { sm: `${drawerWidth}px` },
             }}
         >
             <Toolbar>
+                <Box sx={{ flexGrow: 1 }}>
+                    {/* <img src="https://i.ibb.co/n8Wp01q/web-logo.png" width="120" alt="weblogo" /> */}
+                    <h2 className="text-3xl">MR.John logo</h2>
+
+                </Box>
+                <Typography sx={{ display: { xs: "none", md: "block" } }}>
+                    <Link
+                        style={{ textDecoration: "none", color: "gray" }}
+                        href="/"
+                    >
+                        <Button color="inherit">Home</Button>
+                    </Link>
+                    <Link
+                        style={{ textDecoration: "none", color: "gray" }}
+                        href="/blogs"
+                    >
+                        <Button color="inherit">Blogs</Button>
+                    </Link>
+                </Typography>
                 <IconButton
                     color="inherit"
                     aria-label="open drawer"
                     edge="start"
                     onClick={handleDrawerToggle}
-                    sx={{ mr: 2, display: { sm: 'none' } }}
+                    sx={{ mr: 2, display: { sm: "none" } }}
                 >
                     <MenuIcon />
                 </IconButton>
-                <Typography variant="h6" noWrap component="div">
-                    Responsive drawer
-                </Typography>
             </Toolbar>
         </AppBar>
         <Box
@@ -115,11 +161,18 @@ const DashboardLayout = ({ children, window }) => {
                 container={container}
                 variant="temporary"
                 open={mobileOpen}
+                PaperProps={{
+                    className: 'bg-gray-900 text-gray-400',
+                    sx: {
+                        color: "red",
+                    }
+                }}
                 onClose={handleDrawerToggle}
                 ModalProps={{
                     keepMounted: true, // Better open performance on mobile.
                 }}
                 sx={{
+                    background: 'red',
                     display: { xs: 'block', sm: 'none' },
                     '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                 }}
@@ -128,7 +181,14 @@ const DashboardLayout = ({ children, window }) => {
             </Drawer>
             <Drawer
                 variant="permanent"
+                PaperProps={{
+                    className: 'bg-gray-900  text-gray-50 uppercase',
+                    sx: {
+                        color: "red",
+                    }
+                }}
                 sx={{
+                    background: 'red',
                     display: { xs: 'none', sm: 'block' },
                     '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                 }}
@@ -144,7 +204,7 @@ const DashboardLayout = ({ children, window }) => {
             <Toolbar />
             {children}
         </Box>
-    </Box>
+    </Box >
     );
 };
 

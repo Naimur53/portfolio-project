@@ -31,7 +31,7 @@ const CommentFrom = () => {
             comment,
         }
         console.log(mainData);
-        axios.post(`http://localhost:5000/blog/comment?id=${blogDetails._id}`, mainData)
+        axios.put(`http://localhost:5000/blog/comment?id=${blogDetails._id}`, mainData)
             .then(res => {
                 console.log(res);
             })

@@ -15,7 +15,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
-const pages = ['home', 'dashboard', 'Blog'];
+const pages = ['home', 'dashboard', 'blogs'];
 const TopBar = () => {
     const [anchorElNav, setAnchorElNav] = useState(null);
     const [anchorElUser, setAnchorElUser] = useState(null);

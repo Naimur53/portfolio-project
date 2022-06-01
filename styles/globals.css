@@ -145,3 +145,26 @@ a {
   background-size: 100% 32px;
   color: currentColor;
 }
+
+/* dashboard */
+/* width */
+.dashboard-scrollBar::-webkit-scrollbar {
+  width: 10px;
+
+}
+
+/* Track */
+.dashboard-scrollBar::-webkit-scrollbar-track {
+  background: #000000;
+}
+
+/* Handle */
+.dashboard-scrollBar::-webkit-scrollbar-thumb {
+  background: rgb(177, 151, 20);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.dashboard-scrollBar::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
