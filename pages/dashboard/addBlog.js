@@ -1,48 +1,53 @@
 
-import { Autocomplete, Button, Chip, Container, IconButton, TextField } from '@mui/material';
+import { Autocomplete, Button, Chip, CircularProgress, Container, Grid, IconButton, TextField } from '@mui/material';
 import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import DashboardLayout from '../../src/Layouts/DashboardLayout'
 import { useEffect, useState } from 'react';
 import CreateBlogSection from '../../src/Components/CreateBlogSection/CreateBlogSection';
 import ClearIcon from '@mui/icons-material/Clear';
-const data = {
-    img: "https://i.ibb.co/PMdzcvn/img-1.jpg",
-    heading: "ONE DAY FASHION SHOOT",
-    description: 'Curabitur eu congue erat. Donec posuere eu est eget egestas. Pellentesque porttitor blandit massa, nec luctus ligula facilisis sodales. Nam eu felis a ex efficitur faucibus in mollis arcu. Sed venenatis urna in lorem consequat rutrum. Nullam imperdiet arcu nec erat maximus faucibus...',
-    location: 'Klik hier voor Nederlands',
-    date: new Date().toDateString(),
-    sections: [{
-        title: "The disappointment comes at home. ",
-        img: [{ title: 'Ait Ben Haddou  Morocco: A first attempt under poor light conditions', url: 'https://i.ibb.co/hVm9s2y/20161021-AIT-BEN-HABBOU-351-Pano-1200x406.jpg' }],
-        video: "",
-        description: "I have a few golden rules. One of these rules, ‘Don’t try to organize, be on time and stay until you are completely satisfied.’ So I was on time. Sunset was expected around 7:30 and I was there at five. Camera tripod set up and the Nikon D5 on it. New pack of Marlboro in my pocket for the usual ‘Time killing smoking’. Slowly, bit by bit I see the light change. At that moment the light plan starts in my head. I take in some reference points. When the sun goes down there …. that is my moment. I do some spot measurements and light up another Marlboro. Just wait, this is going to be all right."
-    }],
-    tags: ['PHOTOGRAPHY', "FASHION", 'BLACK & WHITE'],
-    love: 30,
-    comments: [{
-        id: 'id', user: {
-            displayName: 'JONE DOE',
-            photoUrl: 'https://demo.themetorium.net/html/agatha/dark/assets/img/blog/small/avatar/avatar-1.jpg',
-        },
-        date: new Date().toDateString(),
-        comment: 'Quis ante id eros orci eget. Ac egestas praesent aliquam nisl in vitae aliquam vitae. Vivamus sed elementum. Sem sed sed. Hendrerit elit eget sem pellentesque a. Velit elit lacinia mattis amet nunc. Fames ipsum rhoncus. Natoque posuere nam commodo mattis orci. Aliquet praesent tempor ac dolor aliquet.'
-    },
-    {
-        id: 'id', user: {
-            displayName: 'JONE DOE',
-            photoUrl: 'https://demo.themetorium.net/html/agatha/dark/assets/img/blog/small/avatar/avatar-1.jpg',
-        },
-        date: new Date().toDateString(),
-        comment: 'Quis ante id eros orci eget. Ac egestas praesent aliquam nisl in vitae aliquam vitae. Vivamus sed elementum. Sem sed sed. Hendrerit elit eget sem pellentesque a. Velit elit lacinia mattis amet nunc. Fames ipsum rhoncus. Natoque posuere nam commodo mattis orci. Aliquet praesent tempor ac dolor aliquet.'
-    }
-    ]
+import { Box } from '@mui/system';
+import { toast } from 'react-toastify';
 
-}
+// const data = {
+//     img: "https://i.ibb.co/PMdzcvn/img-1.jpg",
+//     heading: "ONE DAY FASHION SHOOT",
+//     description: 'Curabitur eu congue erat. Donec posuere eu est eget egestas. Pellentesque porttitor blandit massa, nec luctus ligula facilisis sodales. Nam eu felis a ex efficitur faucibus in mollis arcu. Sed venenatis urna in lorem consequat rutrum. Nullam imperdiet arcu nec erat maximus faucibus...',
+//     location: 'Klik hier voor Nederlands',
+//     date: new Date().toDateString(),
+//     sections: [{
+//         title: "The disappointment comes at home. ",
+//         img: [{ title: 'Ait Ben Haddou  Morocco: A first attempt under poor light conditions', url: 'https://i.ibb.co/hVm9s2y/20161021-AIT-BEN-HABBOU-351-Pano-1200x406.jpg' }],
+//         video: "",
+//         description: "I have a few golden rules. One of these rules, ‘Don’t try to organize, be on time and stay until you are completely satisfied.’ So I was on time. Sunset was expected around 7:30 and I was there at five. Camera tripod set up and the Nikon D5 on it. New pack of Marlboro in my pocket for the usual ‘Time killing smoking’. Slowly, bit by bit I see the light change. At that moment the light plan starts in my head. I take in some reference points. When the sun goes down there …. that is my moment. I do some spot measurements and light up another Marlboro. Just wait, this is going to be all right."
+//     }],
+//     tags: ['PHOTOGRAPHY', "FASHION", 'BLACK & WHITE'],
+//     love: 30,
+//     comments: [{
+//         id: 'id', user: {
+//             displayName: 'JONE DOE',
+//             photoUrl: 'https://demo.themetorium.net/html/agatha/dark/assets/img/blog/small/avatar/avatar-1.jpg',
+//         },
+//         date: new Date().toDateString(),
+//         comment: 'Quis ante id eros orci eget. Ac egestas praesent aliquam nisl in vitae aliquam vitae. Vivamus sed elementum. Sem sed sed. Hendrerit elit eget sem pellentesque a. Velit elit lacinia mattis amet nunc. Fames ipsum rhoncus. Natoque posuere nam commodo mattis orci. Aliquet praesent tempor ac dolor aliquet.'
+//     },
+//     {
+//         id: 'id', user: {
+//             displayName: 'JONE DOE',
+//             photoUrl: 'https://demo.themetorium.net/html/agatha/dark/assets/img/blog/small/avatar/avatar-1.jpg',
+//         },
+//         date: new Date().toDateString(),
+//         comment: 'Quis ante id eros orci eget. Ac egestas praesent aliquam nisl in vitae aliquam vitae. Vivamus sed elementum. Sem sed sed. Hendrerit elit eget sem pellentesque a. Velit elit lacinia mattis amet nunc. Fames ipsum rhoncus. Natoque posuere nam commodo mattis orci. Aliquet praesent tempor ac dolor aliquet.'
+//     }
+//     ]
+
+// }
 
 const AddBlog = () => {
     const [imgLoading, setImgLoading] = useState(false);
     const [photosLoading, setPhotosLoading] = useState(false);
+    const [videoLoading, setVideoLoading] = useState(false);
+
 
     const [numSection, setNumSection] = useState([{ num: 1, complete: false }])
     const { register, unregister, handleSubmit, reset, setValue, watch, formState: { errors } } = useForm({ shouldUnregister: false });
@@ -54,7 +59,15 @@ const AddBlog = () => {
     const onSubmit = data => {
         const { tags, img, heading, description, address, tagsRaw } = data
         if (!tags) {
-            alert('add tags for submit')
+            toast.error('Add tags for submit', {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
             return;
         }
 
@@ -65,7 +78,26 @@ const AddBlog = () => {
         // create main data for post 
         const mainData = { img, tags, heading, description, address, sections };
         console.log(mainData);
-        axios.post('http://localhost:5000/blog', mainData).then(res => console.log(res, 'response'))
+        axios.post('http://localhost:5000/blog', mainData).then(res => toast.success('Successfully post the blog', {
+            position: "bottom-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+        }))
+            .catch(e => {
+                toast.error('Something bad happened when post the blog', {
+                    position: "bottom-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            })
         reset()
     }
 
@@ -88,8 +120,16 @@ const AddBlog = () => {
                 })
                 .catch(e => {
                     setValue('img', '')
-                    alert('unknow error happen on img upload');
                     setValue('mainImg', '')
+                    toast.error('Unknown error happen on image upload', {
+                        position: "bottom-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
                 })
                 .finally(() => setImgLoading(false))
         }
@@ -135,9 +175,6 @@ const AddBlog = () => {
             const newRe = pre.filter(preNum => preNum.num !== num).map((ele, i) => {
                 return { num: ++i, complete: ele.complete }
             });
-
-
-
             return newRe;
         })
     }
@@ -166,24 +203,47 @@ const AddBlog = () => {
         <>
             <form className=' ' onSubmit={handleSubmit(onSubmit)}>
                 <div>
-                    <h2 className='text-xl mb-3'>Create a main section of blog</h2>
-                    <TextField className='bg-white' {...register("heading", { required: true })} label="Enter Main Heading" color="secondary" />
-                    <TextField className='bg-white' {...register("description", { required: true })} label="description" color="secondary" />
-                    <TextField className='bg-white' type='address' {...register("address", { required: true })} label="Enter location" color="secondary" />
+                    <h2 className='text-2xl text-center mb-5'>Create a main section of blog</h2>
+                    <Grid container spacing={4}>
+                        <Grid item xs={12} md={6}>
+                            <input className="w-full p-3 rounded-lg  bg-gray-900 placeholder:text-slate-400" placeholder="Enter Title"  {...register("heading", { required: true })} />
+                        </Grid>
+                        <Grid item xs={12} md={6}>
+                            <input className="w-full p-3 rounded-lg  bg-gray-900 placeholder:text-slate-400" placeholder="Location"  {...register("address", { required: true })} />
+                        </Grid>
+                        <Grid item xs={12} md={6}>
+                            <textarea  {...register("description", { required: true })} className='w-full dashboard-scrollBar p-3 rounded-lg  bg-gray-900 placeholder:text-slate-400' placeholder='Enter description' cols="30" rows="6"></textarea>
+                        </Grid>
+                        <Grid item xs={12} md={6}>
+                            <Box
+                                className='h-40 bg-gray-900 bg-center bg-cover flex justify-center items-center'
+                                sx={{
+                                    backgroundImage: `url("${watch('img')}")`
+                                }}
+                            >
+                                <input {...register("mainImg", { required: true })} type="file" accept="image/*" id='mainImg' className='hidden' />
+                                {
+                                    imgLoading ? <CircularProgress color="inherit"></CircularProgress> : <label htmlFor='mainImg' className="bg-black/[.7] p-2 rounded-md">{watch('img')?.length ? "Change Thumbnail" : 'Choose Thumbnail'}</label>
+                                }
 
-                    <input {...register("mainImg", { required: true })} type="file" accept="image/*" />
+                            </Box>
+                        </Grid>
 
 
-
-
+                    </Grid>
                 </div>
                 <div>
-                    <h2 className='text-xl'>Add sections</h2>
+                    <h2 className=' my-5 text-center text-2xl'>Add sections</h2>
+                    <Grid container spacing={4}>
+
+                        {
+                            numSection.map(singleSec => <CreateBlogSection videoLoading={videoLoading} setVideoLoading={setVideoLoading} handleDelete={handleDelete} errors={errors} key={singleSec.num} singleSec={singleSec} unregister={unregister} handleComplete={handleComplete} setPhotosLoading={setPhotosLoading} photosLoading={photosLoading} register={register} watch={watch} setValue={setValue}  ></CreateBlogSection>)
+                        }
+
+                    </Grid>
+
                     {
-                        numSection.map(singleSec => <CreateBlogSection handleDelete={handleDelete} errors={errors} key={singleSec.num} singleSec={singleSec} unregister={unregister} handleComplete={handleComplete} setPhotosLoading={setPhotosLoading} photosLoading={photosLoading} register={register} watch={watch} setValue={setValue}  ></CreateBlogSection>)
-                    }
-                    {
-                        numSection[numSection.length - 1].complete && <Button className='bg-red-400 text-gray-900' onClick={() => { setNumSection([...numSection, { complete: false, num: numSection.length + 1 }]) }}>add another section</Button>
+                        numSection[numSection.length - 1].complete && <button className='bg-yellow-500 mt-5 text-gray-900 p-4 rounded' onClick={() => { setNumSection([...numSection, { complete: false, num: numSection.length + 1 }]) }}>Add another section</button>
                     }
                 </div>
 
@@ -192,8 +252,8 @@ const AddBlog = () => {
                 <button type='submit' id='submit' className=' hidden '>submit</button>
             </form>
             <div>
-                <h2>add tags </h2>
-                <div className='my-5'>
+                <h2 className=' my-5 text-center text-2xl'>Add tags </h2>
+                <div className='my-5   '>
                     {
                         watch('tags')?.map((tag, i) => <span className='inline-block mb-2 p-2 border rounded-full mr-2' key={i}>
                             #{tag}
@@ -204,9 +264,14 @@ const AddBlog = () => {
                         )
                     }
                 </div>
-                <TextField className='bg-white' onKeyDown={addTags} label="Enter tags" color="secondary" />
+                <input className="w-full p-3 rounded-lg  bg-gray-900 placeholder:text-slate-400" onKeyDown={addTags} placeholder='Enter tags and press enter ' />
             </div>
-            <label htmlFor="submit" className='bg-red-400 p-3 my-2 w-full'>submit</label>
+            {
+                imgLoading || photosLoading || videoLoading ? <button
+                    className='bg-red-400 text-black rounded-md px-5 text-xl py-2 my-5 inline-block '
+                >wait until loading</button> : <label htmlFor="submit" className='bg-yellow-400 text-black rounded-md px-5 text-xl py-2 my-5 inline-block '>submit</label>
+            }
+
 
         </>
     );

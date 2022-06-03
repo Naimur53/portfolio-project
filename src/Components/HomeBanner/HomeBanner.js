@@ -8,9 +8,7 @@ const HomeBanner = () => {
     const { scrollValue } = useSelector(allData)
     const [circle, setCircle] = useState([46, 76, 53])
 
-    // clip-path: circle(46.0% at 76% 53%); 
     useEffect(() => {
-        console.log(parseInt(scrollValue * 100));
         // circle(46.0 % at 76 % 53 %)
         const parse = parseInt(scrollValue * 100);
         let v1 = 46;
@@ -57,7 +55,7 @@ const HomeBanner = () => {
                         {/* <Box
                             className='innerBanner'
                             sx={{
-                                // clipPath: `circle(${circle[0] + '%'} at ${circle[1] + '%'} ${circle[0] + '%'})`
+                                // clipPath: clip
 
                             }}
                         >

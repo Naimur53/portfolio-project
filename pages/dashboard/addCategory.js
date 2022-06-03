@@ -6,6 +6,8 @@ import { useEffect, useState } from "react";
 import { Box } from "@mui/system";
 import Image from "next/image";
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
+import { toast } from 'react-toastify';
+
 const AddCategory = () => {
     const { register, handleSubmit, reset, setValue, watch, formState: { errors } } = useForm();
     const [thumbnailLoading, setThumbnailLoading] = useState(false);
@@ -13,11 +15,27 @@ const AddCategory = () => {
     const onSubmit = data => {
 
         if (!data.thumbnail) {
-            alert('thumbnail not found')
+            toast.error('Thumbnail image not found', {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
             return
         }
         if (!data.photos.length) {
-            alert('Please choose images for category')
+            toast.error('Please choose images for category', {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
             return
         }
         delete data.thumbnailFile;
@@ -27,6 +45,15 @@ const AddCategory = () => {
         axios.post('http://localhost:5000/category', data)
             .then(res => {
                 console.log(res, 'success');
+                toast.success('Category successfully added', {
+                    position: "bottom-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
             })
         console.log(data);
         reset();
@@ -63,7 +90,16 @@ const AddCategory = () => {
             }).catch(e => {
                 setValue('photos', []);
                 setValue('url', [])
-                alert('unknown error happen in multiple image upload')
+                console.log(e);
+                toast.error('Something bad happened to upload multiple image', {
+                    position: "bottom-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
                 setImgLoading(false);
             })
         }
@@ -109,6 +145,7 @@ const AddCategory = () => {
     }
     return (
         <div>
+            <h2 className="text-xl my-5">Add a new category of your image</h2>
             <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col  justify-center'>
 
 
@@ -126,12 +163,12 @@ const AddCategory = () => {
                     </Grid>
                     <Grid xs={12} md={6} item>
                         <Box
-                            className='h-40 bg-gray-900 bg-center flex justify-center items-center'
+                            className='h-40 bg-gray-900 bg-center bg-cover flex justify-center items-center'
                             sx={{
                                 backgroundImage: `url("${watch('thumbnail')}")`
                             }}
                         >
-                            <input {...register("thumbnailFile", { required: true })} type="file" accept="image/*" id='thumbnailFile' className="hidden" />
+                            <input {...register("thumbnailFile",)} type="file" accept="image/*" id='thumbnailFile' className="hidden" />
                             {
                                 thumbnailLoading ? <CircularProgress color="inherit"></CircularProgress> : <label htmlFor='thumbnailFile' className="bg-black/[.7] p-2 rounded-md">Choose Thumbnail</label>
                             }
@@ -146,14 +183,14 @@ const AddCategory = () => {
                         >
 
                             <div className="absolute   pointer-events-none inset-0 flex justify-center items-center">
-                                <input {...register("url", { required: true })} type="file" id='url' accept="image/*" className="hidden" multiple={true} />
+                                <input {...register("url",)} type="file" id='url' accept="image/*" className="hidden" multiple={true} />
                                 {
-                                    imgLoading ? <div className='z-10 w-full h-full flex justify-center items-center backdrop-blur-sm'> <CircularProgress color="inherit"></CircularProgress></div> : watch('photos')?.length ? '' : <label htmlFor='url' className="z-10 bg-black/[.7] p-2  rounded-md pointer-events-auto">Choose Images</label>
+                                    imgLoading ? <div className='z-10 w-full h-full flex justify-center items-center backdrop-blur-sm'> <CircularProgress color="inherit"></CircularProgress></div> : watch('photos')?.length ? <div></div> : <label htmlFor='url' className="z-10 bg-black/[.7] p-2  rounded-md pointer-events-auto">Choose Images</label>
                                 }
                             </div>
                             <div className="pr-2">
                                 {
-                                    watch('photos')?.length && <Grid container spacing={2}>
+                                    watch('photos')?.length ? <Grid container spacing={2}>
                                         <Grid item xs={3}  >
                                             <div className="p-1 h-full">
                                                 <label htmlFor='url' className="flex justify-center items-center h-full w-full bg-black/[.7] p-2  rounded-md text-center pointer-events-auto">
@@ -168,10 +205,10 @@ const AddCategory = () => {
 
                                         </Grid>
                                         {
-                                            watch('photos')?.map((single) => <Grid item xs={3} key={single.url}><Image src={single.url} width={100} height={100}></Image></Grid>)
+                                            watch('photos')?.map((single) => <Grid item xs={3} key={single.url}><Image alt={single.title} src={single.url} width={100} height={100}></Image></Grid>)
                                         }
 
-                                    </Grid>
+                                    </Grid> : <div></div>
                                 }
                             </div>
 

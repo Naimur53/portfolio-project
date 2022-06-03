@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 
 const CheckBanner = () => {
-    const [letter, setLetter] = useState('J');
+    const [letter, setLetter] = useState("J");
     const [i, setI] = useState(0);
     useEffect(() => {
 
@@ -14,10 +15,10 @@ const CheckBanner = () => {
         } else {
             setI(i + 1)
         }
-    }, 1000)
+    }, 2000)
     return (
-        <div className='flex justify-center h-full align-center'>
-            <span className='letter select-none	' style={{ lineHeight: '1', fontSize: '600px', fontWeight: 'bold' }}>{letter}</span>
+        <div exit={{ opacity: 0 }} className='flex justify-center h-full align-center'>
+            <span className='letter select-none opacity-animation' style={{ lineHeight: '1', fontSize: '600px', fontWeight: 'bold' }}>{letter}</span>
         </div>
     );
 };

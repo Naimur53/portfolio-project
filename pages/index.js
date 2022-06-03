@@ -9,6 +9,7 @@ import { useEffect, useRef } from 'react';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import CheckBanner from "../src/Components/HomeBanner/CheckBanner";
 import Image from "next/image";
+import AboutMe from "../src/Components/AboutMe/AboutMe";
 
 
 export default function Home() {
@@ -38,32 +39,8 @@ export default function Home() {
       <ParallaxLayer
         offset={1}
         speed={.5}  >
-        <Container>
-          <Grid container spacing={10}>
-            <Grid item xs={12} md={6}>
-              <Image height={500} width={650} src="https://i.ibb.co/5LwPHgJ/20190320-WEST-AFRICA-FROM-GUNJUR-TO-BASSE-2964-removebg-preview.png" alt="d" />
-            </Grid>
-            <Grid item xs={12} md={6} >
-              <Typography color="#2d3e50" gutterBottom variant='h3' sx={{ fontWeight: '900' }}>Let&apos;s grow together.</Typography>
-              <Typography gutterBottom variant='body1' sx={{}}>I have taken the time to take my photos. I did it with passion and endless patience. May I also ask you to take the time to look at my work. Preferably not on your smart phone but if it cant be otherwise … Try to become one with the image and feel what happened when I took the photo.</Typography>
-              <Button
-                style={{ backgroundColor: "#FF5E14", }}
-                sx={{
-                  borderRadius: 1,
-                  p: 2,
-                  fontWeight: 'bold',
-                  me: 5,
-                  mt: 2,
-                  position: 'relative',
-                  zIndex: 2
-                }}
-                variant='contained'>
-                see all open options
-              </Button>
 
-            </Grid>
-          </Grid>
-        </Container>
+        <AboutMe></AboutMe>
       </ParallaxLayer>
 
       {/* <ParallaxLayer

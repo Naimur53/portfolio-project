@@ -25,11 +25,16 @@ import useFirebase from "../hooks/useFirebase";
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import ControlPointDuplicateIcon from '@mui/icons-material/ControlPointDuplicate';
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
+import { useRouter } from "next/router";
+
 const DashboardLayout = ({ children, window }) => {
     const [mobileOpen, setMobileOpen] = useState(false);
     const drawerWidth = 240;
     const { user } = useSelector(allData)
     const { } = useFirebase()
+
+    const router = useRouter();
+
     const drawer = (
         <div className="">
             <Box
@@ -60,7 +65,10 @@ const DashboardLayout = ({ children, window }) => {
                 <ListItem disablePadding>
                     <Link href="/dashboard">
 
-                        <ListItemButton>
+                        <ListItemButton sx={{
+                            py: 2,
+                            background: router.pathname == "/dashboard" ? "black" : ""
+                        }}>
                             <ListItemIcon sx={{ m: 0, p: 0 }} className="ml-0 text-gray-50">
                                 <RemoveRedEyeIcon />
                             </ListItemIcon>
@@ -71,7 +79,12 @@ const DashboardLayout = ({ children, window }) => {
                 <ListItem disablePadding>
                     <Link href="/dashboard/addCategory">
 
-                        <ListItemButton>
+                        <ListItemButton
+
+                            sx={{
+                                py: 2,
+                                background: router.pathname == "/dashboard/addCategory" ? "black" : ""
+                            }}>
                             <ListItemIcon sx={{ m: 0, p: 0 }} className="ml-0 text-gray-50">
                                 <ControlPointDuplicateIcon />
                             </ListItemIcon>
@@ -81,7 +94,12 @@ const DashboardLayout = ({ children, window }) => {
                 </ListItem>
                 <ListItem disablePadding>
                     <Link href="/dashboard/addBlog">
-                        <ListItemButton>
+                        <ListItemButton
+                            sx={{
+                                py: 2,
+                                background: router.pathname == "/dashboard/addBlog" ? "black" : ""
+                            }}
+                        >
                             <ListItemIcon sx={{ m: 0, p: 0 }} className="ml-0 text-gray-50">
                                 <DriveFileRenameOutlineIcon />
                             </ListItemIcon>
@@ -92,7 +110,12 @@ const DashboardLayout = ({ children, window }) => {
                 <ListItem disablePadding>
                     <Link href="/dashboard/allBlogs">
 
-                        <ListItemButton>
+                        <ListItemButton
+                            sx={{
+                                py: 2,
+                                background: router.pathname == "/dashboard/allBlogs" ? "black" : ""
+                            }}
+                        >
                             <ListItemIcon sx={{ m: 0, p: 0 }} className="ml-0 text-gray-50">
                                 <InboxIcon />
                             </ListItemIcon>

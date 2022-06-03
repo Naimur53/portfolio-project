@@ -40,11 +40,10 @@ a {
   z-index: 10;
   background-position-x: 0%;
   background-position-y: 0%;
-  clip-path: polygon(30% 73%, 18% 63%, 8% 66%, 6% 84%, 20% 100%, 46% 100%, 76% 90%, 81% 65%, 81% 19%, 49% 19%, 49% 73%, 39% 76%);
-
+  /* clip-path: polygon(31% 11%, 56% 11%, 78% 11%, 78% 25%, 78% 50%, 78% 67%, 78% 80%, 67% 89%, 43% 90%, 24% 83%, 23% 64%, 41% 71%, 59% 69%, 59% 58%, 58% 43%, 58% 25%, 30% 25%); */
   /* my create url https://i.ibb.co/LZs5rqc/pjimage-1.jpg */
   background: url('https://i.ibb.co/10wMBYk/istockphoto-1272432175-170667a.jpg ');
-  animation: animate 10s ease-in 0s infinite alternate-reverse;
+  /* animation: animate 15s ease-in 0s infinite; */
 
 }
 
@@ -56,11 +55,31 @@ a {
   to {
     background-position-y: 100%;
   }
+
+  /* 0% {
+    background-position-y: 0;
+    clip-path: polygon(31% 11%, 56% 11%, 78% 11%, 78% 25%, 78% 50%, 78% 67%, 78% 80%, 67% 89%, 43% 90%, 24% 83%, 23% 64%, 41% 71%, 59% 69%, 59% 58%, 58% 43%, 58% 25%, 30% 25%);
+  }
+
+
+  25% {
+    clip-path: polygon(43% 25%, 39% 49%, 25% 56%, 30% 12%, 72% 10%, 86% 18%, 91% 58%, 80% 76%, 61% 81%, 31% 74%, 25% 54%, 36% 50%, 45% 64%, 73% 61%, 78% 44%, 74% 27%, 62% 24%);
+  }
+
+  50% {
+    clip-path: polygon(72% 13%, 72% 24%, 72% 35%, 71% 76%, 54% 16%, 31% 16%, 28% 86%, 43% 84%, 45% 24%, 48% 37%, 58% 84%, 86% 84%, 86% 70%, 86% 54%, 86% 37%, 86% 25%, 86% 13%);
+  }
+
+  75% {
+    background-position-y: 100%;
+    clip-path: polygon(72% 14%, 71% 45%, 45% 45%, 45% 31%, 45% 16%, 30% 16%, 28% 86%, 43% 86%, 43% 68%, 44% 57%, 70% 57%, 69% 86%, 86% 86%, 86% 54%, 86% 37%, 86% 25%, 87% 15%);
+  } */
+
+
 }
 
 /* chekcing */
 .letter {
-
   background: url('https://i.ibb.co/10wMBYk/istockphoto-1272432175-170667a.jpg ');
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -70,6 +89,7 @@ a {
   /* my create url https://i.ibb.co/LZs5rqc/pjimage-1.jpg */
   animation: animate 10s ease-in 0s infinite alternate-reverse;
 }
+
 
 /* google btn  */
 .g-sign-in-button {
