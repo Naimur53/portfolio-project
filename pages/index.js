@@ -38,9 +38,12 @@ export default function Home() {
       </ParallaxLayer>
       <ParallaxLayer
         offset={1}
-        speed={.5}  >
+        speed={.5}
+        factor={1} >
+        <div className="">
 
-        <AboutMe></AboutMe>
+          <AboutMe></AboutMe>
+        </div>
       </ParallaxLayer>
 
       {/* <ParallaxLayer
@@ -54,25 +57,24 @@ export default function Home() {
 
       <ParallaxLayer
         offset={2}
+        sticky={{ start: 2, end: 4 }}
         speed={.5}
         style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
+          width: '50%',
           color: 'white',
         }}>
-        <HomeCategory></HomeCategory>
+        {/* <HomeCategory></HomeCategory> */}
+        <h2 className="text-xl pt- ">about the blog ot dkfj dfkdjfakljfd </h2>
       </ParallaxLayer>
       <ParallaxLayer
-        offset={3}
+        offset={2}
         speed={.5}
         style={{
           display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
+          justifyContent: 'flex-end',
           color: 'white',
         }}>
-        <p>Scroll up2</p>
+        <p className="text-xl mr-4">Scroll up2</p>
       </ParallaxLayer>
       <ParallaxLayer
         offset={3}

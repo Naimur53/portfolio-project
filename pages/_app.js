@@ -1,4 +1,5 @@
 import '../styles/globals.css'
+import '../styles/homeCategroy.css'
 import { wrapper } from '../src/store/store'
 import { AnimatePresence } from 'framer-motion'
 import EmptyLayout from '../src/Layouts/EmptyLayout'

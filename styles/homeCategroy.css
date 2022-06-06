@@ -1,0 +1,9 @@
+.canvas {
+    position: absolute;
+    left: 50%;
+    right: 50%;
+    width: 150%;
+    transform: translate(-50%, -50%);
+    height: auto;
+    transition: 1.4s ease-out;
+}

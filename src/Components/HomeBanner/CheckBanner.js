@@ -16,10 +16,21 @@ const CheckBanner = () => {
             setI(i + 1)
         }
     }, 2000)
+
+    const initial = {
+        opacity: 0,
+        scale: 0.8,
+        transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: .75 }
+    }
+    const animate = {
+        opacity: 1,
+        scale: 1,
+        transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: .75 }
+    }
     return (
-        <div exit={{ opacity: 0 }} className='flex justify-center h-full align-center'>
+        <motion.div animate={animate} initial={initial} exit={{ opacity: 0 }} className='flex justify-center h-full align-center'>
             <span className='letter select-none opacity-animation' style={{ lineHeight: '1', fontSize: '600px', fontWeight: 'bold' }}>{letter}</span>
-        </div>
+        </motion.div>
     );
 };
 
