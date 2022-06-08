@@ -10,6 +10,7 @@ import { Parallax, ParallaxLayer } from '@react-spring/parallax'
 import CheckBanner from "../src/Components/HomeBanner/CheckBanner";
 import Image from "next/image";
 import AboutMe from "../src/Components/AboutMe/AboutMe";
+import HomeBlog from "../src/Components/HomeBlog/HomeBlog";
 
 
 export default function Home() {
@@ -29,7 +30,7 @@ export default function Home() {
     }
   })
   return (
-    <Parallax ref={parallaxRef} pages={6}>
+    <Parallax ref={parallaxRef} pages={10}>
       <ParallaxLayer
         offset={0}
         speed={.5}
@@ -57,36 +58,38 @@ export default function Home() {
 
       <ParallaxLayer
         offset={2}
-        sticky={{ start: 2, end: 4 }}
+        factor={1.3}
         speed={.5}
-        style={{
-          width: '50%',
-          color: 'white',
-        }}>
-        {/* <HomeCategory></HomeCategory> */}
-        <h2 className="text-xl pt- ">about the blog ot dkfj dfkdjfakljfd </h2>
-      </ParallaxLayer>
-      <ParallaxLayer
-        offset={2}
-        speed={.5}
-        style={{
-          display: 'flex',
-          justifyContent: 'flex-end',
-          color: 'white',
-        }}>
-        <p className="text-xl mr-4">Scroll up2</p>
+      >
+        <HomeCategory></HomeCategory>
       </ParallaxLayer>
       <ParallaxLayer
         offset={3}
         speed={.5}
+        sticky={{ start: 3, end: 5 }}
         style={{
           display: 'flex',
-          justifyContent: 'center',
           alignItems: 'center',
           color: 'white',
         }}>
-        <p>Scroll up3</p>
+        <HomeBlog></HomeBlog>
+        <div className=" overlay-wrap pointer-events-none absolute flex flex-col justify-between inset-0">
+          <div  ></div>
+          <div  ></div>
+        </div>
       </ParallaxLayer>
+
+      <ParallaxLayer
+        offset={6}
+        speed={.5}
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          color: 'white',
+        }}>
+        <p className="text-xl mr-4">Scroll up6</p>
+      </ParallaxLayer>
+
 
 
       {/* <ParallaxProvider pages={2}>
@@ -119,7 +122,7 @@ export default function Home() {
 // }
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async () => {
-    const res = await fetch(`http://localhost:5000/category`)
+    const res = await fetch(`http://localhost:5000/category?short=true`)
     const data = await res.json();
     store.dispatch(addHomeCategory(data))
   })

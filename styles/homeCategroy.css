@@ -1,9 +1,20 @@
 .canvas {
     position: absolute;
-    left: 50%;
-    right: 50%;
-    width: 150%;
-    transform: translate(-50%, -50%);
+    left: 20%;
+    right: 0%;
+    width: 120%;
+    will-change: transform;
+    transform: translate3d(-50%, -50%, 0px) scaleX(1);
+    transform-style: preserve-3d;
     height: auto;
-    transition: 1.4s ease-out;
+    transition: all 1.4s ease-out;
+    backface-visibility: hidden
+}
+
+.js {
+    will-change: transform;
+    transform: translate3d(10px, 10px, 0px);
+    transform-style: preserve-3d;
+    transition: all 1.4s ease-out, ;
+    backface-visibility: hidden
 }

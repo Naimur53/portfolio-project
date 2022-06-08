@@ -60,7 +60,7 @@ const TopBar = () => {
 
     return (
         <motion.div initial='initial' animate='animate' className='overflow-hidden' exit={{ opacity: 0 }}>
-            <AppBar position="fixed" className='bg-transparent shadow-none' >
+            <AppBar position="fixed" className=' bg-transparent shadow-none' >
                 <Container maxWidth="xl" >
                     <Toolbar disableGutters>
                         <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />

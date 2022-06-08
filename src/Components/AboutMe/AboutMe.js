@@ -13,7 +13,7 @@ const AboutMe = () => {
                 <Box
                     className="w-full bg-red-400 bg-cover bg-center grayscale"
                     sx={{
-                        background: 'url(https://i.ibb.co/njLJtgJ/20190320-WEST-AFRICA-FROM-GUNJUR-TO-BASSE-2964.jpg)',
+                        background: 'url(https://i.ibb.co/BtbKgFL/20190320-WEST-AFRICA-FROM-GUNJUR-TO-BASSE-2964-2.jpg)',
                         height: '60vh'
                     }}
 

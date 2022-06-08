@@ -1,0 +1,17 @@
+.blog-wrap {
+    will-change: transform;
+    transform-style: preserve-3d;
+    transform: translate3d(0px, 0px, 0px);
+    transition: all .7s ease-out;
+}
+
+.second {
+    top: -110%;
+}
+
+.overlay-wrap div {
+    box-shadow: 10px 0px 90px 60px black;
+    background: black;
+    padding: 4px;
+
+}

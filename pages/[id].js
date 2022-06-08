@@ -20,15 +20,20 @@ const CategoryDetails = ({ data }) => {
                 <Link href='/'>Home </Link>
             </Box>
             <Container>
-                <Grid container>
-                    {
-                        data.photos.map(res => <Grid md={3} key={res._id}><div className='flex flex-col'><Image src={res.url} height={200} width={200} alt='photo'></Image> <h1>{res.name}</h1></div></Grid>)
-                    }
-                </Grid>
-            </Container>
-            <div className='flex '>
+                <div className="h-screen relative overflow-hidden">
 
-            </div>
+                    <div className='flex '>
+                        {
+                            data?.photos?.map(res => <Image key={res.ulr} src={res.url} height={200} width={200} alt='photo'></Image>)
+                        }
+                    </div>
+                </div>
+            </Container>
+            {/* <Grid container>
+                {
+                    data.photos.map(res => <Grid md={3} key={res._id}><div className='flex flex-col'><h1>{res.name}</h1></div></Grid>)
+                }
+            </Grid> */}
         </motion.div >
     );
 };

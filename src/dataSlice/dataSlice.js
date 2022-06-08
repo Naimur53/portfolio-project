@@ -5,6 +5,7 @@ const initialState = {
     scrollValue: 0,
     user: {},
     homeCategory: [],
+    cursor: {},
     blogDetails: {},
 }
 
@@ -20,6 +21,9 @@ export const dataSlice = createSlice({
         },
         addScrollValue: (state, action) => {
             state.scrollValue = action.payload
+        },
+        addCursor: (state, action) => {
+            state.cursor = action.payload
         },
         addBlogDetails: (state, action) => {
             state.blogDetails = action.payload;
@@ -50,6 +54,6 @@ export const dataSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { addUser, addHomeCategory, addLove, addComments, addScrollValue, addBlogDetails, increaseLove, decreaseLove } = dataSlice.actions
+export const { addUser, addHomeCategory, addLove, addComments, addScrollValue, addCursor, addBlogDetails, increaseLove, decreaseLove } = dataSlice.actions
 export const allData = (state) => state.data;
 export default dataSlice.reducer
