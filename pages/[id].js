@@ -6,9 +6,13 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 const CategoryDetails = ({ data }) => {
     console.log(data);
+    const handleScroll = e => {
+    }
     return (
         <motion.div exit={{ opacity: 0 }}>
             <Box
+                // onScroll={handleScroll}
+                onWheel={handleScroll}
                 sx={{
                     backgroundImage: `url("${data.thumbnail}")`,
                     height: '50vh',
@@ -20,20 +24,23 @@ const CategoryDetails = ({ data }) => {
                 <Link href='/'>Home </Link>
             </Box>
             <Container>
-                <div className="h-screen relative overflow-hidden">
+                {/* <div className="  relative flex justify-center mt-20">
 
-                    <div className='flex '>
+                    <div className='g-wrap bg-red-500'>
                         {
-                            data?.photos?.map(res => <Image key={res.ulr} src={res.url} height={200} width={200} alt='photo'></Image>)
+                            data?.photos?.map((res, i) => <div style={{ "--i": i + 2 }} key={res.url}>
+                                <Image priority layout='raw' src={res.url} height={200} width={200} alt='photo'></Image>
+                            </div>)
                         }
                     </div>
-                </div>
+                </div> */}
+                <Grid container spacing={2}>
+                    {
+                        data.photos.map(res => <Grid item md={3} key={res._id}><Image priority layout='raw' src={res.url} height={200} width={200} alt='photo'></Image><div className='flex flex-col'><h1>{res.name}</h1></div></Grid>)
+                    }
+                </Grid>
             </Container>
-            {/* <Grid container>
-                {
-                    data.photos.map(res => <Grid md={3} key={res._id}><div className='flex flex-col'><h1>{res.name}</h1></div></Grid>)
-                }
-            </Grid> */}
+            {/* */}
         </motion.div >
     );
 };

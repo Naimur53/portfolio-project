@@ -47,7 +47,7 @@ a {
 
 }
 
-@keyframes animate {
+@keyframes animateWords {
   from {
     background-position-y: 0%;
   }
@@ -87,7 +87,7 @@ a {
 
 
   /* my create url https://i.ibb.co/LZs5rqc/pjimage-1.jpg */
-  animation: animate 10s ease-in 0s infinite alternate-reverse;
+  animation: animateWords 10s ease-in 0s infinite alternate-reverse;
 }
 
 

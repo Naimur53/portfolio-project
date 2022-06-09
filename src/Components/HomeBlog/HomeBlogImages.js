@@ -9,8 +9,7 @@ const HomeBlogImages = () => {
     const wrapper = useRef();
     const wrapper2 = useRef();
     useEffect(() => {
-        console.log((scrollValue - 4) * 500);
-        wrapper.current.style.transform = `translate3d(0px, -${(scrollValue - 3) * 500}px, 0px)`
+        wrapper.current.style.transform = `translate3d(0px, -${(scrollValue - 3) * 600}px, 0px)`
         wrapper2.current.style.transform = `translate3d(0px, ${(scrollValue - 3) * 500}px, 0px)`
 
     }, [scrollValue])

@@ -37,6 +37,15 @@ export default function Home() {
         factor={1} >
         <HomeBanner></HomeBanner>
       </ParallaxLayer>
+      {/* <ParallaxLayer
+        offset={1}
+        speed={5}
+        translateX={['-400px', '0px']}
+
+        factor={1} >
+        <div className="w-52 h-52 rounded-full bg-red-900">
+        </div>
+      </ParallaxLayer> */}
       <ParallaxLayer
         offset={1}
         speed={.5}

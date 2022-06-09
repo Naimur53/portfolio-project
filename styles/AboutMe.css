@@ -1,0 +1,18 @@
+.about-overlay {
+    will-change: transform;
+    transform: translate3d(0px, 0px, 0px);
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 100%;
+    mix-blend-mode: difference;
+    pointer-events: none;
+}
+
+.john-1 {
+    filter: invert(1);
+}
+
+.about-text {
+    opacity: 1;
+}

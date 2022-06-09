@@ -31,7 +31,7 @@ const HomeCategory = () => {
         let y = 500
         canvasRef.current.style.transform = `translate3d(-${x}px,-${y}px,0px) scaleX(1) `;
         allImages.forEach(ele => {
-            ele.style.transform = `translate3d(-${x / 25}px,-${y / 25}px,0px) `
+            ele.style.transform = `translate3d(-${x / 25}px,-${y / 10}px,0px) `
         })
         e.stopPropagation();
 
