@@ -5,6 +5,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { allData } from '../../dataSlice/dataSlice';
 import { motion } from 'framer-motion';
+import HeadingText from './HeadingText';
+import MiddleContent from './MiddleContent';
 
 const AboutMe = () => {
     const { scrollValue, homeCategory } = useSelector(allData)
@@ -48,34 +50,41 @@ const AboutMe = () => {
     }
     return (
         <div ref={container} onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} onMouseMove={handleMouseMove} className='  relative'>
-            <div className='w-1/2'>
-                {
-                    value && <motion.div
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        exit={{ rotate: 200 }}
-                        viewport={{ once: false }}
-                    >
-                        <h2 className='text-7xl'>
-                            Nikon
-                            Photographer
-                        </h2>
-                    </motion.div>
-                }
-                <button onClick={handleClick}>clicme </button>
-            </div>
-            {/* middle man */}
-            <div className='px-8 my-5 flex justify-between'>
-                <div>
-                    <Image width={400} height={400} layout='raw' className='john-2' priority src="https://i.ibb.co/BtbKgFL/20190320-WEST-AFRICA-FROM-GUNJUR-TO-BASSE-2964-2.jpg " alt='photo of Jonh'></Image>
-                    <p className='about-text'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores nihil earum consectetur ipsum, nobis deserunt blanditiis dolorem? Obcaecati in accusantium facere blanditiis, praesentium ab maiores tempore nam amet ipsam explicabo.</p>
-                </div>
-                <div className='text-right flex flex-col items-end'>
-                    <Image width={400} height={400} layout='raw' className='john-1 mb-4' priority src="https://i.ibb.co/c3Q8XVV/20190320-SABATY-YAYA-BAYO-THE-DOCUMENTARY-008-1.jpg " alt='photo of Jonh'></Image>
-                    <p className='about-text'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores nihil earum consectetur ipsum, nobis deserunt blanditiis dolorem? Obcaecati in accusantium facere blanditiis, praesentium ab maiores tempore nam amet ipsam explicabo.</p>
-                </div>
+            {
+                // value && <motion.div
+                //     initial={{ opacity: 0 }}
+                //     whileInView={{ opacity: 1 }}
+                //     exit={{ opacity: 0 }}
+                //     viewport={{ once: false }}
+                // >
 
-            </div>
+                // </motion.div>
+                <HeadingText title='Nikon
+                    Photographer' isVisible={value}></HeadingText>
+            }
+            <button onClick={handleClick} className='p-2 bg-red-300'>clicme </button>
+            {/* middle man */}
+            <Grid container spacing={4}>
+                <Grid item xs={12} md={6}>
+                    <MiddleContent
+                        isVisible={true}
+                        url='https://i.ibb.co/BtbKgFL/20190320-WEST-AFRICA-FROM-GUNJUR-TO-BASSE-2964-2.jpg'
+                        text='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores nihil earum consectetur ipsum, nobis deserunt blanditiis dolorem? Obcaecati in accusantium facere blanditiis, praesentium ab maiores tempore nam amet ipsam explicabo.'
+
+
+                    ></MiddleContent>
+                </Grid>
+                <Grid item xs={12} md={6}>
+                    <MiddleContent
+                        isVisible={true}
+                        url='https://i.ibb.co/c3Q8XVV/20190320-SABATY-YAYA-BAYO-THE-DOCUMENTARY-008-1.jpg'
+                        text='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores nihil earum consectetur ipsum, nobis deserunt blanditiis dolorem? Obcaecati in accusantium facere blanditiis, praesentium ab maiores tempore nam amet ipsam explicabo.'
+                        right
+
+                    ></MiddleContent>
+                </Grid>
+
+            </Grid>
             <div className='flex justify-end'>
 
                 <div className='w-1/2'>
