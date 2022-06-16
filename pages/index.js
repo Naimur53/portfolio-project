@@ -49,6 +49,7 @@ export default function Home() {
       <ParallaxLayer
         offset={1}
         speed={.5}
+        sticky={{ start: 1, end: 2 }}
         factor={1} >
         <div className="">
 
@@ -66,16 +67,17 @@ export default function Home() {
       </ParallaxLayer> */}
 
       <ParallaxLayer
-        offset={2}
+        offset={3}
         factor={1.3}
         speed={.5}
       >
         <HomeCategory></HomeCategory>
       </ParallaxLayer>
+
       <ParallaxLayer
-        offset={3}
-        speed={.5}
-        sticky={{ start: 3, end: 5 }}
+        offset={4}
+        speed={5}
+        sticky={{ start: 4, end: 6 }}
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -89,7 +91,7 @@ export default function Home() {
       </ParallaxLayer>
 
       <ParallaxLayer
-        offset={6}
+        offset={7}
         speed={.5}
         style={{
           display: 'flex',

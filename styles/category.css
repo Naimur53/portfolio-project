@@ -36,3 +36,29 @@
         transform: perspective(1000px) rotateY(360deg);
     }
 }
+
+.category-img-overlay-inner:nth-child(1) {
+    /* display: none; */
+    /* transform: translateX(-500px); */
+    transition: all .3s ease-in-out;
+
+}
+
+.category-img-overlay-inner:nth-child(2) {
+    /* display: none; */
+    /* transform: translateX(-500px); */
+    transition: all .3s ease-in-out;
+
+}
+
+.category-img-overlay:hover .category-img-overlay-inner:nth-child(1) {
+    /* display: none; */
+    transform: translateX(-500px);
+
+}
+
+.category-img-overlay:hover .category-img-overlay-inner:nth-child(2) {
+    /* display: none; */
+    background-color: red !important;
+    transform: translateX(500px);
+}

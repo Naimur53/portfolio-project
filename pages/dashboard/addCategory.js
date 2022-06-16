@@ -77,12 +77,7 @@ const AddCategory = () => {
             })
             Promise.all(main).then(res => {
                 console.log('all', res);
-                const allUrl = res.map(singleRes => {
-                    return {
-                        url: singleRes.data.data?.url,
-                        name: singleRes.data.data?.title
-                    }
-                })
+                const allUrl = res.map(singleRes => singleRes.data.data?.url)
                 setValue('photos', allUrl);
                 console.log('url', allUrl);
                 setImgLoading(false);
@@ -125,8 +120,16 @@ const AddCategory = () => {
                 .catch(e => {
                     setValue('thumbnailFile', []);
                     setValue('thumbnail', '');
-
-                    alert('unknow error happen on img upload')
+                    console.log(e);
+                    toast.error('Something bad happened to upload multiple image', {
+                        position: "bottom-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
 
                 })
                 .finally(() => setThumbnailLoading(false))
@@ -205,7 +208,7 @@ const AddCategory = () => {
 
                                         </Grid>
                                         {
-                                            watch('photos')?.map((single) => <Grid item xs={3} key={single.url}><Image alt={single.title} src={single.url} width={100} height={100}></Image></Grid>)
+                                            watch('photos')?.map((single) => <Grid item xs={3} key={url}><Image alt='gallery image' src={single} width={100} height={100}></Image></Grid>)
                                         }
 
                                     </Grid> : <div></div>

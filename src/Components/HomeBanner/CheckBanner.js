@@ -29,7 +29,7 @@ const CheckBanner = () => {
     }
     return (
         <motion.div animate={animate} initial={initial} exit={{ opacity: 0 }} className='flex justify-center h-full align-center'>
-            <span className='letter select-none opacity-animation' style={{ lineHeight: '1', fontSize: '600px', fontWeight: 'bold' }}>{letter}</span>
+            <span className='letter font-family-mono select-none opacity-animation' style={{ lineHeight: '1', fontSize: '600px', fontWeight: 'bold' }}>{letter}</span>
         </motion.div>
     );
 };

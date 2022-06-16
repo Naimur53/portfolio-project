@@ -4,11 +4,11 @@ import HomeBlogImages from './HomeBlogImages';
 
 const HomeBlog = () => {
     return (
-        <Container maxWidth="xl" className='h-full px-14 overflow-hidden '>
+        <Container maxWidth="xl" className='h-full font-roboto px-14 overflow-hidden '>
             <Grid container spacing={4} className='h-full'>
                 <Grid item md={5} className='h-full   '>
                     <div className='mt-14'>
-                        <h2 className='relative  z-10 text-6xl font-sans text-gray-300 '>Photography Story</h2>
+                        <h2 className='relative  font-semibold z-10 text-5xl  text-gray-300 '>Photography Story</h2>
                         <p className='text-gray-300 mt-10   w-4/5'>
                             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt facilis odio voluptatibus, inventore, voluptatem odit non veniam qui, magnam distinctio aut! Laborum maiores quod soluta harum enim ducimus, alias molestias!
                         </p>

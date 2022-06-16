@@ -29,7 +29,7 @@ const HomeBanner = () => {
         }
     }, [scrollValue])
     return (
-        <Box className='h-screen relative'>
+        <Box className='h-screen relative font-family-roboto'>
             <Container sx={{ height: '100%', position: 'relative', overflow: 'hidden' }}>
                 <Grid container spacing={4} sx={{ height: '100%' }} alignItems='center'>
                     <Grid item md={8} xs={12}  >

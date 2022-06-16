@@ -16,14 +16,14 @@ const AboutMe = () => {
     const container = useRef()
     useEffect(() => {
 
-        // if (scrollValue > 1) {
-        //     // console.log();
-        //     eleRef.current.style.left = ` ${scrollValue * 10}%`;
-        // }
-        // else {
-        //     eleRef.current.style.left = `100%`
-        // }
 
+        if (scrollValue > 1.5) {
+            // console.log();
+            setValue(true)
+        }
+        else {
+            setValue(false);
+        }
     }, [scrollValue])
     const handleMouseMove = e => {
         let x = e.clientX - container.current.getBoundingClientRect().left
@@ -45,60 +45,68 @@ const AboutMe = () => {
         // eleRef.current.style.left = `100%`;
         e.stopPropagation();
     }
-    const handleClick = () => {
-        setValue(!value)
-    }
     return (
-        <div ref={container} onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} onMouseMove={handleMouseMove} className='  relative'>
-            {
-                // value && <motion.div
-                //     initial={{ opacity: 0 }}
-                //     whileInView={{ opacity: 1 }}
-                //     exit={{ opacity: 0 }}
-                //     viewport={{ once: false }}
-                // >
-
-                // </motion.div>
-                <HeadingText title='Nikon
-                    Photographer' isVisible={value}></HeadingText>
-            }
-            <button onClick={handleClick} className='p-2 bg-red-300'>clicme </button>
-            {/* middle man */}
-            <Grid container spacing={4}>
-                <Grid item xs={12} md={6}>
-                    <MiddleContent
-                        isVisible={true}
-                        url='https://i.ibb.co/BtbKgFL/20190320-WEST-AFRICA-FROM-GUNJUR-TO-BASSE-2964-2.jpg'
-                        text='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores nihil earum consectetur ipsum, nobis deserunt blanditiis dolorem? Obcaecati in accusantium facere blanditiis, praesentium ab maiores tempore nam amet ipsam explicabo.'
+        <div ref={container} onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} onMouseMove={handleMouseMove} className=' py-14 relative  px-2'>
+            <Grid container spacing={2}>
+                {/* left  */}
+                <Grid item xs={6}>
+                    <div className='flex flex-col items-between justify-between h-'>
+                        <div className='h-40 overflow-hidden'>
+                            <HeadingText title1='Nikon' title2='Photographer' isVisible={value}></HeadingText>
+                            <HeadingText title1='Website' title2='Designer' isVisible={!value}></HeadingText>
+                        </div>
+                        <div >
+                            <MiddleContent
+                                isVisible={value}
+                                url='https://i.ibb.co/BtbKgFL/20190320-WEST-AFRICA-FROM-GUNJUR-TO-BASSE-2964-2.jpg'
+                                text='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores nihil earum consectetur ipsum, nobis deserunt blanditiis dolorem? Obcaecati in accusantium facere blanditiis, praesentium ab maiores tempore nam amet ipsam explicabo.'
 
 
-                    ></MiddleContent>
+                            ></MiddleContent>
+                            <MiddleContent
+                                isVisible={!value}
+                                url='https://i.ibb.co/mFRGKVP/photo-1605379399642-870262d3d051-1.jpg'
+                                text='Web design encompasses many different skills and disciplines in the production and maintenance of websites. The different areas of web design include web graphic design; user interface design;'
+
+
+                            ></MiddleContent>
+                        </div>
+                    </div>
                 </Grid>
-                <Grid item xs={12} md={6}>
-                    <MiddleContent
-                        isVisible={true}
-                        url='https://i.ibb.co/c3Q8XVV/20190320-SABATY-YAYA-BAYO-THE-DOCUMENTARY-008-1.jpg'
-                        text='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores nihil earum consectetur ipsum, nobis deserunt blanditiis dolorem? Obcaecati in accusantium facere blanditiis, praesentium ab maiores tempore nam amet ipsam explicabo.'
-                        right
+                <Grid item xs={6}>
+                    {/* right  */}
+                    <div className='flex flex-col items-between justify-between h-full'>
 
-                    ></MiddleContent>
+                        <MiddleContent
+                            isVisible={value}
+                            url='https://i.ibb.co/c3Q8XVV/20190320-SABATY-YAYA-BAYO-THE-DOCUMENTARY-008-1.jpg'
+                            text='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores nihil earum consectetur ipsum, nobis deserunt blanditiis dolorem? Obcaecati in accusantium facere blanditiis, praesentium ab maiores tempore nam amet ipsam explicabo.'
+                            right
+
+                        ></MiddleContent>
+                        <MiddleContent
+                            isVisible={!value}
+                            url='https://i.ibb.co/ByV09Fk/20191118-MOROCCO-DESERT-108-1-2-1.jpg'
+                            text='Travel is the movement of people between distant geographical locations. Travel can be done by foot, bicycle, automobile, train, boat, bus, airplane, ship or other means, with or without luggage, and can be one way or round trip'
+                            right
+
+                        ></MiddleContent>
+                        <div className='h-40 overflow-hidden'>
+                            <HeadingText title1='Film' title2='Maker' right isVisible={value}></HeadingText>
+                            <HeadingText title1='Curious ' title2='Traveler' right isVisible={!value}></HeadingText>
+                        </div>
+                    </div>
                 </Grid>
 
             </Grid>
-            <div className='flex justify-end'>
 
-                <div className='w-1/2'>
-                    <h2 className='text-7xl text-right'>
-                        Website
-                        <br />
-                        Designer
-                    </h2>
-                </div>
-            </div>
+
+
+
             <div ref={eleRef} className='absolute about-overlay  bg-white'>
 
             </div>
-        </div>
+        </div >
     );
 };
 

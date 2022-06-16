@@ -20,9 +20,9 @@ const HomeCategory = () => {
         let x = e.clientX - container.current.getBoundingClientRect().left
         let y = e.clientY - container.current.getBoundingClientRect().top
         canvasRef.current.style.transform = `translate3d(-${x / 1.5}px,-${y * 2}px,0px) scaleX(1) `;
-        allImages.forEach(ele => {
-            ele.style.transform = `translate3d(-${x / 25}px,-${y / 25}px,0px) `
-        })
+        // allImages.forEach(ele => {
+        //     ele.style.transform = `translate3d(-${x / 25}px,-${y / 25}px,0px) `
+        // })
         e.stopPropagation();
 
     }
@@ -58,13 +58,13 @@ const HomeCategory = () => {
                     </Grid>
                     <Grid item md={3} className="column four">
                         {
-                            homeCategory.slice(20, 25)?.map(single => <HomeCategoryImg {...single} key={single.thumbnail}></HomeCategoryImg>)
+                            homeCategory.slice(15, 20)?.map(single => <HomeCategoryImg {...single} key={single.thumbnail}></HomeCategoryImg>)
                         }
                     </Grid>
                 </Grid>
 
             </div>
-            <div className='absolute pointer-events-none	 flex justify-center items-center font-sans inset-0'>
+            <div className='absolute pointer-events-none font-semibold	 flex justify-center items-center font-sans inset-0 capitalize font-family-roboto font-lighter'>
                 <div className='text-center'>
                     <h2 className='text-4xl '>Photo Collection </h2>
                     <h2 className='text-4xl '>After traveling many Country I Found this </h2>
