@@ -51,10 +51,10 @@ export default function Home() {
         speed={.5}
         sticky={{ start: 1, end: 2 }}
         factor={1} >
-        <div className="">
+        <Container className="">
 
           <AboutMe></AboutMe>
-        </div>
+        </Container>
       </ParallaxLayer>
 
       {/* <ParallaxLayer

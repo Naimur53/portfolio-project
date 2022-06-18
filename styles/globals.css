@@ -1,7 +1,18 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
 /* fonts  */
+/* @import url('https://fonts.googleapis.com/css2?family=Megrim&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Megrim&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+@font-face {
+  font-family: 'Megrim';
+  src: url('/font/Megrim-Regular.ttf');
+  font-style: medium;
+  font-weight: normal;
+  font-display: swap;
+}
 
 html,
 body {
@@ -32,6 +43,11 @@ a {
 .font-family-roboto {
   font-family: 'Roboto', sans-serif;
 }
+
+.font-family-allerta {
+  font-family: 'Megrim';
+}
+
 
 /* home banner  */
 .innerBanner {
@@ -153,21 +169,20 @@ a {
 }
 
 /* blog card  */
+
+.title:hover {
+  background-size: 100% 64px;
+  color: currentColor;
+}
+
 .title {
   width: auto;
   background-repeat: repeat-y;
-  background-image: -o-linear-gradient(transparent calc(100% - 2px), currentColor 2px);
-  background-image: linear-gradient(#ffffff00 calc(100% - 2px), currentColor 2px);
+  background-image: linear-gradient(#ff020200 calc(100% - 38px), currentColor 2px);
   background-image: -ms-linear-gradient(transparent 95%, currentColor 2px);
-  -webkit-transition: .6s cubic-bezier(.215, .61, .355, 1);
-  -o-transition: .6s cubic-bezier(.215, .61, .355, 1);
   transition: .6s cubic-bezier(.215, .61, .355, 1);
-  background-size: 0 32px;
-}
-
-.title:hover {
-  background-size: 100% 32px;
-  color: currentColor;
+  background-size: 0px 64px;
+  display: inline;
 }
 
 /* dashboard */

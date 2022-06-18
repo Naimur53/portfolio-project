@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Box, Container, Grid } from '@mui/material'
 import Image from 'next/image';
 import Head from 'next/head';
@@ -7,13 +7,13 @@ import { useRouter } from 'next/router'
 
 import Link from 'next/link';
 import CategorySingleImg from '../../src/Components/CategorySingleImg/CategorySingleImg';
+import CategoryLayout from '../../src/Components/CategoryLayout/CategoryLayout';
 
 const CategoryDetails = ({ data }) => {
     console.log(data);
+    const gallery = useRef();
+    const container = useRef();
     const router = useRouter()
-
-    const handleScroll = e => {
-    }
     useEffect(() => {
 
         if (!data._id && !data.categoryName) {
@@ -22,43 +22,78 @@ const CategoryDetails = ({ data }) => {
         }
 
     }, [])
+    const handleMouseMove = e => {
+        let x = e.clientX - container.current.getBoundingClientRect().left
+        let y = e.clientY - container.current.getBoundingClientRect().top
+        gallery.current.style.top = `${y}px`;
+        gallery.current.style.left = `${x}px`;
+    }
+
 
     return (
         <motion.div exit={{ opacity: 0 }}>
             <Box
-                // onScroll={handleScroll}
-                onWheel={handleScroll}
-                sx={{
-                    background: `linear-gradient(to bottom,  rgba(0,0,0,0.6) 0%,rgba(19,19,19,1) 100%),url("${data.thumbnail}")`,
-                    height: '50vh',
-                }}
-                className='bg-cover bg-center bg-no-repeat flex justify-center items-center'
+                sx={{ height: '50vh', }}
+                className='relative overflow-hidden'
             >
-                <h2 className='text-6xl '>{data.categoryName}</h2>
+
+                <Image onClick={() => setIsOpen(true)} className='w-full singleImg' priority layout='raw' src={data.thumbnail} height={500} width={500} alt='photo'></Image>
+                <div
+                    style={{
+                        background: 'linear-gradient(to bottom,  rgba(0,0,0,0.6) 0%,rgba(19,19,19,.9) 100%)'
+                    }}
+                    className='absolute inset-0  flex justify-center items-center'
+
+                >
+
+                    <h2 className='text-6xl font-family-allerta '>{data.categoryName}</h2>
+                </div>
             </Box>
             <Container>
                 <div className='text-center py-5'>
-                    <h2 className='text-2xl mb-5 mt-5 '>{data.title}</h2>
-                    <p>
+                    <h2 className='text-2xl mb-5 mt-5 text-yellow-500'>{data.title}</h2>
+                    <p className='text-gray-400'>
                         {data.description}
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi error libero voluptatibus possimus officia tenetur eligendi facilis quae molestiae, maiores earum quisquam dolores quidem? Quo natus eveniet quam minus minima.
                     </p>
-
                 </div>
-                <Grid container spacing={2}>
-                    {
-                        [1, 2, 3, 4].map((element, i) => {
-                            const len = data.photos?.length / 4;
+                <div ref={container} onMouseMove={handleMouseMove} className='relative overflow-hidden'>
+                    <Grid container spacing={2}>
+                        {
+                            [1, 2, 3, 4].map((element, i) => {
+                                const len = data.photos?.length / 4;
 
-                            return <Grid key={i} item md={3} >
-                                {
-                                    data.photos?.slice(len * i, len * element).map(res => <CategorySingleImg key={res} url={res}></CategorySingleImg>)
-                                }
-                            </Grid>
-                        })
+                                return <Grid key={i} item md={3} >
+                                    {
+                                        data.photos?.slice(len * i, len * element).map(res => <CategorySingleImg key={res} url={res}></CategorySingleImg>)
+                                    }
+                                </Grid>
+                            })
+                        }
+
+                    </Grid>
+                    {/* <Grid container spacing={2}> */}
+                    {
+                        // [1, 2, 3, 4].map((element, i) => {
+                        //     const len = data.photos?.length / 4;
+
+                        //     return <CategoryLayout key={i} photos={data.photos?.slice(len * i, len * element)}>
+
+                        //     </CategoryLayout>
+                        // })
                     }
 
-                </Grid>
+                    {/* </Grid> */}
+                    <div className="gallery-wrap">
+                        {/* {
+                            data.photos.map(res => <div key={res} >
+                                <CategorySingleImg url={res}></CategorySingleImg>
+                            </div>)
+                        } */}
+                    </div>
+                    <div ref={gallery} className='absolute left-0 top-0 p-16 rounded-full cursor-none gallery-overlay bg-red-400'>
+
+                    </div>
+                </div>
             </Container>
             {/* */}
         </motion.div >

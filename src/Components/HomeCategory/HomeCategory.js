@@ -20,9 +20,7 @@ const HomeCategory = () => {
         let x = e.clientX - container.current.getBoundingClientRect().left
         let y = e.clientY - container.current.getBoundingClientRect().top
         canvasRef.current.style.transform = `translate3d(-${x / 1.5}px,-${y * 2}px,0px) scaleX(1) `;
-        // allImages.forEach(ele => {
-        //     ele.style.transform = `translate3d(-${x / 25}px,-${y / 25}px,0px) `
-        // })
+        // 
         e.stopPropagation();
 
     }
@@ -30,14 +28,12 @@ const HomeCategory = () => {
         let x = 500
         let y = 500
         canvasRef.current.style.transform = `translate3d(-${x}px,-${y}px,0px) scaleX(1) `;
-        allImages.forEach(ele => {
-            ele.style.transform = `translate3d(-${x / 25}px,-${y / 10}px,0px) `
-        })
+        // 
         e.stopPropagation();
 
     }
     return (
-        <div onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} ref={container} className='overflow-hidden   relative h-screen w-full  '>
+        <div onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} ref={container} className='overflow-hidden   relative h-screen w-full   '>
             <div ref={canvasRef} className='canvas '>
                 <Grid container spacing={15} >
 
@@ -66,8 +62,8 @@ const HomeCategory = () => {
             </div>
             <div className='absolute pointer-events-none font-semibold	 flex justify-center items-center font-sans inset-0 capitalize font-family-roboto font-lighter'>
                 <div className='text-center'>
-                    <h2 className='text-4xl '>Photo Collection </h2>
-                    <h2 className='text-4xl '>After traveling many Country I Found this </h2>
+                    <h2 className='text-4xl font-family-allerta '>Photo Collection </h2>
+                    <h2 className='text-4xl font-family-allerta '>After traveling many Country I Found this </h2>
                     <h2 className='text-xl mt-3 pb-2 inline-block border-b-2 '> Watch more {'->'}</h2>
                 </div>
 

@@ -10,11 +10,3 @@
     transition: all 1.4s ease-out;
     backface-visibility: hidden
 }
-
-.js {
-    will-change: transform;
-    transform: translate3d(10px, 10px, 0px);
-    transform-style: preserve-3d;
-    transition: all 1.4s ease-out, ;
-    backface-visibility: hidden
-}
