@@ -1,28 +1,41 @@
-import { Grid } from '@mui/material';
+import { Grid, LinearProgress } from '@mui/material';
 import { Box } from '@mui/system';
 import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { allData } from '../../dataSlice/dataSlice';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import HeadingText from './HeadingText';
 import MiddleContent from './MiddleContent';
+import RightContent from './RightContent';
 
 const AboutMe = () => {
     const { scrollValue, homeCategory } = useSelector(allData)
-    const [value, setValue] = useState(true);
+    const [value, setValue] = useState({ content1: true, content2: false, content3: false, content4: false });
 
     const eleRef = useRef()
     const container = useRef()
     useEffect(() => {
+        const currentValue = scrollValue.toFixed(1)
 
-
-        if (scrollValue > 1.5) {
+        if (currentValue > 1.8) {
             // console.log();
-            setValue(true)
+            setValue({ content1: false, content2: false, content3: false, content4: true })
+        }
+        else if (currentValue > 1.6) {
+            setValue({ content1: false, content2: false, content3: true, content4: false })
+
+        }
+        else if (currentValue > 1.4) {
+            setValue({ content1: false, content2: true, content3: false, content4: false })
+
+        }
+        else if (currentValue > 1.2) {
+            setValue({ content1: true, content2: false, content3: false, content4: false })
         }
         else {
-            setValue(false);
+            setValue({ content1: true, content2: false, content3: false, content4: false })
+
         }
     }, [scrollValue])
     const handleMouseMove = e => {
@@ -46,95 +59,122 @@ const AboutMe = () => {
         e.stopPropagation();
     }
     return (
-        <div ref={container} onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} onMouseMove={handleMouseMove} className=' py-14 relative  px-2'>
-            <Grid container spacing={2}>
-                {/* left  */}
-                <Grid item xs={6}>
-                    <div className='flex flex-col items-between justify-between h-'>
-                        <div className='h-40 overflow-hidden'>
-                            <HeadingText title1='Nikon' title2='Photographer' isVisible={value}></HeadingText>
-                            <HeadingText title1='Website' title2='Designer' isVisible={!value}></HeadingText>
+        <div ref={container} className=' py-14 relative  px-2 h-screen'>
+            <Grid container spacing={4} className='h-full'>
+                <Grid item md={6} xs={12} className='h-full'>
+                    <div className='h-full flex items-center'>
+                        <div>
+                            <div className=' h-14 overflow-hidden'>
+
+                                <HeadingText title='Nikon Photographer' isVisible={value.content1}></HeadingText>
+                                <HeadingText title='Web designer' isVisible={value.content2}></HeadingText>
+                                <HeadingText title='Film Maker' isVisible={value.content3}></HeadingText>
+                                <HeadingText title='Curious  Traveler' isVisible={value.content4}></HeadingText>
+                            </div>
+                            <div className='h-28 mt-5 overflow-hidden'>
+                                <MiddleContent
+                                    isVisible={value.content1}
+                                    text='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores nihil earum consectetur ipsum, nobis deserunt blanditiis dolorem? Obcaecati in accusantium facere blanditiis, praesentium ab maiores tempore nam amet ipsam explicabo.'
+
+
+                                ></MiddleContent>
+                                <MiddleContent
+                                    isVisible={value.content2}
+                                    text='hi arum consectetur ipsum, nobis deserunt blanditiis dolorem? Obcaecati in accusantium facere blanditiis, praesentium ab maiores tempore nam amet ipsam explicabo.'
+
+
+                                ></MiddleContent>
+                                <MiddleContent
+                                    isVisible={value.content3}
+                                    text='A filmmaker is in charge of making, leading, and developing movie productions. It is a career that allows an individual to use their leadership as well as creative thinking skills to lead and direct major motion pictures or made-for-television films.
+                                    '
+                                ></MiddleContent>
+                                <MiddleContent
+                                    isVisible={value.content4}
+                                    text='Travel is the movement of people between distant geographical locations. Travel can be done by foot, bicycle, automobile, train, boat, bus, airplane, ship or other means, with or without luggage, and can be one way or round trip
+                                    '
+                                ></MiddleContent>
+
+                            </div>
+
+
+
+                            <div className='inline-block  text-xl border-b-2 border-yellow-300' >
+                                watch Collection {"->"}
+                            </div>
                         </div>
-                        <div >
-                            <MiddleContent
-                                isVisible={value}
-                                url='https://i.ibb.co/BtbKgFL/20190320-WEST-AFRICA-FROM-GUNJUR-TO-BASSE-2964-2.jpg'
-                                text='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores nihil earum consectetur ipsum, nobis deserunt blanditiis dolorem? Obcaecati in accusantium facere blanditiis, praesentium ab maiores tempore nam amet ipsam explicabo.'
 
-
-                            ></MiddleContent>
-                            <MiddleContent
-                                isVisible={!value}
-                                url='https://i.ibb.co/mFRGKVP/photo-1605379399642-870262d3d051-1.jpg'
-                                text='Web design encompasses many different skills and disciplines in the production and maintenance of websites. The different areas of web design include web graphic design; user interface design;'
-
-
-                            ></MiddleContent>
-                        </div>
                     </div>
                 </Grid>
-                <Grid item xs={6}>
-                    {/* right  */}
-                    <div className='flex flex-col items-between justify-between h-full'>
-
-                        <MiddleContent
-                            isVisible={value}
-                            url='https://i.ibb.co/c3Q8XVV/20190320-SABATY-YAYA-BAYO-THE-DOCUMENTARY-008-1.jpg'
-                            text='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores nihil earum consectetur ipsum, nobis deserunt blanditiis dolorem? Obcaecati in accusantium facere blanditiis, praesentium ab maiores tempore nam amet ipsam explicabo.'
-                            right
-
-                        ></MiddleContent>
-                        <MiddleContent
-                            isVisible={!value}
-                            url='https://i.ibb.co/ByV09Fk/20191118-MOROCCO-DESERT-108-1-2-1.jpg'
-                            text='Travel is the movement of people between distant geographical locations. Travel can be done by foot, bicycle, automobile, train, boat, bus, airplane, ship or other means, with or without luggage, and can be one way or round trip'
-                            right
-
-                        ></MiddleContent>
-                        <div className='h-40 overflow-hidden'>
-                            <HeadingText title1='Film' title2='Maker' right isVisible={value}></HeadingText>
-                            <HeadingText title1='Curious ' title2='Traveler' right isVisible={!value}></HeadingText>
-                        </div>
+                <Grid item md={6} xs={12} className='h-full'>
+                    <div className='flex flex-col h-full  relative justify-center'>
+                        <RightContent isVisible={value.content1} url='https://i.ibb.co/BtbKgFL/20190320-WEST-AFRICA-FROM-GUNJUR-TO-BASSE-2964-2.jpg'></RightContent>
+                        <RightContent isVisible={value.content2} url='https://i.ibb.co/mFRGKVP/photo-1605379399642-870262d3d051-1.jpg'></RightContent>
+                        <RightContent isVisible={value.content3} url='https://i.ibb.co/c3Q8XVV/20190320-SABATY-YAYA-BAYO-THE-DOCUMENTARY-008-1.jpg'></RightContent>
+                        <RightContent isVisible={value.content4} url='https://i.ibb.co/ByV09Fk/20191118-MOROCCO-DESERT-108-1-2-1.jpg'></RightContent>
                     </div>
-                </Grid>
 
+                </Grid>
             </Grid>
+        </div>
+    )
 
-
-
-
-            <div ref={eleRef} className='absolute about-overlay  bg-white'>
-
-            </div>
-        </div >
-    );
 };
 
 export default AboutMe;
-{/* <Grid container spacing={2}>
-<Grid item xs={6} md={6}>
-    <Box
-        className="w-full bg-red-400 bg-cover bg-center grayscale"
-        sx={{
-            background: 'url(https://i.ibb.co/BtbKgFL/20190320-WEST-AFRICA-FROM-GUNJUR-TO-BASSE-2964-2.jpg)',
-            height: '60vh'
-        }}
 
-    >
-
-    </Box>
-</Grid>
-<Grid item xs={6} md={6}>
-    <div className='h-full px-10 bg-gray-900'>
-        <h1 className='text-2xl text-justify pt-5'>About Me</h1>
-        <hr className='w-10 mt-5' />
-        <p className='mt-5 text-sm'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod sit tempore repellat? Aliquid sequi laborum a dolore adipisci provident quam harum error deserunt consequuntur excepturi recusandae sint, similique doloremque voluptatum!</p>
-        <p className='mt-5 text-sm'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod sit tempore repellat? Aliquid sequi laborum a dolore adipisci provident quam harum error deserunt consequuntur excepturi recusandae sint, similique doloremque voluptatum!</p>
-        <button className='mt-5  border-b'>Hire me &gt;</button>
-
-    </div>
-</Grid>
+// return (
+//     <div ref={container} onMouseEnter={mouseEnter} onMouseLeave={mouseLeave} onMouseMove={handleMouseMove} className=' py-14 relative  px-2'>
+//         <Grid container spacing={2}>
+//             {/* left  */}
+//             <Grid item xs={6}>
+//                 <div className='flex flex-col items-between justify-between h-'>
+//                     <div className='h-40 overflow-hidden'>
+//                         <HeadingText title1='Nikon' title2='Photographer' isVisible={value}></HeadingText>
+//                     </div>
+//                     <div >
+//                         <MiddleContent
+//                             isVisible={value}
+//                             url='https://i.ibb.co/BtbKgFL/20190320-WEST-AFRICA-FROM-GUNJUR-TO-BASSE-2964-2.jpg'
+//                             text='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores nihil earum consectetur ipsum, nobis deserunt blanditiis dolorem? Obcaecati in accusantium facere blanditiis, praesentium ab maiores tempore nam amet ipsam explicabo.'
 
 
+//                         ></MiddleContent>
+//                     </div>
+//                 </div>
+//             </Grid>
+//             <Grid item xs={6}>
+//                 {/* right  */}
+//                 <div className='flex flex-col items-between justify-between h-full'>
 
-</Grid> */}
+//                     <MiddleContent
+//                         isVisible={value}
+//                         url='https://i.ibb.co/c3Q8XVV/20190320-SABATY-YAYA-BAYO-THE-DOCUMENTARY-008-1.jpg'
+//                         text='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores nihil earum consectetur ipsum, nobis deserunt blanditiis dolorem? Obcaecati in accusantium facere blanditiis, praesentium ab maiores tempore nam amet ipsam explicabo.'
+//                         right
+
+//                     ></MiddleContent>
+//                     <MiddleContent
+//                         isVisible={!value}
+//                         url='https://i.ibb.co/ByV09Fk/20191118-MOROCCO-DESERT-108-1-2-1.jpg'
+//                         text='Travel is the movement of people between distant geographical locations. Travel can be done by foot, bicycle, automobile, train, boat, bus, airplane, ship or other means, with or without luggage, and can be one way or round trip'
+//                         right
+
+//                     ></MiddleContent>
+//                     <div className='h-40 overflow-hidden'>
+//                         <HeadingText title1='Film' title2='Maker' right isVisible={value}></HeadingText>
+//                         <HeadingText title1='Curious ' title2='Traveler' right isVisible={!value}></HeadingText>
+//                     </div>
+//                 </div>
+//             </Grid>
+
+//         </Grid>
+
+
+
+
+//         <div ref={eleRef} className='absolute about-overlay  bg-white'>
+
+//         </div>
+//     </div >
+// );

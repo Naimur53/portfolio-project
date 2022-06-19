@@ -12,17 +12,18 @@ const MiddleContent = ({ isVisible, invert, url, text, right }) => {
         animate: {
             // x: 0,
             opacity: 1,
-            transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.75, }
+            transition: { delay: .4, ease: [0.455, 0.03, 0.515, 0.955], duration: 0.75, }
         },
     }
     const textPop = {
         initial: {
             opacity: 0,
-            x: 50
+            x: 50,
         },
         animate: {
             opacity: 1,
-            y: 0
+            y: 0,
+
         }
     }
     const sentence = {
@@ -47,26 +48,10 @@ const MiddleContent = ({ isVisible, invert, url, text, right }) => {
                     className='text-gray-400'
                     animate='animate'
                 >
-                    <div className={right ? 'text-right flex flex-col items-end' : ''}>
+                    <div  >
                         {
-                            right && <div className='pt-5 pb-8'>
+                            <div className=''>
                                 <motion.p
-                                    className='about-text  '
-                                    variants={sentence}
-                                >
-                                    {
-                                        text.split(' ').map((single, i) => <motion.span key={i} variants={textPop} > {" " + single}</motion.span>)
-                                    }
-                                </motion.p>
-                            </div>
-                        }
-                        <motion.div variants={popIn}>
-                            <Image width={400} height={400} layout='raw' className={invert && "john-1"} priority src={url} alt='photo of Jonh'></Image>
-                        </motion.div>
-                        {
-                            !right && <div className='py-10'>
-                                <motion.p
-                                    className='about-text  '
                                     variants={sentence}
                                 >
                                     {

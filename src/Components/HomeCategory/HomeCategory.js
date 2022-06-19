@@ -9,6 +9,7 @@ import HomeCategoryImg from './HomeCategoryImg';
 
 const HomeCategory = () => {
     const [allImages, setAllImages] = useState([]);
+    const [mp, setMp] = useState({ x: 0, y: 0 })
     useEffect(() => {
 
         setAllImages(document.querySelectorAll('.js'))
@@ -19,47 +20,51 @@ const HomeCategory = () => {
     const handleMouseMove = e => {
         let x = e.clientX - container.current.getBoundingClientRect().left
         let y = e.clientY - container.current.getBoundingClientRect().top
-        canvasRef.current.style.transform = `translate3d(-${x / 1.5}px,-${y * 2}px,0px) scaleX(1) `;
+        setMp({ x: -(x / 1.5), y: -(y * 2) });
+        // canvasRef.current.style.transform = `translate3d(-${x / 1.5}px,-${y * 2}px,0px) scaleX(1) `;
         // 
         e.stopPropagation();
 
     }
     const handleMouseLeave = e => {
-        let x = 500
-        let y = 500
-        canvasRef.current.style.transform = `translate3d(-${x}px,-${y}px,0px) scaleX(1) `;
-        // 
-        e.stopPropagation();
+        // let x = 500
+        // let y = 500
+        // canvasRef.current.style.transform = `translate3d(-${x}px,-${y}px,0px) scaleX(1) `;
+        // // 
+        // e.stopPropagation();
 
     }
     return (
         <div onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} ref={container} className='overflow-hidden   relative h-screen w-full   '>
-            <div ref={canvasRef} className='canvas '>
+            <motion.div ref={canvasRef} animate={{
+                x: mp.x,
+                y: mp.y
+            }} className='canvas '>
                 <Grid container spacing={15} >
 
                     <Grid item md={3} className="column one">
                         {
-                            homeCategory.slice(0, 5)?.map((single, i) => <HomeCategoryImg {...single} key={single.thumbnail}></HomeCategoryImg>)
+                            homeCategory.slice(0, 5)?.map((single, i) => <HomeCategoryImg mp={mp} {...single} key={single.thumbnail}></HomeCategoryImg>)
                         }
                     </Grid>
                     <Grid item md={3} className="column tow">
                         {
-                            homeCategory.slice(5, 10)?.map(single => <HomeCategoryImg {...single} key={single.thumbnail}></HomeCategoryImg>)
+                            homeCategory.slice(5, 10)?.map(single => <HomeCategoryImg mp={mp}  {...single} key={single.thumbnail}></HomeCategoryImg>)
                         }
                     </Grid>
                     <Grid item md={3} className="column there">
                         {
-                            homeCategory.slice(10, 15)?.map(single => <HomeCategoryImg {...single} key={single.thumbnail}></HomeCategoryImg>)
+                            homeCategory.slice(10, 15)?.map(single => <HomeCategoryImg mp={mp}  {...single} key={single.thumbnail}></HomeCategoryImg>)
                         }
                     </Grid>
                     <Grid item md={3} className="column four">
                         {
-                            homeCategory.slice(15, 20)?.map(single => <HomeCategoryImg {...single} key={single.thumbnail}></HomeCategoryImg>)
+                            homeCategory.slice(15, 20)?.map(single => <HomeCategoryImg mp={mp}  {...single} key={single.thumbnail}></HomeCategoryImg>)
                         }
                     </Grid>
                 </Grid>
 
-            </div>
+            </motion.div>
             <div className='absolute pointer-events-none font-semibold	 flex justify-center items-center font-sans inset-0 capitalize font-family-roboto font-lighter'>
                 <div className='text-center'>
                     <h2 className='text-4xl font-family-allerta '>Photo Collection </h2>

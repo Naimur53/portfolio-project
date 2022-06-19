@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import React from 'react';
 
-const HeadingText = ({ isVisible, title1, title2, right }) => {
+const HeadingText = ({ isVisible, title }) => {
     const twing = {
         initial: {
             y: 300,
@@ -10,8 +10,7 @@ const HeadingText = ({ isVisible, title1, title2, right }) => {
 
         animate: {
             y: 0,
-            opacity: 1,
-            transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.75 }
+            transition: { delay: .4, ease: [0.455, 0.03, 0.515, 0.955], duration: 0.75 }
 
         },
     }
@@ -28,43 +27,25 @@ const HeadingText = ({ isVisible, title1, title2, right }) => {
         }
     }
     return (
-        <AnimatePresence initial={false}>
+        <AnimatePresence initial={true}>
             {isVisible && (
                 <motion.div
                     key="modal"
                     initial='initial'
                     animate='animate'
+                    exit='initial'
                     variants={main}
                     className='font-family-roboto font-bold'
                 >
-                    {
-                        right ? <div className='flex justify-end'>
 
-                            <div className=' '>
-                                <div className='overflow-hidden  h-16'>
-                                    <motion.h2 variants={twing} className='text-5xl m-0'>
-                                        {title1}
-                                    </motion.h2>
-                                </div>
-                                <div className='overflow-hidden   h-16'>
-                                    <motion.h2 variants={twing} className='text-5xl m-0'>
-                                        {title2}
-                                    </motion.h2>
-                                </div>
-                            </div>
-                        </div> : <div className=' '>
-                            <div className='overflow-hidden  h-16'>
-                                <motion.h2 variants={twing} className='text-5xl m-0 '>
-                                    {title1}
-                                </motion.h2>
-                            </div>
-                            <div className='overflow-hidden   h-16'>
-                                <motion.h2 variants={twing} className='text-5xl m-0'>
-                                    {title2}
-                                </motion.h2>
-                            </div>
+                    <div className=' '>
+                        <div className='overflow-hidden font-family-allerta  h-16'>
+                            <motion.h2 variants={twing} className='text-5xl m-0'>
+                                {title}
+                            </motion.h2>
                         </div>
-                    } </motion.div>
+                    </div>
+                </motion.div>
             )}
         </AnimatePresence>
     );

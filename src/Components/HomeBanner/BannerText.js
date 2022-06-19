@@ -44,7 +44,7 @@ const popIn = {
 }
 const BannerText = () => {
     return (
-        <motion.div initial='initial' animate='animate' className=' font-bold' exit={{ opacity: 0 }}>
+        <motion.div initial='initial' animate='animate' className='font-family-allerta  font-bold' exit={{ opacity: 0 }}>
             <motion.div variants={stagger} >
                 {/* <div className='text-8xl overflow-hidden'>
                     {
@@ -66,7 +66,7 @@ const BannerText = () => {
                         }
                     </div>
                 </div> */}
-                <div className='text-6xl block overflow-hidden' >
+                <div className='text-6xl block overflow-hidden ' >
                     <motion.div variants={twing}>
 
                         Hi
