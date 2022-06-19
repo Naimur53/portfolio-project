@@ -12,6 +12,7 @@ import Router from "next/router";
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from 'react';
 import { CircularProgress } from '@mui/material';
+import LoadingSection from '../src/Components/LoadingSection/LoadingSection'
 
 function MyApp({ Component, pageProps, router }) {
 
@@ -36,14 +37,12 @@ function MyApp({ Component, pageProps, router }) {
     };
   }, []);
   return <Layout>
+    {
+      !Component.Layout && <LoadingSection isVisible={loading}></LoadingSection>
+
+    }
     <AnimatePresence exitBeforeEnter>
       <Component {...pageProps} key={router.route} />
-      {
-        loading && <div className='backdrop-blur z-20 bg-transparent absolute inset-0 flex justify-center items-center'>
-          <CircularProgress color="inherit"></CircularProgress>
-
-        </div>
-      }
       <ToastContainer theme="dark" />
     </AnimatePresence>
   </Layout>

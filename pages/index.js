@@ -11,6 +11,8 @@ import CheckBanner from "../src/Components/HomeBanner/CheckBanner";
 import Image from "next/image";
 import AboutMe from "../src/Components/AboutMe/AboutMe";
 import HomeBlog from "../src/Components/HomeBlog/HomeBlog";
+import ContactMe from "../src/Components/ContactMe/ContactMe";
+import HomeTextSection from "../src/Components/HomeTextSection/HomeTextSection";
 
 
 export default function Home() {
@@ -30,26 +32,22 @@ export default function Home() {
     }
   })
   return (
-    <Parallax ref={parallaxRef} pages={10}>
+    <Parallax ref={parallaxRef} pages={9}>
       <ParallaxLayer
         offset={0}
-        speed={.5}
-        factor={1} >
+        speed={.5}  >
         <HomeBanner></HomeBanner>
       </ParallaxLayer>
-      {/* <ParallaxLayer
-        offset={1}
-        speed={5}
-        translateX={['-400px', '0px']}
-
-        factor={1} >
-        <div className="w-52 h-52 rounded-full bg-red-900">
-        </div>
-      </ParallaxLayer> */}
       <ParallaxLayer
         offset={1}
         speed={.5}
-        sticky={{ start: 1, end: 2 }}
+        factor={1} >
+        <HomeTextSection></HomeTextSection>
+      </ParallaxLayer>
+      <ParallaxLayer
+        offset={2}
+        speed={.5}
+        sticky={{ start: 2, end: 3 }}
         factor={1} >
         <Container className="">
 
@@ -57,17 +55,8 @@ export default function Home() {
         </Container>
       </ParallaxLayer>
 
-      {/* <ParallaxLayer
-        sticky={{ start: 2, end: 3 }}
-        style={{ display: 'flex', width: '50%', alignItems: 'center', justifyContent: 'center' }}>
-        <div className="bg-green-400">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Delectus, dolorum vitae magnam veniam exercitationem soluta ut doloremque animi molestiae officiis consequatur tempora earum maxime! Necessitatibus repellat temporibus officiis nihil a!
-
-        </div>
-      </ParallaxLayer> */}
-
       <ParallaxLayer
-        offset={3}
+        offset={4}
         factor={1.3}
         speed={.5}
       >
@@ -75,9 +64,9 @@ export default function Home() {
       </ParallaxLayer>
 
       <ParallaxLayer
-        offset={4}
+        offset={5}
         speed={5}
-        sticky={{ start: 4, end: 6 }}
+        sticky={{ start: 5, end: 7 }}
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -91,34 +80,15 @@ export default function Home() {
       </ParallaxLayer>
 
       <ParallaxLayer
-        offset={7}
+        offset={8}
         speed={.5}
         style={{
           display: 'flex',
           justifyContent: 'center',
-          color: 'white',
+          alignItems: 'center'
         }}>
-        <p className="text-xl mr-4">Scroll up6</p>
+        <ContactMe></ContactMe>
       </ParallaxLayer>
-
-
-
-      {/* <ParallaxProvider pages={2}>
-        <Parallax speed={-5} >
-          <div className="slow bg-green-400 h-screen"  > slow</div>
-        </Parallax>
-        <Parallax speed={150} translateX={['-400px', '0px']}
-          scale={[0.75, 1]}
-          rotate={[-180, 0]}
-          easing="easeInQuad">
-          <div className="fast bg-red-400 h-screen"  > fast </div>
-        </Parallax>
-      </ParallaxProvider> */}
-      {/* <motion.div exit={{ opacity: 0 }}>
-        <HomeBanner></HomeBanner>
-        <HomeCategory></HomeCategory>
-
-      </motion.div> */}
     </Parallax >
   )
 }

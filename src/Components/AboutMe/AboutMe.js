@@ -18,19 +18,19 @@ const AboutMe = () => {
     useEffect(() => {
         const currentValue = scrollValue.toFixed(1)
 
-        if (currentValue > 1.8) {
+        if (currentValue > 2.8) {
             // console.log();
             setValue({ content1: false, content2: false, content3: false, content4: true })
         }
-        else if (currentValue > 1.6) {
+        else if (currentValue > 2.6) {
             setValue({ content1: false, content2: false, content3: true, content4: false })
 
         }
-        else if (currentValue > 1.4) {
+        else if (currentValue > 2.4) {
             setValue({ content1: false, content2: true, content3: false, content4: false })
 
         }
-        else if (currentValue > 1.2) {
+        else if (currentValue > 2.2) {
             setValue({ content1: true, content2: false, content3: false, content4: false })
         }
         else {
