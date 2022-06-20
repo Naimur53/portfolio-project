@@ -15,7 +15,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
-const pages = ['home', 'dashboard', 'blogs'];
+const pages = ['home', 'aboutme', 'dashboard', 'blogs',];
 const TopBar = () => {
     const [anchorElNav, setAnchorElNav] = useState(null);
     const [anchorElUser, setAnchorElUser] = useState(null);
@@ -143,14 +143,17 @@ const TopBar = () => {
                                 {pages.map((page) => (
                                     <motion.div key={page} variants={fadeInUp}
                                     >
-                                        <Button
+                                        <Link href={page == 'home' ? '/' : '/' + page}>
+                                            <Button
 
-                                            onClick={handleCloseNavMenu}
-                                            sx={{ my: 2, color: 'white', display: 'block' }}
-                                        >
+                                                onClick={handleCloseNavMenu}
+                                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                            >
+                                                {page}
 
-                                            <Link href={page == 'home' ? '/' : '/' + page}>{page}</Link>
-                                        </Button>
+                                            </Button>
+                                        </Link>
+
                                     </motion.div>
                                 ))}
                             </motion.div>

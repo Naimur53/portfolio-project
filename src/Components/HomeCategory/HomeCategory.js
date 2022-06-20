@@ -38,7 +38,8 @@ const HomeCategory = () => {
         <div onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} ref={container} className='overflow-hidden   relative h-screen w-full   '>
             <motion.div ref={canvasRef} animate={{
                 x: mp.x,
-                y: mp.y
+                y: mp.y,
+                transition: { ease: "easeOut", duration: 1 }
             }} className='canvas '>
                 <Grid container spacing={15} >
 

@@ -5,9 +5,10 @@ import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { allData } from '../../dataSlice/dataSlice';
+import BlogImageSingle from './BlogImageSingle';
 
 const HomeBlogImages = () => {
-    const { scrollValue, homeCategory } = useSelector(allData);
+    const { scrollValue, } = useSelector(allData);
     const [blogs, setBlogs] = useState([])
     const [loading, setLoading] = useState(true);
 
@@ -16,8 +17,8 @@ const HomeBlogImages = () => {
     useEffect(() => {
         if (!loading) {
 
-            wrapper.current.style.transform = `translate3d(0px, -${(scrollValue - 3) * 400}px, 0px)`
-            wrapper2.current.style.transform = `translate3d(0px, ${(scrollValue - 3) * 350}px, 0px)`
+            wrapper.current.style.transform = `translate3d(0px, -${(scrollValue - 3) * 300}px, 0px)`
+            wrapper2.current.style.transform = `translate3d(0px, ${(scrollValue - 3) * 300}px, 0px)`
         }
 
     }, [scrollValue])
@@ -40,18 +41,7 @@ const HomeBlogImages = () => {
                 <Grid item className='h-full' xs={6}>
                     <div ref={wrapper} className='blog-wrap  cursor-pointer'>
                         {
-                            blogs.slice(0, 5).map((single, i) => <Link href={'/blogs/' + single._id} key={i}>
-                                <div className='  pb-10 '>
-
-                                    <Image className='rounded-xl  ' src={single.img} width={400} height={500} alt='Blog Image'></Image>
-                                    <div >
-                                        <p className=' '>
-                                            {single.heading.slice(0, 35)}
-                                        </p>
-
-                                    </div>
-                                </div>
-                            </Link>
+                            blogs.slice(0, 5).map((single, i) => <BlogImageSingle key={i} {...single}></BlogImageSingle>
                             )
                         }
                     </div>
@@ -59,18 +49,7 @@ const HomeBlogImages = () => {
                 <Grid item xs={6} className=' h-full relative'>
                     <div ref={wrapper2} className='blog-wrap  cursor-pointer absolute second'>
                         {
-                            blogs.slice(0, 10).map((single, i) => <Link href={'/blogs/' + single._id} key={i}>
-                                <div className='  pb-10  '>
-
-                                    <Image className='rounded-xl  ' src={single.img} width={400} height={500} alt='Blog Image'></Image>
-                                    <div >
-                                        <p className=' '>
-                                            {single.heading.slice(0, 35)}
-                                        </p>
-
-                                    </div>
-                                </div>
-                            </Link>
+                            blogs.slice(0, 10).map((single, i) => <BlogImageSingle key={i} {...single}></BlogImageSingle>
                             )
                         }
                     </div>

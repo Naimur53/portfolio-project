@@ -10,9 +10,14 @@ const HomeCategoryImg = ({ mp, title, thumbnail, _id }) => {
         <Link href={'/category/' + _id} className='overflow-hidden block text-gray-50 transition duration-300 brightness-50 hover:no-underline no-underline hover:brightness-100 grayscale hover:grayscale-0  pb-20 w-full relative'>
             <div className='w-full h-full'>
                 <motion.div
+                    initial={{
+                        x: 0,
+                        y: 0,
+                    }}
                     animate={{
                         x: mp.x / 20,
                         y: mp.y / 20,
+                        transition: { ease: "easeOut", duration: 5 }
                     }}
                 >
                     <Image priority width={200} height={200} layout={'raw'} src={thumbnail} className=' block w-full ' alt='Image' ></Image>
