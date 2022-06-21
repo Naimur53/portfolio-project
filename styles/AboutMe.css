@@ -13,3 +13,7 @@
 .john-1 {
     filter: invert(1);
 }
+
+.shadow-overlay {
+    box-shadow: 27px 0px 36px 35px black;
+}
