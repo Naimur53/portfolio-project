@@ -45,7 +45,6 @@ const MiddleContent = ({ isVisible, text }) => {
                 <motion.div
                     key="modal"
                     initial='initial'
-                    className='text-gray-400'
                     animate='animate'
                 >
                     <div  >

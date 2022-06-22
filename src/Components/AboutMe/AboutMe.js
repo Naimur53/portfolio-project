@@ -11,34 +11,39 @@ import RightContent from './RightContent';
 
 const AboutMe = () => {
     const { scrollValue, homeCategory } = useSelector(allData)
-    const [value, setValue] = useState({ content1: true, content2: false, content3: false, content4: false });
+    const [value, setValue] = useState({ content1: true, content2: false, content3: false, content4: false, content5: false, content6: false });
+    const [progress, setProgress] = useState(0)
 
     const eleRef = useRef()
     const container = useRef()
+    const currentValue = scrollValue.toFixed(1)
     useEffect(() => {
-        const currentValue = scrollValue.toFixed(1)
         console.log(currentValue);
-
-        if (currentValue > 2.6) {
-            // console.log();
-
+        if (currentValue > 2.8) {
+            setValue({ content5: true, content6: true })
+        }
+        else if (currentValue > 2.6) {
+            setValue({ content5: true })
         }
         else if (currentValue > 2.4) {
-            setValue({ content1: false, content2: false, content3: false, content4: true })
+            setValue({ content4: true })
+            setProgress(100)
 
         }
         else if (currentValue > 2.2) {
+            setProgress(60)
 
-            setValue({ content1: false, content2: false, content3: true, content4: false })
+            setValue({ content3: true, })
         }
         else if (currentValue > 2) {
-            setValue({ content1: false, content2: true, content3: false, content4: false })
+            setProgress(30)
+            setValue({ content2: true, })
         }
         else {
-            setValue({ content1: true, content2: false, content3: false, content4: false })
-
+            setProgress(0)
+            setValue({ content1: true, })
         }
-    }, [scrollValue])
+    }, [currentValue])
     const handleMouseMove = e => {
         let x = e.clientX - container.current.getBoundingClientRect().left
         eleRef.current.style.left = ` ${x}px`;
@@ -59,8 +64,20 @@ const AboutMe = () => {
         // eleRef.current.style.left = `100%`;
         e.stopPropagation();
     }
+    const last = {
+        initial: {
+            opacity: 0,
+            clipPath: 'circle(70.7% at 49% 100%)'
+        },
+        animate: {
+            opacity: 1,
+            clipPath: 'circle(100.1% at 50% 86%)',
+            transition: { delay: .3 }
+        }
+    }
     return (
         <div ref={container} className=' py-14 relative  px-2 h-screen'>
+
             <Grid container spacing={4} className='h-full'>
                 <Grid item md={6} xs={12} className='h-full'>
                     <div className='h-full flex items-center'>
@@ -72,7 +89,7 @@ const AboutMe = () => {
                                 <HeadingText title='Film Maker' isVisible={value.content3}></HeadingText>
                                 <HeadingText title='Curious  Traveler' isVisible={value.content4}></HeadingText>
                             </div>
-                            <div className='h-28 mt-5 overflow-hidden'>
+                            <div className='h-28 mt-5 text-gray-300 overflow-hidden'>
                                 <MiddleContent
                                     isVisible={value.content1}
                                     text='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores nihil earum consectetur ipsum, nobis deserunt blanditiis dolorem? Obcaecati in accusantium facere blanditiis, praesentium ab maiores tempore nam amet ipsam explicabo.'
@@ -100,14 +117,24 @@ const AboutMe = () => {
 
 
 
-                            <div className='inline-block  text-xl border-b-2 border-yellow-300' >
-                                watch Collection {"->"}
+                            <div className='flex justify-between items-center  text-xl  w-52' >
+                                <div className='pr-4'>
+                                    {
+                                        progress === 0 ? 1 : progress === 30 ? 2 : progress === 60 ? 3 : progress === 100 && 4
+                                    }
+                                </div>
+
+                                <LinearProgress className='w-full rounded-lg' variant="determinate" color='inherit' value={progress} />
+                                <div className='pl-4'>
+                                    4
+
+                                </div>
                             </div>
                         </div>
 
                     </div>
                 </Grid>
-                <Grid item md={6} xs={12} className='h-full'>
+                <Grid item md={6} xs={12} className='h-full '>
                     <div className='flex flex-col h-full  relative justify-center'>
                         <RightContent isVisible={value.content1} url='https://i.ibb.co/BtbKgFL/20190320-WEST-AFRICA-FROM-GUNJUR-TO-BASSE-2964-2.jpg'></RightContent>
                         <RightContent isVisible={value.content2} url='https://i.ibb.co/mFRGKVP/photo-1605379399642-870262d3d051-1.jpg'></RightContent>
@@ -117,6 +144,36 @@ const AboutMe = () => {
 
                 </Grid>
             </Grid>
+            <motion.div
+                initial='initial'
+                variants={last}
+                animate={value.content5 ? "animate" : 'initial'}
+                className='absolute bg-black  inset-0 py-10 '
+
+            >
+                <div className="flex items-center justify-center h-full">
+                    <div className='text-center flex flex-col justify-center items-center'>
+                        <div className="text-5xl font-family-allerta">
+                            <MiddleContent
+                                isVisible={value.content5}
+                                text=' May I also ask you to take the time.
+                            '
+
+
+                            ></MiddleContent>
+                        </div>
+                        <div className="text-xl text-gray-300 mt-5 w-1/2">
+                            <MiddleContent
+                                isVisible={value.content6}
+                                text=' I have taken the time to take my photos. I did it with passion and endless patience. May I also ask you to take the time to look at my work. Preferably not on your smart phone but if it can’t be otherwise … Try to become one with the image and feel what happened when I took the photo.
+                            '
+                            ></MiddleContent>
+                        </div>
+
+                    </div>
+                </div>
+
+            </motion.div>
         </div>
     )
 
