@@ -6,7 +6,7 @@ import { addBlogDetails, allData } from '../../src/dataSlice/dataSlice'
 import BlogRight from '../../src/Components/BlogRight/BlogRight';
 import { wrapper } from '../../src/store/store';
 import { useDispatch, useSelector } from 'react-redux';
-import { Head } from '../../src/Components/Head/Head';
+import Head from '../../src/Components/Head/Head';
 import BlogPageBanner from '../../src/Components/BlogPageBanner/BlogPageBanner';
 
 const SingleBlog = () => {
@@ -14,7 +14,7 @@ const SingleBlog = () => {
     const dispatch = useDispatch();
     return (
         <div >
-            <Head title={blogDetails.heading?.slice(0, 20)}></Head>
+            <Head title={blogDetails.heading?.slice(0, 20)} keywords={blogDetails.tags}></Head>
             <BlogPageBanner></BlogPageBanner>
             <Container maxWidth='lg' className='bg-transparent-black   py-10'>
                 <Grid container spacing={2}>

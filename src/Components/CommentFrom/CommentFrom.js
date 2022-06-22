@@ -72,7 +72,7 @@ const CommentFrom = () => {
                         user.email ? <button type='submit' className='bg-yellow-400 font-bold px-5 py-2 rounded-xl text-gray-900'>Submit Comment</button> : <button className='bg-yellow-400 font-bold px-5 py-2 rounded-xl text-gray-900'>First Login</button>
                     }
                     {
-                        user.email && <button onClick={() => logOut()} className='bg-red-500 font-bold px-5 py-2 rounded-xl text-gray-50'>LogOut</button>
+                        user.email && <button onClick={() => logOut()} className='bg-red-500 font-bold px-5 py-2 rounded-xl text-gray-50'>Logout</button>
                     }
                 </div>
 

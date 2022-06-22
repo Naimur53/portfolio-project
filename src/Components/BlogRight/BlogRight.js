@@ -10,8 +10,11 @@ import { useSelector } from "react-redux";
 import { allData } from "../../dataSlice/dataSlice";
 import CommentFrom from "../CommentFrom/CommentFrom";
 import ShareLove from "../ShareLove/ShareLove";
+import { useState } from "react";
 const BlogRight = () => {
     const { blogDetails } = useSelector(allData);
+    const [seeAll, setSeeAll] = useState(false)
+
     return (
         <div>
             <MainSection ></MainSection>
@@ -31,8 +34,11 @@ const BlogRight = () => {
             <div>
                 <h2 className="mb-10 mt-4 text-3xl font-light text-gray-400">{blogDetails.comments?.length} <span className="ml-2">COMMENTS:</span></h2>
                 {
-                    blogDetails.comments?.map((comment, i) => <Comments key={i} data={comment}></Comments>)
+                    seeAll ? blogDetails.comments?.map((comment, i) => <Comments key={i} data={comment}></Comments>) : blogDetails.comments?.slice(0, 3).map((comment, i) => <Comments key={i} data={comment}></Comments>)
                 }
+                <div className="flex justify-center py-5">
+                    <button className="p-2 px-5   text-black  bg-yellow-400" onClick={() => setSeeAll(!seeAll)}>{seeAll ? 'See less' : 'See All'}</button>
+                </div>
             </div>
             <>
                 <CommentFrom></CommentFrom>

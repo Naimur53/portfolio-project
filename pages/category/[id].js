@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Box, Container, Grid } from '@mui/material'
 import Image from 'next/image';
-import Head from 'next/head';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router'
 

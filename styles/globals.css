@@ -207,3 +207,27 @@ a {
 .dashboard-scrollBar::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+#demo-simple-select-standard-label {
+  color: red !important;
+}
+
+.css-hfutr2-MuiSvgIcon-root-MuiSelect-icon {
+  color: white;
+}
+
+.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+  color: white;
+}
+
+.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
+  outline-color: white !important;
+}
+
+#choose-category-label {
+  color: white !important;
+}
+
+.mgbutton {
+  background-image: linear-gradient(to right top, #fde440, #ffd07e, #ffcdc1, #ffdbf2, #ffedff, #f0f2ff, #e1f7ff, #dbfaff, #a6fefe, #6bffed, #2fffcb, #1dfd9b);
+}

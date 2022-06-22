@@ -1,5 +1,6 @@
 import { Container, Grid } from '@mui/material';
 import React from 'react';
+import MgButton from '../SmallComponents/MgButton';
 import HomeBlogImages from './HomeBlogImages';
 
 const HomeBlog = () => {
@@ -12,8 +13,8 @@ const HomeBlog = () => {
                         <p className='text-gray-300 mt-5   w-4/5'>
                             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt facilis odio voluptatibus, inventore, voluptatem odit non veniam qui, magnam distinctio aut! Laborum maiores quod soluta harum enim ducimus, alias molestias!
                         </p>
-                        <div className='inline-block my-5 text-xl border-b-2 border-yellow-300'  >
-                            lets go {"->"}
+                        <div className='inline-block my-5 text-xl '  >
+                            <MgButton text='Read my Blogs'> </MgButton>
                         </div>
 
                     </div>

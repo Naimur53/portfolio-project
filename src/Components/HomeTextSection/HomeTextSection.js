@@ -8,7 +8,6 @@ const HomeTextSection = () => {
     useEffect(() => {
         setValue(scrollValue.toFixed(2))
     }, [scrollValue])
-    console.log(value);
     return (
         <div className='h-full overflow-hidden   relative flex font-family-allerta justify-center items-center'>
             <h2 className='text-6xl text-center'>

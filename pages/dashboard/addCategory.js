@@ -8,12 +8,32 @@ import Image from "next/image";
 import AddAPhotoIcon from '@mui/icons-material/AddAPhoto';
 import { toast } from 'react-toastify';
 
-const AddCategory = () => {
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+const AddCategory = ({ uniqCategory }) => {
     const { register, handleSubmit, reset, setValue, watch, formState: { errors } } = useForm();
     const [thumbnailLoading, setThumbnailLoading] = useState(false);
     const [imgLoading, setImgLoading] = useState(false);
+    const [inputValue, setInputValue] = useState('');
     const onSubmit = data => {
-
+        if (inputValue === 'new' && uniqCategory.includes(data.categoryName)) {
+            toast.error('Choose a uniq category name', {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            });
+            return
+        }
+        if (inputValue === 'new') {
+            delete data.subCategory
+        }
+        console.log(data);
         if (!data.thumbnail) {
             toast.error('Thumbnail image not found', {
                 position: "bottom-right",
@@ -46,6 +66,17 @@ const AddCategory = () => {
             .then(res => {
                 console.log(res, 'success');
                 toast.success('Category successfully added', {
+                    position: "bottom-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            })
+            .catch(err => {
+                toast.error('Failed to add Category', {
                     position: "bottom-right",
                     autoClose: 5000,
                     hideProgressBar: false,
@@ -146,24 +177,61 @@ const AddCategory = () => {
         console.log(bgUrl.join(','));
         return bgUrl;
     }
+    const handleChange = (event) => {
+        const value = event.target.value
+        if (value === 'new') {
+            setValue('categoryName', '')
+        }
+        else {
+            setValue('categoryName', value)
+        }
+        setInputValue(value);
+    };
+
     return (
         <div>
-            <h2 className="text-xl my-5">Add a new category of your image</h2>
+            <h2 className="text-2xl capitalize text-center my-5">Add a new category of your image</h2>
             <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col  justify-center'>
 
 
 
                 <Grid container spacing={4}>
                     <Grid xs={12} md={6} item>
-
-                        <input className="w-full p-3 rounded-lg  bg-gray-900 placeholder:text-slate-400" placeholder="Category Name"  {...register("categoryName", { required: true })} />
+                        {
+                            inputValue !== 'new' ? <TextField
+                                label='Choose Category'
+                                id='choose-category'
+                                className='w-full bg-gray-900 placeholder:text-white text-white focus:border-white focus:outline-none'
+                                value={inputValue}
+                                select
+                                onChange={handleChange}
+                            >
+                                <MenuItem value='new'>
+                                    <em>Add new category</em>
+                                </MenuItem>
+                                {
+                                    uniqCategory.map(single => <MenuItem key={single} value={single} >{single}</MenuItem>)
+                                }
+                                {
+                                    uniqCategory.map(single => <MenuItem key={single} value={single} >{single}</MenuItem>)
+                                }
+                            </TextField> : <input className="w-full p-3 rounded-lg  bg-gray-900 placeholder:text-slate-400" placeholder="Category Name"  {...register("categoryName", { required: true })} />
+                        }
 
                     </Grid>
+
                     <Grid xs={12} md={6} item>
 
                         <input className="w-full p-3 rounded-lg  bg-gray-900 placeholder:text-slate-400" placeholder="Title"  {...register("title", { required: true })} />
 
                     </Grid>
+                    {
+                        inputValue !== 'new' && <Grid xs={12} md={12} item>
+
+                            <input className="w-full p-3 rounded-lg  bg-gray-900 placeholder:text-slate-400" placeholder="Sub Category name"  {...register("subCategory", { required: true })} />
+
+                        </Grid>
+                    }
                     <Grid xs={12} md={6} item>
                         <Box
                             className='h-40 bg-gray-900 bg-center bg-cover flex justify-center items-center'
@@ -231,13 +299,21 @@ const AddCategory = () => {
                     !imgLoading && !thumbnailLoading ? <div className="mt-5">
                         <input className="bg-yellow-400 px-4 rounded-md text-black p-2" type="submit" />
                     </div> : <div className="mt-5">
-                        <button className="bg-red-400 rounded-md text-black p-2"  >Loading Images</button>
+                        <span className="bg-red-400 rounded-md text-black p-2"  >Loading Images</span>
                     </div>
                 }
 
             </form>
-        </div>
+        </div >
     );
 };
 AddCategory.Layout = DashboardLayout;
 export default AddCategory;
+export async function getServerSideProps() {
+    // Fetch data from external API
+    const res = await fetch(`http://localhost:5000/uniqCategory`)
+    const data = await res.json()
+
+    // Pass data to the page via props
+    return { props: { uniqCategory: data } }
+}

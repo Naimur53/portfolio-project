@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import MgButton from '../SmallComponents/MgButton';
 let easing = [0.6, -0.05, 0.01, 0.99];
 
 const stagger = {
@@ -42,9 +43,19 @@ const popIn = {
         transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.75 }
     }
 }
+const smallToBig = {
+    initial: {
+        scaleY: 0,
+        transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.85 }
+    },
+    animate: {
+        scaleY: 1,
+        transition: { type: 'spring', duration: 0.85 }
+    }
+}
 const BannerText = () => {
     return (
-        <motion.div initial='initial' animate='animate' className='font-family-allerta  font-bold' exit={{ opacity: 0 }}>
+        <motion.div initial='initial' animate='animate' className='  font-bold' exit={{ opacity: 0 }}>
             <motion.div variants={stagger} >
                 {/* <div className='text-8xl overflow-hidden'>
                     {
@@ -82,11 +93,11 @@ const BannerText = () => {
 
                         am
                     </motion.div>
-                    <motion.div className='inline-block ml-3 text-yellow-400' variants={twing}>
+                    <motion.div className='inline-block font-family-allerta ml-3 text-yellow-400' variants={twing}>
 
                         John
                     </motion.div>
-                    <motion.div className='inline-block ml-3  text-yellow-400' variants={twing}>
+                    <motion.div className='inline-block ml-3 font-family-allerta  text-yellow-400' variants={twing}>
 
                         Baggen
                     </motion.div>
@@ -101,9 +112,9 @@ const BannerText = () => {
                     </motion.div>
 
                 </div>
-                <div className='mt-5 overflow-hidden'>
-                    <motion.div className='inline-block  text-xl border-b-2 border-yellow-300' variants={popIn}>
-                        lets go {"->"}
+                <div className='mt-5  '>
+                    <motion.div className='inline-block  text-xl  ' variants={smallToBig}>
+                        <MgButton text='Lets go'></MgButton>
                     </motion.div>
 
                 </div>

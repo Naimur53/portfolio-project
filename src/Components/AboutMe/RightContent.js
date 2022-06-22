@@ -9,7 +9,6 @@ const RightContent = ({ isVisible, url }) => {
             x: 200,
             transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.85 }
         },
-
         animate: {
             opacity: 1,
             x: 0,
@@ -44,7 +43,7 @@ const RightContent = ({ isVisible, url }) => {
                     >
 
                         <motion.div variants={twing} className=' '>
-                            <Image className='w-full  ' priority layout='raw' src={url} height={400} width={400} alt='photo'></Image>
+                            <Image className='w-full  invisible' priority layout='raw' src={url} height={400} width={400} alt='photo'></Image>
 
                         </motion.div>
                     </motion.div>

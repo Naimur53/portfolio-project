@@ -17,21 +17,22 @@ const AboutMe = () => {
     const container = useRef()
     useEffect(() => {
         const currentValue = scrollValue.toFixed(1)
+        console.log(currentValue);
 
-        if (currentValue > 2.8) {
+        if (currentValue > 2.6) {
             // console.log();
-            setValue({ content1: false, content2: false, content3: false, content4: true })
-        }
-        else if (currentValue > 2.6) {
-            setValue({ content1: false, content2: false, content3: true, content4: false })
 
         }
         else if (currentValue > 2.4) {
-            setValue({ content1: false, content2: true, content3: false, content4: false })
+            setValue({ content1: false, content2: false, content3: false, content4: true })
 
         }
         else if (currentValue > 2.2) {
-            setValue({ content1: true, content2: false, content3: false, content4: false })
+
+            setValue({ content1: false, content2: false, content3: true, content4: false })
+        }
+        else if (currentValue > 2) {
+            setValue({ content1: false, content2: true, content3: false, content4: false })
         }
         else {
             setValue({ content1: true, content2: false, content3: false, content4: false })

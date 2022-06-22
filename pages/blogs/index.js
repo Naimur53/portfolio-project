@@ -3,7 +3,7 @@ import { Container, Grid } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import BlogLeft from '../../src/Components/BlogLeft/BlogLeft';
 import BlogCard from '../../src/Components/BlogCard/BlogCard';
-import { Head } from '../../src/Components/Head/Head';
+import Head from '../../src/Components/Head/Head';
 import BlogPageBanner from '../../src/Components/BlogPageBanner/BlogPageBanner';
 const Blogs = ({ blogs }) => {
     console.log(blogs);

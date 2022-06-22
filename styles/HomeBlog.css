@@ -15,3 +15,7 @@
     padding: 4px;
 
 }
+
+.description {
+    white-space: pre;
+}

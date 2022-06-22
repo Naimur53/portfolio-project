@@ -13,7 +13,7 @@ import AboutMe from "../src/Components/AboutMe/AboutMe";
 import HomeBlog from "../src/Components/HomeBlog/HomeBlog";
 import ContactMe from "../src/Components/ContactMe/ContactMe";
 import HomeTextSection from "../src/Components/HomeTextSection/HomeTextSection";
-
+import Head from '../src/Components/Head/Head'
 
 export default function Home() {
   const dispatch = useDispatch()
@@ -32,64 +32,69 @@ export default function Home() {
     }
   })
   return (
-    <Parallax ref={parallaxRef} pages={9}>
-      <ParallaxLayer
-        offset={0}
-        speed={.5}  >
-        <HomeBanner></HomeBanner>
-      </ParallaxLayer>
-      <ParallaxLayer
-        offset={1}
-        speed={.5}
-        factor={1} >
-        <HomeTextSection></HomeTextSection>
-      </ParallaxLayer>
-      <ParallaxLayer
-        offset={2}
-        speed={.5}
-        sticky={{ start: 2, end: 3 }}
-        factor={1} >
-        <Container className="">
+    <>
+      <Head
+        title="John Baggen"
+      ></Head>
+      <Parallax ref={parallaxRef} pages={9}>
+        <ParallaxLayer
+          offset={0}
+          speed={.5}  >
+          <HomeBanner></HomeBanner>
+        </ParallaxLayer>
+        <ParallaxLayer
+          offset={1}
+          speed={.5}
+          factor={1} >
+          <HomeTextSection></HomeTextSection>
+        </ParallaxLayer>
+        <ParallaxLayer
+          offset={2}
+          speed={.5}
+          sticky={{ start: 2, end: 3 }}
+          factor={1} >
+          <Container className="">
 
-          <AboutMe></AboutMe>
-        </Container>
-      </ParallaxLayer>
+            <AboutMe></AboutMe>
+          </Container>
+        </ParallaxLayer>
 
-      <ParallaxLayer
-        offset={4}
-        factor={1.3}
-        speed={.5}
-      >
-        <HomeCategory></HomeCategory>
-      </ParallaxLayer>
+        <ParallaxLayer
+          offset={4}
+          factor={1.3}
+          speed={.5}
+        >
+          <HomeCategory></HomeCategory>
+        </ParallaxLayer>
 
-      <ParallaxLayer
-        offset={5}
-        speed={5}
-        sticky={{ start: 5, end: 7 }}
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          color: 'white',
-        }}>
-        <HomeBlog></HomeBlog>
-        <div className=" overlay-wrap pointer-events-none absolute flex flex-col justify-between inset-0">
-          <div  ></div>
-          <div  ></div>
-        </div>
-      </ParallaxLayer>
+        <ParallaxLayer
+          offset={5}
+          speed={5}
+          sticky={{ start: 5, end: 7 }}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            color: 'white',
+          }}>
+          <HomeBlog></HomeBlog>
+          <div className=" overlay-wrap pointer-events-none absolute flex flex-col justify-between inset-0">
+            <div  ></div>
+            <div  ></div>
+          </div>
+        </ParallaxLayer>
 
-      <ParallaxLayer
-        offset={8}
-        speed={.5}
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center'
-        }}>
-        <ContactMe></ContactMe>
-      </ParallaxLayer>
-    </Parallax >
+        <ParallaxLayer
+          offset={8}
+          speed={.5}
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}>
+          <ContactMe></ContactMe>
+        </ParallaxLayer>
+      </Parallax >
+    </>
   )
 }
 // export async function getServerSideProps() {

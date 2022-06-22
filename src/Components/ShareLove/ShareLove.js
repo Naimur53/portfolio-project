@@ -43,7 +43,7 @@ const ShareLove = () => {
                         {
 
                             blogDetails.love?.filter(single => single.email === user.email).length ? <div className='flex'>
-                                <FavoriteIcon></FavoriteIcon>
+                                <FavoriteIcon sx={{ color: "yellow " }}></FavoriteIcon>
                                 <span className="ml-2 font-bold">{blogDetails?.love?.length}</span>
 
                             </div> : <div className='flex' onClick={handleLove}>

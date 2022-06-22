@@ -6,6 +6,7 @@ import { Container, Grid } from '@mui/material';
 import Image from 'next/image';
 import { forwardRef, useEffect, useRef, useState } from 'react';
 import HomeCategoryImg from './HomeCategoryImg';
+import MgButton from '../SmallComponents/MgButton';
 
 const HomeCategory = () => {
     const [allImages, setAllImages] = useState([]);
@@ -70,7 +71,9 @@ const HomeCategory = () => {
                 <div className='text-center'>
                     <h2 className='text-4xl font-family-allerta '>Photo Collection </h2>
                     <h2 className='text-4xl font-family-allerta '>After traveling many Country I Found this </h2>
-                    <h2 className='text-xl mt-3 pb-2 inline-block border-b-2 '> Watch more {'->'}</h2>
+                    <div className='flex justify-center mt-5 pointer-events-auto'>
+                        <MgButton text='Watch more'></MgButton>
+                    </div>
                 </div>
 
 
