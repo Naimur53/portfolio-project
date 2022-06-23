@@ -2,6 +2,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Grid } from '@mui/material';
 import axios from 'axios';
+import MgButton from '../SmallComponents/MgButton';
 
 const ContactForm = () => {
     const { register, unregister, handleSubmit, reset, setValue, watch, formState: { errors } } = useForm();
@@ -27,7 +28,8 @@ const ContactForm = () => {
                     </Grid>
                 </Grid>
                 <div className='flex justify-between'>
-                    <button type='submit' className='bg-yellow-400  font-bold px-5 py-2 rounded text-gray-900'>Submit </button>
+                    {/* <button type='submit' className='bg-yellow-400  font-bold px-5 py-2 rounded text-gray-900'>Submit </button> */}
+                    <MgButton text='Submit'></MgButton>
 
                 </div>
 

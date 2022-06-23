@@ -12,7 +12,7 @@ const ContactMe = () => {
                 </Grid>
                 <Grid item md={6} xs={12}>
                     <span>I would love to hear from you!</span>
-                    <h2 className='text-6xl my-5 font-family-allerta  text-yellow-400'>Contact Me</h2>
+                    <h2 className='text-6xl my-5 font-family-allerta font-bold  '>Contact Me</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore commodi laudantium sint quos autem voluptatum iste, eius illum a, excepturi dolorum velit dolores vitae, laborum molestiae dolore possimus natus ipsum?</p>
                     <p className='mt-5'>
                         sit amet consectetur adipisicing elit. Tempore commodi laudantium sint quos autem voluptatum iste, eius illum a, excepturi dolorum velit dolores vitae, laborum molestiae dolore possimus natus ipsum?
