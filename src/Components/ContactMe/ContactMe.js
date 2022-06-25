@@ -6,15 +6,15 @@ import ContactForm from './ContactForm';
 const ContactMe = () => {
     return (
         <Container className='py-5'>
-            <Grid container spacing={4}>
+            <Grid container spacing={4} className="md:flex-row flex-col-reverse">
                 <Grid item md={6} xs={12}>
                     <ContactForm></ContactForm>
                 </Grid>
-                <Grid item md={6} xs={12}>
-                    <span>I would love to hear from you!</span>
-                    <h2 className='text-6xl my-5 font-family-allerta font-bold  '>Contact Me</h2>
+                <Grid item md={6} xs={12} className='hi dden'>
+                    <span className=' block'>I would love to hear from you!</span>
+                    <h2 className='text-4xl md:text-6xl text-yellow-300 my-2 md:my-5 font-family-allerta    '>Contact Me</h2>
                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore commodi laudantium sint quos autem voluptatum iste, eius illum a, excepturi dolorum velit dolores vitae, laborum molestiae dolore possimus natus ipsum?</p>
-                    <p className='mt-5'>
+                    <p className='mt-5 hidden md:block'>
                         sit amet consectetur adipisicing elit. Tempore commodi laudantium sint quos autem voluptatum iste, eius illum a, excepturi dolorum velit dolores vitae, laborum molestiae dolore possimus natus ipsum?
                     </p>
 

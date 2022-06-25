@@ -41,25 +41,25 @@ const HomeCategory = () => {
                 x: mp.x,
                 y: mp.y,
                 transition: { ease: "easeOut", duration: 1 }
-            }} className='canvas '>
+            }} className='canvas canvas-animation'>
                 <Grid container spacing={15} >
 
-                    <Grid item md={3} className="column one">
+                    <Grid item xs={12} md={3} className="column one">
                         {
                             homeCategory.slice(0, 5)?.map((single, i) => <HomeCategoryImg mp={mp} {...single} key={single.thumbnail}></HomeCategoryImg>)
                         }
                     </Grid>
-                    <Grid item md={3} className="column tow">
+                    <Grid item xs={12} md={3} className="column tow">
                         {
                             homeCategory.slice(5, 10)?.map(single => <HomeCategoryImg mp={mp}  {...single} key={single.thumbnail}></HomeCategoryImg>)
                         }
                     </Grid>
-                    <Grid item md={3} className="column there">
+                    <Grid item xs={12} md={3} className="column there">
                         {
                             homeCategory.slice(10, 15)?.map(single => <HomeCategoryImg mp={mp}  {...single} key={single.thumbnail}></HomeCategoryImg>)
                         }
                     </Grid>
-                    <Grid item md={3} className="column four">
+                    <Grid item md={3} xs={12} className="column four">
                         {
                             homeCategory.slice(15, 20)?.map(single => <HomeCategoryImg mp={mp}  {...single} key={single.thumbnail}></HomeCategoryImg>)
                         }

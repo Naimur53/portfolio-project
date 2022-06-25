@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { allData } from '../../dataSlice/dataSlice';
 import BannerText from './BannerText';
 import CheckBanner from './CheckBanner';
-const HomeBanner = () => {
+const HomeBanner = ({ innerRoute }) => {
     const { scrollValue } = useSelector(allData)
     const [circle, setCircle] = useState([46, 76, 53])
 
@@ -29,13 +29,19 @@ const HomeBanner = () => {
         }
     }, [scrollValue])
     return (
-        <Box className='h-screen relative font-family-roboto'>
+        <Box className='h-full  relative font-family-roboto'>
             <Container sx={{ height: '100%', position: 'relative', overflow: 'hidden' }}>
                 <Grid container spacing={4} sx={{ height: '100%' }} alignItems='center'>
-                    <Grid item md={8} xs={12}  >
-                        <BannerText></BannerText>
+                    <Grid item md={8} xs={12} className='flex justify-center items-center md:h-full h-1/2  '  >
+                        <Box
+
+                            className='h-full flex  justify-center  items-center'
+                        >
+
+                            <BannerText innerRoute={innerRoute}></BannerText>
+                        </Box>
                     </Grid>
-                    <Grid sx={{ height: '100%' }} item md={4} xs={12}  >
+                    <Grid className='flex justify-center items-center md:h-full h-1/2  ' item md={4} xs={12}  >
                         <CheckBanner></CheckBanner>
                         {/* <Box
                             className='innerBanner'

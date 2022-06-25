@@ -10,3 +10,23 @@
     transition: all 1.4s ease-out;
     backface-visibility: hidden
 }
+
+@media only screen and (max-width: 600px) {
+    .canvas-animation {
+        animation: animateCanvas 20s ease-in 0s infinite alternate;
+
+    }
+
+    @keyframes animateCanvas {
+        0% {
+            transform: translateY(0%) translateX(-20%);
+
+        }
+
+        100% {
+            transform: translateY(-100%) translateX(-20%);
+
+
+        }
+    }
+}

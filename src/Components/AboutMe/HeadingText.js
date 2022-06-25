@@ -39,8 +39,8 @@ const HeadingText = ({ isVisible, title }) => {
                 >
 
                     <div className=' '>
-                        <div className='overflow-hidden font-family-allerta  h-16'>
-                            <motion.h2 variants={twing} className='text-5xl m-0'>
+                        <div className='overflow-hidden font-family-allerta  m:h-16 h-10 '>
+                            <motion.h2 variants={twing} className='text-3xl md:text-5xl m-0'>
                                 {title}
                             </motion.h2>
                         </div>

@@ -37,6 +37,8 @@ const CommentFrom = () => {
             })
         dispatch(addComments({ ...mainData, date: new Date() }))
 
+        axios.post('http://localhost:5000/sendMail', { ...user, comment, subject: `${user?.displayName} comment on your blog name ${blogDetails.heading}` })
+
         reset()
     }
     const handleClick = () => {

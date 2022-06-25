@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { Box } from '@mui/material';
 
 const CheckBanner = () => {
     const [letter, setLetter] = useState("J");
@@ -28,8 +29,8 @@ const CheckBanner = () => {
         transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: .75 }
     }
     return (
-        <motion.div animate={animate} initial={initial} exit={{ opacity: 0 }} className='flex justify-center h-full align-center'>
-            <span className='letter font-family-mono select-none opacity-animation' style={{ lineHeight: '1', fontSize: '600px', fontWeight: 'bold' }}>{letter}</span>
+        <motion.div animate={animate} initial={initial} exit={{ opacity: 0 }} className='flex justify-center h-md-full items-center '>
+            <Box className='letter  font-family-mono select-none  opacity-animation' sx={{ lineHeight: '1', fontSize: { md: '600px', xs: "340px" }, fontWeight: 'bold' }}>{letter}</Box>
         </motion.div>
     );
 };

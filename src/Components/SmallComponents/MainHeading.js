@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion'
 const MainHeading = ({ title }) => {
     return (
-        <div className='h-20   overflow-hidden'>
+        <div className='h-20  overflow-hidden'>
             <motion.h2
                 initial={{
                     y: "200%",

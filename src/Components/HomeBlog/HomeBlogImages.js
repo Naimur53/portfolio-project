@@ -15,10 +15,17 @@ const HomeBlogImages = () => {
     const wrapper = useRef();
     const wrapper2 = useRef();
     useEffect(() => {
-        if (!loading) {
 
-            wrapper.current.style.transform = `translate3d(0px, -${(scrollValue - 3) * 300}px, 0px)`
-            wrapper2.current.style.transform = `translate3d(0px, ${(scrollValue - 3) * 300}px, 0px)`
+        if (!loading) {
+            if (window.innerWidth <= 600) {
+                wrapper.current.style.transform = `translate3d(0px, -${(scrollValue - 4) * 300}px, 0px)`
+                wrapper2.current.style.transform = `translate3d(0px, ${(scrollValue - 4) * 200}px, 0px)`
+            } else {
+                wrapper.current.style.transform = `translate3d(0px, -${(scrollValue - 4) * 300}px, 0px)`
+                wrapper2.current.style.transform = `translate3d(0px, ${(scrollValue - 4) * 300}px, 0px)`
+            }
+
+
         }
 
     }, [scrollValue])

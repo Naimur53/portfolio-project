@@ -61,3 +61,13 @@
     width: 80vw;
     height: 95vh;
 }
+
+
+.category-card-img {
+    transition: .3s all ease;
+
+}
+
+.category-card-wrap:hover .category-card-img {
+    transform: scale(1.2);
+}

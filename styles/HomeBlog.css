@@ -19,3 +19,12 @@
 .description {
     white-space: pre;
 }
+
+.phone-shadow {
+    box-shadow: 10px 10px 17px 2px black;
+    margin-top: -10;
+}
+
+.phone-shadow2 {
+    box-shadow: 10px 10px 17px 2px black;
+}

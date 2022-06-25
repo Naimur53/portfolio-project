@@ -25,6 +25,7 @@ import useFirebase from "../hooks/useFirebase";
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import ControlPointDuplicateIcon from '@mui/icons-material/ControlPointDuplicate';
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
+import CategoryIcon from '@mui/icons-material/Category';
 import { useRouter } from "next/router";
 
 const DashboardLayout = ({ children, window }) => {
@@ -120,6 +121,22 @@ const DashboardLayout = ({ children, window }) => {
                                 <InboxIcon />
                             </ListItemIcon>
                             <h2>watch all blogs</h2>
+                        </ListItemButton>
+                    </Link>
+                </ListItem>
+                <ListItem disablePadding>
+                    <Link href="/dashboard/allCategory">
+
+                        <ListItemButton
+                            sx={{
+                                py: 2,
+                                background: router.pathname == "/dashboard/allCategory" ? "black" : ""
+                            }}
+                        >
+                            <ListItemIcon sx={{ m: 0, p: 0 }} className="ml-0 text-gray-50">
+                                <CategoryIcon />
+                            </ListItemIcon>
+                            <h2>All Category</h2>
                         </ListItemButton>
                     </Link>
                 </ListItem>

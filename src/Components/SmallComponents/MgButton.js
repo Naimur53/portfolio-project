@@ -1,10 +1,9 @@
 import React, { useRef, useState } from 'react';
 import { motion } from 'framer-motion';
-const MgButton = ({ text }) => {
+const MgButton = ({ text, buttonProps }) => {
     const container = useRef()
     const [mp, setMp] = useState({ x: 0, y: 0 })
     const handleMouseMove = (e) => {
-        console.log((container.current.offset + container.current.getBoundingClientRect().right) / 2);
         let x = e.clientX - container.current.getBoundingClientRect().left
         let y = e.clientY - container.current.getBoundingClientRect().top
         setMp({ x: (x / 5) - 12, y: (y / 3) - 10 });
@@ -48,9 +47,9 @@ const MgButton = ({ text }) => {
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
         >
-            <div className='p-4 border mgbutton text-black  rounded-full px-10'>
+            <div className='p-4 border mgbutton-bg text-black capitalize rounded-full px-10'>
 
-                <motion.button className='capitalize' variants={word} >{text}</motion.button>
+                <motion.button {...buttonProps} variants={word} >{text}</motion.button>
             </div>
         </motion.div>
     );

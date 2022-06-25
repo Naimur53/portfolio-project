@@ -3,14 +3,40 @@ import { useForm } from 'react-hook-form';
 import { Grid } from '@mui/material';
 import axios from 'axios';
 import MgButton from '../SmallComponents/MgButton';
+import { toast } from 'react-toastify';
 
 const ContactForm = () => {
     const { register, unregister, handleSubmit, reset, setValue, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
 
-        axios.post('http://localhost:5000/sendMail', data)
+        axios.post('http://localhost:5000/sendMail', { ...data, subject: `${data.displayName} try to contact you` })
+            .then(res => {
+                console.log(res);
+                if (res.data.res !== 'error') {
+                    toast.success('Message Send Successfully', {
+                        position: "bottom-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    }); 675.
+                }
+                else {
+                    toast.error('Error to send message', {
+                        position: "bottom-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    }); 675.
+                }
+            })
 
-
+        reset();
     }
     return (
         <div>
@@ -24,12 +50,12 @@ const ContactForm = () => {
                         <input type="email" placeholder='Your Email*' {...register("email", { required: true })} className='px-4 py-2 inline-block w-full border border-gray-500 rounded bg-gray-900  ' />
                     </Grid>
                     <Grid item xs={12}>
-                        <textarea placeholder='Your Comment*' {...register("comment", { required: true })} className='px-4 mb-3 py-2 inline-block w-full border border-gray-500 rounded bg-gray-900  ' cols="30" rows="10"></textarea>
+                        <textarea placeholder='Your Message*' {...register("comment", { required: true })} className='px-4 mb-3 py-2 inline-block w-full border border-gray-500 rounded md:hidden bg-gray-900' cols="10" rows="5"></textarea>
+                        <textarea placeholder='Your Message*' {...register("comment", { required: true })} className='px-4 mb-3 hidden md:block py-2  w-full border border-gray-500 rounded bg-gray-900' cols="10" rows="8"></textarea>
                     </Grid>
                 </Grid>
                 <div className='flex justify-between'>
-                    {/* <button type='submit' className='bg-yellow-400  font-bold px-5 py-2 rounded text-gray-900'>Submit </button> */}
-                    <MgButton text='Submit'></MgButton>
+                    <MgButton buttonProps={{ type: 'submit' }} text='Submit'></MgButton>
 
                 </div>
 

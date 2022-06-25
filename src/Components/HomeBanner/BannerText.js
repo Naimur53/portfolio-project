@@ -53,9 +53,12 @@ const smallToBig = {
         transition: { type: 'spring', duration: 0.85 }
     }
 }
-const BannerText = () => {
+const BannerText = ({ innerRoute }) => {
+    const handleClick = () => {
+        innerRoute(1)
+    }
     return (
-        <motion.div initial='initial' animate='animate' className='  font-bold' exit={{ opacity: 0 }}>
+        <motion.div initial='initial' animate='animate' className=' mt-5 font-bold' exit={{ opacity: 0 }}>
             <motion.div variants={stagger} >
                 {/* <div className='text-8xl overflow-hidden'>
                     {
@@ -77,14 +80,14 @@ const BannerText = () => {
                         }
                     </div>
                 </div> */}
-                <div className='text-6xl block overflow-hidden ' >
+                <div className='text-4xl md:text-6xl block overflow-hidden ' >
                     <motion.div variants={twing}>
 
                         Hi
                     </motion.div>
 
                 </div>
-                <div className='mt-3 text-6xl block overflow-hidden' >
+                <div className='mt-3 text-4xl md:text-6xl block overflow-hidden' >
                     <motion.div className='inline-block  ' variants={twing}>
 
                         I
@@ -103,7 +106,7 @@ const BannerText = () => {
                     </motion.div>
 
                 </div>
-                <div className='mt-3  block overflow-hidden text-5xl' >
+                <div className='mt-3  block overflow-hidden  text-2xl md:text-5xl' >
                     <motion.div className='inline-block  ' variants={twing}>
                         Professional
                     </motion.div>
@@ -114,7 +117,7 @@ const BannerText = () => {
                 </div>
                 <div className='mt-5  '>
                     <motion.div className='inline-block  text-xl  ' variants={smallToBig}>
-                        <MgButton text='Lets go'></MgButton>
+                        <MgButton buttonProps={{ onClick: () => handleClick() }} text='Lets go'></MgButton>
                     </motion.div>
 
                 </div>

@@ -92,7 +92,7 @@ const AddCategory = ({ uniqCategory }) => {
     // handle multiple img upload 
     useEffect(() => {
         const file = watch('url');
-        console.log('file', Object.values(file), process.env.NEXT_PUBLIC_IMAGEBB_API);
+        console.log('file', file);
         if (file.length) {
             setImgLoading(true)
             const main = Object.values(file).map(singleFile => {
@@ -134,6 +134,7 @@ const AddCategory = ({ uniqCategory }) => {
     //handle thumbnails image upload
     useEffect(() => {
         const file = watch('thumbnailFile');
+        console.log(file);
         if (file.length) {
             setThumbnailLoading(true)
             let body = new FormData()
@@ -210,10 +211,7 @@ const AddCategory = ({ uniqCategory }) => {
                                     <em>Add new category</em>
                                 </MenuItem>
                                 {
-                                    uniqCategory.map(single => <MenuItem key={single} value={single} >{single}</MenuItem>)
-                                }
-                                {
-                                    uniqCategory.map(single => <MenuItem key={single} value={single} >{single}</MenuItem>)
+                                    uniqCategory?.map(single => <MenuItem key={single} value={single} >{single}</MenuItem>)
                                 }
                             </TextField> : <input className="w-full p-3 rounded-lg  bg-gray-900 placeholder:text-slate-400" placeholder="Category Name"  {...register("categoryName", { required: true })} />
                         }

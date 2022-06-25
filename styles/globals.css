@@ -48,6 +48,31 @@ a {
   font-family: 'Megrim';
 }
 
+/* preloader  */
+#preloader p {
+  position: relative;
+  font-family: sans-serif;
+  text-transform: uppercase;
+  font-size: 2em;
+  letter-spacing: 4px;
+  overflow: hidden;
+  background: linear-gradient(90deg, #000, #fff, #000);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: preloader-animate 3s linear infinite;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
+
+@keyframes preloader-animate {
+  0% {
+    background-position: -500%;
+  }
+
+  100% {
+    background-position: 500%;
+  }
+}
 
 /* home banner  */
 .innerBanner {
@@ -100,11 +125,9 @@ a {
 
 /* chekcing */
 .letter {
-  background: url('https://i.ibb.co/10wMBYk/istockphoto-1272432175-170667a.jpg ');
+  background-image: url('https://i.ibb.co/swYz425/Untitled-1-copy-1.jpg');
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-
-
 
   /* my create url https://i.ibb.co/LZs5rqc/pjimage-1.jpg */
   animation: animateWords 10s ease-in 0s infinite alternate-reverse;
@@ -228,6 +251,6 @@ a {
   color: white !important;
 }
 
-.mgbutton {
+.mgbutton-bg {
   background-image: linear-gradient(to right top, #fde440, #ffd07e, #ffcdc1, #ffdbf2, #ffedff, #f0f2ff, #e1f7ff, #dbfaff, #a6fefe, #6bffed, #2fffcb, #1dfd9b);
 }

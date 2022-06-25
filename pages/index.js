@@ -18,9 +18,10 @@ import Head from '../src/Components/Head/Head'
 export default function Home() {
   const dispatch = useDispatch()
   const parallaxRef = useRef()
-  console.log(parallaxRef);
 
-
+  const innerRoute = (value) => {
+    parallaxRef.current.scrollTo(value);
+  }
   useEffect(() => {
     if (!parallaxRef.current || !parallaxRef.current.container) return
     parallaxRef.current.container.current.onscroll = () => {
@@ -40,7 +41,7 @@ export default function Home() {
         <ParallaxLayer
           offset={0}
           speed={.5}  >
-          <HomeBanner></HomeBanner>
+          <HomeBanner innerRoute={innerRoute}></HomeBanner>
         </ParallaxLayer>
         <ParallaxLayer
           offset={1}
@@ -77,7 +78,7 @@ export default function Home() {
             color: 'white',
           }}>
           <HomeBlog></HomeBlog>
-          <div className=" overlay-wrap pointer-events-none absolute flex flex-col justify-between inset-0">
+          <div className=" md:flex hidden overlay-wrap pointer-events-none absolute flex-col justify-between inset-0">
             <div  ></div>
             <div  ></div>
           </div>
@@ -105,7 +106,7 @@ export default function Home() {
 
 //   // Pass data to the page via props
 //   return { props: { data } }
-// }
+// } 
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async () => {
     const res = await fetch(`http://localhost:5000/category?short=true`)

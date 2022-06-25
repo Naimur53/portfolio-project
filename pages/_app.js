@@ -17,15 +17,15 @@ import LoadingSection from '../src/Components/LoadingSection/LoadingSection'
 function MyApp({ Component, pageProps, router }) {
 
   const Layout = Component.Layout || EmptyLayout;
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const start = () => {
-      console.log("start");
       setLoading(true);
     };
     const end = () => {
-      console.log("findished");
-      setLoading(false);
+      setTimeout(() => {
+        setLoading(false);
+      }, 850)
     };
     Router.events.on("routeChangeStart", start);
     Router.events.on("routeChangeComplete", end);
@@ -36,16 +36,23 @@ function MyApp({ Component, pageProps, router }) {
       Router.events.off("routeChangeError", end);
     };
   }, []);
-  return <Layout>
-    {
-      !Component.Layout && <LoadingSection isVisible={loading}></LoadingSection>
-
+  useEffect(() => {
+    window.onload = () => {
+      setTimeout(() => {
+        setLoading(false);
+      }, 850)
     }
-    <AnimatePresence exitBeforeEnter>
-      <Component {...pageProps} key={router.route} />
-      <ToastContainer theme="dark" />
-    </AnimatePresence>
-  </Layout>
+  }, [])
+  return <>
+    <Layout>
+
+      <AnimatePresence exitBeforeEnter>
+        <Component {...pageProps} key={router.route} />
+        <ToastContainer theme="dark" />
+      </AnimatePresence>
+    </Layout>
+    <LoadingSection isVisible={loading}></LoadingSection>
+  </>
 }
 
 export default wrapper.withRedux(MyApp);

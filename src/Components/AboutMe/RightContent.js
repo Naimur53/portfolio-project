@@ -48,8 +48,9 @@ const RightContent = ({ isVisible, url }) => {
                         <motion.div
                             style={{
                                 backgroundImage: `url(${url})`
+
                             }}
-                            variants={twing} className=' bg-center h-full bg-cover w-full'>
+                            variants={twing} className=' bg-center mgbutton-bg h-full bg-cover w-full'>
                             <Image className='w-full  invisible' priority layout='raw' src={url} height={400} width={400} alt='photo'></Image>
 
                         </motion.div>
