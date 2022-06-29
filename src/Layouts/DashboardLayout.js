@@ -26,6 +26,7 @@ import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import ControlPointDuplicateIcon from '@mui/icons-material/ControlPointDuplicate';
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
 import CategoryIcon from '@mui/icons-material/Category';
+import AddTaskIcon from '@mui/icons-material/AddTask';
 import { useRouter } from "next/router";
 
 const DashboardLayout = ({ children, window }) => {
@@ -108,21 +109,13 @@ const DashboardLayout = ({ children, window }) => {
                         </ListItemButton>
                     </Link>
                 </ListItem>
-                <ListItem disablePadding>
-                    <Link href="/dashboard/allBlogs">
 
-                        <ListItemButton
-                            sx={{
-                                py: 2,
-                                background: router.pathname == "/dashboard/allBlogs" ? "black" : ""
-                            }}
-                        >
-                            <ListItemIcon sx={{ m: 0, p: 0 }} className="ml-0 text-gray-50">
-                                <InboxIcon />
-                            </ListItemIcon>
-                            <h2>watch all blogs</h2>
-                        </ListItemButton>
-                    </Link>
+
+                <ListItem disablePadding>
+
+                    <ListItemButton>
+                        <h2 className='ml-3 text-gray-400'>Setting</h2>
+                    </ListItemButton>
                 </ListItem>
                 <ListItem disablePadding>
                     <Link href="/dashboard/allCategory">
@@ -137,6 +130,38 @@ const DashboardLayout = ({ children, window }) => {
                                 <CategoryIcon />
                             </ListItemIcon>
                             <h2>All Category</h2>
+                        </ListItemButton>
+                    </Link>
+                </ListItem>
+                <ListItem disablePadding>
+                    <Link href="/dashboard/allBlogs">
+
+                        <ListItemButton
+                            sx={{
+                                py: 2,
+                                background: router.pathname == "/dashboard/allBlogs" ? "black" : ""
+                            }}
+                        >
+                            <ListItemIcon sx={{ m: 0, p: 0 }} className="ml-0 text-gray-50">
+                                <InboxIcon />
+                            </ListItemIcon>
+                            <h2>all blogs</h2>
+                        </ListItemButton>
+                    </Link>
+                </ListItem>
+                <ListItem disablePadding>
+                    <Link href="/dashboard/chooseDropdown">
+
+                        <ListItemButton
+                            sx={{
+                                py: 2,
+                                background: router.pathname == "/dashboard/chooseDropdown" ? "black" : ""
+                            }}
+                        >
+                            <ListItemIcon sx={{ m: 0, p: 0 }} className="ml-0 text-gray-50">
+                                <AddTaskIcon />
+                            </ListItemIcon>
+                            <h2>Choose menu</h2>
                         </ListItemButton>
                     </Link>
                 </ListItem>

@@ -20,18 +20,21 @@ const AllCategory = () => {
         </div>
 
     }
-    console.log(allData);
+
     return (
-        <Grid container spacing={2}>
-            {
-                allData.map(single => <Grid key={single._id} item xs={12} md={4}>
-                    <CategoryCard {...single}></CategoryCard>
+        <div >
 
-                </Grid>)
-            }
+            <Grid container spacing={2}>
+                {
+                    allData.map((single, i) => <Grid key={single._id} item xs={12} md={4}>
+                        <CategoryCard admin i={i} {...single}></CategoryCard>
+
+                    </Grid>)
+                }
 
 
-        </Grid>
+            </Grid>
+        </div>
     );
 };
 AllCategory.Layout = DashboardLayout;

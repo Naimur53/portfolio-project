@@ -24,7 +24,29 @@ const CreateBlogSection = ({ errors, unregister, handleComplete, setPhotosLoadin
     //     setValue(`video${singleSec.num}`, '');
     // }, []);
     useEffect(() => {
-        const file = watch(`photosFile${singleSec.num}`);
+
+
+    }, [handleChange]);
+
+    useEffect(() => {
+
+
+    }, [watch(`file${singleSec.num}`)])
+    console.log(videoLoading);
+    //handle complete 
+    useEffect(() => {
+        if (
+            watch(`title${singleSec.num}`) && watch(`description${singleSec.num}`)
+        ) {
+            console.log("complete");
+            handleComplete(singleSec.num, true);
+        }
+    }, [watch(`title${singleSec.num}`), watch(`description${singleSec.num}`), watch(`photosFile${singleSec.num}`), watch(`file${singleSec.num}`)]);
+
+
+    // photos file upload 
+    const handlePhotosFile = e => {
+        const file = e.target.files;
         // console.log('file', Object.values(file), process.env.NEXT_PUBLIC_IMAGEBB_API);
         if (file?.length) {
             setPhotosLoading(true)
@@ -69,14 +91,14 @@ const CreateBlogSection = ({ errors, unregister, handleComplete, setPhotosLoadin
                     setPhotosLoading(false);
                 })
         }
-
-    }, [handleChange]);
-
-    useEffect(() => {
-        if (watch(`file${singleSec.num}`)?.length) {
+    }
+    //handle video upload 
+    const handleVideoUpload = (e) => {
+        const file = e.target.files;
+        if (file?.length) {
             setVideoLoading(true)
             let formData = new FormData();
-            formData.append("video", watch(`file${singleSec.num}`)[0]);
+            formData.append("video", file[0]);
 
             // sending to api
             axios.post('http://localhost:5000/video', formData, {
@@ -99,32 +121,14 @@ const CreateBlogSection = ({ errors, unregister, handleComplete, setPhotosLoadin
                         draggable: true,
                         progress: undefined,
                     });
-                    console.log(e);
+                    console.log('video upload error', e);
                     setValue(`file${singleSec.num}`, []);
                     setValue(`video${singleSec.num}`, '');
                     setVideoLoading(false)
                 })
         }
 
-    }, [watch(`file${singleSec.num}`)])
-    console.log(videoLoading);
-    //handle complete 
-    useEffect(() => {
-        if (
-            watch(`title${singleSec.num}`) && watch(`description${singleSec.num}`)
-        ) {
-            console.log("complete");
-            handleComplete(singleSec.num, true);
-        }
-    }, [watch(`title${singleSec.num}`), watch(`description${singleSec.num}`), watch(`photosFile${singleSec.num}`), watch(`file${singleSec.num}`)]);
-
-    // const toggleDrawer = (anchor, open) => (event) => {
-    //     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-    //       return;
-    //     }
-
-    //     setState({ ...state, [anchor]: open });
-    //   };
+    };
     const handleTitleChange = (value, i) => {
         const old = watch(`img${singleSec.num}`)
         old[i].title = value;
@@ -140,8 +144,8 @@ const CreateBlogSection = ({ errors, unregister, handleComplete, setPhotosLoadin
             </Grid>
             <Grid item xs={12} md={6}>
                 {/* hidden input tags */}
-                <input {...register(`photosFile${singleSec.num}`)} className='hidden' id={'photosFile' + singleSec.num} type="file" accept="image/*" multiple={true} />
-                <input {...register(`file${singleSec.num}`)} className='hidden' type="file" id={'file' + singleSec.num} accept="video/*" />
+                <input onChange={handlePhotosFile} className='hidden' id={'photosFile' + singleSec.num} type="file" accept="image/*" multiple={true} />
+                <input onChange={handleVideoUpload} className='hidden' type="file" id={'file' + singleSec.num} accept="video/*" />
                 {/* design start */}
                 <Box
                     className='h-40 relative bg-gray-900 bg-center flex justify-center items-center'
@@ -151,20 +155,20 @@ const CreateBlogSection = ({ errors, unregister, handleComplete, setPhotosLoadin
                     {
                         photosLoading || videoLoading ? <CircularProgress color="inherit"></CircularProgress> : <div>
                             {
-                                !watch(`file${singleSec.num}`)?.length ? photosLoading ? <CircularProgress></CircularProgress> : <label className='text-red-500 underline p-4 inline-block  cursor-pointer ' htmlFor={'photosFile' + singleSec.num}>{
+                                !watch(`video${singleSec.num}`)?.length ? <label className='text-red-500  underline p-4 inline-block  cursor-pointer ' htmlFor={'photosFile' + singleSec.num}>{
                                     watch(`img${singleSec.num}`)?.length ? "Change Images" : "Add Images"
-                                }</label> : ''
+                                }</label> : <span></span>
                             }
                             {
-                                !watch(`file${singleSec.num}`) && <span>or</span>
+                                <span>or</span>
                             }
                             {
-                                watch(`img${singleSec.num}`)?.length && <button className='text-blue-500 ml-3 underline cursor-pointer' onClick={() => setIsOpen(true)}> Edit Photos Name </button>
+                                watch(`img${singleSec.num}`)?.length ? <button type='button' className='text-blue-500 ml-3 underline cursor-pointer' onClick={() => setIsOpen(true)}> Edit Photos Name </button> : <span></span>
                             }
                             {
-                                !watch(`photosFile${singleSec.num}`)?.length ? <label htmlFor={'file' + singleSec.num} className='text-green-500 underline cursor-pointer p-4 inline-block '>{watch(`video${singleSec.num}`)?.length ? "Change video" : "Add video"}</label> : ""
+                                !watch(`img${singleSec.num}`)?.length ? <label htmlFor={'file' + singleSec.num} className='text-green-500 underline cursor-pointer p-4 inline-block '>{watch(`video${singleSec.num}`)?.length ? "Change video" : "Add video"}</label> : <span></span>
                             }
-                            {watch(`video${singleSec.num}`)?.length && <button className='cursor-pointer text-red-500 underline' onClick={() => setIsOpenVideo(true)}>Watch preview</button>}
+                            {watch(`video${singleSec.num}`)?.length ? <button type='button' className='cursor-pointer text-red-500 underline' onClick={() => setIsOpenVideo(true)}>Watch preview</button> : <span></span>}
                         </div>
                     }
 

@@ -29,7 +29,7 @@ const LoadingSection = ({ isVisible }) => {
     return (
         <>
 
-            <motion.div initial='initial' animate={isVisible ? "animate" : 'initial'} variants={twing} style={{ zIndex: '9000000000000000000' }} className=' h-screen absolute flex inset-0 justify-center items-center w-full bg-black '>
+            <motion.div initial='initial' animate={isVisible ? "animate" : 'initial'} variants={twing} style={{ zIndex: '9000000000000000000' }} className=' h-screen hidden absolute  inset-0 justify-center items-center w-full bg-black '>
                 <div id='preloader'>
                     <p className="text-center">John is thinking</p>
                 </div>

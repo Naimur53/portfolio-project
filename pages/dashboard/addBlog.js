@@ -77,65 +77,31 @@ const AddBlog = () => {
         })
         // create main data for post 
         const mainData = { img, tags, heading, description, address, sections };
-        console.log(mainData);
-        axios.post('http://localhost:5000/blog', mainData).then(res => toast.success('Successfully post the blog', {
-            position: "bottom-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-        }))
-            .catch(e => {
-                toast.error('Something bad happened when post the blog', {
-                    position: "bottom-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
-            })
-        reset()
+        console.log(mainData, data);
+        // axios.post('http://localhost:5000/blog', mainData).then(res => toast.success('Successfully post the blog', {
+        //     position: "bottom-right",
+        //     autoClose: 5000,
+        //     hideProgressBar: false,
+        //     closeOnClick: true,
+        //     pauseOnHover: true,
+        //     draggable: true,
+        //     progress: undefined,
+        // }))
+        //     .catch(e => {
+        //         toast.error('Something bad happened when post the blog', {
+        //             position: "bottom-right",
+        //             autoClose: 5000,
+        //             hideProgressBar: false,
+        //             closeOnClick: true,
+        //             pauseOnHover: true,
+        //             draggable: true,
+        //             progress: undefined,
+        //         });
+        //     })
+        // reset()
     }
 
-    // handle main section img upload
-    useEffect(() => {
-        const file = watch('mainImg');
-        if (file.length) {
-            setImgLoading(true)
-            let body = new FormData()
-            body.set('key', process.env.NEXT_PUBLIC_IMAGEBB_API)
-            body.append('image', file[0]);
-            axios({
-                method: 'post',
-                url: 'https://api.imgbb.com/1/upload',
-                data: body
-            })
-                .then(res => {
-                    console.log(res.data.data.url);
-                    setValue('img', res.data.data.url)
-                })
-                .catch(e => {
-                    setValue('img', '')
-                    setValue('mainImg', '')
-                    toast.error('Unknown error happen on image upload', {
-                        position: "bottom-right",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                    });
-                })
-                .finally(() => setImgLoading(false))
-        }
-
-
-    }, [watch('mainImg')])
+    // handle main section img upload 
     console.log('all', numSection);
     const handleComplete = (num, isComplete) => {
         if (isComplete) {
@@ -149,18 +115,15 @@ const AddBlog = () => {
     const handleDelete = (num) => {
         console.log(num);
         //unregister that filed 
-        const fields = ['title', 'description', 'photosFile', 'file', 'img', 'video']
+        const fields = ['title', 'description', 'img', 'video']
         fields.forEach((field, i) => {
-            console.log(field + num);
-            console.log(field + (numSection.length));
-            unregister(field + num, { keepDirty: false });
-            unregister(field + numSection.length, { keepDirty: false });
+
+            setValue(field + num, '');
         })
-        unregister(`description${num}`, { keepDirty: false });
-        unregister(`photosFile${num}`, { keepDirty: false });
-        unregister(`file${num}`, { keepDirty: false });
-        unregister(`img${num}`, { keepDirty: false });
-        unregister(`video${num}`, { keepDirty: false });
+        setValue(`title${num}`, '');
+        setValue(`description${num}`, '');
+        setValue(`img${num}`, []);
+        setValue(`video${num}`, []);
 
         setNumSection(pre => {
             console.log(watch(`title${num}`));
@@ -199,6 +162,40 @@ const AddBlog = () => {
 
     }
 
+    const handleMainImg = (e) => {
+        const file = e.target.files;
+        console.log(file);
+        if (file.length) {
+            setImgLoading(true)
+            let body = new FormData()
+            body.set('key', process.env.NEXT_PUBLIC_IMAGEBB_API)
+            body.append('image', file[0]);
+            axios({
+                method: 'post',
+                url: 'https://api.imgbb.com/1/upload',
+                data: body
+            })
+                .then(res => {
+                    console.log(res.data.data.url);
+                    setValue('img', res.data.data.url)
+                })
+                .catch(e => {
+                    setValue('img', '')
+                    setValue('mainImg', '')
+                    toast.error('Unknown error happen on image upload', {
+                        position: "bottom-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
+                })
+                .finally(() => setImgLoading(false))
+        }
+
+    }
     return (
         <>
             <form className=' ' onSubmit={handleSubmit(onSubmit)}>
@@ -221,9 +218,9 @@ const AddBlog = () => {
                                     backgroundImage: `url("${watch('img')}")`
                                 }}
                             >
-                                <input {...register("mainImg", { required: true })} type="file" accept="image/*" id='mainImg' className='hidden' />
+                                <input onChange={handleMainImg} type="file" accept="image/*" id='mainImg' className='hidden' />
                                 {
-                                    imgLoading ? <CircularProgress color="inherit"></CircularProgress> : <label htmlFor='mainImg' className="bg-black/[.7] p-2 rounded-md">{watch('img')?.length ? "Change Thumbnail" : 'Choose Thumbnail'}</label>
+                                    imgLoading ? <CircularProgress color="inherit"></CircularProgress> : <label htmlFor='mainImg' className="bg-black/[.7] p-2 rounded-md cursor-pointer">{watch('img')?.length ? "Change Thumbnail" : 'Choose Thumbnail'}</label>
                                 }
 
                             </Box>

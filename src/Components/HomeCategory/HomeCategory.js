@@ -7,8 +7,10 @@ import Image from 'next/image';
 import { forwardRef, useEffect, useRef, useState } from 'react';
 import HomeCategoryImg from './HomeCategoryImg';
 import MgButton from '../SmallComponents/MgButton';
+import { useRouter } from 'next/router';
 
 const HomeCategory = () => {
+    const router = useRouter()
     const [allImages, setAllImages] = useState([]);
     const [mp, setMp] = useState({ x: 0, y: 0 })
     useEffect(() => {
@@ -34,6 +36,9 @@ const HomeCategory = () => {
         // // 
         // e.stopPropagation();
 
+    }
+    const handleClick = () => {
+        router.push('/category')
     }
     return (
         <div onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} ref={container} className='overflow-hidden   relative h-screen w-full   '>
@@ -72,7 +77,7 @@ const HomeCategory = () => {
                     <h2 className='text-4xl font-family-allerta '>Photo Collection </h2>
                     <h2 className='text-4xl font-family-allerta '>After traveling many Country I Found this </h2>
                     <div className='flex justify-center mt-5 pointer-events-auto'>
-                        <MgButton text='Watch more'></MgButton>
+                        <MgButton buttonProps={{ onClick: () => handleClick() }} text='Watch more'></MgButton>
                     </div>
                 </div>
 

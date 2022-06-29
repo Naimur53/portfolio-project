@@ -17,6 +17,7 @@ const AddCategory = ({ uniqCategory }) => {
     const [thumbnailLoading, setThumbnailLoading] = useState(false);
     const [imgLoading, setImgLoading] = useState(false);
     const [inputValue, setInputValue] = useState('');
+    console.log(watch('categoryName'));
     const onSubmit = data => {
         if (inputValue === 'new' && uniqCategory.includes(data.categoryName)) {
             toast.error('Choose a uniq category name', {
@@ -46,7 +47,7 @@ const AddCategory = ({ uniqCategory }) => {
             });
             return
         }
-        if (!data.photos.length) {
+        if (!data?.photos?.length) {
             toast.error('Please choose images for category', {
                 position: "bottom-right",
                 autoClose: 5000,
@@ -58,8 +59,6 @@ const AddCategory = ({ uniqCategory }) => {
             });
             return
         }
-        delete data.thumbnailFile;
-        delete data.url;
 
         // sending to api
         axios.post('http://localhost:5000/category', data)
@@ -90,8 +89,72 @@ const AddCategory = ({ uniqCategory }) => {
         reset();
     }
     // handle multiple img upload 
+    const handleChangeUrl = watch('url')
+    console.log(handleChangeUrl)
     useEffect(() => {
-        const file = watch('url');
+
+
+    }, [handleChangeUrl, watch, setValue]);
+    const photosUrls = () => {
+        let bgUrl;
+        if (watch('photos')?.length) {
+            bgUrl = watch('photos').map(single => `url("${single.url}")`)
+            return bgUrl.join(',')
+        }
+        console.log(bgUrl.join(','));
+        return bgUrl;
+    }
+    //handle thumbnails image upload 
+
+    const handleChange = (event) => {
+        const value = event.target.value
+        if (value === 'new') {
+            setValue('categoryName', '')
+        }
+        else {
+            setValue('categoryName', value)
+        }
+        setInputValue(value);
+    };
+    const handleThumbnailFile = e => {
+        const file = e.target.files;
+        console.log(file);
+        if (file.length) {
+            setThumbnailLoading(true)
+            let body = new FormData()
+            body.set('key', process.env.NEXT_PUBLIC_IMAGEBB_API)
+            body.append('image', file[0]);
+            axios({
+                method: 'post',
+                url: 'https://api.imgbb.com/1/upload',
+                data: body
+            })
+                .then(res => {
+                    console.log(res.data.data.url);
+                    setValue('thumbnail', res.data.data.url)
+                })
+                .catch(e => {
+                    setValue('thumbnailFile', []);
+                    setValue('thumbnail', '');
+                    console.log(e);
+                    toast.error('Something bad happened to upload multiple image', {
+                        position: "bottom-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
+
+                })
+                .finally(() => setThumbnailLoading(false))
+        }
+
+    }
+    //photos upload
+    const handlePhotosUpload = (e) => {
+        const file = e.target.files
         console.log('file', file);
         if (file.length) {
             setImgLoading(true)
@@ -129,65 +192,7 @@ const AddCategory = ({ uniqCategory }) => {
                 setImgLoading(false);
             })
         }
-
-    }, [watch('url')]);
-    //handle thumbnails image upload
-    useEffect(() => {
-        const file = watch('thumbnailFile');
-        console.log(file);
-        if (file.length) {
-            setThumbnailLoading(true)
-            let body = new FormData()
-            body.set('key', process.env.NEXT_PUBLIC_IMAGEBB_API)
-            body.append('image', file[0]);
-            axios({
-                method: 'post',
-                url: 'https://api.imgbb.com/1/upload',
-                data: body
-            })
-                .then(res => {
-                    console.log(res.data.data.url);
-                    setValue('thumbnail', res.data.data.url)
-                })
-                .catch(e => {
-                    setValue('thumbnailFile', []);
-                    setValue('thumbnail', '');
-                    console.log(e);
-                    toast.error('Something bad happened to upload multiple image', {
-                        position: "bottom-right",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                    });
-
-                })
-                .finally(() => setThumbnailLoading(false))
-        }
-
-
-    }, [watch('thumbnailFile')])
-    const photosUrls = () => {
-        let bgUrl;
-        if (watch('photos')?.length) {
-            bgUrl = watch('photos').map(single => `url("${single.url}")`)
-            return bgUrl.join(',')
-        }
-        console.log(bgUrl.join(','));
-        return bgUrl;
     }
-    const handleChange = (event) => {
-        const value = event.target.value
-        if (value === 'new') {
-            setValue('categoryName', '')
-        }
-        else {
-            setValue('categoryName', value)
-        }
-        setInputValue(value);
-    };
 
     return (
         <div>
@@ -237,7 +242,7 @@ const AddCategory = ({ uniqCategory }) => {
                                 backgroundImage: `url("${watch('thumbnail')}")`
                             }}
                         >
-                            <input {...register("thumbnailFile",)} type="file" accept="image/*" id='thumbnailFile' className="hidden" />
+                            <input onChange={handleThumbnailFile} type="file" accept="image/*" id='thumbnailFile' className="hidden" />
                             {
                                 thumbnailLoading ? <CircularProgress color="inherit"></CircularProgress> : <label htmlFor='thumbnailFile' className="bg-black/[.7] p-2 rounded-md">Choose Thumbnail</label>
                             }
@@ -251,8 +256,8 @@ const AddCategory = ({ uniqCategory }) => {
 
                         >
 
-                            <div className="absolute   pointer-events-none inset-0 flex justify-center items-center">
-                                <input {...register("url",)} type="file" id='url' accept="image/*" className="hidden" multiple={true} />
+                            <div className="absolute pointer-events-none inset-0 flex justify-center items-center">
+                                <input onChange={handlePhotosUpload} type="file" id='url' accept="image/*" className="hidden" multiple={true} />
                                 {
                                     imgLoading ? <div className='z-10 w-full h-full flex justify-center items-center backdrop-blur-sm'> <CircularProgress color="inherit"></CircularProgress></div> : watch('photos')?.length ? <div></div> : <label htmlFor='url' className="z-10 bg-black/[.7] p-2  rounded-md pointer-events-auto">Choose Images</label>
                                 }
