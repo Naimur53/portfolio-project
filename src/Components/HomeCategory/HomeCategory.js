@@ -40,13 +40,20 @@ const HomeCategory = () => {
     const handleClick = () => {
         router.push('/category')
     }
+    const initial = {
+        opacity: 0,
+    }
     return (
         <div onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} ref={container} className='overflow-hidden   relative h-screen w-full   '>
-            <motion.div ref={canvasRef} animate={{
-                x: mp.x,
-                y: mp.y,
-                transition: { ease: "easeOut", duration: 1 }
-            }} className='canvas canvas-animation'>
+            <motion.div ref={canvasRef}
+                initial={initial}
+                exit={initial}
+                animate={{
+                    opacity: 1,
+                    x: mp.x,
+                    y: mp.y,
+                    transition: { ease: "easeOut", duration: 1 }
+                }} className='canvas canvas-animation'>
                 <Grid container spacing={15} >
 
                     <Grid item xs={12} md={3} className="column one">
@@ -73,13 +80,13 @@ const HomeCategory = () => {
 
             </motion.div>
             <div className='absolute pointer-events-none font-semibold	 flex justify-center items-center font-sans inset-0 capitalize font-family-roboto font-lighter'>
-                <div className='text-center'>
+                <motion.div exit={{ opacity: 0 }} className='text-center'>
                     <h2 className='text-4xl font-family-allerta '>Photo Collection </h2>
                     <h2 className='text-4xl font-family-allerta '>After traveling many Country I Found this </h2>
-                    <div className='flex justify-center mt-5 pointer-events-auto'>
+                    <motion.div exit={{ scaleY: 0 }} className='flex justify-center mt-5 pointer-events-auto'>
                         <MgButton buttonProps={{ onClick: () => handleClick() }} text='Watch more'></MgButton>
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
 
 
             </div>

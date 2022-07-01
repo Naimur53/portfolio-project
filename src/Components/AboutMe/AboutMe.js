@@ -76,7 +76,7 @@ const AboutMe = () => {
         }
     }
     return (
-        <div ref={container} className=' py-14 relative  px-2 h-screen'>
+        <motion.div exit={{ opacity: 0 }} ref={container} className=' py-14 relative  px-2 h-screen'>
 
             <Grid container spacing={4} className='h-full'>
                 <Grid item md={6} xs={12} className='h-1/2 md:h-full'>
@@ -174,7 +174,7 @@ const AboutMe = () => {
                 </div>
 
             </motion.div>
-        </div>
+        </motion.div>
     )
 
 };

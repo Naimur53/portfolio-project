@@ -6,7 +6,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { allData } from '../../dataSlice/dataSlice';
 import BlogImageSingle from './BlogImageSingle';
-
+import { motion } from 'framer-motion'
 const HomeBlogImages = () => {
     const { scrollValue, } = useSelector(allData);
     const [blogs, setBlogs] = useState([])
@@ -43,7 +43,7 @@ const HomeBlogImages = () => {
     }
 
     return (
-        <div className='h-full font-family-roboto text-justify'>
+        <motion.div exit={{ opacity: 0 }} className='h-full font-family-roboto text-justify'>
             <Grid container className='h-full' spacing={4}>
                 <Grid item className='h-full' xs={6}>
                     <div ref={wrapper} className='blog-wrap  cursor-pointer'>
@@ -62,7 +62,7 @@ const HomeBlogImages = () => {
                     </div>
                 </Grid>
             </Grid>
-        </div>
+        </motion.div>
     );
 };
 

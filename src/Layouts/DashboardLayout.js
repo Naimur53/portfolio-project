@@ -27,6 +27,7 @@ import ControlPointDuplicateIcon from '@mui/icons-material/ControlPointDuplicate
 import DriveFileRenameOutlineIcon from '@mui/icons-material/DriveFileRenameOutline';
 import CategoryIcon from '@mui/icons-material/Category';
 import AddTaskIcon from '@mui/icons-material/AddTask';
+import HomeIcon from '@mui/icons-material/Home';
 import { useRouter } from "next/router";
 
 const DashboardLayout = ({ children, window }) => {
@@ -63,6 +64,20 @@ const DashboardLayout = ({ children, window }) => {
                     <ListItemButton>
                         <h2 className='ml-3 text-gray-400'>Main</h2>
                     </ListItemButton>
+                </ListItem>
+                <ListItem disablePadding sx={{ display: { sm: 'block', md: 'none', } }}>
+                    <Link href="/">
+
+                        <ListItemButton sx={{
+                            py: 2,
+                            background: router.pathname == "/" ? "black" : ""
+                        }}>
+                            <ListItemIcon sx={{ m: 0, p: 0 }} className="ml-0 text-gray-50">
+                                <HomeIcon />
+                            </ListItemIcon>
+                            <h2>Home</h2>
+                        </ListItemButton>
+                    </Link>
                 </ListItem>
                 <ListItem disablePadding>
                     <Link href="/dashboard">
@@ -237,7 +252,6 @@ const DashboardLayout = ({ children, window }) => {
                     keepMounted: true, // Better open performance on mobile.
                 }}
                 sx={{
-                    background: 'red',
                     display: { xs: 'block', sm: 'none' },
                     '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                 }}
@@ -253,7 +267,6 @@ const DashboardLayout = ({ children, window }) => {
                     }
                 }}
                 sx={{
-                    background: 'red',
                     display: { xs: 'none', sm: 'block' },
                     '& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth },
                 }}

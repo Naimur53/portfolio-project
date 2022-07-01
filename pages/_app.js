@@ -3,6 +3,7 @@ import '../styles/homeCategroy.css'
 import '../styles/HomeBlog.css'
 import '../styles/category.css'
 import '../styles/AboutMe.css'
+import '../styles/TopBar.css'
 import { wrapper } from '../src/store/store'
 import { AnimatePresence } from 'framer-motion'
 import EmptyLayout from '../src/Layouts/EmptyLayout'
@@ -13,6 +14,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from 'react';
 import { CircularProgress } from '@mui/material';
 import LoadingSection from '../src/Components/LoadingSection/LoadingSection'
+import NextNProgress from "nextjs-progressbar";
 
 function MyApp({ Component, pageProps, router }) {
 
@@ -47,6 +49,7 @@ function MyApp({ Component, pageProps, router }) {
     <Layout>
 
       <AnimatePresence exitBeforeEnter>
+        <NextNProgress color="rgb(250 204 21 )" />
         <Component {...pageProps} key={router.route} />
         <ToastContainer theme="dark" />
       </AnimatePresence>

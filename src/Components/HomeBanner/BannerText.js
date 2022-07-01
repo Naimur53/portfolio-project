@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import MgButton from '../SmallComponents/MgButton';
+import { Router, useRouter } from 'next/router';
 let easing = [0.6, -0.05, 0.01, 0.99];
 
 const stagger = {
@@ -54,12 +55,13 @@ const smallToBig = {
     }
 }
 const BannerText = ({ innerRoute }) => {
+    const route = useRouter()
     const handleClick = () => {
-        innerRoute(1)
+        route.push('/category')
     }
     return (
-        <motion.div initial='initial' animate='animate' className=' mt-5 font-bold' exit={{ opacity: 0 }}>
-            <motion.div variants={stagger} >
+        <motion.div className=' mt-5 font-bold' >
+            <motion.div initial='initial' animate='animate' exit='initial' variants={stagger} >
                 {/* <div className='text-8xl overflow-hidden'>
                     {
                         ['H', 'i'].map((single, i) => <motion.span className='inline-block' key={i} variants={twing}>{single}</motion.span>)
@@ -117,7 +119,7 @@ const BannerText = ({ innerRoute }) => {
                 </div>
                 <div className='mt-5  '>
                     <motion.div className='inline-block  text-xl  ' variants={smallToBig}>
-                        <MgButton buttonProps={{ onClick: () => handleClick() }} text='Lets go'></MgButton>
+                        <MgButton buttonProps={{ onClick: () => handleClick() }} text='Watch Gallery'></MgButton>
                     </motion.div>
 
                 </div>

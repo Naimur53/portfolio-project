@@ -1,0 +1,31 @@
+.menu-collection-wrap .collection-main {
+    width: 200px;
+    position: absolute;
+    top: 20px;
+    background-color: #000000ba;
+    transition: .4s ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.menu-collection-wrap-main:hover .collection-main {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu-collection-wrap ul li {
+    display: block;
+}
+
+.menu-collection-wrap ul li ul {
+    width: 200px;
+    position: absolute;
+    top: 0px;
+    left: 200px;
+    opacity: 0;
+    transition: .3s;
+}
+
+.menu-collection-wrap ul li:hover ul {
+    opacity: 1;
+}

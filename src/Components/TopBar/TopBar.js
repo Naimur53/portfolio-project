@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -11,17 +11,21 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+
+
 import AdbIcon from '@mui/icons-material/Adb';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Collection from './Collection';
+import { Accordion, AccordionDetails, AccordionSummary, Drawer } from '@mui/material';
 
 const pages = ['home', 'aboutme', 'dashboard', 'blogs',];
 const TopBar = () => {
-    const [anchorElNav, setAnchorElNav] = useState(null);
+    const [open, setOpen] = useState(null);
     const [anchorElUser, setAnchorElUser] = useState(null);
-
     const handleOpenNavMenu = (event) => {
-        setAnchorElNav(event.currentTarget);
+        setOpen(!open);
     };
     const handleOpenUserMenu = (event) => {
         setAnchorElUser(event.currentTarget);
@@ -57,11 +61,99 @@ const TopBar = () => {
             }
         }
     };
+    const fadeEnter = {
+        initial: {
+            x: -100,
+            opacity: 0,
+        },
+        animate: {
+            x: 0,
+            opacity: 1,
+        }
+    };
+    const Element = (
+        <motion.div variants={stagger} className='px-2 py-5 '>
+            <motion.div variants={fadeEnter}
+            >
+                <Link href={'/'}>
+                    <span
+                        className='w-full border  flex justify-center mb-3 py-2 border-gray-700 rounded-sm hover:border-yellow-300 text-white'
+                    >
+                        Home
+                    </span>
+                </Link>
+
+            </motion.div>
+
+            <motion.div variants={fadeEnter}
+            >
+                <Link href={'/aboutme'}>
+                    <span
+
+                        className='w-full border  flex justify-center mb-3 py-2 border-gray-700 rounded-sm hover:border-yellow-300 text-white'
+                    >
+                        About me
+                    </span>
+                </Link>
+
+            </motion.div>
+            <motion.div variants={fadeEnter}
+            >
+                <Accordion
+                    className='w-full border    mb-3  bg-black border-gray-700 rounded-sm hover:border-yellow-300 text-white'
+                >
+                    <AccordionSummary
+                        expandIcon={<ExpandMoreIcon sx={{ color: 'white', }} />}
+                        aria-controls="panel1a-content"
+                        id="panel1a-header"
+                    >
+                        <Typography>Collection</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <Collection phone></Collection>
+                    </AccordionDetails>
+                </Accordion>
+            </motion.div>
+            <motion.div variants={fadeEnter}
+            >
+                <Link href={'/category'}>
+                    <span
+                        className='w-full border  flex justify-center mb-3 py-2 border-gray-700 rounded-sm hover:border-yellow-300 text-white'
+                    >
+                        Gallery
+                    </span>
+                </Link>
+
+            </motion.div>
+            <motion.div variants={fadeEnter}
+            >
+                <Link href={'/blogs'}>
+                    <span
+                        className='w-full border  flex justify-center mb-3 py-2 border-gray-700 rounded-sm hover:border-yellow-300 text-white'
+                    >
+                        Stories NL - GB
+                    </span>
+                </Link>
+
+            </motion.div>
+            <motion.div variants={fadeEnter}
+            >
+                <Link href={'/dashboard'}>
+                    <span
+                        className='w-full border  flex justify-center mb-3 py-2 border-gray-700 rounded-sm hover:border-yellow-300 text-white'
+                    >
+                        Dashboard
+                    </span>
+                </Link>
+
+            </motion.div>
+        </motion.div>
+    )
 
     return (
-        <motion.div initial='initial' animate='animate' className='overflow-hidden' exit={{ opacity: 0 }}>
-            <AppBar position="fixed" className=' bg-transparent shadow-none' >
-                <Container maxWidth="xl" >
+        <motion.div initial='initial' animate='animate' className='overflow-hidden   ' exit={{ opacity: 0 }}>
+            <AppBar position="fixed" className='  bg-transparent shadow-none' >
+                <Container maxWidth="xl" className=' bg-black shadow-none' >
                     <Toolbar disableGutters>
                         <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
                         <Typography
@@ -93,30 +185,16 @@ const TopBar = () => {
                             >
                                 <MenuIcon />
                             </IconButton>
-                            <Menu
-                                id="menu-appbar"
-                                anchorEl={anchorElNav}
-                                anchorOrigin={{
-                                    vertical: 'bottom',
-                                    horizontal: 'left',
-                                }}
-                                keepMounted
-                                transformOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'left',
-                                }}
-                                open={Boolean(anchorElNav)}
-                                onClose={handleCloseNavMenu}
-                                sx={{
-                                    display: { xs: 'block', md: 'none' },
-                                }}
+                            <Drawer
+                                anchor={'left'}
+                                open={open}
+                                onClose={handleOpenNavMenu}
+                                sx={{}}
                             >
-                                {pages.map((page) => (
-                                    <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                        <Typography textAlign="center">{page}</Typography>
-                                    </MenuItem>
-                                ))}
-                            </Menu>
+                                <Box className='h-full overflow-x-hidden' sx={{ background: 'black', width: '50vw' }}>
+                                    {Element}
+                                </Box>
+                            </Drawer>
                         </Box>
                         <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
                         <Typography
@@ -138,24 +216,79 @@ const TopBar = () => {
                             LOGO
                         </Typography>
                         <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'end' }}>
-                            <motion.div className='flex' variants={stagger}  >
+                            <motion.div className=' flex' variants={stagger}  >
+                                <motion.div className='px-5' variants={fadeInUp}
+                                >
+                                    <Link href={'/'}>
+                                        <Button
 
-                                {pages.map((page) => (
-                                    <motion.div key={page} variants={fadeInUp}
+                                            sx={{ py: 0, color: 'white', display: 'block' }}
+                                        >
+                                            Home
+                                        </Button>
+                                    </Link>
+
+                                </motion.div>
+
+                                <motion.div className='pr-5' variants={fadeInUp}
+                                >
+                                    <Link href={'/aboutme'}>
+                                        <Button
+
+                                            sx={{ py: 0, color: 'white', display: 'block' }}
+                                        >
+                                            About me
+                                        </Button>
+                                    </Link>
+
+                                </motion.div>
+                                <motion.div className='menu-collection-wrap-main pr-5' variants={fadeInUp}
+                                >
+                                    <Button
+
+                                        sx={{ py: 0, color: 'white', display: 'block' }}
                                     >
-                                        <Link href={page == 'home' ? '/' : '/' + page}>
-                                            <Button
+                                        Collection
 
-                                                onClick={handleCloseNavMenu}
-                                                sx={{ my: 2, color: 'white', display: 'block' }}
-                                            >
-                                                {page}
+                                    </Button>
+                                    <Collection></Collection>
+                                </motion.div>
+                                <motion.div className='pr-5' variants={fadeInUp}
+                                >
+                                    <Link href={'/category'}>
+                                        <Button
 
-                                            </Button>
-                                        </Link>
+                                            sx={{ py: 0, color: 'white', display: 'block' }}
+                                        >
+                                            Gallery
+                                        </Button>
+                                    </Link>
 
-                                    </motion.div>
-                                ))}
+                                </motion.div>
+                                <motion.div className='pr-5' variants={fadeInUp}
+                                >
+                                    <Link href={'/blogs'}>
+                                        <Button
+
+                                            sx={{ py: 0, color: 'white', display: 'block' }}
+                                        >
+                                            Stories NL - GB
+                                        </Button>
+                                    </Link>
+
+                                </motion.div>
+                                <motion.div className='pr-5' variants={fadeInUp}
+                                >
+                                    <Link href={'/dashboard'}>
+                                        <Button
+
+                                            sx={{ py: 0, color: 'white', display: 'block' }}
+                                        >
+                                            Dashboard
+                                        </Button>
+                                    </Link>
+
+                                </motion.div>
                             </motion.div>
                         </Box>
                     </Toolbar>
