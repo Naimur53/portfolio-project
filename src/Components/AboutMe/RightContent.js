@@ -1,3 +1,4 @@
+import { height } from '@mui/system';
 import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import React from 'react';
@@ -15,7 +16,7 @@ const RightContent = ({ isVisible, url }) => {
             // opacity: 1,
             // x: 0,
             // scale: 1,
-            clipPath: 'circle(47.5% at 50% 50%)',
+            clipPath: ' circle(40.0% at 50% 50%)',
             transition: { delay: .8, ease: [0.455, 0.03, 0.515, 0.955], duration: 0.75 }
 
         },
@@ -33,7 +34,7 @@ const RightContent = ({ isVisible, url }) => {
         }
     }
     return (
-        <div className='absolute inset-0 flex justify-center   flex-col'>
+        <div className='absolute  inset-0 flex justify-center   flex-col'>
             <AnimatePresence className='' initial={true}>
                 {isVisible && (
                     <motion.div
@@ -47,10 +48,10 @@ const RightContent = ({ isVisible, url }) => {
 
                         <motion.div
                             style={{
-                                backgroundImage: `url(${url})`
+                                backgroundImage: `url(${url})`,
 
                             }}
-                            variants={twing} className=' bg-center mgbutton-bg h-full bg-cover w-full'>
+                            variants={twing} className=' bg-center h-full bg-cover w-full'>
                             <Image className='w-full  invisible' priority layout='raw' src={url} height={400} width={400} alt='photo'></Image>
 
                         </motion.div>

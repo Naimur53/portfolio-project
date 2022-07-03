@@ -206,17 +206,19 @@ const BlogLeft = () => {
                 RecentLoading ?
                     [...Array(5).keys()].map(num => <RecentLoadingCompo key={num}></RecentLoadingCompo>)
 
-                    : recents.map((singleData, i) => <SingleRecent key={i} data={singleData}></SingleRecent>)
+                    : recents.map((singleData, i) => <SingleRecent index={i} key={i} data={singleData}></SingleRecent>)
             }
             <Heading title='Most loved posts'></Heading>
             {
-                mostLovesLoading ? [...Array(5).keys()].map(num => <RecentLoadingCompo key={num}></RecentLoadingCompo>) : mostLoves.map((singleData, i) => <SingleRecent key={i} data={singleData}></SingleRecent>)
+                mostLovesLoading ? [...Array(5).keys()].map(num => <RecentLoadingCompo key={num}></RecentLoadingCompo>) : mostLoves.map((singleData, i) => <SingleRecent key={i} index={i} data={singleData}></SingleRecent>)
             }
             <div>
                 <Heading title='Recent comment'></Heading>
                 <div className='mt-5'>
 
-                    {comments.reverse().map((singleData, i) => <Comments small key={i} data={singleData.comments}></Comments>)}
+                    {
+                        commentsLoading ? [...Array(5).keys()].map(num => <RecentLoadingCompo key={num}></RecentLoadingCompo>) : comments.reverse().map((singleData, i) => <Comments small key={i} data={singleData.comments}></Comments>)
+                    }
                 </div>
             </div>
             <div>

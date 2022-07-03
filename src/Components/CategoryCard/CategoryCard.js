@@ -9,7 +9,7 @@ const CategoryCard = ({ admin, i, _id, thumbnail, title, description, categoryNa
     const [loading, setLoading] = useState(false);
     console.log(i);
     const handleDelete = () => {
-        if (window.confirm()) {
+        if (window.confirm('Are you sure to delete this category')) {
             setLoading(true);
             axios.delete(`http://localhost:5000/category?id=${_id}`)
                 .then(res => {

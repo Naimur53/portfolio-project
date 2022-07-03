@@ -20,7 +20,7 @@ const Blogs = ({ blogs }) => {
                     <Grid xs={8}>
                         <Grid container spacing={4}>
                             {
-                                blogs?.map(singleBlog => <Grid item key={singleBlog._id} xs={12} md={4}><BlogCard  {...singleBlog}></BlogCard></Grid>)
+                                blogs?.map((singleBlog, i) => <Grid item key={singleBlog._id} xs={12} md={4}><BlogCard index={i} {...singleBlog}></BlogCard></Grid>)
                             }
                         </Grid>
                     </Grid>

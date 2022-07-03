@@ -1,12 +1,22 @@
 import { Avatar, Grid } from '@mui/material';
 import Link from 'next/link';
 import React from 'react';
+import { motion } from 'framer-motion'
 
-const SingleRecent = ({ data }) => {
-    console.log(data);
+const SingleRecent = ({ data, index }) => {
+    const pop = {
+        initial: {
+            opacity: 0,
+        },
+        animate: {
+            opacity: 1,
+
+            transition: { delay: index * .5 }
+        }
+    }
     return (
         <Link href={`/blogs/${data._id}`}>
-            <div className='pr-3 cursor-pointer'>
+            <motion.div variants={pop} initial='initial' exit='initial' animate='animate' className='pr-3 cursor-pointer'>
                 <div className='pb-5 flex mt-5'>
                     <div className='mr-4'>
                         <Avatar src={data.img} alt="blog " sx={{
@@ -20,7 +30,7 @@ const SingleRecent = ({ data }) => {
                     </div>
                 </div>
                 <hr className='border-gray-800' />
-            </div>
+            </motion.div>
         </Link>
     );
 };

@@ -6,12 +6,22 @@ import React, { useState } from 'react';
 import { Avatar, Button } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import EventAvailableIcon from '@mui/icons-material/EventAvailable';
+import { motion } from 'framer-motion'
 
-const BlogCard = ({ _id, heading, description, img, love, comment, date, address, admin, handleDelete }) => {
+const BlogCard = ({ _id, heading, index, description, img, love, comment, date, address, admin, handleDelete }) => {
+    const pop = {
+        initial: {
+            opacity: 0,
+        },
+        animate: {
+            opacity: 1,
 
+            transition: { delay: index * .2 }
+        }
+    }
     const [loading, setLoading] = useState(false);
     return (
-        <div className={`font-family-mono ${loading ? 'grayscale' : ''}`}>
+        <motion.div variants={pop} initial='initial' exit='initial' animate='animate' className={`font-family-mono ${loading ? 'grayscale' : ''}`}>
             <div data-aos="fade-up">
                 <div className='flex flex-col'>
                     <div className='relative'>
@@ -36,7 +46,7 @@ const BlogCard = ({ _id, heading, description, img, love, comment, date, address
 
 
             </div>
-        </div>
+        </motion.div>
     );
 };
 

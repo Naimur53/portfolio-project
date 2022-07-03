@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { allData } from '../../dataSlice/dataSlice';
-
+import { motion } from 'framer-motion'
 const BlogPageBanner = (props) => {
     const { blogDetails } = useSelector(allData)
     return (
@@ -20,14 +20,34 @@ const BlogPageBanner = (props) => {
             }
         >
             {
-                props.default ? <div >
-                    <h1 className='t  text-3xl font-family-mono font-thin'>Writing my blog has saved me thousands on therapy</h1>
+                props.default ? <div className='overflow-hidden'>
+                    <div className='overflow-hidden'>
+                        <motion.h1
+                            exit={{
+                                y: '100%'
+                            }}
+                            initial={{
+                                y: '100%'
+                            }}
+                            animate={{
+                                y: 0,
+                                transition: { duration: .7, }
+                            }} className='text-3xl font-family-mono font-thin'>Writing my blog has saved me thousands on therapy</motion.h1>
+                    </div>
                     <div className="flex  justify-center mt-3">
-                        <div className='w-52 flex justify-between  font-family-mono font-thin'>
+                        <motion.div exit={{
+                            opacity: 0
+                        }}
+                            initial={{
+                                opacity: 0
+                            }}
+                            animate={{
+                                opacity: 1,
+                            }} className='w-52 flex justify-between  font-family-mono font-thin'>
                             <span>Home</span>
                             <span>/</span>
                             <span>Blogs</span>
-                        </div>
+                        </motion.div>
 
                     </div>
 
