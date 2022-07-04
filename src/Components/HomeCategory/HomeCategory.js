@@ -42,6 +42,8 @@ const HomeCategory = () => {
     }
     const initial = {
         opacity: 0,
+        x: 500,
+        y: 500,
     }
     return (
         <div onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} ref={container} className='overflow-hidden   relative h-screen w-full   '>

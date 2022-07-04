@@ -17,3 +17,16 @@
 .shadow-overlay {
     box-shadow: 27px 0px 36px 35px black;
 }
+
+.ellips {
+    clip-path: ellipse(15% 20% at 50% 50%);
+}
+
+.middle-wrap {
+    height: 400px;
+    width: 400px;
+}
+
+.middle-image {
+    transform: scale(1.5);
+}

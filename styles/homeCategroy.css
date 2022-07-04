@@ -3,9 +3,6 @@
     left: 20%;
     right: 0%;
     width: 120%;
-    will-change: transform;
-    transform: translate3d(-50%, -50%, 0px) scaleX(1);
-    transform-style: preserve-3d;
     height: auto;
     transition: all 1.4s ease-out;
     backface-visibility: hidden

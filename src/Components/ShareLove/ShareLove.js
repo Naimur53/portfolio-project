@@ -35,7 +35,7 @@ const ShareLove = () => {
             </div>
             <div className="text-gray-300 hover:text-white transition-colors cursor-pointer flex mr-4">
                 {
-                    !user.email ? <Link href='#commentlogin' className='text-white hover:no-underline	'>
+                    !user.email ? <Link href='#commentlogin' className='text-white hover:no-underline flex'>
 
                         <FavoriteBorderIcon></FavoriteBorderIcon>
                         <span className="ml-2 font-bold">{blogDetails?.love?.length}</span>

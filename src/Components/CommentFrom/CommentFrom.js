@@ -1,5 +1,6 @@
 import { CircularProgress, Grid } from '@mui/material';
 import axios from 'axios';
+import Image from 'next/image';
 import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
@@ -89,7 +90,7 @@ const CommentFrom = () => {
                             <div className='g-sign-in-button'>
                                 <div className='content-wrapper'>
                                     <div className='logo-wrapper'>
-                                        <img src='https://developers.google.com/identity/images/g-logo.png' />
+                                        <Image width={200} priority layout='raw' height={200} raw alt='Google logo' src='https://i.ibb.co/yX16csP/g-logo.png' />
                                     </div>
                                     <div className='text-container'>
                                         <span>Sign in with Google</span>

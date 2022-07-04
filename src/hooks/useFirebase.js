@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { signOut, GoogleAuthProvider, getAuth, signInWithPopup, onAuthStateChanged } from "firebase/auth";
 import { useDispatch } from 'react-redux';
+import { toast } from 'react-toastify';
 
 import { initializeAppAuthentication } from '../firebase/firebase.init';
 import { addUser } from '../dataSlice/dataSlice';
@@ -18,25 +19,39 @@ const useFirebase = () => {
             .then((result) => {
                 const credential = GoogleAuthProvider.credentialFromResult(result);
                 const token = credential.accessToken;
-                // The signed-in user info.
-                // const user = ;
+                // The signed-in user info. 
                 console.log(result.user);
-                dispatch(addUser({
-                    displayName: result.user.displayName,
-                    email: result.user.email,
-                    createdAt: result.user.metadata.createdAt,
-                    photoURL: result.user.photoURL,
-                    uid: result.user.uid
-                }))
-
-                setLoading(false);
                 axios.put('http://localhost:5000/user', {
                     displayName: result.user.displayName,
                     email: result.user.email,
                     createdAt: result.user.metadata.createdAt,
                     photoURL: result.user.photoURL,
                     uid: result.user.uid
-                }).then(res => console.log(res))
+                }).then(res => {
+                    setLoading(false);
+
+                    dispatch(addUser({
+                        displayName: result.user.displayName,
+                        email: result.user.email,
+                        createdAt: result.user.metadata.createdAt,
+                        photoURL: result.user.photoURL,
+                        uid: result.user.uid
+                    }))
+                })
+                    .catch(error => {
+                        logOut()
+                        setLoading(false);
+
+                        toast.error('Unknown error happen', {
+                            position: "bottom-right",
+                            autoClose: 5000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                        });
+                    })
                 // ...
             }).catch((error) => {
                 // Handle Errors here.
@@ -44,7 +59,15 @@ const useFirebase = () => {
                 const errorMessage = error.message;
                 // The email of the user's account used.
                 const email = error.email;
-                alert('something happened')
+                toast.error('Unknown error happen', {
+                    position: "bottom-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                }); 675.
                 setLoading(false)
 
                 // The AuthCredential type that was used.
@@ -71,7 +94,7 @@ const useFirebase = () => {
             }
 
         });
-    }, []);
+    }, [auth, dispatch]);
     const logOut = () => {
         signOut(auth).then(() => {
             // Sign-out successful.
