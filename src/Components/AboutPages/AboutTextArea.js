@@ -12,7 +12,7 @@ const AboutTextArea = () => {
 
     }, [scrollValue])
     return (
-        <div className='overflow-hidden mt-10 h-full bg-transparent-black'>
+        <div className='overflow-hidden mt-10 h-full glass-bg '>
             <Container className='h-full'>
                 <div className='py-10 mb-5 text-center'>
                     {/* <DescriptionText text=""></DescriptionText> */}

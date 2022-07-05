@@ -30,3 +30,15 @@
 .middle-image {
     transform: scale(1.5);
 }
+
+.border-gradient-2 {
+    background:
+        linear-gradient(black, black) padding-box,
+        linear-gradient(to right top, #fde440, #ffd07e) border-box;
+    border: 1px solid transparent;
+}
+
+.glass-bg {
+    background: rgba(255, 255, 255, 0.097);
+    backdrop-filter: blur(5px);
+}

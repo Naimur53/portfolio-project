@@ -12,13 +12,6 @@ const MiddleVideo = () => {
     useEffect(() => {
         console.log(scrollValue);
         const scroll = scrollValue.toFixed(1)
-        if (scroll >= 2.8 && scroll <= 3) {
-            video.current.play()
-
-        } else {
-            video.current.pause()
-
-        }
         if (scroll >= 2.6) {
 
             setPath(`circle(${(scroll * 15) + 19.3}% at 50% 50%)`)
@@ -56,12 +49,15 @@ const MiddleVideo = () => {
             opacity: 1,
         }
     }
+
     return (
         <motion.div initial='initial' animate={"animate"} variants={wrapper} className='h-full'>
             <motion.div variants={inner} animate={value.visible ? "animate" : 'initial'} className='h-full flex justify-center items-center'>
-                <video ref={video} autoPlay className='h-5/6 w-5/6'>
-                    <source src="https://res.cloudinary.com/dvor8fuxv/video/upload/v1656928694/myfolder/mysubfolder/1283733467_dotgvp.mp4" type="video/mp4" />
-                </video>
+                {
+                    value.visible && <video ref={video} controls loop className='h-5/6 w-5/6'>
+                        <source src="https://res.cloudinary.com/dvor8fuxv/video/upload/v1656928694/myfolder/mysubfolder/1283733467_dotgvp.mp4" type="video/mp4" />
+                    </video>
+                }
             </motion.div>
         </motion.div>
     );

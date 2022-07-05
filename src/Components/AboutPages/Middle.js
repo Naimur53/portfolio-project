@@ -39,9 +39,21 @@ const Middle = () => {
     useEffect(() => {
         console.log(scrollValue);
         const scroll = scrollValue.toFixed(1)
-        if (scroll >= 2.3) {
+        if (scroll >= 4) {
+            setPath('ellipse(16% 23% at 50% 50%)')
+            setRotateValue(scrollValue)
+        }
+        else if (scroll >= 3.8) {
+
+            setPath('ellipse(9% 15% at 50% 50%)')
+            setRotateValue(scrollValue)
+
+
+        }
+        else if (scroll >= 2.3) {
 
             setPath('ellipse(0% 0% at 50% 50%)')
+
 
         }
         else if (scroll >= 2) {
