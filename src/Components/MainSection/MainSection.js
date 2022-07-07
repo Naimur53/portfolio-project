@@ -10,7 +10,7 @@ const MainSection = () => {
     const { blogDetails } = useSelector(allData);
     return (
         <>
-            <div className='flex justify-between items-center'>
+            <div className='block md:flex justify-between items-center pb-5 md:pb-0'>
                 <div className='pb-5 flex mt-5'>
                     <div className='mr-4'>
                         <Avatar src='https://i.ibb.co/5LwPHgJ/20190320-WEST-AFRICA-FROM-GUNJUR-TO-BASSE-2964-removebg-preview.png' alt="blog " sx={{

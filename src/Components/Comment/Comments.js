@@ -8,7 +8,7 @@ const Comments = ({ data, small }) => {
         <div className='mb-5 font-family-mono'>
             <Grid container >
                 <Grid xs={2} md={1}>
-                    <div className=''>
+                    <div className='px-1 md:p-0'>
                         {
                             data.user?.photoURL ? <Image className='rounded-full' src={data.user.photoURL} width={50} height={50} alt='dfdf'></Image> : <Avatar></Avatar>
                         }

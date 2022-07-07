@@ -16,12 +16,12 @@ const SingleBlog = () => {
         <div >
             <Head title={blogDetails.heading?.slice(0, 20)} keywords={blogDetails.tags}></Head>
             <BlogPageBanner></BlogPageBanner>
-            <Container maxWidth='lg' className='bg-transparent-black   py-10'>
-                <Grid container spacing={2}>
-                    <Grid xs={4}>
+            <Container className='bg-transparent-black overflow-hidden flex flex-col justify-center items-center  py-10'>
+                <Grid container className='md:flex-row flex-col-reverse w-full' spacing={2}>
+                    <Grid xs={12} md={4}>
                         <BlogLeft></BlogLeft>
                     </Grid>
-                    <Grid xs={8}>
+                    <Grid xs={12} md={8}>
                         <BlogRight></BlogRight>
                     </Grid>
 

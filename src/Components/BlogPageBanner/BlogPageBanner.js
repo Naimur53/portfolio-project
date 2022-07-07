@@ -32,7 +32,7 @@ const BlogPageBanner = (props) => {
                             animate={{
                                 y: 0,
                                 transition: { duration: .7, }
-                            }} className='text-3xl font-family-mono font-thin'>Writing my blog has saved me thousands on therapy</motion.h1>
+                            }} className='text-xl md:text-3xl text-center font-family-mono font-thin'>Writing my blog has saved me thousands on therapy</motion.h1>
                     </div>
                     <div className="flex  justify-center mt-3">
                         <motion.div exit={{
@@ -43,7 +43,7 @@ const BlogPageBanner = (props) => {
                             }}
                             animate={{
                                 opacity: 1,
-                            }} className='w-52 flex justify-between  font-family-mono font-thin'>
+                            }} className=' w-52 flex justify-between  font-family-mono font-thin'>
                             <span>Home</span>
                             <span>/</span>
                             <span>Blogs</span>
@@ -51,10 +51,10 @@ const BlogPageBanner = (props) => {
 
                     </div>
 
-                </div> : <div >
-                    <h1 className='text-3xl font-family-mono font-thin'>{blogDetails.heading}</h1>
+                </div> : <div className='p-1 md:p-0'>
+                    <h1 className='text-xl md:text-3xl text-center font-family-mono font-thin'>{blogDetails.heading}</h1>
                     <div className="flex  justify-center mt-3">
-                        <div className='w-96  flex justify-between font-family-mono font-thin'>
+                        <div className='md:w-96 hidden md:flex text-center   justify-between font-family-mono font-thin'>
                             <span>Home</span>
                             <span>/</span>
                             <span>Blogs</span>

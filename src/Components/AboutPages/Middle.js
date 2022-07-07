@@ -20,6 +20,7 @@ const Middle = () => {
         animate: {
             clipPath: path,
             rotate: rotateValue * 100,
+
             transition: {
                 clipPath: { duration: .5, type: 'easeOut' },
                 default: {}
@@ -30,6 +31,7 @@ const Middle = () => {
     const roundImage = {
         initial: {
             rotate: 0
+
         },
         animate: {
             rotate: -(rotateValue * 100)
@@ -69,11 +71,11 @@ const Middle = () => {
     }, [scrollValue])
     console.log(path);
     return (
-        <div className=' h-full flex justify-center cursor-pointer items-center'>
+        <div className=' h-full flex justify-center cursor-pointer  items-center'>
             <motion.div initial='initial' animate='animate' variants={rounding}
-                className='overflow-hidden   flex justify-center     h-screen w-full items-center '>
-                <motion.div initial='initial' className=' flex flex-col justify-center items-center' animate='animate' variants={roundImage}>
-                    <div>
+                className='   flex justify-center     h-full w-full items-center '>
+                <motion.div initial='initial' className='bg-red-900  p-2  flex flex-col justify-center items-center' animate='animate' variants={roundImage}>
+                    <div className='bg-red-300'>
                         <Image className='middle-image  ' src='https://i.ibb.co/BtbKgFL/20190320-WEST-AFRICA-FROM-GUNJUR-TO-BASSE-2964-2.jpg' width={400} height={400} alt='John photos' layout='raw' priority></Image>
                     </div>
 

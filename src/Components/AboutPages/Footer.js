@@ -17,7 +17,7 @@ const Footer = () => {
 
 
 
-    const logos = ['https://i.ibb.co/bNXkjFn/footer-zw-brands3-4.jpg', 'https://i.ibb.co/b61SvDD/footer-zw-brands3-5.jpg', 'https://i.ibb.co/nmdm6Xd/footer-zw-brands3-1.jpg', ' https://i.ibb.co/5X0nQLZ/apple-logo-eps-logo-vector.png', 'https://i.ibb.co/mBkbcDL/footer-zw-brands3-2.jpg', 'https://i.ibb.co/CPhzYnt/footer-zw-brands3-3.jpg', 'https://i.ibb.co/fvYytgZ/adobe-logo-white.png']
+    const logos = ['https://i.ibb.co/bNXkjFn/footer-zw-brands3-4.jpg', 'https://i.ibb.co/b61SvDD/footer-zw-brands3-5.jpg', 'https://i.ibb.co/nmdm6Xd/footer-zw-brands3-1.jpg', 'https://i.ibb.co/mBkbcDL/footer-zw-brands3-2.jpg', ' https://i.ibb.co/5X0nQLZ/apple-logo-eps-logo-vector.png', 'https://i.ibb.co/CPhzYnt/footer-zw-brands3-3.jpg',]
     return (
         <div className='overflow-hidden mt-10 h-full '>
             {/* <div className='mt-10 text-center flex justify-center items-center flex-col'>
@@ -31,7 +31,7 @@ const Footer = () => {
                 </div>
             </div> */}
             <Grid container spacing={2}>
-                <Grid item xs={12} md={6}>
+                <Grid item xs={12} md={12}>
                     <Grid container spacing={4}>
                         <Grid item xs={12} md={12}>
                             <div className="glass-bg p-4 flex justify-center flex-col items-center rounded-md">
@@ -69,19 +69,39 @@ const Footer = () => {
 
                         </Grid>
                     </Grid>
-
+                    <div className='mt-10'>
+                        <Image alt='brand images' className='w-full' priority layout='raw' width={500} height={200} src='https://i.ibb.co/M6ccNSY/footer-zw-brands3-removebg-preview.png'></Image>
+                    </div>
                 </Grid>
                 <Grid item xs={12} md={6}>
-                    <Grid container spacing={4}>
+                    {/* <Grid container spacing={4}>
                         {
-                            logos.map(single => <Grid key={single} item xs={12} md={3}>
-                                <Image src={single} width={200} height={200}
+                            logos.map(single => <Grid key={single} item xs={12} md={4}>
+                                <Image alt='logo' src={single} width={200} height={200}
                                     layout="raw" priority ></Image>
                             </Grid>)
                         }
+                        <Grid item xs={12} md={12}>
+                            <div className='flex justify-center'>
+                                <Image alt='logo' src='https://i.ibb.co/fvYytgZ/adobe-logo-white.png' width={200} height={200}
+                                    layout="raw" priority ></Image>
 
+                            </div>
+                        </Grid>
 
-                    </Grid>
+                    </Grid> */}
+                    {/* <div className='flex h-full justify-center items-center'>
+                        <div className='w-1/2 h-2/3 bg-cover bg-no-repeat '
+                            style={
+                                {
+                                    backgroundImage: 'url(https://www.johnbaggen.gallery/wp-content/uploads/2019/07/footer-zw-brands3.jpg)'
+                                }
+                            }
+                        >
+
+                        </div>
+
+                    </div> */}
 
                 </Grid>
             </Grid>

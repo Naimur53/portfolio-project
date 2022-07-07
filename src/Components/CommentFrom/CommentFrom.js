@@ -81,7 +81,7 @@ const CommentFrom = () => {
 
             </form>
             {
-                !user.email && <div className='absolute  inset-0 backdrop-blur-sm flex justify-center items-center '>
+                !user.email && <div className='absolute moz-blur  inset-0 backdrop-blur-sm flex justify-center items-center '>
 
                     {
                         loading ? <div className="flex">

@@ -19,31 +19,32 @@ const AboutMe = () => {
     const currentValue = scrollValue.toFixed(1)
     useEffect(() => {
         console.log(currentValue);
-        if (currentValue > 2.8) {
+        if (currentValue >= 4) {
             setValue({ content5: true, content6: true })
         }
-        else if (currentValue > 2.6) {
+        else if (currentValue >= 3.5) {
             setValue({ content5: true })
         }
-        else if (currentValue > 2.4) {
+        else if (currentValue >= 3) {
             setValue({ content4: true })
-            setProgress(100)
 
         }
-        else if (currentValue > 2.2) {
-            setProgress(60)
+        else if (currentValue >= 2.5) {
 
             setValue({ content3: true, })
         }
-        else if (currentValue > 2) {
-            setProgress(30)
+        else if (currentValue >= 2) {
             setValue({ content2: true, })
         }
         else {
-            setProgress(0)
             setValue({ content1: true, })
         }
+        if (currentValue < 3.4) {
+            setProgress((currentValue - 2) * 75)
+
+        }
     }, [currentValue])
+    console.log(progress);
     const handleMouseMove = e => {
         let x = e.clientX - container.current.getBoundingClientRect().left
         eleRef.current.style.left = ` ${x}px`;
@@ -120,7 +121,7 @@ const AboutMe = () => {
                             <div className='flex justify-between items-center  text-xl mt-3 md:mt-0 w-52' >
                                 <div className='pr-4'>
                                     {
-                                        progress === 0 ? 1 : progress === 30 ? 2 : progress === 60 ? 3 : progress === 100 && 4
+                                        value.content1 ? 1 : value.content2 ? 2 : value.content3 ? 3 : 4
                                     }
                                 </div>
 

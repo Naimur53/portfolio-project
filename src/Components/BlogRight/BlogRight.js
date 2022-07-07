@@ -21,8 +21,8 @@ const BlogRight = () => {
             {
                 blogDetails.sections?.map(data => <BlogSection key={data.title} data={data}></BlogSection>)
             }
-            <div className="my-10 flex justify-between items-center">
-                <div>
+            <div className="my-10 block md:flex justify-between items-center">
+                <div className="py-5 md:py-0">
                     <LocalOfferIcon sx={{ color: 'yellow' }} className="mr-1"></LocalOfferIcon>
                     <span>TAGS:</span>
                     {blogDetails.tags?.map((tag, i) => <span key={i} className="ml-2 mb-2 inline-block p-2 rounded-lg bg-gray-900">#{tag}</span>)}
@@ -32,7 +32,7 @@ const BlogRight = () => {
             </div>
             <hr className="border-gray-700" />
             <div>
-                <h2 className="mb-10 mt-4 text-3xl font-light text-gray-400">{blogDetails.comments?.length} <span className="ml-2">COMMENTS:</span></h2>
+                <h2 className="mb-5 md:mb-10 mt-5 text-xl md:text-3xl font-light text-gray-400">{blogDetails.comments?.length} <span className="ml-2">COMMENTS:</span></h2>
                 {
                     seeAll ? blogDetails.comments?.map((comment, i) => <Comments key={i} data={comment}></Comments>) : blogDetails.comments?.slice(0, 3).map((comment, i) => <Comments key={i} data={comment}></Comments>)
                 }

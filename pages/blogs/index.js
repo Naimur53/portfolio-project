@@ -12,12 +12,12 @@ const Blogs = ({ blogs }) => {
         <div >
             <Head title='John Blogs'></Head>
             <BlogPageBanner default></BlogPageBanner>
-            <Container maxWidth='lg' className='bg-transparent-black   py-10'>
-                <Grid container spacing={2}>
-                    <Grid xs={4}>
+            <Container maxWidth='lg' className='bg-transparent-black flex flex-col justify-center items-center   py-10'>
+                <Grid container className='md:flex-row flex-col-reverse ' spacing={2}>
+                    <Grid item xs={12} md={4}>
                         <BlogLeft></BlogLeft>
                     </Grid>
-                    <Grid xs={8}>
+                    <Grid item xs={12} md={8}>
                         <Grid container spacing={4}>
                             {
                                 blogs?.map((singleBlog, i) => <Grid item key={singleBlog._id} xs={12} md={4}><BlogCard index={i} {...singleBlog}></BlogCard></Grid>)

@@ -37,7 +37,7 @@ export default function Home() {
       <Head
         title="John Baggen"
       ></Head>
-      <Parallax ref={parallaxRef} pages={9}>
+      <Parallax ref={parallaxRef} pages={10}>
         <ParallaxLayer
           offset={0}
           speed={.5}  >
@@ -52,7 +52,7 @@ export default function Home() {
         <ParallaxLayer
           offset={2}
           speed={.5}
-          sticky={{ start: 2, end: 3 }}
+          sticky={{ start: 2, end: 4 }}
           factor={1} >
           <Container className="">
 
@@ -61,7 +61,7 @@ export default function Home() {
         </ParallaxLayer>
 
         <ParallaxLayer
-          offset={4}
+          offset={5}
           factor={1.3}
           speed={.5}
         >
@@ -69,9 +69,9 @@ export default function Home() {
         </ParallaxLayer>
 
         <ParallaxLayer
-          offset={5}
+          offset={6}
           speed={5}
-          sticky={{ start: 5, end: 7 }}
+          sticky={{ start: 6, end: 8 }}
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -85,7 +85,7 @@ export default function Home() {
         </ParallaxLayer>
 
         <ParallaxLayer
-          offset={8}
+          offset={9}
           speed={.5}
           style={{
             display: 'flex',

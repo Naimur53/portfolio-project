@@ -28,3 +28,11 @@
 .phone-shadow2 {
     box-shadow: 10px 10px 17px 2px black;
 }
+
+
+@-moz-document url-prefix() {
+    .moz-blur {
+        background-color: rgba(0, 0, 0, 0.723);
+
+    }
+}
