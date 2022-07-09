@@ -4,7 +4,7 @@ const EmptyLayout = ({ children }) => {
 
 
     return <>
-        {/* <TopBar></TopBar> */}
+        <TopBar></TopBar>
         {children}
     </>
 }
