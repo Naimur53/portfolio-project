@@ -21,7 +21,7 @@ const useFirebase = () => {
                 const token = credential.accessToken;
                 // The signed-in user info. 
                 console.log(result.user);
-                axios.put('http://localhost:5000/user', {
+                axios.put('https://stark-atoll-95180.herokuapp.com/user', {
                     displayName: result.user.displayName,
                     email: result.user.email,
                     createdAt: result.user.metadata.createdAt,

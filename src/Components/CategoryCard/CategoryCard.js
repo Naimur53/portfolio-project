@@ -11,7 +11,7 @@ const CategoryCard = ({ admin, i, _id, thumbnail, title, description, categoryNa
     const handleDelete = () => {
         if (window.confirm('Are you sure to delete this category')) {
             setLoading(true);
-            axios.delete(`http://localhost:5000/category?id=${_id}`)
+            axios.delete(`https://stark-atoll-95180.herokuapp.com/category?id=${_id}`)
                 .then(res => {
                     setLoading(false)
                 })

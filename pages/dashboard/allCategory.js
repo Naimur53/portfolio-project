@@ -8,7 +8,7 @@ const AllCategory = () => {
     const [allData, setAllData] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        axios.get('http://localhost:5000/category')
+        axios.get('https://stark-atoll-95180.herokuapp.com/category')
             .then(res => {
                 setAllData(res.data)
                 setLoading(false)

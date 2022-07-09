@@ -96,7 +96,7 @@ const CategoryDetails = ({ data }) => {
 };
 export default CategoryDetails;
 export async function getServerSideProps({ params }) {
-    const res = await fetch(`http://localhost:5000/singleCategory?id=${params.id}`)
+    const res = await fetch(`https://stark-atoll-95180.herokuapp.com/singleCategory?id=${params.id}`)
     const data = await res.json();
     return {
         props: {

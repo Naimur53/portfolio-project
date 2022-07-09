@@ -10,7 +10,7 @@ const AllBlogs = () => {
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        axios.get('http://localhost:5000/blog')
+        axios.get('https://stark-atoll-95180.herokuapp.com/blog')
             .then(res => {
                 setBlogs(res.data);
                 setLoading(false)
@@ -27,7 +27,7 @@ const AllBlogs = () => {
         if (window.confirm("Are you sure to Delete this blog?")) {
             console.log(id);
             setDeleteLoading(true)
-            axios.delete(`http://localhost:5000/blog/delete?id=${id}`)
+            axios.delete(`https://stark-atoll-95180.herokuapp.com/blog/delete?id=${id}`)
                 .then(res => {
                     setDeleteLoading(false);
                     // remove blog card 

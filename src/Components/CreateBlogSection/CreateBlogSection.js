@@ -101,7 +101,7 @@ const CreateBlogSection = ({ errors, unregister, handleComplete, setPhotosLoadin
             formData.append("video", file[0]);
 
             // sending to api
-            axios.post('http://localhost:5000/video', formData, {
+            axios.post('https://stark-atoll-95180.herokuapp.com/video', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -160,7 +160,7 @@ const CreateBlogSection = ({ errors, unregister, handleComplete, setPhotosLoadin
                                 }</label> : <span></span>
                             }
                             {
-                                <span>or</span>
+                                watch(`video${singleSec.num}`)?.length ? <span></span> : <span>or</span>
                             }
                             {
                                 watch(`img${singleSec.num}`)?.length ? <button type='button' className='text-blue-500 ml-3 underline cursor-pointer' onClick={() => setIsOpen(true)}> Edit Photos Name </button> : <span></span>

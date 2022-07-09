@@ -31,7 +31,7 @@ const HomeBlogImages = () => {
     }, [scrollValue])
     useEffect(() => {
         setLoading(true);
-        axios.get('http://localhost:5000/blog?short=true')
+        axios.get('https://stark-atoll-95180.herokuapp.com/blog?short=true')
             .then(res => {
                 setBlogs(res.data)
                 setLoading(false);

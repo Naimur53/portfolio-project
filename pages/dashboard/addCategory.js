@@ -61,7 +61,7 @@ const AddCategory = ({ uniqCategory }) => {
         }
 
         // sending to api
-        axios.post('http://localhost:5000/category', data)
+        axios.post('https://stark-atoll-95180.herokuapp.com/category', data)
             .then(res => {
                 console.log(res, 'success');
                 toast.success('Category successfully added', {
@@ -314,7 +314,7 @@ AddCategory.Layout = DashboardLayout;
 export default AddCategory;
 export async function getServerSideProps() {
     // Fetch data from external API
-    const res = await fetch(`http://localhost:5000/uniqCategory`)
+    const res = await fetch(`https://stark-atoll-95180.herokuapp.com/uniqCategory`)
     const data = await res.json()
 
     // Pass data to the page via props

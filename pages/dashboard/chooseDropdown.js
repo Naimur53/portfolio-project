@@ -14,13 +14,13 @@ const ChooseDropdown = () => {
     const [loading, setLoading] = useState(true);
     const [postLoading, setPostLoading] = useState(false);
     useEffect(() => {
-        // axios.get('http://localhost:5000/category?short=true')
+        // axios.get('https://stark-atoll-95180.herokuapp.com/category?short=true')
         //     .then(res => {
         //         const filterData = res.data?.filter(single => !single.subCategory)
         //         setAllCategory(filterData)
         //         setLoading(false)
         //     })
-        Promise.all([axios.get('http://localhost:5000/category?short=true'), axios.get(' http://localhost:5000/chooseMenu')])
+        Promise.all([axios.get('https://stark-atoll-95180.herokuapp.com/category?short=true'), axios.get(' https://stark-atoll-95180.herokuapp.com/chooseMenu')])
             .then(res => {
                 console.log(res);
                 const fullCategory = res[0].data;
@@ -66,7 +66,7 @@ const ChooseDropdown = () => {
 
             });
             console.log('mainCategory', mainData);
-            axios.post('http://localhost:5000/chooseMenu', mainData)
+            axios.post('https://stark-atoll-95180.herokuapp.com/chooseMenu', mainData)
                 .then(res => {
                     setPostLoading(false)
 

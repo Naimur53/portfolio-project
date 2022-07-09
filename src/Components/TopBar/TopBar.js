@@ -110,7 +110,7 @@ const TopBar = () => {
                         <Typography>Collection</Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                        <Collection phone></Collection>
+                        {/* <Collection phone></Collection> */}
                     </AccordionDetails>
                 </Accordion>
             </motion.div>
@@ -251,7 +251,7 @@ const TopBar = () => {
                                         Collection
 
                                     </Button>
-                                    <Collection></Collection>
+                                    {/* <Collection></Collection> */}
                                 </motion.div>
                                 <motion.div className='pr-5' variants={fadeInUp}
                                 >

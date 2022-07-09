@@ -6,7 +6,7 @@ import SingleCollection from './SingleCollection';
 const Collection = ({ phone }) => {
     const [menuData, setMenuData] = useState([])
     useEffect(() => {
-        axios.get('http://localhost:5000/chooseMenu').then(res => {
+        axios.get('https://stark-atoll-95180.herokuapp.com/chooseMenu').then(res => {
             setMenuData(res.data)
         })
     }, [])

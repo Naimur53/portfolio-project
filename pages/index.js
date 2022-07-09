@@ -100,7 +100,7 @@ export default function Home() {
 }
 // export async function getServerSideProps() {
 //   // Fetch data from external API
-//   const res = await fetch(`http://localhost:5000/category`)
+//   const res = await fetch(`https://stark-atoll-95180.herokuapp.com/category`)
 //   const data = await res.json()
 //   console.log('server', res);
 
@@ -109,7 +109,7 @@ export default function Home() {
 // } 
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async () => {
-    const res = await fetch(`http://localhost:5000/category?short=true`)
+    const res = await fetch(`https://stark-atoll-95180.herokuapp.com/category?short=true`)
     const data = await res.json();
     store.dispatch(addHomeCategory(data))
   })

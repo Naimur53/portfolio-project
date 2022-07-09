@@ -9,39 +9,6 @@ import ClearIcon from '@mui/icons-material/Clear';
 import { Box } from '@mui/system';
 import { toast } from 'react-toastify';
 
-// const data = {
-//     img: "https://i.ibb.co/PMdzcvn/img-1.jpg",
-//     heading: "ONE DAY FASHION SHOOT",
-//     description: 'Curabitur eu congue erat. Donec posuere eu est eget egestas. Pellentesque porttitor blandit massa, nec luctus ligula facilisis sodales. Nam eu felis a ex efficitur faucibus in mollis arcu. Sed venenatis urna in lorem consequat rutrum. Nullam imperdiet arcu nec erat maximus faucibus...',
-//     location: 'Klik hier voor Nederlands',
-//     date: new Date().toDateString(),
-//     sections: [{
-//         title: "The disappointment comes at home. ",
-//         img: [{ title: 'Ait Ben Haddou  Morocco: A first attempt under poor light conditions', url: 'https://i.ibb.co/hVm9s2y/20161021-AIT-BEN-HABBOU-351-Pano-1200x406.jpg' }],
-//         video: "",
-//         description: "I have a few golden rules. One of these rules, ‘Don’t try to organize, be on time and stay until you are completely satisfied.’ So I was on time. Sunset was expected around 7:30 and I was there at five. Camera tripod set up and the Nikon D5 on it. New pack of Marlboro in my pocket for the usual ‘Time killing smoking’. Slowly, bit by bit I see the light change. At that moment the light plan starts in my head. I take in some reference points. When the sun goes down there …. that is my moment. I do some spot measurements and light up another Marlboro. Just wait, this is going to be all right."
-//     }],
-//     tags: ['PHOTOGRAPHY', "FASHION", 'BLACK & WHITE'],
-//     love: 30,
-//     comments: [{
-//         id: 'id', user: {
-//             displayName: 'JONE DOE',
-//             photoUrl: 'https://demo.themetorium.net/html/agatha/dark/assets/img/blog/small/avatar/avatar-1.jpg',
-//         },
-//         date: new Date().toDateString(),
-//         comment: 'Quis ante id eros orci eget. Ac egestas praesent aliquam nisl in vitae aliquam vitae. Vivamus sed elementum. Sem sed sed. Hendrerit elit eget sem pellentesque a. Velit elit lacinia mattis amet nunc. Fames ipsum rhoncus. Natoque posuere nam commodo mattis orci. Aliquet praesent tempor ac dolor aliquet.'
-//     },
-//     {
-//         id: 'id', user: {
-//             displayName: 'JONE DOE',
-//             photoUrl: 'https://demo.themetorium.net/html/agatha/dark/assets/img/blog/small/avatar/avatar-1.jpg',
-//         },
-//         date: new Date().toDateString(),
-//         comment: 'Quis ante id eros orci eget. Ac egestas praesent aliquam nisl in vitae aliquam vitae. Vivamus sed elementum. Sem sed sed. Hendrerit elit eget sem pellentesque a. Velit elit lacinia mattis amet nunc. Fames ipsum rhoncus. Natoque posuere nam commodo mattis orci. Aliquet praesent tempor ac dolor aliquet.'
-//     }
-//     ]
-
-// }
 
 const AddBlog = () => {
     const [imgLoading, setImgLoading] = useState(false);
@@ -78,7 +45,7 @@ const AddBlog = () => {
         // create main data for post 
         const mainData = { img, tags, heading, description, address, sections };
         console.log(mainData, data);
-        // axios.post('http://localhost:5000/blog', mainData).then(res => toast.success('Successfully post the blog', {
+        // axios.post('https://stark-atoll-95180.herokuapp.com/blog', mainData).then(res => toast.success('Successfully post the blog', {
         //     position: "bottom-right",
         //     autoClose: 5000,
         //     hideProgressBar: false,

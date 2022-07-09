@@ -170,21 +170,21 @@ const BlogLeft = () => {
     const [mostLovesLoading, setMostLovesLoading] = useState(true);
     const [commentsLoading, setCommentsLoading] = useState(true);
     useEffect(() => {
-        axios.get('http://localhost:5000/blog/recent')
+        axios.get('https://stark-atoll-95180.herokuapp.com/blog/recent')
             .then(res => {
                 setRecents(res.data);
                 setRecentLoading(false);
             })
     }, [])
     useEffect(() => {
-        axios.get('http://localhost:5000/blog/mostLoved')
+        axios.get('https://stark-atoll-95180.herokuapp.com/blog/mostLoved')
             .then(res => {
                 setMostLoves(res.data);
                 setMostLovesLoading(false);
             })
     }, [])
     useEffect(() => {
-        axios.get('http://localhost:5000/blog/comment/recent')
+        axios.get('https://stark-atoll-95180.herokuapp.com/blog/comment/recent')
             .then(res => {
                 setCommnets(res.data);
                 setCommentsLoading(false);
