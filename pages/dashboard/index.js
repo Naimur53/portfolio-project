@@ -22,7 +22,7 @@ const RoundedServiceCart = dynamic(() => import("../../src/Components/DashboardC
 const Dashboard = (props) => {
     return (
         <Grid container spacing={2}>  <Grid item xs={12} md={3}>
-            <Paper elevation={3} sx={{ p: 2 }} className='bg-gray-900 text-white'>
+            <Box sx={{ p: 2 }} className='bg-gray-900 shadow-sm text-white'>
                 <Box sx={{
                     display: 'flex',
                     justifyContent: "space-between",
@@ -38,7 +38,7 @@ const Dashboard = (props) => {
                 </Box>
                 <Typography variant='h5' className='text-center p-4 text-4xl' gutterBottom><CountUp end={753} /></Typography>
                 <h2 className="text-red-500">Total Love Of Blog</h2>
-            </Paper>
+            </Box>
         </Grid>
             <Grid item xs={12} md={3}>
                 <Paper className='bg-gray-900 text-white' elevation={3} sx={{ p: 2 }}>

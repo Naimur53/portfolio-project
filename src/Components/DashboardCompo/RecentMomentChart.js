@@ -49,7 +49,7 @@ const data = [
 ];
 const RecentMomentChart = () => {
     return (
-        <Paper className='bg-gray-900' elevation={3} sx={{ p: 2, }} >
+        <Box className='bg-gray-900 shadow-sm' sx={{ p: 2, }} >
             <Typography gutterBottom variant='h6' color="white">Recent Moment</Typography>
             <ResponsiveContainer width="100%" height={220}>
                 <AreaChart width={730} height={250} data={data}
@@ -66,7 +66,7 @@ const RecentMomentChart = () => {
                     <Area type="monotone" dataKey="pv" stroke="#d2365e" fillOpacity={1} fill="#d2365e1f" />
                 </AreaChart>
             </ResponsiveContainer>
-        </Paper>
+        </Box>
     );
 };
 
