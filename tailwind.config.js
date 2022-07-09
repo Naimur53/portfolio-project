@@ -1,6 +1,5 @@
 module.exports = {
-  content: ["./pages/**/*.{js,ts,jsx,tsx}",
-    "./src/Components/**/*.{js,ts,jsx,tsx}", "./src/Layouts/*.{js,ts,jsx,tsx}"],
+  content: ["./src/**/*.js"],
   theme: {
     extend: {
       colors: {
