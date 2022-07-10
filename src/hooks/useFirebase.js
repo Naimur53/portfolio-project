@@ -39,6 +39,8 @@ const useFirebase = () => {
                     }))
                 })
                     .catch(error => {
+                        console.log(error, 'save');
+
                         logOut()
                         setLoading(false);
 
@@ -59,6 +61,7 @@ const useFirebase = () => {
                 const errorMessage = error.message;
                 // The email of the user's account used.
                 const email = error.email;
+                console.log(error, 'login');
                 toast.error('Unknown error happen', {
                     position: "bottom-right",
                     autoClose: 5000,
