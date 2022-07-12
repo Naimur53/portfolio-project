@@ -72,7 +72,7 @@ const DashboardLayout = ({ children, window }) => {
                             py: 2,
                             background: router.pathname == "/" ? "black" : ""
                         }}>
-                            <ListItemIcon sx={{ m: 0, p: 0 }} className="ml-0 text-gray-50">
+                            <ListItemIcon sx={{ m: 0, p: 0, color: 'rgb(249 250 251)' }} >
                                 <HomeIcon />
                             </ListItemIcon>
                             <h2>Home</h2>
@@ -86,7 +86,7 @@ const DashboardLayout = ({ children, window }) => {
                             py: 2,
                             background: router.pathname == "/dashboard" ? "black" : ""
                         }}>
-                            <ListItemIcon sx={{ m: 0, p: 0 }} className="ml-0 text-gray-50">
+                            <ListItemIcon sx={{ m: 0, p: 0, color: 'rgb(249 250 251)' }}  >
                                 <RemoveRedEyeIcon />
                             </ListItemIcon>
                             <h2>overview</h2>
@@ -102,7 +102,7 @@ const DashboardLayout = ({ children, window }) => {
                                 py: 2,
                                 background: router.pathname == "/dashboard/addCategory" ? "black" : ""
                             }}>
-                            <ListItemIcon sx={{ m: 0, p: 0 }} className="ml-0 text-gray-50">
+                            <ListItemIcon sx={{ m: 0, p: 0, color: 'rgb(249 250 251)' }}  >
                                 <ControlPointDuplicateIcon />
                             </ListItemIcon>
                             <h2>Add category</h2>
@@ -117,7 +117,7 @@ const DashboardLayout = ({ children, window }) => {
                                 background: router.pathname == "/dashboard/addBlog" ? "black" : ""
                             }}
                         >
-                            <ListItemIcon sx={{ m: 0, p: 0 }} className="ml-0 text-gray-50">
+                            <ListItemIcon sx={{ m: 0, p: 0, color: 'rgb(249 250 251)' }}  >
                                 <DriveFileRenameOutlineIcon />
                             </ListItemIcon>
                             <h2>Write a Blog</h2>
@@ -141,7 +141,7 @@ const DashboardLayout = ({ children, window }) => {
                                 background: router.pathname == "/dashboard/allCategory" ? "black" : ""
                             }}
                         >
-                            <ListItemIcon sx={{ m: 0, p: 0 }} className="ml-0 text-gray-50">
+                            <ListItemIcon sx={{ m: 0, p: 0, color: 'rgb(249 250 251)' }} >
                                 <CategoryIcon />
                             </ListItemIcon>
                             <h2>All Category</h2>
@@ -157,7 +157,7 @@ const DashboardLayout = ({ children, window }) => {
                                 background: router.pathname == "/dashboard/allBlogs" ? "black" : ""
                             }}
                         >
-                            <ListItemIcon sx={{ m: 0, p: 0 }} className="ml-0 text-gray-50">
+                            <ListItemIcon sx={{ m: 0, p: 0, color: 'rgb(249 250 251)' }} >
                                 <InboxIcon />
                             </ListItemIcon>
                             <h2>all blogs</h2>
@@ -173,7 +173,7 @@ const DashboardLayout = ({ children, window }) => {
                                 background: router.pathname == "/dashboard/chooseDropdown" ? "black" : ""
                             }}
                         >
-                            <ListItemIcon sx={{ m: 0, p: 0 }} className="ml-0 text-gray-50">
+                            <ListItemIcon sx={{ m: 0, p: 0, color: 'rgb(249 250 251)' }}  >
                                 <AddTaskIcon />
                             </ListItemIcon>
                             <h2>Choose menu</h2>

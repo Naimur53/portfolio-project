@@ -60,7 +60,7 @@ const AllBlogs = () => {
     return (
         <Grid container spacing={2}>
             {
-                blogs?.map(singleBlog => <Grid item key={singleBlog._id} xs={12} md={3}><BlogCard admin  {...singleBlog} handleDelete={handleDelete}></BlogCard></Grid>)
+                blogs?.map(singleBlog => <Grid item key={singleBlog._id} xs={12} md={4}><BlogCard admin  {...singleBlog} handleDelete={handleDelete}></BlogCard></Grid>)
             }
         </Grid>
     );

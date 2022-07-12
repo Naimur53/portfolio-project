@@ -244,7 +244,7 @@ const AddCategory = ({ uniqCategory }) => {
                         >
                             <input onChange={handleThumbnailFile} type="file" accept="image/*" id='thumbnailFile' className="hidden" />
                             {
-                                thumbnailLoading ? <CircularProgress color="inherit"></CircularProgress> : <label htmlFor='thumbnailFile' className="bg-black/[.7] p-2 rounded-md">Choose Thumbnail</label>
+                                thumbnailLoading ? <CircularProgress color="inherit"></CircularProgress> : <label htmlFor='thumbnailFile' className="bg-black/[.7] text-white p-2 rounded-md">Choose Thumbnail</label>
                             }
 
                         </Box>
@@ -259,7 +259,7 @@ const AddCategory = ({ uniqCategory }) => {
                             <div className="absolute pointer-events-none inset-0 flex justify-center items-center">
                                 <input onChange={handlePhotosUpload} type="file" id='url' accept="image/*" className="hidden" multiple={true} />
                                 {
-                                    imgLoading ? <div className='z-10 w-full h-full flex justify-center items-center backdrop-blur-sm'> <CircularProgress color="inherit"></CircularProgress></div> : watch('photos')?.length ? <div></div> : <label htmlFor='url' className="z-10 bg-black/[.7] p-2  rounded-md pointer-events-auto">Choose Images</label>
+                                    imgLoading ? <div className='z-10 w-full h-full flex justify-center items-center backdrop-blur-sm'> <CircularProgress color="inherit"></CircularProgress></div> : watch('photos')?.length ? <div></div> : <label htmlFor='url' className="z-10 bg-black/[.7] text-white p-2  rounded-md pointer-events-auto">Choose Images</label>
                                 }
                             </div>
                             <div className="pr-2">
@@ -267,7 +267,7 @@ const AddCategory = ({ uniqCategory }) => {
                                     watch('photos')?.length ? <Grid container spacing={2}>
                                         <Grid item xs={3}  >
                                             <div className="p-1 h-full">
-                                                <label htmlFor='url' className="flex justify-center items-center h-full w-full bg-black/[.7] p-2  rounded-md text-center pointer-events-auto">
+                                                <label htmlFor='url' className="flex justify-center items-center h-full w-full bg-black/[.7] p-2 text-white  rounded-md text-center pointer-events-auto">
                                                     <div className='flex items-center flex-col '>
                                                         <Tooltip title="Change image" arrow>
                                                             <AddAPhotoIcon></AddAPhotoIcon>

@@ -39,7 +39,7 @@ const SelectMenuCard = ({ thumbnail, selected, categoryName, _id, handleAdd, han
                 </div>
             }
             <div className='absolute inset-0'>
-                <h2 className='bg-black p-2 inline-block my-2'>
+                <h2 className='bg-black p-2 inline-block text-white my-2'>
                     {categoryName}
                 </h2>
 

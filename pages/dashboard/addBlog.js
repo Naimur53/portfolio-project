@@ -187,7 +187,7 @@ const AddBlog = () => {
                             >
                                 <input onChange={handleMainImg} type="file" accept="image/*" id='mainImg' className='hidden' />
                                 {
-                                    imgLoading ? <CircularProgress color="inherit"></CircularProgress> : <label htmlFor='mainImg' className="bg-black/[.7] p-2 rounded-md cursor-pointer">{watch('img')?.length ? "Change Thumbnail" : 'Choose Thumbnail'}</label>
+                                    imgLoading ? <CircularProgress color="inherit"></CircularProgress> : <label htmlFor='mainImg' className="bg-black/[.7] text-white p-2 rounded-md cursor-pointer">{watch('img')?.length ? "Change Thumbnail" : 'Choose Thumbnail'}</label>
                                 }
 
                             </Box>

@@ -42,14 +42,14 @@ const CategoryCard = ({ admin, i, _id, thumbnail, title, description, categoryNa
                             <Image className='w-full cursor-pointer category-card-img h-auto' src={thumbnail} height={500} width={400} alt={title}></Image>
                             <div style={{ background: '#0000009a' }} className='absolute category-text-wrap backdrop-blur-sm  flex items-end inset-0 z-10' >
                                 <div className=' p-4'>
-                                    <h1 className='text-lg  ' >{title.slice(0, 100)}</h1>
+                                    <h1 className='text-lg  text-white' >{title.slice(0, 100)}</h1>
                                     {/* <p>{description.slice(0, 30)}</p> */}
                                 </div>
                             </div>
                         </div>
                         <div className="absolute inset-0">
                             <div className='bg-black mt-2 inline-block  p-2'>
-                                <h1 className='text-xl font-family-allerta '>{categoryName} {subCategory && <span>- {subCategory}</span>}</h1>
+                                <h1 className='text-xl font-family-allerta  text-white'>{categoryName} {subCategory && <span>- {subCategory}</span>}</h1>
                             </div>
                         </div>
 
@@ -57,7 +57,7 @@ const CategoryCard = ({ admin, i, _id, thumbnail, title, description, categoryNa
                 </Link>
                 {
                     admin && <div>
-                        {loading ? <CircularProgress /> : <button onClick={() => handleDelete()} className='bg-red-900 px-5 py-2 mt-2 rounded'>Delete</button>}
+                        {loading ? <CircularProgress /> : <button onClick={() => handleDelete()} className='bg-red-900 px-5 py-2 mt-2 rounded  text-white'>Delete</button>}
                     </div>
                 }
             </div>

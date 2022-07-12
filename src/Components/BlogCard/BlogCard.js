@@ -39,7 +39,7 @@ const BlogCard = ({ _id, heading, index, description, img, love, comment, date, 
                 {
                     admin && <div>
                         {
-                            !loading && <button onClick={() => handleDelete(_id, setLoading)} className='bg-red-500 p-2 rounded-md px-5'>Delete</button>
+                            !loading && <button onClick={() => handleDelete(_id, setLoading)} className='bg-red-500 mt-5 p-2 rounded-md px-5'>Delete</button>
                         }
                     </div>
                 }
