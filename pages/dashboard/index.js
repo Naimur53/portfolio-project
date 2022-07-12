@@ -29,7 +29,7 @@ const Dashboard = (props) => {
                         justifyContent: "space-between",
                         alignItems: 'center'
                     }}>
-                        <h2 className="text-xl">Loves</h2>
+                        <h2 className="text-xl text-white">Loves</h2>
                         <IconButton
                             sx={{
                                 background: 'hsl(215deg 69% 90%)',
@@ -37,7 +37,7 @@ const Dashboard = (props) => {
                             }}
                         > <FavoriteIcon></FavoriteIcon></IconButton>
                     </Box>
-                    <Typography variant='h5' className='text-center p-4 text-4xl' gutterBottom><CountUp end={753} /></Typography>
+                    <h2 variant='h5' className='text-center p-4 text-white text-4xl' gutterBottom><CountUp end={753} /></h2>
                     <h2 className="text-red-500">Total Love Of Blog</h2>
                 </Box>
             </Grid>
@@ -48,7 +48,7 @@ const Dashboard = (props) => {
                         justifyContent: "space-between",
                         alignItems: 'center'
                     }}>
-                        <h2 className="text-xl">Comments</h2>
+                        <h2 className="text-xl text-white">Comments</h2>
                         <IconButton
                             sx={{
                                 background: 'hsl(215deg 69% 90%)',
@@ -56,7 +56,7 @@ const Dashboard = (props) => {
                             }}
                         > <CommentIcon></CommentIcon></IconButton>
                     </Box>
-                    <Typography variant='h5' className='text-center p-4 text-4xl' gutterBottom>$<CountUp end={543} /></Typography>
+                    <h2 className='text-center text-white p-4 text-4xl' gutterBottom><CountUp end={543} /></h2>
                     <h2 className="text-green-500">Total Comments</h2>
                 </Box>
             </Grid>
@@ -67,7 +67,7 @@ const Dashboard = (props) => {
                         justifyContent: "space-between",
                         alignItems: 'center'
                     }}>
-                        <h2 className="text-xl">Categories</h2>
+                        <h2 className="text-xl text-white">Categories</h2>
                         <IconButton
                             sx={{
                                 background: 'hsl(215deg 69% 90%)',
@@ -75,7 +75,7 @@ const Dashboard = (props) => {
                             }}
                         > <CategoryIcon></CategoryIcon></IconButton>
                     </Box>
-                    <Typography className='text-center text-4xl p-4' variant='h5' gutterBottom><CountUp end={54} /></Typography>
+                    <h2 className='text-center text-4xl p-4 text-white' variant='h5' gutterBottom><CountUp end={54} /></h2>
                     <h2 className="text-green-500">All Categories</h2>
                 </Box>
             </Grid>
@@ -86,7 +86,7 @@ const Dashboard = (props) => {
                         justifyContent: "space-between",
                         alignItems: 'center'
                     }}>
-                        <h2 className="text-xl">Users</h2>
+                        <h2 className="text-xl text-white">Users</h2>
                         <IconButton
                             sx={{
                                 background: 'hsl(215deg 69% 90%)',
@@ -94,7 +94,7 @@ const Dashboard = (props) => {
                             }}
                         > <ConnectWithoutContactIcon></ConnectWithoutContactIcon></IconButton>
                     </Box>
-                    <Typography className='text-center p-4 text-4xl' variant='h5' gutterBottom><CountUp end={2424} /></Typography>
+                    <h2 className='text-center p-4 text-4xl text-white' variant='h5' gutterBottom><CountUp end={2424} /></h2>
                     <h2 className="text-red-500">Total User Login</h2>
 
                 </Box>
