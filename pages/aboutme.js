@@ -34,8 +34,10 @@ const Aboutme = () => {
                 speed={.5}
                 factor={1}
             >
-                <Container sx={{ height: '100%', display: 'flex', alignItems: 'center' }}>
-                    <AboutBanner></AboutBanner>
+                <Container className='h-screen'  >
+                    <div className='h-full  flex items-center'>
+                        <AboutBanner></AboutBanner>
+                    </div>
                 </Container>
             </ParallaxLayer>
             <ParallaxLayer
