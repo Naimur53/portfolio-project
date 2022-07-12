@@ -23,7 +23,7 @@ const BlogCard = ({ _id, heading, index, description, img, love, comment, date, 
     return (
         <motion.div variants={pop} initial='initial' exit='initial' animate='animate' className={`font-family-mono ${loading ? 'grayscale' : ''}`}>
             <div data-aos="fade-up">
-                <div className='flex flex-col'>
+                <div className='flex flex-col  '>
                     <div className='relative'>
                         <Image height={314} width={230} src={img} alt={heading} />
                         <div className='absolute bg-black top-0 px-3 py-1 mt-3'>

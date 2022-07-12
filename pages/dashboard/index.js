@@ -21,27 +21,28 @@ const RoundedServiceCart = dynamic(() => import("../../src/Components/DashboardC
 })
 const Dashboard = (props) => {
     return (
-        <Grid container spacing={2}>  <Grid item xs={12} md={3}>
-            <Box sx={{ p: 2 }} className='bg-gray-900 shadow-sm text-white'>
-                <Box sx={{
-                    display: 'flex',
-                    justifyContent: "space-between",
-                    alignItems: 'center'
-                }}>
-                    <h2 className="text-xl">Loves</h2>
-                    <IconButton
-                        sx={{
-                            background: 'hsl(215deg 69% 90%)',
-                            color: 'hsl(215deg 70% 71%)'
-                        }}
-                    > <FavoriteIcon></FavoriteIcon></IconButton>
-                </Box>
-                <Typography variant='h5' className='text-center p-4 text-4xl' gutterBottom><CountUp end={753} /></Typography>
-                <h2 className="text-red-500">Total Love Of Blog</h2>
-            </Box>
-        </Grid>
+        <Grid container spacing={2}>
             <Grid item xs={12} md={3}>
-                <Paper className='bg-gray-900 text-white' elevation={3} sx={{ p: 2 }}>
+                <Box sx={{ p: 2, background: 'rgb(17 24 39)' }} >
+                    <Box sx={{
+                        display: 'flex',
+                        justifyContent: "space-between",
+                        alignItems: 'center'
+                    }}>
+                        <h2 className="text-xl">Loves</h2>
+                        <IconButton
+                            sx={{
+                                background: 'hsl(215deg 69% 90%)',
+                                color: 'hsl(215deg 70% 71%)'
+                            }}
+                        > <FavoriteIcon></FavoriteIcon></IconButton>
+                    </Box>
+                    <Typography variant='h5' className='text-center p-4 text-4xl' gutterBottom><CountUp end={753} /></Typography>
+                    <h2 className="text-red-500">Total Love Of Blog</h2>
+                </Box>
+            </Grid>
+            <Grid item xs={12} md={3}>
+                <Box sx={{ p: 2, background: 'rgb(17 24 39)' }} >
                     <Box sx={{
                         display: 'flex',
                         justifyContent: "space-between",
@@ -57,10 +58,10 @@ const Dashboard = (props) => {
                     </Box>
                     <Typography variant='h5' className='text-center p-4 text-4xl' gutterBottom>$<CountUp end={543} /></Typography>
                     <h2 className="text-green-500">Total Comments</h2>
-                </Paper>
+                </Box>
             </Grid>
             <Grid item xs={12} md={3}>
-                <Paper className='bg-gray-900 text-white' elevation={3} sx={{ p: 2 }}>
+                <Box sx={{ p: 2, background: 'rgb(17 24 39)' }}>
                     <Box sx={{
                         display: 'flex',
                         justifyContent: "space-between",
@@ -76,10 +77,10 @@ const Dashboard = (props) => {
                     </Box>
                     <Typography className='text-center text-4xl p-4' variant='h5' gutterBottom><CountUp end={54} /></Typography>
                     <h2 className="text-green-500">All Categories</h2>
-                </Paper>
+                </Box>
             </Grid>
             <Grid item xs={12} md={3}>
-                <Paper className='bg-gray-900 text-white' elevation={3} sx={{ p: 2 }}>
+                <Box sx={{ p: 2, background: 'rgb(17 24 39)' }}>
                     <Box sx={{
                         display: 'flex',
                         justifyContent: "space-between",
@@ -96,7 +97,7 @@ const Dashboard = (props) => {
                     <Typography className='text-center p-4 text-4xl' variant='h5' gutterBottom><CountUp end={2424} /></Typography>
                     <h2 className="text-red-500">Total User Login</h2>
 
-                </Paper>
+                </Box>
             </Grid>
 
             <Grid item xs={12} md={7}>
@@ -104,9 +105,6 @@ const Dashboard = (props) => {
             </Grid>
             <Grid item xs={12} md={5}>
                 <RoundedServiceCart ></RoundedServiceCart>
-            </Grid>
-            <Grid item xs={12} md={9}>
-                {/* <OrdersTable allOrders={allOrders}></OrdersTable> */}
             </Grid>
         </Grid>
 

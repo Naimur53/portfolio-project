@@ -243,9 +243,10 @@ const DashboardLayout = ({ children, window }) => {
                 variant="temporary"
                 open={mobileOpen}
                 PaperProps={{
-                    className: 'bg-gray-900 text-gray-400',
                     sx: {
-                        color: "red",
+                        color: "rgb(249 250 251)",
+                        background: "rgb(17 24 39)",
+
                     }
                 }}
                 onClose={handleDrawerToggle}
@@ -262,9 +263,10 @@ const DashboardLayout = ({ children, window }) => {
             <Drawer
                 variant="permanent"
                 PaperProps={{
-                    className: 'bg-gray-900  text-gray-50 uppercase',
                     sx: {
-                        color: "red",
+                        color: "rgb(249 250 251)",
+                        background: "rgb(17 24 39)",
+
                     }
                 }}
                 sx={{
@@ -278,7 +280,7 @@ const DashboardLayout = ({ children, window }) => {
         </Box>
         <Box
             component="main"
-            sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}
+            sx={{ flexGrow: 1, p: 3, background: 'black', width: { sm: `calc(100% - ${drawerWidth}px)` } }}
         >
             <Toolbar />
             {children}

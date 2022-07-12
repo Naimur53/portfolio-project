@@ -33,14 +33,14 @@ const AboutMe = () => {
 
             setValue({ content3: true, })
         }
-        else if (currentValue >= 2) {
+        else if (currentValue >= 2.1) {
             setValue({ content2: true, })
         }
         else {
             setValue({ content1: true, })
         }
-        if (currentValue < 3.4) {
-            setProgress((currentValue - 2) * 75)
+        if (currentValue < 3.5) {
+            setProgress((currentValue - 2) * 72)
 
         }
     }, [currentValue])
@@ -83,14 +83,14 @@ const AboutMe = () => {
                 <Grid item md={6} xs={12} className='h-1/2 md:h-full'>
                     <div className='h-full flex items-center'>
                         <div>
-                            <div className=' overflow-hidden'>
+                            <div className='h-12 overflow-hidden  '>
 
                                 <HeadingText title='Nikon Photographer' isVisible={value.content1}></HeadingText>
                                 <HeadingText title='Web designer' isVisible={value.content2}></HeadingText>
                                 <HeadingText title='Film Maker' isVisible={value.content3}></HeadingText>
                                 <HeadingText title='Curious  Traveler' isVisible={value.content4}></HeadingText>
                             </div>
-                            <div className=' h-30 md:h-28 mt-2 md:mt-5 text-gray-300 overflow-hidden'>
+                            <div className=' h-30 md:h-28 mt-2 md:mt-5 text-gray-300 overflow-hidden  '>
                                 <MiddleContent
                                     isVisible={value.content1}
                                     text='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores nihil earum consectetur ipsum, nobis deserunt blanditiis dolorem? Obcaecati in accusantium facere blanditiis, praesentium ab maiores tempore nam amet ipsam explicabo.'

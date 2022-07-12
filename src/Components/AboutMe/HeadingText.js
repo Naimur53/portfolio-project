@@ -10,7 +10,7 @@ const HeadingText = ({ isVisible, title }) => {
 
         animate: {
             y: 0,
-            transition: { delay: .4, ease: [0.455, 0.03, 0.515, 0.955], duration: 0.75 }
+            transition: { delay: .2, ease: [0.455, 0.03, 0.515, 0.955], duration: 0.75 }
 
         },
     }

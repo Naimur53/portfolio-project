@@ -100,6 +100,7 @@ const TopBar = () => {
             <motion.div variants={fadeEnter}
             >
                 <Accordion
+                    sx={{ background: 'black' }}
                     className='w-full border    mb-3  bg-black border-gray-700 rounded-sm hover:border-yellow-300 text-white'
                 >
                     <AccordionSummary
@@ -107,7 +108,7 @@ const TopBar = () => {
                         aria-controls="panel1a-content"
                         id="panel1a-header"
                     >
-                        <Typography>Collection</Typography>
+                        <h1>Collection</h1>
                     </AccordionSummary>
                     <AccordionDetails>
                         <Collection phone></Collection>
@@ -152,7 +153,7 @@ const TopBar = () => {
 
     return (
         <motion.div initial='initial' animate='animate' className='overflow-hidden   ' exit={{ opacity: 0 }}>
-            <AppBar position="fixed" className='  bg-transparent shadow-none' >
+            <AppBar position="fixed" sx={{ background: 'black' }} className='  shadow-none' >
                 <Container maxWidth="xl" className=' bg-black shadow-none' >
                     <Toolbar disableGutters>
                         <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />

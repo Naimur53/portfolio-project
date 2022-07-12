@@ -13,6 +13,7 @@ const PhoneCollection = ({ data }) => {
                     if (single.dropdown?.length !== 0) {
                         return (
                             <Accordion
+                                sx={{ background: 'black' }}
                                 className='w-full border    mb-3  bg-black border-gray-700 rounded-sm hover:border-yellow-300 text-white'
                             >
                                 <AccordionSummary

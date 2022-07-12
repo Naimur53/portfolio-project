@@ -62,26 +62,6 @@ const BannerText = ({ innerRoute }) => {
     return (
         <motion.div className=' mt-5 font-bold' >
             <motion.div initial='initial' animate='animate' exit='initial' variants={stagger} >
-                {/* <div className='text-8xl overflow-hidden'>
-                    {
-                        ['H', 'i'].map((single, i) => <motion.span className='inline-block' key={i} variants={twing}>{single}</motion.span>)
-                    }
-                </div> */}
-                {/* <div className='text-6xl block overflow-hidden'>
-                    {
-                        ['I'].map((single, i) => <motion.span className='inline-block' key={i} variants={twing}>{single}</motion.span>)
-                    }
-                    <div className='ml-3 inline-block'>
-                        {
-                            ['a', 'm'].map((single, i) => <motion.span className='inline-block' key={i} variants={twing}>{single}</motion.span>)
-                        }
-                    </div>
-                    <div className='ml-3 inline-block'>
-                        {
-                            ['J', 'o', 'h', 'n'].map((single, i) => <motion.span className='inline-block' key={i} variants={twing}>{single}</motion.span>)
-                        }
-                    </div>
-                </div> */}
                 <div className='text-4xl md:text-6xl block overflow-hidden ' >
                     <motion.div variants={twing}>
 

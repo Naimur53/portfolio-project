@@ -13,7 +13,9 @@ const Blogs = ({ blogs }) => {
             <Head title='John Blogs'></Head>
             <BlogPageBanner default></BlogPageBanner>
             <Container maxWidth='lg' className='bg-transparent-black flex flex-col justify-center items-center   py-10'>
-                <Grid container className='md:flex-row flex-col-reverse ' spacing={2}>
+                <Grid container sx={{
+                    flexDirection: { xs: 'column-reverse', md: 'row' }
+                }} spacing={2}>
                     <Grid item xs={12} md={4}>
                         <BlogLeft></BlogLeft>
                     </Grid>
