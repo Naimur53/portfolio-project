@@ -37,7 +37,9 @@ const BlogRight = () => {
                     seeAll ? blogDetails.comments?.map((comment, i) => <Comments key={i} data={comment}></Comments>) : blogDetails.comments?.slice(0, 3).map((comment, i) => <Comments key={i} data={comment}></Comments>)
                 }
                 <div className="flex justify-center py-5">
-                    <button className="p-2 px-5   text-black  bg-yellow-400" onClick={() => setSeeAll(!seeAll)}>{seeAll ? 'See less' : 'See All'}</button>
+                    {
+                        blogDetails.comments?.length ? <button className="p-2 px-5   text-black  bg-yellow-400" onClick={() => setSeeAll(!seeAll)}>{seeAll ? 'See less' : 'See All'}</button> : <></>
+                    }
                 </div>
             </div>
             <>

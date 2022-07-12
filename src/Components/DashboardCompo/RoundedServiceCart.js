@@ -1,73 +1,40 @@
 import React, { useState } from 'react';
 import { ResponsivePie } from '@nivo/pie'
 
-const RoundedServiceCart = () => {
+const RoundedServiceCart = ({ info }) => {
 
-    const [data, setData] = useState([
+    const data = [
         {
-            "id": "ruby",
-            "label": "ruby",
-            "value": 0,
+            "id": "User",
+            "label": "User",
+            "value": info.users,
             "color": "hsl(143, 70%, 50%)"
         },
         {
-            "id": "scala",
-            "label": "scala",
-            "value": 0,
+            "id": "Gallery",
+            "label": "Gallery",
+            "value": info.categories,
             "color": "hsl(163, 70%, 50%)"
         },
         {
-            "id": "sass",
-            "label": "sass",
-            "value": 0,
+            "id": "Love",
+            "label": "Love",
+            "value": info.blogLC?.love,
             "color": "hsl(337, 70%, 50%)"
         },
         {
-            "id": "javascript",
-            "label": "javascript",
-            "value": 0,
+            "id": "Comments",
+            "label": "Comments",
+            "value": info.blogLC?.comment,
             "color": "hsl(273, 70%, 50%)"
         },
         {
-            "id": "c",
-            "label": "c",
-            "value": 0,
+            "id": "Blogs",
+            "label": "Blogs",
+            "value": info.blogLC?.totalBlog,
             "color": "hsl(175, 70%, 50%)"
-        }
-    ])
-    setTimeout(() => {
-        setData([
-            {
-                "id": "ruby",
-                "label": "ruby",
-                "value": 342,
-                "color": "hsl(143, 70%, 50%)"
-            },
-            {
-                "id": "scala",
-                "label": "scala",
-                "value": 357,
-                "color": "hsl(163, 70%, 50%)"
-            },
-            {
-                "id": "sass",
-                "label": "sass",
-                "value": 146,
-                "color": "hsl(337, 70%, 50%)"
-            },
-            {
-                "id": "javascript",
-                "label": "javascript",
-                "value": 180,
-                "color": "hsl(273, 70%, 50%)"
-            },
-            {
-                "id": "c",
-                "label": "c",
-                "value": 260,
-                "color": "hsl(175, 70%, 50%)"
-            }])
-    }, 1000);
+        }]
+
     return (
         <div className='bg-gray-900 rounded-md w-full' style={{ height: 300, }}>
             <ResponsivePie
@@ -77,6 +44,16 @@ const RoundedServiceCart = () => {
                 padAngle={0.7}
                 animate={true}
                 cornerRadius={3}
+                tooltip={(e) => {
+                    console.log(e);
+                    return <div className='flex bg-black text-white items-center p-2'>
+                        <div className='w-4 mr-4 h-4' style={{ background: e.datum.color }}>
+                        </div>
+                        <div>{e.datum.data.id} {e.datum.data.value}</div>
+                    </div>
+
+                }}
+
                 activeOuterRadiusOffset={8}
                 borderWidth={1}
                 borderColor={{

@@ -13,13 +13,50 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import CommentIcon from '@mui/icons-material/Comment';
 import CategoryIcon from '@mui/icons-material/Category';
 import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact';
-// import RoundedServiceCart from "../../src/Components/DashboardCompo/RoundedServiceCart";
 
 import dynamic from "next/dynamic";
 const RoundedServiceCart = dynamic(() => import("../../src/Components/DashboardCompo/RoundedServiceCart"), {
     ssr: false
 })
 const Dashboard = (props) => {
+    const [users, setUsers] = useState(0)
+    const [loading, setLoading] = useState(true);
+    const [categories, setCategories] = useState(0)
+    const [blogLC, setBlogLC] = useState({ comment: 0, love: 0 })
+    const [last7Post, setLast7Post] = useState([])
+    useEffect(() => {
+        setLoading(true)
+        const allUrl = [axios.get('http://localhost:5000/totalUser'), axios.get('http://localhost:5000/totalCategories'), axios.get('http://localhost:5000/blogTotalLC'), axios.get('http://localhost:5000/last7blog'), axios.get('http://localhost:5000/blogCount')]
+        Promise.all(allUrl)
+            .then(res => {
+                console.log(res);
+                setUsers(res[0].data?.user)
+                setCategories(res[1].data?.categories)
+                const allBlogLC = res[2].data;
+                let value = {
+                    comment: 0,
+                    love: 0,
+                    totalBlog: res[4].data.blog
+                }
+                allBlogLC.forEach(single => {
+                    value.comment = value.comment + single.comment
+                    value.love = value.comment + single.love
+                })
+                setBlogLC(value)
+                let lastBlogs = [];
+                res[3].data.forEach(single => {
+                    lastBlogs = [...lastBlogs, { ...single, date: 'Date: ' + new Date(single.date).getDate() }]
+                })
+                setLast7Post(lastBlogs)
+                setLoading(false)
+
+            })
+    }, [])
+    if (loading) {
+        return <div className="flex justify-center">
+            <CircularProgress color="inherit"></CircularProgress>
+        </div>
+    }
     return (
         <Grid container spacing={2}>
             <Grid item xs={12} md={3}>
@@ -37,7 +74,7 @@ const Dashboard = (props) => {
                             }}
                         > <FavoriteIcon></FavoriteIcon></IconButton>
                     </Box>
-                    <h2 variant='h5' className='text-center p-4 text-white text-4xl' gutterBottom><CountUp end={753} /></h2>
+                    <h2 variant='h5' className='text-center p-4 text-white text-4xl' gutterBottom><CountUp end={blogLC.love} /></h2>
                     <h2 className="text-red-500">Total Love Of Blog</h2>
                 </Box>
             </Grid>
@@ -56,7 +93,7 @@ const Dashboard = (props) => {
                             }}
                         > <CommentIcon></CommentIcon></IconButton>
                     </Box>
-                    <h2 className='text-center text-white p-4 text-4xl' gutterBottom><CountUp end={543} /></h2>
+                    <h2 className='text-center text-white p-4 text-4xl' gutterBottom><CountUp end={blogLC.comment} /></h2>
                     <h2 className="text-green-500">Total Comments</h2>
                 </Box>
             </Grid>
@@ -75,7 +112,7 @@ const Dashboard = (props) => {
                             }}
                         > <CategoryIcon></CategoryIcon></IconButton>
                     </Box>
-                    <h2 className='text-center text-4xl p-4 text-white' variant='h5' gutterBottom><CountUp end={54} /></h2>
+                    <h2 className='text-center text-4xl p-4 text-white' variant='h5' gutterBottom><CountUp end={categories} /></h2>
                     <h2 className="text-green-500">All Categories</h2>
                 </Box>
             </Grid>
@@ -94,17 +131,23 @@ const Dashboard = (props) => {
                             }}
                         > <ConnectWithoutContactIcon></ConnectWithoutContactIcon></IconButton>
                     </Box>
-                    <h2 className='text-center p-4 text-4xl text-white' variant='h5' gutterBottom><CountUp end={2424} /></h2>
+                    <h2 className='text-center p-4 text-4xl text-white' variant='h5' gutterBottom><CountUp end={users} /></h2>
                     <h2 className="text-red-500">Total User Login</h2>
 
                 </Box>
             </Grid>
 
             <Grid item xs={12} md={7}>
-                <RecentMomentChart ></RecentMomentChart>
+                <RecentMomentChart data={last7Post}></RecentMomentChart>
             </Grid>
             <Grid item xs={12} md={5}>
-                <RoundedServiceCart ></RoundedServiceCart>
+                <RoundedServiceCart info={
+                    {
+                        blogLC,
+                        users,
+                        categories,
+                    }
+                } ></RoundedServiceCart>
             </Grid>
         </Grid>
 

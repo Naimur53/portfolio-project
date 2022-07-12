@@ -35,11 +35,11 @@ const ShareLove = () => {
             </div>
             <div className="text-gray-300 hover:text-white transition-colors cursor-pointer flex mr-4">
                 {
-                    !user.email ? <Link href='#commentlogin' className='text-white hover:no-underline flex'>
+                    !user.email ? <a href='#commentlogin' className='text-white hover:no-underline flex'>
 
                         <FavoriteBorderIcon></FavoriteBorderIcon>
                         <span className="ml-2 font-bold">{blogDetails?.love?.length}</span>
-                    </Link> : <>
+                    </a> : <>
                         {
 
                             blogDetails.love?.filter(single => single.email === user.email).length ? <div className='flex'>
@@ -61,10 +61,10 @@ const ShareLove = () => {
             </div>
             <div className="text-gray-300 flex hover:text-white transition-colors cursor-pointer ">
 
-                <Link href='#commentlogin' className=' text-gray-300 transition-colors  hover:text-white flex hover:no-underline	'>
+                <a href='#commentlogin' className=' text-gray-300 transition-colors  hover:text-white flex hover:no-underline	'>
                     <CommentIcon></CommentIcon>
                     <span className="ml-2 font-bold">{blogDetails?.comments?.length}</span>
-                </Link>
+                </a>
 
             </div>
         </div>
