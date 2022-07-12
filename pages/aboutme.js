@@ -32,8 +32,9 @@ const Aboutme = () => {
             <ParallaxLayer
                 offset={0}
                 speed={.5}
+                factor={1}
             >
-                <Container className='h-full flex  items-center'>
+                <Container sx={{ height: '100%', display: 'flex', alignItems: 'center' }}>
                     <AboutBanner></AboutBanner>
                 </Container>
             </ParallaxLayer>

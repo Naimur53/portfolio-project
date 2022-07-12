@@ -17,7 +17,7 @@ const AboutBanner = () => {
         }
     }
     return (
-        <Box className=' '>
+        <Box className=''>
             <div className='inline-block overflow-hidden'>
 
                 <motion.h1
