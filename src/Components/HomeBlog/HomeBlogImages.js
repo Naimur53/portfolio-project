@@ -18,11 +18,11 @@ const HomeBlogImages = () => {
 
         if (!loading) {
             if (window.innerWidth <= 600) {
-                wrapper.current.style.transform = `translate3d(0px, -${(scrollValue - 4) * 300}px, 0px)`
-                wrapper2.current.style.transform = `translate3d(0px, ${(scrollValue - 4) * 200}px, 0px)`
+                wrapper.current.style.transform = `translate3d(0px, -${(scrollValue - 6) * 300}px, 0px)`
+                wrapper2.current.style.transform = `translate3d(0px, ${(scrollValue - 6) * 200}px, 0px)`
             } else {
-                wrapper.current.style.transform = `translate3d(0px, -${(scrollValue - 4) * 300}px, 0px)`
-                wrapper2.current.style.transform = `translate3d(0px, ${(scrollValue - 4) * 300}px, 0px)`
+                wrapper.current.style.transform = `translate3d(0px, -${(scrollValue - 6) * 400}px, 0px)`
+                wrapper2.current.style.transform = `translate3d(0px, ${(scrollValue - 6) * 400}px, 0px)`
             }
 
 

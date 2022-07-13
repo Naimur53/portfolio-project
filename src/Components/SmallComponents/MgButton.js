@@ -47,7 +47,7 @@ const MgButton = ({ text, buttonProps }) => {
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
         >
-            <div className='p-4 border mgbutton-bg text-black capitalize rounded-full px-10'>
+            <div className='p-2 md:p-4  mgbutton-bg text-black capitalize rounded-full md:px-10 px-5'>
 
                 <motion.button {...buttonProps} variants={word} >{text}</motion.button>
             </div>

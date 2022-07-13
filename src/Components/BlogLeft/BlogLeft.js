@@ -70,7 +70,7 @@ const BlogLeft = () => {
             <div>
                 <Heading title='PHOTO STREAM'></Heading>
                 <div className="mt-4">
-                    <Grid container spacingY={1} >
+                    <Grid container spacing={1} >
                         {
                             streams?.photos?.slice(0, 12)?.map(photo => <Grid item xs={3} key={photo}><Image src={photo} alt="photo stream" height={85} width={85} ></Image></Grid>)
                         }

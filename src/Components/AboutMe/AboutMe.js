@@ -119,7 +119,7 @@ const AboutMe = () => {
 
 
                             <div className='flex justify-between items-center  text-xl mt-3 md:mt-0 w-52' >
-                                <div className='pr-4'>
+                                <div className='pr-4 text-yellow-500'>
                                     {
                                         value.content1 ? 1 : value.content2 ? 2 : value.content3 ? 3 : 4
                                     }

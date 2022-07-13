@@ -49,9 +49,11 @@ function MyApp({ Component, pageProps, router }) {
     <Layout>
 
       <AnimatePresence exitBeforeEnter>
-        <NextNProgress color="rgb(250 204 21 )" />
-        <Component {...pageProps} key={router.route} />
-        <ToastContainer theme="dark" />
+        <>
+          <NextNProgress color="rgb(250 204 21 )" />
+          <Component {...pageProps} key={router.route} />
+          <ToastContainer theme="dark" />
+        </>
       </AnimatePresence>
     </Layout>
     <LoadingSection isVisible={loading}></LoadingSection>

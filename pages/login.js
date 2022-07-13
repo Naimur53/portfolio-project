@@ -27,7 +27,7 @@ const Login = () => {
                     <div className='g-sign-in-button'>
                         <div className='content-wrapper' >
                             <div className='logo-wrapper'>
-                                <Image width={200} priority layout='raw' height={200} raw alt='Google logo' src='https://i.ibb.co/yX16csP/g-logo.png' />
+                                <Image width={200} priority layout='raw' height={200} alt='Google logo' src='https://i.ibb.co/yX16csP/g-logo.png' />
                             </div>
                             <div className='text-container'>
                                 <span>Sign in with Google</span>
