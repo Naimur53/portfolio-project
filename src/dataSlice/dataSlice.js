@@ -7,6 +7,7 @@ const initialState = {
     homeCategory: [],
     cursor: {},
     blogDetails: {},
+    loading: true,
 }
 
 export const dataSlice = createSlice({
@@ -15,6 +16,9 @@ export const dataSlice = createSlice({
     reducers: {
         addUser: (state, action) => {
             state.user = action.payload
+        },
+        setLoading: (state, action) => {
+            state.loading = action.payload
         },
         addHomeCategory: (state, action) => {
             state.homeCategory = action.payload
@@ -45,6 +49,7 @@ export const dataSlice = createSlice({
         [HYDRATE]: (state, action) => {
             console.log('HYDRATE...');
             state.user = action.payload.data.user
+            state.loading = action.payload.data.loading
             state.homeCategory = action.payload.data.homeCategory;
             state.addScrollValue = action.payload.data.addScrollValue;
             state.blogDetails = action.payload.data.blogDetails;
@@ -54,6 +59,6 @@ export const dataSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { addUser, addHomeCategory, addLove, addComments, addScrollValue, addCursor, addBlogDetails, increaseLove, decreaseLove } = dataSlice.actions
+export const { addUser, setLoading, addHomeCategory, addLove, addComments, addScrollValue, addCursor, addBlogDetails, increaseLove, decreaseLove } = dataSlice.actions
 export const allData = (state) => state.data;
 export default dataSlice.reducer

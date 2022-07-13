@@ -4,17 +4,16 @@ import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 
 import { initializeAppAuthentication } from '../firebase/firebase.init';
-import { addUser } from '../dataSlice/dataSlice';
+import { addUser, setLoading } from '../dataSlice/dataSlice';
 import axios from 'axios';
 const useFirebase = () => {
     initializeAppAuthentication()
     const dispatch = useDispatch();
     const [user, setUser] = useState({});
-    const [loading, setLoading] = useState(false);
     const provider = new GoogleAuthProvider();
     const auth = getAuth();
     const google = () => {
-        setLoading(true);
+        dispatch(setLoading(true));
         signInWithPopup(auth, provider)
             .then((result) => {
                 const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -28,7 +27,7 @@ const useFirebase = () => {
                     photoURL: result.user.photoURL,
                     uid: result.user.uid
                 }).then(res => {
-                    setLoading(false);
+                    dispatch(setLoading(false));
 
                     dispatch(addUser({
                         displayName: result.user.displayName,
@@ -42,7 +41,7 @@ const useFirebase = () => {
                         console.log(error, 'save');
 
                         logOut()
-                        setLoading(false);
+                        dispatch(setLoading(false));
 
                         toast.error('Unknown error happen', {
                             position: "bottom-right",
@@ -71,7 +70,7 @@ const useFirebase = () => {
                     draggable: true,
                     progress: undefined,
                 }); 675.
-                setLoading(false)
+                dispatch(setLoading(false))
 
                 // The AuthCredential type that was used.
                 const credential = GoogleAuthProvider.credentialFromError(error);
@@ -79,21 +78,20 @@ const useFirebase = () => {
             });
     }
     useEffect(() => {
-        setLoading(true)
+        dispatch(setLoading(true))
+        console.log('there');
         onAuthStateChanged(auth, (user) => {
             if (user) {
-                // setUser(user);
-                dispatch(addUser({
-                    displayName: user.displayName,
-                    email: user.email,
-                    createdAt: user.metadata.createdAt,
-                    photoURL: user.photoURL,
-                    uid: user.uid
-                }))
-                setLoading(false)
+
+                axios.get(`https://stark-atoll-95180.herokuapp.com/user?email=${user.email}`)
+                    .then(res => {
+                        dispatch(addUser(res.data))
+                        dispatch(setLoading(false))
+                    })
             }
             else {
-                setLoading(false)
+                dispatch(setLoading(false))
+
             }
 
         });
@@ -109,7 +107,6 @@ const useFirebase = () => {
     return {
         user,
         google,
-        loading,
         logOut
     };
 };

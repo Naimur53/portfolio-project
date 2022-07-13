@@ -31,7 +31,7 @@ const BlogLeft = () => {
                 setRecents(res.data);
                 setRecentLoading(false);
             })
-        axios.get('http://localhost:5000/photostream')
+        axios.get('https://stark-atoll-95180.herokuapp.com/photostream')
             .then(res => {
                 setStreams(res.data);
             })

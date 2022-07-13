@@ -26,7 +26,7 @@ const Dashboard = (props) => {
     const [last7Post, setLast7Post] = useState([])
     useEffect(() => {
         setLoading(true)
-        const allUrl = [axios.get('http://localhost:5000/totalUser'), axios.get('http://localhost:5000/totalCategories'), axios.get('http://localhost:5000/blogTotalLC'), axios.get('http://localhost:5000/last7blog'), axios.get('http://localhost:5000/blogCount')]
+        const allUrl = [axios.get('https://stark-atoll-95180.herokuapp.com/totalUser'), axios.get('https://stark-atoll-95180.herokuapp.com/totalCategories'), axios.get('https://stark-atoll-95180.herokuapp.com/blogTotalLC'), axios.get('https://stark-atoll-95180.herokuapp.com/last7blog'), axios.get('https://stark-atoll-95180.herokuapp.com/blogCount')]
         Promise.all(allUrl)
             .then(res => {
                 console.log(res);
