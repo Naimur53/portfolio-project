@@ -108,7 +108,7 @@ const TopBar = () => {
                         aria-controls="panel1a-content"
                         id="panel1a-header"
                     >
-                        <h1>Collection</h1>
+                        <h1 className='text-white'>Collection</h1>
                     </AccordionSummary>
                     <AccordionDetails>
                         <Collection phone></Collection>

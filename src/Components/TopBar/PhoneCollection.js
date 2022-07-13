@@ -13,7 +13,7 @@ const PhoneCollection = ({ data }) => {
                     if (single.dropdown?.length !== 0) {
                         return (
                             <Accordion
-                                sx={{ background: 'black' }}
+                                sx={{ background: 'black', color: 'white' }}
                                 className='w-full border    mb-3  bg-black border-gray-700 rounded-sm hover:border-yellow-300 text-white'
                             >
                                 <AccordionSummary
@@ -21,7 +21,7 @@ const PhoneCollection = ({ data }) => {
                                     aria-controls="panel1a-content"
                                     id="panel1a-header"
                                 >
-                                    <Link href={'/category/' + single._id}>{single.categoryName}</Link>
+                                    <Link href={'/category/' + single._id} className='text-white'>{single.categoryName}</Link>
                                 </AccordionSummary>
                                 <AccordionDetails>
                                     {
