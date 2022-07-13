@@ -29,13 +29,13 @@ const useFirebase = () => {
                 }).then(res => {
                     dispatch(setLoading(false));
 
-                    dispatch(addUser({
-                        displayName: result.user.displayName,
-                        email: result.user.email,
-                        createdAt: result.user.metadata.createdAt,
-                        photoURL: result.user.photoURL,
-                        uid: result.user.uid
-                    }))
+                    // dispatch(addUser({
+                    //     displayName: result.user.displayName,
+                    //     email: result.user.email,
+                    //     createdAt: result.user.metadata.createdAt,
+                    //     photoURL: result.user.photoURL,
+                    //     uid: result.user.uid
+                    // }))
                 })
                     .catch(error => {
                         console.log(error, 'save');
@@ -43,7 +43,7 @@ const useFirebase = () => {
                         logOut()
                         dispatch(setLoading(false));
 
-                        toast.error('Unknown error happen', {
+                        toast.error('Unknown error happen while saving data', {
                             position: "bottom-right",
                             autoClose: 5000,
                             hideProgressBar: false,
@@ -61,7 +61,7 @@ const useFirebase = () => {
                 // The email of the user's account used.
                 const email = error.email;
                 console.log(error, 'login');
-                toast.error('Unknown error happen', {
+                toast.error('Unknown error happen login', {
                     position: "bottom-right",
                     autoClose: 5000,
                     hideProgressBar: false,

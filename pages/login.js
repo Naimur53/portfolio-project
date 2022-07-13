@@ -8,21 +8,22 @@ import useFirebase from '../src/hooks/useFirebase';
 import { useDispatch, useSelector } from 'react-redux';
 
 const Login = () => {
-    const { google, loading, logOut } = useFirebase()
+    const { google, logOut } = useFirebase()
     const route = useRouter()
     const handleClick = () => {
         google()
     }
-    const { user } = useSelector(allData)
+    const { user, loading } = useSelector(allData)
     if (loading) {
         return <div className='h-screen flex justify-center items-center'>
             <CircularProgress color='inherit'></CircularProgress>
         </div>
     }
+
     return (
         <div className='h-screen flex justify-center items-center'>
             {
-                !user.email ? <div onClick={handleClick}>
+                !user?.email ? <div onClick={handleClick}>
                     <div className='g-sign-in-button'>
                         <div className='content-wrapper' >
                             <div className='logo-wrapper'>
