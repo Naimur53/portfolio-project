@@ -1,6 +1,7 @@
 import '../styles/globals.css'
 import '../styles/homeCategroy.css'
 import '../styles/HomeBlog.css'
+import '../styles/HomeBanner.css'
 import '../styles/category.css'
 import '../styles/AboutMe.css'
 import '../styles/TopBar.css'

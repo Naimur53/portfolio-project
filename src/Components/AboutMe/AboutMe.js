@@ -9,7 +9,7 @@ import HeadingText from './HeadingText';
 import MiddleContent from './MiddleContent';
 import RightContent from './RightContent';
 
-const AboutMe = () => {
+const AboutMe = ({ innerRoute }) => {
     const { scrollValue, homeCategory } = useSelector(allData)
     const [value, setValue] = useState({ content1: true, content2: false, content3: false, content4: false, content5: false, content6: false });
     const [progress, setProgress] = useState(0)
@@ -119,14 +119,18 @@ const AboutMe = () => {
 
 
                             <div className='flex justify-between items-center  text-xl mt-3 md:mt-0 w-52' >
-                                <div className='pr-4 text-yellow-500'>
+                                <div className='pr-4  text-gray-400'>
                                     {
                                         value.content1 ? 1 : value.content2 ? 2 : value.content3 ? 3 : 4
                                     }
                                 </div>
 
-                                <LinearProgress className='w-full rounded-lg' variant="determinate" color='inherit' value={progress} />
-                                <div className='pl-4'>
+                                <LinearProgress className='w-full rounded-lg' variant="determinate" sx={{
+                                    background: 'rgb(17 24 39) ', '& .MuiLinearProgress-bar1Determinate': {
+                                        backgroundColor: 'rgb(107 114 128 )',
+                                    }
+                                }} value={progress} />
+                                <div onClick={() => innerRoute(4)} className='pl-4 cursor-pointer'>
                                     4
 
                                 </div>
@@ -149,7 +153,7 @@ const AboutMe = () => {
                 initial='initial'
                 variants={last}
                 animate={value.content5 ? "animate" : 'initial'}
-                className='absolute bg-black  inset-0 py-10 '
+                className='absolute bg-black  pointer-events-none inset-0 py-10 '
 
             >
                 <div className="flex items-center justify-center h-full">

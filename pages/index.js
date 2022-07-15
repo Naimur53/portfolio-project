@@ -40,12 +40,12 @@ export default function Home() {
       <Parallax ref={parallaxRef} pages={10}>
         <ParallaxLayer
           offset={0}
-          speed={.1}  >
+          speed={.3}  >
           <HomeBanner innerRoute={innerRoute}></HomeBanner>
         </ParallaxLayer>
         <ParallaxLayer
           offset={1}
-          speed={.1}>
+          speed={.3}>
           <HomeTextSection></HomeTextSection>
         </ParallaxLayer>
         <ParallaxLayer
@@ -55,7 +55,7 @@ export default function Home() {
         >
           <Container className="">
 
-            <AboutMe></AboutMe>
+            <AboutMe innerRoute={innerRoute}></AboutMe>
           </Container>
         </ParallaxLayer>
 

@@ -8,8 +8,8 @@ const HomeTextSection = () => {
     useEffect(() => {
         setValue(scrollValue.toFixed(2))
     }, [scrollValue])
-    const phone = 'p-3 mr-5 text-gray-800 bg-yellow-400 rounded-full inline-block md:hidden';
-    const big = 'p-3 mr-5 text-gray-800 bg-yellow-400 rounded-full md:inline-block hidden';
+    const phone = 'p-3 mr-5  text-gray-900 bg-white rounded-full inline-block md:hidden';
+    const big = 'p-3 mr-5 text-gray-900 bg-white rounded-full md:inline-block hidden';
     return (
         <div className='h-full overflow-hidden   relative flex font-family-allerta justify-center items-center'>
             <h2 className='text-5xl md:text-6xl 2xl:text-8xl text-center'>
@@ -157,7 +157,7 @@ const HomeTextSection = () => {
                                     transition: { ease: "easeOut", duration: 1 }
                                 }}
 
-                                className='p-3 mr-5 text-gray-800 bg-yellow-400 rounded-full inline-block'>Lorem ipsum dolor sit amet </motion.span>
+                                className='p-3 mr-5  text-gray-900 bg-white rounded-full inline-block'>Lorem ipsum dolor sit amet </motion.span>
                         </div>
                     </div>
 

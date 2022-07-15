@@ -5,13 +5,74 @@
 /* fonts  */
 
 /* @import url('https://fonts.googleapis.com/css2?family=Megrim&display=swap'); */
-@import url('https://fonts.googleapis.com/css2?family=Megrim&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Megrim&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
+
 
 @font-face {
   font-family: 'Megrim';
   src: url('/font/Megrim-Regular.ttf');
   font-style: medium;
   font-weight: normal;
+  font-display: swap;
+}
+
+/* adding roboto font */
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/font/Roboto-Black.ttf');
+  font-style: medium;
+  font-weight: 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/font/Roboto-Bold.ttf');
+  font-style: medium;
+  font-weight: bold;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/font/Roboto-Light.ttf');
+  font-style: medium;
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/font/Roboto-Light.ttf');
+  font-style: medium;
+  font-weight: 300;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/font/Roboto-Medium.ttf');
+  font-style: medium;
+  font-weight: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/font/Roboto-Regular.ttf');
+  font-style: medium;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('/font/Roboto-Thin.ttf');
+  font-style: medium;
+  font-weight: 100;
   font-display: swap;
 }
 

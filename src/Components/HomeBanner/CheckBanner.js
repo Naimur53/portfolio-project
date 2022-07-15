@@ -16,7 +16,7 @@ const CheckBanner = () => {
         } else {
             setI(i + 1)
         }
-    }, 2000)
+    }, 5000)
 
     const initial = {
         opacity: 0,

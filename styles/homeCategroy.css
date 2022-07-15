@@ -27,3 +27,7 @@
         }
     }
 }
+
+.homecate-card {
+    filter: brightness(.3) grayscale(1);
+}

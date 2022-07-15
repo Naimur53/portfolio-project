@@ -1,0 +1,9 @@
+.banner-wrap {
+    /* https://i.ibb.co/tPsJKfD/Adobe-Stock-477001574.jpg */
+    background-image: url(https://i.ibb.co/g3d0nbF/Adobe-Stock-477001574.jpg);
+    background-position-y: bottom;
+    background-size: 100vw;
+    transform: matrix(2deg);
+    background-repeat: no-repeat;
+
+}

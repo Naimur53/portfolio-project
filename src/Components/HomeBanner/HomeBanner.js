@@ -29,8 +29,8 @@ const HomeBanner = ({ innerRoute }) => {
         }
     }, [scrollValue])
     return (
-        <Box className='h-full   relative font-family-roboto'>
-            <Container sx={{ height: '100%', position: 'relative', overflow: 'hidden' }}>
+        <Box className='h-full  bg-cover relative font-family-roboto'>
+            <Container sx={{ height: '100%', position: 'relative', overflow: 'hidden', zIndex: 10 }}>
                 <Grid container spacing={2} sx={{ height: '100%' }} alignItems='center'>
                     <Grid item md={8} xs={12} className='flex md:justify-start justify-center items-center md:h-full   h-1/2  '  >
                         <Box
@@ -55,7 +55,7 @@ const HomeBanner = ({ innerRoute }) => {
                 </Grid>
 
             </Container>
-
+            <div className="banner-wrap  absolute inset-0"></div>
 
 
 
