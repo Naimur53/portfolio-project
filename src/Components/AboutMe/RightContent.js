@@ -43,11 +43,11 @@ const RightContent = ({ isVisible, url }) => {
                         animate='animate'
                         exit='initial'
                         variants={main}
-                        className='font-family-roboto font-bold h-screen '
+                        className='font-family-roboto font-bold h-screen flex justify-center items-center'
                     >
 
                         <motion.div
-                            variants={twing} className=' bg-center h-full bg-cover w-full'>
+                            variants={twing} className='flex justify-center items-center bg-center   bg-cover w-full'>
                             <Image className='w-full  ' priority src={url} height={500} width={500} alt='photo'></Image>
 
                         </motion.div>

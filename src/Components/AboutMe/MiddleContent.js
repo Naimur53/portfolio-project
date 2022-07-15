@@ -47,20 +47,18 @@ const MiddleContent = ({ isVisible, text }) => {
                     initial='initial'
                     animate='animate'
                 >
-                    <div  >
-                        {
-                            <div className=''>
-                                <motion.p
-                                    variants={sentence}
-                                >
-                                    {
-                                        text.split(' ').map((single, i) => <motion.span key={i} variants={textPop} > {" " + single}</motion.span>)
-                                    }
-                                </motion.p>
-                            </div>
-                        }
+                    {
+                        <div className=''>
+                            <motion.p
+                                variants={sentence}
+                            >
+                                {
+                                    text.split(' ').map((single, i) => <motion.span key={i} variants={textPop} > {" " + single}</motion.span>)
+                                }
+                            </motion.p>
+                        </div>
+                    }
 
-                    </div>
                 </motion.div>
             )}
         </AnimatePresence>

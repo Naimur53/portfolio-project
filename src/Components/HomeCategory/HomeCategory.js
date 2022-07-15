@@ -11,12 +11,7 @@ import { useRouter } from 'next/router';
 
 const HomeCategory = () => {
     const router = useRouter()
-    const [allImages, setAllImages] = useState([]);
     const [mp, setMp] = useState({ x: 0, y: 0 })
-    useEffect(() => {
-
-        setAllImages(document.querySelectorAll('.js'))
-    }, [])
     const { homeCategory } = useSelector(allData)
     const canvasRef = useRef()
     const container = useRef()

@@ -1,10 +1,10 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import React from 'react';
+import CustomLink from '../SmallComponents/CustomLink';
 
 const BlogImageSingle = ({ img, heading, _id }) => {
     return (
-        <Link href={'/blogs/' + _id} >
+        <CustomLink href={'/blogs/' + _id} passHref >
             <div className='  pb-10  '>
 
                 <Image className='rounded-xl  ' src={img} width={400} height={500} alt='Blog Image'></Image>
@@ -15,7 +15,7 @@ const BlogImageSingle = ({ img, heading, _id }) => {
 
                 </div>
             </div>
-        </Link>
+        </CustomLink>
     );
 };
 

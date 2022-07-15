@@ -21,8 +21,8 @@ const HomeBlogImages = () => {
                 wrapper.current.style.transform = `translate3d(0px, -${(scrollValue - 6) * 300}px, 0px)`
                 wrapper2.current.style.transform = `translate3d(0px, ${(scrollValue - 6) * 200}px, 0px)`
             } else {
-                wrapper.current.style.transform = `translate3d(0px, -${(scrollValue - 6) * 400}px, 0px)`
-                wrapper2.current.style.transform = `translate3d(0px, ${(scrollValue - 6) * 400}px, 0px)`
+                wrapper.current.style.transform = `translate3d(0px, -${(scrollValue - 6) * 600}px, 0px)`
+                wrapper2.current.style.transform = `translate3d(0px, ${(scrollValue - 6) * 600}px, 0px)`
             }
 
 
@@ -56,7 +56,7 @@ const HomeBlogImages = () => {
                 <Grid item xs={6} className=' h-full relative'>
                     <div ref={wrapper2} className='blog-wrap  cursor-pointer absolute second'>
                         {
-                            blogs.slice(0, 10).map((single, i) => <BlogImageSingle key={i} {...single}></BlogImageSingle>
+                            blogs.slice(0, 5).map((single, i) => <BlogImageSingle key={i} {...single}></BlogImageSingle>
                             )
                         }
                     </div>

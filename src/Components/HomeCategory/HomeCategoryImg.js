@@ -2,13 +2,13 @@
 import { motion } from "framer-motion";
 
 import Image from 'next/image';
-import Link from "next/link";
 import React from 'react';
+import CustomLink from "../SmallComponents/CustomLink";
 
 const HomeCategoryImg = ({ mp, title, thumbnail, _id }) => {
 
     return (
-        <Link href={'/category/' + _id} >
+        <CustomLink href={'/category/' + _id} >
             <div className='overflow-hidden block text-gray-50 transition duration-300 brightness-50 hover:no-underline no-underline hover:brightness-100 grayscale hover:grayscale-0  pb-20 w-full relative cursor-pointer'>
 
                 <div className='overflow-hidden w-full h-full'>
@@ -34,7 +34,7 @@ const HomeCategoryImg = ({ mp, title, thumbnail, _id }) => {
                     <h1 className="uppercase">{title.slice(0, 40)}</h1>
                 </div>
             </div>
-        </Link>
+        </CustomLink>
     );
 };
 

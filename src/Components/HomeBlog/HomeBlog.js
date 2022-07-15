@@ -30,7 +30,7 @@ const HomeBlog = () => {
                         <div className='p-2 bg-black w-full phone-shadow'></div>
                     </div>
                 </Grid>
-                <Grid className='h-1/2 md:h-full   overflow-hidden md:overflow-visible' item xs={12} md={7}>
+                <Grid className='h-1/2 md:h-full    overflow-hidden md:overflow-visible  ' item xs={12} md={7}>
                     <HomeBlogImages></HomeBlogImages>
                 </Grid>
 

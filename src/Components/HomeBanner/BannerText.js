@@ -62,7 +62,7 @@ const BannerText = ({ innerRoute }) => {
     return (
         <motion.div className=' mt-5 font-bold' >
             <motion.div initial='initial' animate='animate' exit='initial' variants={stagger} >
-                <div className='text-4xl md:text-6xl block overflow-hidden ' >
+                <div className='text-4xl md:text-6xl block overflow-hidden py-2' >
                     <motion.div variants={twing}>
 
                         Hi
@@ -70,29 +70,29 @@ const BannerText = ({ innerRoute }) => {
 
                 </div>
                 <div className='mt-3 text-4xl md:text-6xl block overflow-hidden' >
-                    <motion.div className='inline-block  ' variants={twing}>
+                    <motion.div className='inline-block py-2 ' variants={twing}>
 
                         I
                     </motion.div>
-                    <motion.div className='inline-block ml-3' variants={twing}>
+                    <motion.div className='inline-block ml-3 py-2' variants={twing}>
 
                         am
                     </motion.div>
-                    <motion.div className='inline-block font-family-allerta ml-3 text-yellow-400' variants={twing}>
+                    <motion.div className='inline-block font-family-allerta ml-3 text-yellow-400 py-2' variants={twing}>
 
                         John
                     </motion.div>
-                    <motion.div className='inline-block ml-3 font-family-allerta  text-yellow-400' variants={twing}>
+                    <motion.div className='inline-block ml-3 font-family-allerta  text-yellow-400 py-2' variants={twing}>
 
                         Baggen
                     </motion.div>
 
                 </div>
                 <div className='mt-3  block overflow-hidden  text-2xl md:text-5xl' >
-                    <motion.div className='inline-block  ' variants={twing}>
+                    <motion.div className='inline-block  py-2' variants={twing}>
                         Professional
                     </motion.div>
-                    <motion.div className='inline-block ml-3' variants={twing}>
+                    <motion.div className='inline-block ml-3 py-2' variants={twing}>
                         photographer
                     </motion.div>
 
