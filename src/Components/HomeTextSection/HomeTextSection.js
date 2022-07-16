@@ -12,7 +12,7 @@ const HomeTextSection = () => {
     const big = 'p-3 mr-5 text-gray-900 bg-white rounded-full md:inline-block hidden';
     return (
         <div className='h-full overflow-hidden   relative flex font-family-Helvetica justify-center items-center'>
-            <h2 className='text-5xl md:text-6xl 2xl:text-8xl text-center font-thin'>
+            <h2 className='text-5xl md:text-6xl 2xl:text-8xl text-center font-thin '>
                 Don’t over
                 <br />
                 organize.

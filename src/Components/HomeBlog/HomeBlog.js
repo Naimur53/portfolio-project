@@ -14,7 +14,7 @@ const HomeBlog = () => {
 
     }
     return (
-        <Container className='h-full font-roboto  overflow-hidden '>
+        <Container className='h-full font-family-Helvetica overflow-hidden '>
             <Grid container spacing={4} className='h-full'>
                 <Grid item xs={12} md={5} className=' h-1/2 md:h-full relative flex md:justify-center items-center  '>
                     <motion.div exit={{ opacity: 0 }}>

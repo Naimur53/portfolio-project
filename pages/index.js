@@ -14,6 +14,7 @@ import HomeBlog from "../src/Components/HomeBlog/HomeBlog";
 import ContactMe from "../src/Components/ContactMe/ContactMe";
 import HomeTextSection from "../src/Components/HomeTextSection/HomeTextSection";
 import Head from '../src/Components/Head/Head'
+import Footer from "../src/Components/AboutPages/Footer";
 
 export default function Home() {
   const dispatch = useDispatch()
@@ -37,7 +38,7 @@ export default function Home() {
       <Head
         title="John Baggen"
       ></Head>
-      <Parallax ref={parallaxRef} pages={10}>
+      <Parallax ref={parallaxRef} pages={11}>
         <ParallaxLayer
           offset={0}
           speed={.3}  >
@@ -82,17 +83,55 @@ export default function Home() {
             <div  ></div>
           </div>
         </ParallaxLayer>
-
         <ParallaxLayer
           offset={9}
-          speed={.5}
+          speed={.1}
+        >
+          <div className="bg-lather relative h-full shadow-overlay  ">
+            <div className="h-8 absolute top-0 left-0 right-0 bg-black shadow-overlay"></div>
+            <div className="h-8 absolute bottom-0 left-0 right-0 bg-black shadow-overlay"></div>
+          </div>
+
+        </ParallaxLayer>
+        <ParallaxLayer
+          offset={9}
+          speed={.3}
           style={{
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'center'
-          }}>
+            alignItems: 'center',
+          }}
+
+        >
           <ContactMe></ContactMe>
         </ParallaxLayer>
+        <ParallaxLayer
+          offset={10}
+          speed={.5}
+          style={{
+          }}
+        >
+          <div className="bg-dot-wev relative h-full shadow-overlay  ">
+            <div className="h-8 absolute top-0 left-0 right-0 bg-black shadow-overlay"></div>
+          </div>
+
+        </ParallaxLayer>
+        <ParallaxLayer
+          offset={10}
+          speed={.3}
+          style={{
+          }}
+        >
+          <div className="h-full fl ex  items-center">
+
+            <Container>
+              <Footer></Footer>
+            </Container>
+          </div>
+
+
+        </ParallaxLayer>
+
       </Parallax >
     </>
   )

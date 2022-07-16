@@ -74,10 +74,11 @@ const Middle = () => {
         <div className=' h-full flex justify-center cursor-pointer  items-center'>
             <motion.div initial='initial' animate='animate' variants={rounding}
                 className='   flex justify-center     h-full w-full items-center '>
-                <motion.div initial='initial' className='bg-red-900  p-2  flex flex-col justify-center items-center' animate='animate' variants={roundImage}>
-                    <div className='bg-red-300'>
-                        <Image className='middle-image  ' src='https://i.ibb.co/BtbKgFL/20190320-WEST-AFRICA-FROM-GUNJUR-TO-BASSE-2964-2.jpg' width={400} height={400} alt='John photos' layout='raw' priority></Image>
-                    </div>
+                <motion.div initial='initial' className='  p-2  flex flex-col justify-center items-center' animate='animate' variants={roundImage}>
+
+                    <Image className='middle-image w-screen-30 hidden lg:block' src='https://i.ibb.co/BtbKgFL/20190320-WEST-AFRICA-FROM-GUNJUR-TO-BASSE-2964-2.jpg' width={400} height={400} alt='John photos' layout='raw' priority></Image>
+
+                    <Image className='middle-image md:hidden block ' src='https://i.ibb.co/BtbKgFL/20190320-WEST-AFRICA-FROM-GUNJUR-TO-BASSE-2964-2.jpg' width={400} height={400} alt='John photos' layout='raw' priority></Image>
 
                 </motion.div>
             </motion.div>

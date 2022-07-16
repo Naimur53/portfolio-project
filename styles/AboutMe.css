@@ -22,10 +22,6 @@
     clip-path: ellipse(15% 20% at 50% 50%);
 }
 
-.middle-wrap {
-    height: 400px;
-    width: 400px;
-}
 
 .middle-image {
     transform: scale(1.5);

@@ -106,7 +106,6 @@ html,
 body {
   padding: 0;
   margin: 0;
-
   background-color: black;
   color: white;
   /* font-family: 'Roboto', sans-serif; */
@@ -136,7 +135,7 @@ a {
   font-family: 'Helvetica', sans-serif;
 }
 
-.font-family-allertafont-family-Helvetica {
+.font-family-allerta {
   font-family: 'Megrim';
 }
 
@@ -345,4 +344,18 @@ a {
 
 .mgbutton-bg {
   background-image: linear-gradient(to right top, #fde440, #ffd07e, #ffcdc1, #ffdbf2, #ffedff, #f0f2ff, #e1f7ff, #dbfaff, #a6fefe, #6bffed, #2fffcb, #1dfd9b);
+}
+
+.bg-dot-wev {
+  background-image: url('https://i.ibb.co/g3d0nbF/Adobe-Stock-477001574.jpghttps://i.ibb.co/PMg67DS/3913646.webp');
+  background-size: cover;
+}
+
+.bg-lather {
+  background-image: url('https://i.ibb.co/mRS7jpz/3913646-1.webp');
+  background-size: cover;
+}
+
+.w-screen-30 {
+  width: 30vw;
 }

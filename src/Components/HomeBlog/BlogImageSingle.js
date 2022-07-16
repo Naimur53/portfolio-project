@@ -9,7 +9,7 @@ const BlogImageSingle = ({ img, heading, _id }) => {
 
                 <Image className='rounded-xl  ' src={img} width={400} height={500} alt='Blog Image'></Image>
                 <div >
-                    <p className='capitalize '>
+                    <p className='capitalize font-family-Helvetica text-gray-300'>
                         {heading.slice(0, 35)}
                     </p>
 
