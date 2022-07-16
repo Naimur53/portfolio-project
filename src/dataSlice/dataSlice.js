@@ -7,6 +7,7 @@ const initialState = {
     homeCategory: [],
     cursor: {},
     blogDetails: {},
+    homeBlog: [],
     loading: true,
 }
 
@@ -32,6 +33,9 @@ export const dataSlice = createSlice({
         addBlogDetails: (state, action) => {
             state.blogDetails = action.payload;
         },
+        addHomeBlog: (state, action) => {
+            state.homeBlog = action.payload;
+        },
         addComments: (state, action) => {
             state.blogDetails.comments = [...state.blogDetails.comments, action.payload];
         },
@@ -53,12 +57,13 @@ export const dataSlice = createSlice({
             state.homeCategory = action.payload.data.homeCategory;
             state.addScrollValue = action.payload.data.addScrollValue;
             state.blogDetails = action.payload.data.blogDetails;
+            state.homeBlog = action.payload.data.homeBlog;
 
         },
     },
 })
 
 // Action creators are generated for each case reducer function
-export const { addUser, setLoading, addHomeCategory, addLove, addComments, addScrollValue, addCursor, addBlogDetails, increaseLove, decreaseLove } = dataSlice.actions
+export const { addUser, setLoading, addHomeCategory, addLove, addComments, addScrollValue, addCursor, addBlogDetails, increaseLove, decreaseLove, addHomeBlog } = dataSlice.actions
 export const allData = (state) => state.data;
 export default dataSlice.reducer

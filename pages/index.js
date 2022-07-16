@@ -47,7 +47,7 @@ export default function Home() {
         <ParallaxLayer
           offset={1}
           speed={.3}>
-          <HomeTextSection></HomeTextSection>
+          <HomeTextSection innerRoute={innerRoute}></HomeTextSection>
         </ParallaxLayer>
         <ParallaxLayer
           offset={2}

@@ -5,20 +5,25 @@ import Link from 'next/link';
 import React, { useEffect, useRef, useState } from 'react';
 import useSWR from 'swr'
 import { useSelector } from 'react-redux';
-import { allData } from '../../dataSlice/dataSlice';
+import { addHomeBlog, allData } from '../../dataSlice/dataSlice';
 import BlogImageSingle from './BlogImageSingle';
 import { motion } from 'framer-motion'
 import fetcher from '../../util/fatcher';
+import { useDispatch } from 'react-redux';
+
 
 
 const HomeBlogImages = () => {
     const { scrollValue, } = useSelector(allData);
-    const [blogs, setBlogs] = useState([])
     const wrapper2 = useRef();
     const wrapper = useRef();
+    const dispatch = useDispatch()
 
     const { data, error } = useSWR('https://stark-atoll-95180.herokuapp.com/blog?short=true', fetcher)
 
+    useEffect(() => {
+        dispatch(addHomeBlog(data))
+    }, [data, dispatch])
     useEffect(() => {
 
         if (data?.length && !error) {

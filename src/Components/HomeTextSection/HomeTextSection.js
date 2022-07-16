@@ -2,14 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { allData } from '../../dataSlice/dataSlice';
 import { motion } from 'framer-motion';
-const HomeTextSection = () => {
-    const { scrollValue } = useSelector(allData);
+import CustomLink from '../SmallComponents/CustomLink';
+const HomeTextSection = ({ innerRoute }) => {
+    const { scrollValue, homeCategory, homeBlog } = useSelector(allData);
     const [value, setValue] = useState(0);
     useEffect(() => {
         setValue(scrollValue.toFixed(2))
     }, [scrollValue])
     const phone = 'p-3 mr-5  text-gray-900 bg-white rounded-full inline-block md:hidden';
-    const big = 'p-3 mr-5 text-gray-900 bg-white rounded-full md:inline-block hidden';
+    const big = 'p-3 mr-5 text-gray-900 bg-white cursor-pointer rounded-full md:inline-block hidden';
     return (
         <div className='h-full overflow-hidden   relative flex font-family-Helvetica justify-center items-center'>
             <h2 className='text-5xl md:text-6xl 2xl:text-8xl text-center font-thin '>
@@ -29,19 +30,27 @@ const HomeTextSection = () => {
                 <div>
                     <div>
                         {/* big */}
-                        <motion.span
-                            initial={{
-                                x: 0,
-                                rotate: 0,
-                                transition: { ease: [0.455, 0.03, 0.515, 0.955], }
-                            }}
-                            animate={{
-                                x: -(value * 120),
-                                rotate: -(value * 20),
-                                transition: { ease: "easeOut", duration: 1 }
-                            }}
+                        <CustomLink
+                            href={`/blogs/${homeBlog?.length ? homeBlog[0]?._id : ''}`}
+                        >
+                            <motion.span
+                                initial={{
+                                    x: 0,
+                                    rotate: 0,
+                                    transition: { ease: [0.455, 0.03, 0.515, 0.955], }
+                                }}
+                                animate={{
+                                    x: -(value * 120),
+                                    rotate: -(value * 20),
+                                    transition: { ease: "easeOut", duration: 1 }
+                                }}
 
-                            className={big}>watch where I am  </motion.span>
+                                className={big}>
+
+                                Watch Where I Am!
+                            </motion.span>
+                        </CustomLink>
+
                         {/* phone */}
                         <motion.span
                             initial={{
@@ -57,20 +66,24 @@ const HomeTextSection = () => {
 
                             className={phone}>Lorem ipsum dolor  </motion.span>
                         {/* big */}
+                        <CustomLink
+                            href={`/category/${homeCategory?.length ? homeCategory[0]?._id : ''}`}
+                        >
 
-                        <motion.span
-                            initial={{
-                                x: 0,
-                                rotate: 0,
-                                transition: { ease: [0.455, 0.03, 0.515, 0.955], }
-                            }}
-                            animate={{
-                                x: (value * 120),
-                                rotate: (value * 20),
-                                transition: { ease: "easeOut", duration: 1 }
-                            }}
+                            <motion.span
+                                initial={{
+                                    x: 0,
+                                    rotate: 0,
+                                    transition: { ease: [0.455, 0.03, 0.515, 0.955], }
+                                }}
+                                animate={{
+                                    x: (value * 120),
+                                    rotate: (value * 20),
+                                    transition: { ease: "easeOut", duration: 1 }
+                                }}
 
-                            className={big}>Latest Collection </motion.span>
+                                className={big}>Latest Collection </motion.span>
+                        </CustomLink>
                         {/*  */}
                         <motion.span
                             initial={{
@@ -87,20 +100,24 @@ const HomeTextSection = () => {
                             className={phone}>  amet consectetur </motion.span>
                     </div>
                     <div className='my-32'>
+                        <CustomLink
+                            href='/blogs'
+                        >
+                            <motion.span
+                                initial={{
+                                    x: 0,
+                                    rotate: 0,
+                                    transition: { ease: [0.455, 0.03, 0.515, 0.955], }
+                                }}
+                                animate={{
+                                    x: -(value * 250),
+                                    rotate: (value * 20),
+                                    transition: { ease: "easeOut", duration: 1 }
+                                }}
 
-                        <motion.span
-                            initial={{
-                                x: 0,
-                                rotate: 0,
-                                transition: { ease: [0.455, 0.03, 0.515, 0.955], }
-                            }}
-                            animate={{
-                                x: -(value * 250),
-                                rotate: (value * 20),
-                                transition: { ease: "easeOut", duration: 1 }
-                            }}
+                                className={big}>Read my Blogs</motion.span>
+                        </CustomLink>
 
-                            className={big}>Read my Blogs</motion.span>
                         <motion.span
                             initial={{
                                 x: 0,
@@ -114,19 +131,24 @@ const HomeTextSection = () => {
                             }}
 
                             className={phone}> dolor sit amet dfd </motion.span>
-                        <motion.span
-                            initial={{
-                                x: 0,
-                                rotate: 0,
-                                transition: { ease: [0.455, 0.03, 0.515, 0.955], }
-                            }}
-                            animate={{
-                                x: (value * 300),
-                                rotate: -(value * 20),
-                                transition: { ease: "easeOut", duration: 1 }
-                            }}
+                        <CustomLink href='/category'>
+                            <motion.span
+                                initial={{
+                                    x: 0,
+                                    rotate: 0,
+                                    transition: { ease: [0.455, 0.03, 0.515, 0.955], }
+                                }}
 
-                            className={big}>Hey Contact Me</motion.span>
+                                animate={{
+                                    x: (value * 300),
+                                    rotate: -(value * 20),
+                                    transition: { ease: "easeOut", duration: 1 }
+                                }}
+
+                                className={big}>Checkout My Gallery</motion.span>
+                        </CustomLink>
+
+
                         <motion.span
                             initial={{
                                 x: 0,
@@ -139,25 +161,32 @@ const HomeTextSection = () => {
                                 transition: { ease: "easeOut", duration: 1 }
                             }}
 
+
                             className={phone}>Contact Me</motion.span>
+
                     </div>
                     <div className='flex justify-center'>
                         <div>
-                            <motion.span
-                                initial={{
-                                    x: 0,
-                                    y: 0,
-                                    rotate: 0,
-                                    transition: { ease: [0.455, 0.03, 0.515, 0.955], }
-                                }}
-                                animate={{
-                                    x: (value * 100),
-                                    y: (value * 30),
-                                    rotate: (value * 5),
-                                    transition: { ease: "easeOut", duration: 1 }
-                                }}
+                            <CustomLink
+                                href="/aboutme"
+                            >
+                                <motion.span
+                                    initial={{
+                                        x: 0,
+                                        y: 0,
+                                        rotate: 0,
+                                        transition: { ease: [0.455, 0.03, 0.515, 0.955], }
+                                    }}
+                                    animate={{
+                                        x: (value * 100),
+                                        y: (value * 30),
+                                        rotate: (value * 5),
+                                        transition: { ease: "easeOut", duration: 1 }
+                                    }}
 
-                                className='p-3 mr-5  text-gray-900 bg-white rounded-full inline-block'>Who am I? </motion.span>
+                                    className='p-3 mr-5  text-gray-900 bg-white rounded-full inline-block'>Who am I? </motion.span>
+                            </CustomLink>
+
                         </div>
                     </div>
 
