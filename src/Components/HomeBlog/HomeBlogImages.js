@@ -14,19 +14,19 @@ import { useDispatch } from 'react-redux';
 
 
 const HomeBlogImages = () => {
-    const { scrollValue, } = useSelector(allData);
+    const { scrollValue, homeBlog } = useSelector(allData);
     const wrapper2 = useRef();
     const wrapper = useRef();
     const dispatch = useDispatch()
 
-    const { data, error } = useSWR('https://stark-atoll-95180.herokuapp.com/blog?short=true', fetcher)
+    // const { data, error } = useSWR('https://stark-atoll-95180.herokuapp.com/blog?short=true', fetcher)
 
-    useEffect(() => {
-        dispatch(addHomeBlog(data))
-    }, [data, dispatch])
+    // useEffect(() => {
+    //     dispatch(addHomeBlog(data))
+    // }, [data, dispatch])
     useEffect(() => {
 
-        if (data?.length && !error) {
+        if (homeBlog?.length) {
             if (window.innerWidth <= 600) {
                 wrapper.current.style.transform = `translate3d(0px, -${(scrollValue - 6) * 300}px, 0px)`
                 wrapper2.current.style.transform = `translate3d(0px, ${(scrollValue - 6) * 200}px, 0px)`
@@ -39,9 +39,9 @@ const HomeBlogImages = () => {
         }
 
     }, [scrollValue])
-    if (!data) {
-        return <CircularProgress></CircularProgress>
-    }
+    // if (!homeBlog) {
+    //     return <CircularProgress></CircularProgress>
+    // }
 
     return (
         <motion.div exit={{ opacity: 0 }} className='h-full font-family-Helvetica text-justify'>
@@ -49,7 +49,7 @@ const HomeBlogImages = () => {
                 <Grid item className='h-full' xs={6}>
                     <div ref={wrapper} className='blog-wrap  cursor-pointer'>
                         {
-                            data?.slice(0, 5).map((single, i) => <BlogImageSingle key={i} {...single}></BlogImageSingle>
+                            homeBlog?.slice(0, 5).map((single, i) => <BlogImageSingle key={i} {...single}></BlogImageSingle>
                             )
                         }
                     </div>
@@ -57,7 +57,7 @@ const HomeBlogImages = () => {
                 <Grid item xs={6} className=' h-full relative'>
                     <div ref={wrapper2} className='blog-wrap  cursor-pointer absolute second'>
                         {
-                            data?.slice(0, 5).map((single, i) => <BlogImageSingle key={i} {...single}></BlogImageSingle>
+                            homeBlog?.slice(0, 5).map((single, i) => <BlogImageSingle key={i} {...single}></BlogImageSingle>
                             )
                         }
                     </div>

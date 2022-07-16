@@ -1,6 +1,6 @@
 import HomeBanner from "../src/Components/HomeBanner/HomeBanner";
 import HomeCategory from "../src/Components/HomeCategory/HomeCategory"
-import { addHomeCategory, addScrollValue } from '../src/dataSlice/dataSlice'
+import { addCollection, addHomeBlog, addHomeCategory, addScrollValue } from '../src/dataSlice/dataSlice'
 import { wrapper } from "../src/store/store";
 import { motion } from "framer-motion";
 import { Container, Grid, Typography, Button } from "@mui/material";
@@ -147,7 +147,15 @@ export default function Home() {
 // } 
 export const getServerSideProps = wrapper.getServerSideProps(
   (store) => async () => {
-    const res = await fetch(`https://stark-atoll-95180.herokuapp.com/category?short=true`)
-    const data = await res.json();
-    store.dispatch(addHomeCategory(data))
+    const allUrl = [fetch(`https://stark-atoll-95180.herokuapp.com/category?short=true`), fetch(`https://stark-atoll-95180.herokuapp.com/chooseMenu`), fetch('https://stark-atoll-95180.herokuapp.com/blog?short=true')]
+    const [res1, res2, res3] = await Promise.all(allUrl)
+    // const datas = await res.map(single => single.json());
+    console.log({ res1 });
+    const category = await res1.json()
+    const collection = await res2.json()
+    const blogs = await res3.json()
+
+    store.dispatch(addHomeCategory(category))
+    store.dispatch(addCollection(collection))
+    store.dispatch(addHomeBlog(blogs))
   })

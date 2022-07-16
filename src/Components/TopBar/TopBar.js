@@ -19,24 +19,22 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Collection from './Collection';
 import { Accordion, AccordionDetails, AccordionSummary, Drawer } from '@mui/material';
-
+import useSWR from 'swr'
+import fetcher from '../../util/fatcher';
+import PhoneCollection from './PhoneCollection';
+import { useSelector } from 'react-redux';
+import { allData } from '../../dataSlice/dataSlice';
 const pages = ['home', 'aboutme', 'dashboard', 'blogs',];
 const TopBar = () => {
+
     const [open, setOpen] = useState(null);
-    const [anchorElUser, setAnchorElUser] = useState(null);
+    const { collection } = useSelector(allData)
+    // const { data, error } = useSWR(
+    //     "https://stark-atoll-95180.herokuapp.com/chooseMenu",
+    //     fetcher
+    // );
     const handleOpenNavMenu = (event) => {
         setOpen(!open);
-    };
-    const handleOpenUserMenu = (event) => {
-        setAnchorElUser(event.currentTarget);
-    };
-
-    const handleCloseNavMenu = () => {
-        setAnchorElNav(null);
-    };
-
-    const handleCloseUserMenu = () => {
-        setAnchorElUser(null);
     };
     let easing = [0.6, -0.05, 0.01, 0.99];
 
@@ -109,7 +107,7 @@ const TopBar = () => {
                         <h1 className='text-white'>Collection</h1>
                     </AccordionSummary>
                     <AccordionDetails>
-                        <Collection phone></Collection>
+                        <PhoneCollection data={collection}></PhoneCollection>
                     </AccordionDetails>
                 </Accordion>
             </motion.div>
@@ -267,7 +265,7 @@ const TopBar = () => {
                                         Collection
 
                                     </Button>
-                                    <Collection></Collection>
+                                    <Collection data={collection}></Collection>
                                 </motion.div>
                                 <motion.div className='pr-5' variants={fadeInUp}
                                 >
