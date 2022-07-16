@@ -57,7 +57,7 @@ const CategoryDetails = ({ data }) => {
                             animate={{
                                 y: 0,
                                 transition: { duration: .7, }
-                            }} className='text-6xl font-family-allerta text-center '>
+                            }} className='text-6xl font-family-Helvetica text-center '>
 
                             {
                                 data.subCategory ? <span>{data.categoryName} - {data.subCategory}</span> : <span>{data.categoryName}</span>

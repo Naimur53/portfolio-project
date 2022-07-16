@@ -43,7 +43,7 @@ const RightContent = ({ isVisible, url }) => {
                         animate='animate'
                         exit='initial'
                         variants={main}
-                        className='font-family-roboto font-bold h-screen flex justify-center items-center'
+                        className='font-family-Helvetica font-bold h-screen flex justify-center items-center'
                     >
 
                         <motion.div

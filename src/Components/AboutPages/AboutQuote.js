@@ -8,7 +8,7 @@ const AboutQuote = () => {
             <Container>
                 <div className='py-10 mb-5 text-center'>
                     {/* <DescriptionText text=""></DescriptionText> */}
-                    <h1 className='text-4xl font-family-allerta'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit</h1>
+                    <h1 className='text-4xl font-family-Helvetica'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit</h1>
                     <h2 className='text-xl font-thin mt-2'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta tempora nobis non quaerat autem.  </h2>
                 </div>
                 <Grid container spacing={4} className=' '>

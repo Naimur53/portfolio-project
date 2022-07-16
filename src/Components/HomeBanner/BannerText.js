@@ -78,11 +78,11 @@ const BannerText = ({ innerRoute }) => {
 
                         am
                     </motion.div>
-                    <motion.div className='inline-block font-light	 ml-3 text-gray-600 py-2' variants={twing}>
+                    <motion.div className='inline-block font-light	 ml-3 text-gray-400 py-2' variants={twing}>
 
                         John
                     </motion.div>
-                    <motion.div className='inline-block ml-3    text-gray-600 font-light	 py-2' variants={twing}>
+                    <motion.div className='inline-block ml-3    text-gray-400 font-light	 py-2' variants={twing}>
 
                         Baggen
                     </motion.div>

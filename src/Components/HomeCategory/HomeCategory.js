@@ -8,6 +8,7 @@ import { forwardRef, useEffect, useRef, useState } from 'react';
 import HomeCategoryImg from './HomeCategoryImg';
 import MgButton from '../SmallComponents/MgButton';
 import { useRouter } from 'next/router';
+import HeadingText from '../AboutMe/HeadingText';
 
 const HomeCategory = () => {
     const router = useRouter()
@@ -76,10 +77,10 @@ const HomeCategory = () => {
                 </Grid>
 
             </motion.div>
-            <div className='absolute pointer-events-none font-semibold	 flex justify-center items-center font-sans inset-0 capitalize font-family-roboto font-lighter'>
+            <div className='absolute pointer-events-none font-semibold	 flex justify-center items-center font-sans inset-0 capitalize font-family-Helvetica font-lighter'>
                 <motion.div exit={{ opacity: 0 }} className='text-center'>
-                    <h2 className='text-4xl font-family-allerta '>Photo Collection </h2>
-                    <h2 className='text-4xl font-family-allerta '>After traveling many Country I Found this </h2>
+                    <HeadingText isVisible title='Photo Collection '></HeadingText>
+                    <HeadingText isVisible title='After traveling many Country I Found this '></HeadingText>
                     <motion.div exit={{ scaleY: 0 }} className='flex justify-center mt-5 pointer-events-auto'>
                         <MgButton buttonProps={{ onClick: () => handleClick() }} text='Watch more'></MgButton>
                     </motion.div>

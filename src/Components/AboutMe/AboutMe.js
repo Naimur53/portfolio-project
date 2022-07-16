@@ -158,7 +158,7 @@ const AboutMe = ({ innerRoute }) => {
             >
                 <div className="flex items-center justify-center h-full">
                     <div className='text-center flex flex-col justify-center items-center'>
-                        <div className="text-3xl md:text-5xl font-family-allerta">
+                        <div className="text-3xl md:text-5xl font-family-Helvetica">
                             <MiddleContent
                                 isVisible={value.content5}
                                 text=' May I also ask you to take the time.

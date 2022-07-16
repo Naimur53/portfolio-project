@@ -1,5 +1,7 @@
 import { Button, Container, Grid, Typography } from '@mui/material';
+import { motion } from 'framer-motion';
 import { Box } from '@mui/system';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { allData } from '../../dataSlice/dataSlice';
@@ -29,7 +31,7 @@ const HomeBanner = ({ innerRoute }) => {
         }
     }, [scrollValue])
     return (
-        <Box className='h-full  bg-cover relative font-family-roboto'>
+        <Box className='h-full  bg-cover relative font-family-Helvetica'>
             <Container sx={{ height: '100%', position: 'relative', overflow: 'hidden', zIndex: 10 }}>
                 <Grid container spacing={2} sx={{ height: '100%' }} alignItems='center'>
                     <Grid item md={8} xs={12} className='flex md:justify-start justify-center items-center md:h-full   h-1/2  '  >
@@ -55,7 +57,27 @@ const HomeBanner = ({ innerRoute }) => {
                 </Grid>
 
             </Container>
-            <div className="banner-wrap  absolute inset-0"></div>
+            <div
+                className="banner-wrap absolute inset-0">
+                <div className='w-full flex items-end  h-full relative'>
+
+                    <Image className='w-full mt-5' src='https://i.ibb.co/g3d0nbF/Adobe-Stock-477001574.jpg' width={700} height={100} alt='background web' priority layout='raw'></Image>
+
+                    <motion.div
+                        className='bg-black absolute inset-0'
+                        initial={{
+                            x: ' 0%'
+                        }}
+                        animate={{
+                            x: '100%',
+                            transition: { type: 'easeOut', duration: 1 }
+                        }}
+                    >
+
+                    </motion.div>
+
+                </div>
+            </div>
 
 
 

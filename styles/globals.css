@@ -19,7 +19,7 @@
 }
 
 /* adding roboto font */
-
+/* 
 @font-face {
   font-family: 'Roboto';
   src: url('/font/Roboto-Black.ttf');
@@ -74,7 +74,33 @@
   font-style: medium;
   font-weight: 100;
   font-display: swap;
+} */
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('/font/Helvetica.ttf');
+  font-style: medium;
+  font-weight: normal;
+  font-display: swap;
 }
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('/font/Helvetica-Bold.ttf');
+  font-style: medium;
+  font-weight: bold;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('/font/helvetica-light-587ebe5a59211.ttf');
+  font-style: medium;
+  font-weight: 100;
+  font-display: swap;
+}
+
+
 
 html,
 body {
@@ -106,7 +132,11 @@ a {
   font-family: 'Roboto', sans-serif;
 }
 
-.font-family-allerta {
+.font-family-Helvetica {
+  font-family: 'Helvetica', sans-serif;
+}
+
+.font-family-allertafont-family-Helvetica {
   font-family: 'Megrim';
 }
 

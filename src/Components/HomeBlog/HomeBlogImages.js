@@ -43,7 +43,7 @@ const HomeBlogImages = () => {
     }
 
     return (
-        <motion.div exit={{ opacity: 0 }} className='h-full font-family-roboto text-justify'>
+        <motion.div exit={{ opacity: 0 }} className='h-full font-family-Helvetica text-justify'>
             <Grid container className='h-full' spacing={4}>
                 <Grid item className='h-full' xs={6}>
                     <div ref={wrapper} className='blog-wrap  cursor-pointer'>

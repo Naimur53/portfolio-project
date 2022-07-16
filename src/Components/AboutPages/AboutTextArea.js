@@ -16,7 +16,7 @@ const AboutTextArea = () => {
             <Container className='h-full'>
                 <div className='py-10 mb-5 text-center'>
                     {/* <DescriptionText text=""></DescriptionText> */}
-                    <h1 className='text-4xl font-family-allerta'>MORE THAN 40 YEARS EVERY DAY LOOKING FOR PERFECTION</h1>
+                    <h1 className='text-4xl font-family-Helvetica'>MORE THAN 40 YEARS EVERY DAY LOOKING FOR PERFECTION</h1>
                     <h2 className='text-xl font-thin mt-2'>Every situation is different. Light fascinates me. I want to take it with me. Freeze and cherish the moment. </h2>
                 </div>
                 {/* <motion.h2

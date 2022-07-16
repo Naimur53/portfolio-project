@@ -20,7 +20,7 @@ const HomeCategoryImg = ({ mp, title, categoryName, subCategory, thumbnail, _id 
                 </div>
                 <div className="absolute inset-0">
                     <div className='bg-black mt-2 inline-block  p-2'>
-                        <h1 className='text-xl font-family-allerta  text-white'>{categoryName} {subCategory && <span>- {subCategory}</span>}</h1>
+                        <h1 className='text-xl font-family-Helvetica  text-white'>{categoryName} {subCategory && <span>- {subCategory}</span>}</h1>
                     </div>
                 </div>
             </div>

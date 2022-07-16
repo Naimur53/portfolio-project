@@ -35,12 +35,12 @@ const HeadingText = ({ isVisible, title }) => {
                     animate='animate'
                     exit='initial'
                     variants={main}
-                    className='font-family-roboto font-bold'
+                    className='font-family-Helvetica font-thin'
                 >
 
                     <div className=' '>
-                        <div className='overflow-hidden font-family-allerta  m:h-16 h-10 '>
-                            <motion.h2 variants={twing} className='text-3xl md:text-5xl m-0'>
+                        <div className='overflow-hidden font-family-Helvetica   '>
+                            <motion.h2 variants={twing} className='text-3xl md:text-5xl pb-1 m-0'>
                                 {title}
                             </motion.h2>
                         </div>
