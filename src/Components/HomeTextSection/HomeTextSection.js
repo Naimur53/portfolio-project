@@ -41,7 +41,7 @@ const HomeTextSection = () => {
                                 transition: { ease: "easeOut", duration: 1 }
                             }}
 
-                            className={big}>Lorem ipsum dolor  </motion.span>
+                            className={big}>watch where I am  </motion.span>
                         {/* phone */}
                         <motion.span
                             initial={{
@@ -70,7 +70,7 @@ const HomeTextSection = () => {
                                 transition: { ease: "easeOut", duration: 1 }
                             }}
 
-                            className={big}>  amet consectetur </motion.span>
+                            className={big}>Latest Collection </motion.span>
                         {/*  */}
                         <motion.span
                             initial={{
@@ -100,7 +100,7 @@ const HomeTextSection = () => {
                                 transition: { ease: "easeOut", duration: 1 }
                             }}
 
-                            className={big}> dolor sit amet dfd </motion.span>
+                            className={big}>Read my Blogs</motion.span>
                         <motion.span
                             initial={{
                                 x: 0,
@@ -126,7 +126,7 @@ const HomeTextSection = () => {
                                 transition: { ease: "easeOut", duration: 1 }
                             }}
 
-                            className={big}>Lorem ipsum dolor  </motion.span>
+                            className={big}>Hey Contact Me</motion.span>
                         <motion.span
                             initial={{
                                 x: 0,
@@ -139,7 +139,7 @@ const HomeTextSection = () => {
                                 transition: { ease: "easeOut", duration: 1 }
                             }}
 
-                            className={phone}>Lorem ipsum dolor  </motion.span>
+                            className={phone}>Contact Me</motion.span>
                     </div>
                     <div className='flex justify-center'>
                         <div>
@@ -157,7 +157,7 @@ const HomeTextSection = () => {
                                     transition: { ease: "easeOut", duration: 1 }
                                 }}
 
-                                className='p-3 mr-5  text-gray-900 bg-white rounded-full inline-block'>Lorem ipsum dolor sit amet </motion.span>
+                                className='p-3 mr-5  text-gray-900 bg-white rounded-full inline-block'>Who am I? </motion.span>
                         </div>
                     </div>
 

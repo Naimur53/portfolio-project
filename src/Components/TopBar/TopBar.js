@@ -50,14 +50,12 @@ const TopBar = () => {
     const fadeInUp = {
         initial: {
             y: -100,
-            opacity: 0,
             transition: { duration: 0.6, }
         },
         animate: {
             y: 0,
-            opacity: 1,
             transition: {
-                duration: 1.5,
+                duration: 1,
             }
         }
     };
@@ -156,24 +154,41 @@ const TopBar = () => {
             <AppBar position="fixed" sx={{ background: 'black' }} className='  shadow-none' >
                 <Container maxWidth="xl" className=' bg-black shadow-none' >
                     <Toolbar disableGutters>
-                        <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-                        <Typography
-                            variant="h6"
-                            noWrap
-                            component="a"
-                            href="/"
-                            sx={{
-                                mr: 2,
-                                display: { xs: 'none', md: 'flex' },
-                                fontFamily: 'monospace',
-                                fontWeight: 700,
-                                letterSpacing: '.3rem',
-                                color: 'inherit',
-                                textDecoration: 'none',
+                        <motion.div
+                            initial={{
+                                x: '-120%'
                             }}
+                            animate={{
+                                x: '0%',
+                                transition: {
+                                    type: 'easeOut',
+                                    duration: .7
+
+                                }
+                            }}
+                            className='flex'
+
                         >
-                            LOGO
-                        </Typography>
+
+                            <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+                            <Typography
+                                variant="h6"
+                                noWrap
+                                component="a"
+                                href="/"
+                                sx={{
+                                    mr: 2,
+                                    display: { xs: 'none', md: 'flex' },
+                                    fontFamily: 'monospace',
+                                    fontWeight: 700,
+                                    letterSpacing: '.3rem',
+                                    color: 'inherit',
+                                    textDecoration: 'none',
+                                }}
+                            >
+                                LOGO
+                            </Typography>
+                        </motion.div>
 
                         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                             <IconButton

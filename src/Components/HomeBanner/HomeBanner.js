@@ -34,7 +34,7 @@ const HomeBanner = ({ innerRoute }) => {
         <Box className='h-full  bg-cover relative font-family-Helvetica'>
             <Container sx={{ height: '100%', position: 'relative', overflow: 'hidden', zIndex: 10 }}>
                 <Grid container spacing={2} sx={{ height: '100%' }} alignItems='center'>
-                    <Grid item md={8} xs={12} className='flex md:justify-start justify-center items-center md:h-full   h-1/2  '  >
+                    <Grid item md={6} xs={12} className='flex md:justify-start justify-center items-center md:h-full   h-1/2  '  >
                         <Box
 
                             className='h-full flex  justify-center   items-center'
@@ -43,16 +43,22 @@ const HomeBanner = ({ innerRoute }) => {
                             <BannerText innerRoute={innerRoute}></BannerText>
                         </Box>
                     </Grid>
-                    <Grid className='flex justify-center items-center md:h-full h-1/2  ' item md={4} xs={12}  >
-                        <CheckBanner></CheckBanner>
-                        {/* <Box
-                            className='innerBanner'
-                            sx={{
-                                // clipPath: clip
-
+                    <Grid className='  ' item md={6} xs={12}  >
+                        {/* <CheckBanner></CheckBanner>  */}
+                        {/* <Image className='w-full' width={400} height={400} priority layout='raw' src='https://i.ibb.co/JjD17sF/Nikon-D5.jpg' alt='john photo' ></Image> */}
+                        <motion.div
+                            initial={{
+                                opacity: 0
                             }}
+                            animate={{
+                                opacity: 1,
+                                transition: { type: 'easeOut', delay: 2.8, duration: 1 }
+                            }}
+
                         >
-                        </Box> */}
+
+                            <Image className='w-full' width={400} height={400} priority layout='raw' src='https://i.ibb.co/thLdxj3/Nikon-D5.png' alt='john photo' ></Image>
+                        </motion.div>
                     </Grid>
                 </Grid>
 
@@ -70,7 +76,7 @@ const HomeBanner = ({ innerRoute }) => {
                         }}
                         animate={{
                             x: '100%',
-                            transition: { type: 'easeOut', duration: 1 }
+                            transition: { type: 'ease', delay: 1, duration: 1 }
                         }}
                     >
 
