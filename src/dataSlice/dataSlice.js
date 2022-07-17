@@ -46,12 +46,6 @@ export const dataSlice = createSlice({
         addLove: (state, action) => {
             state.blogDetails.love = [...state.blogDetails.love, action.payload];
         },
-        increaseLove: (state, action) => {
-            state.blogDetails.love = state.blogDetails?.love + 1;
-        },
-        decreaseLove: (state, action) => {
-            state.blogDetails.love = state.blogDetails?.love + 1;
-        }
     },
     extraReducers: {
         [HYDRATE]: (state, action) => {
@@ -69,6 +63,6 @@ export const dataSlice = createSlice({
 })
 
 // Action creators are generated for each case reducer function
-export const { addUser, setLoading, addHomeCategory, addLove, addComments, addScrollValue, addCursor, addBlogDetails, increaseLove, decreaseLove, addHomeBlog, addCollection } = dataSlice.actions
+export const { addUser, setLoading, addHomeCategory, addLove, addComments, addScrollValue, addCursor, addBlogDetails, addHomeBlog, addCollection } = dataSlice.actions
 export const allData = (state) => state.data;
 export default dataSlice.reducer

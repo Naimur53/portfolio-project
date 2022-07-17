@@ -3,6 +3,7 @@ import React from 'react';
 import CategoryBanner from '../../src/Components/CategoryBanner/CategoryBanner';
 import CategoryCard from '../../src/Components/CategoryCard/CategoryCard';
 import { motion } from 'framer-motion'
+import Footer from '../../src/Components/AboutPages/Footer';
 
 const AllCategory = ({ data }) => {
     return (
@@ -21,6 +22,7 @@ const AllCategory = ({ data }) => {
                         </Grid>)
                     }
                 </Grid>
+                <Footer></Footer>
             </Container>
         </>
     );

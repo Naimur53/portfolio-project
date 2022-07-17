@@ -20,10 +20,10 @@ const HomeBlog = () => {
                     <motion.div exit={{ opacity: 0 }}>
 
                         <HeadingText isVisible title='Photography Story'></HeadingText>
-                        <p className='text-gray-300 mt-2 md:mt-5 w-full  md:w-4/5'>
+                        <p className='text-contentText mt-2 md:mt-5 w-full  md:w-4/5'>
                             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt facilis odio voluptatibus, inventore, voluptatem odit non veniam qui, magnam distinctio aut! Laborum maiores quod soluta harum enim ducimus, alias molestias!
                         </p>
-                        <motion.div exit={{ scaleY: 0 }} className='inline-block my-5 text-xl '  >
+                        <motion.div exit={{ scaleY: 0 }} className='inline-block my-5   '  >
                             <MgButton buttonProps={{ onClick: () => handleClick() }} text='See All Blogs'> </MgButton>
                         </motion.div>
 

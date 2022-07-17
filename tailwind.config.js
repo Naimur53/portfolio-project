@@ -5,6 +5,9 @@ module.exports = {
     extend: {
       colors: {
         'transparent-black': '#0000009a',
+        'heading': '#ffffff',
+        'subTitles': '#c8c8c8 ',
+        'contentText': '#969696',
       },
     },
 

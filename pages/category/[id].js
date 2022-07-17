@@ -81,7 +81,7 @@ const CategoryDetails = ({ data }) => {
 
                                 return <Grid key={i} item md={3} >
                                     {
-                                        data.photos?.slice(len * i, len * element).map((res, i) => <CategorySingleImg key={res} url={res} index={i}></CategorySingleImg>)
+                                        data.photos?.slice(len * i, len * element).map((res, i) => <CategorySingleImg allImage={data} elementNum={element} key={res} url={res} index={i}></CategorySingleImg>)
                                     }
                                 </Grid>
                             })
@@ -89,6 +89,7 @@ const CategoryDetails = ({ data }) => {
 
                     </Grid>
                 </div>
+
             </Container>
             {/* */}
         </motion.div >

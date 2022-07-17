@@ -1,8 +1,7 @@
  .singleImg {
-     min-height: 200px;
-     max-height: 500px;
-     transition: all .3s;
 
+
+     transition: all .3s;
  }
 
  .singleImg:hover {
@@ -19,14 +18,39 @@
 
  }
 
- .preview-img {
-     width: 80vw;
-     height: 95vh;
+ .overlay-img {
+     /* width: 80vw;
+     height: auto; */
  }
 
+ .b-1 {
+     border-top: 1px solid white;
+     border-bottom: 1px solid white;
+     opacity: 0;
+     width: 0%;
+     transition: .3s;
+ }
+
+ .b-2 {
+     border-left: 1px solid white;
+     border-right: 1px solid white;
+     opacity: 0;
+     height: 0%;
+     transition: .4s;
+ }
+
+ .cate-single-wrap:hover .b-1 {
+     opacity: 1;
+     width: 100%
+ }
+
+ .cate-single-wrap:hover .b-2 {
+     opacity: 1;
+     height: 100%;
+ }
 
  .category-card-img {
-     transition: .3s all ease;
+     transition: .4s all ease;
 
  }
 

@@ -1,22 +1,35 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { useSelector } from 'react-redux'
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import axios from 'axios';
 import { CircularProgress } from '@mui/material';
+import { allData } from '../../dataSlice/dataSlice';
 
 const CategoryCard = ({ admin, i, _id, thumbnail, title, description, categoryName, photos, subCategory }) => {
     const [loading, setLoading] = useState(false);
     console.log(i);
+    const { user } = useSelector(allData)
     const handleDelete = () => {
-        if (window.confirm('Are you sure to delete this category')) {
-            setLoading(true);
-            axios.delete(`https://stark-atoll-95180.herokuapp.com/category?id=${_id}`)
-                .then(res => {
-                    setLoading(false)
+        if (user?.email) {
+            if (window.confirm('Are you sure to delete this category')) {
+                setLoading(true);
+                axios.delete(`http://localhost:5000/category?id=${_id}`, {
+                    headers: {
+                        authorization: 'Bearer ' + localStorage.getItem('idToken')
+                    },
+                    data: {
+                        user: user.email
+                    }
                 })
+                    .then(res => {
+                        setLoading(false)
+                    })
 
+            }
         }
+
     }
     const popIn = {
         initial: {

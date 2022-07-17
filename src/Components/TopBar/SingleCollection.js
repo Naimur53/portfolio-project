@@ -6,7 +6,7 @@ const SingleCollection = ({ categoryName, thumbnail, _id, dropdown }) => {
         <li className='relative  cursor-pointer block '>
             <Link href={'/category/' + _id} ><span className=' block p-2 hover:bg-yellow-600'>{categoryName}</span></Link>
             {
-                !dropdown?.length == 0 && <ul className='backdrop-blur bg-black'>
+                <ul className='backdrop-blur bg-black'>
                     {
                         dropdown.map(single => <li className=' relative hover:bg-bottom block p-2 hover:bg-yellow-600' key={single._id}>
                             <Link href={'/category/' + single._id} ><span className=' block p-2 hover:bg-yellow-600'>{single.categoryName}-{single.subCategory}</span></Link>

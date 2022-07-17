@@ -63,27 +63,7 @@ const HomeBanner = ({ innerRoute }) => {
                 </Grid>
 
             </Container>
-            <div
-                className="banner-wrap absolute inset-0">
-                <div className='w-full flex items-end  h-full relative'>
 
-                    <Image className='w-full mt-5' src='https://i.ibb.co/g3d0nbF/Adobe-Stock-477001574.jpg' width={700} height={100} alt='background web' priority layout='raw'></Image>
-
-                    <motion.div
-                        className='bg-black absolute inset-0'
-                        initial={{
-                            x: ' 0%'
-                        }}
-                        animate={{
-                            x: '100%',
-                            transition: { type: 'ease', delay: 1, duration: 1 }
-                        }}
-                    >
-
-                    </motion.div>
-
-                </div>
-            </div>
 
 
 

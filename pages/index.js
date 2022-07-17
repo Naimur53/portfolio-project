@@ -45,6 +45,33 @@ export default function Home() {
           <HomeBanner innerRoute={innerRoute}></HomeBanner>
         </ParallaxLayer>
         <ParallaxLayer
+          offset={0}
+          speed={.5}
+          style={{ zIndex: '-1' }}
+        >
+          <div
+            className="banner-wrap h-full w-full">
+            <div className='w-full flex items-end  h-full relative'>
+
+              <Image className='w-full mt-5' src='https://i.ibb.co/g3d0nbF/Adobe-Stock-477001574.jpg' width={700} height={100} alt='background web' priority layout='raw'></Image>
+
+              <motion.div
+                className='bg-black absolute inset-0'
+                initial={{
+                  x: ' 0%'
+                }}
+                animate={{
+                  x: '100%',
+                  transition: { type: 'ease', delay: 1, duration: 1 }
+                }}
+              >
+
+              </motion.div>
+
+            </div>
+          </div>
+        </ParallaxLayer>
+        <ParallaxLayer
           offset={1}
           speed={.3}>
           <HomeTextSection innerRoute={innerRoute}></HomeTextSection>

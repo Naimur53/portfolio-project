@@ -79,7 +79,16 @@ const AboutMe = ({ innerRoute }) => {
     return (
         <motion.div exit={{ opacity: 0 }} ref={container} className=' py-14 relative  px-2 h-screen'>
 
-            <Grid container spacing={4} className='h-full'>
+            <Grid container spacing={4} className='h-full '>
+                <Grid item md={6} xs={12} className=' h-1/2 md:h-full'>
+                    <div className='flex flex-col h-full  relative justify-center'>
+                        <RightContent isVisible={value.content1} url='https://i.ibb.co/BtbKgFL/20190320-WEST-AFRICA-FROM-GUNJUR-TO-BASSE-2964-2.jpg'></RightContent>
+                        <RightContent isVisible={value.content2} url='https://i.ibb.co/DCSnXLn/photo-1605379399642-870262d3d051-2-1.jpg'></RightContent>
+                        <RightContent isVisible={value.content3} url='https://i.ibb.co/60JhsKh/20190320-SABATY-YAYA-BAYO-THE-DOCUMENTARY-008-9-1.jpg'></RightContent>
+                        <RightContent isVisible={value.content4} url='https://i.ibb.co/ByV09Fk/20191118-MOROCCO-DESERT-108-1-2-1.jpg'></RightContent>
+                    </div>
+
+                </Grid>
                 <Grid item md={6} xs={12} className='h-1/2 md:h-full'>
                     <div className='h-full flex items-center'>
                         <div>
@@ -139,15 +148,7 @@ const AboutMe = ({ innerRoute }) => {
 
                     </div>
                 </Grid>
-                <Grid item md={6} xs={12} className=' h-1/2 md:h-full'>
-                    <div className='flex flex-col h-full  relative justify-center'>
-                        <RightContent isVisible={value.content1} url='https://i.ibb.co/BtbKgFL/20190320-WEST-AFRICA-FROM-GUNJUR-TO-BASSE-2964-2.jpg'></RightContent>
-                        <RightContent isVisible={value.content2} url='https://i.ibb.co/DCSnXLn/photo-1605379399642-870262d3d051-2-1.jpg'></RightContent>
-                        <RightContent isVisible={value.content3} url='https://i.ibb.co/60JhsKh/20190320-SABATY-YAYA-BAYO-THE-DOCUMENTARY-008-9-1.jpg'></RightContent>
-                        <RightContent isVisible={value.content4} url='https://i.ibb.co/ByV09Fk/20191118-MOROCCO-DESERT-108-1-2-1.jpg'></RightContent>
-                    </div>
 
-                </Grid>
             </Grid>
             <motion.div
                 initial='initial'
@@ -158,7 +159,7 @@ const AboutMe = ({ innerRoute }) => {
             >
                 <div className="flex items-center justify-center h-full">
                     <div className='text-center flex flex-col justify-center items-center'>
-                        <div className="text-3xl md:text-5xl font-family-Helvetica">
+                        <div className="text-3xl font-thin text-heading md:text-5xl font-family-Helvetica">
                             <MiddleContent
                                 isVisible={value.content5}
                                 text=' May I also ask you to take the time.
@@ -167,7 +168,7 @@ const AboutMe = ({ innerRoute }) => {
 
                             ></MiddleContent>
                         </div>
-                        <div className="text-xl text-gray-300 mt-5 w-full md:w-1/2">
+                        <div className="text-xl text-contentText mt-5 w-full md:w-1/2">
                             <MiddleContent
                                 isVisible={value.content6}
                                 text=' I have taken the time to take my photos. I did it with passion and endless patience. May I also ask you to take the time to look at my work. Preferably not on your smart phone but if it can’t be otherwise … Try to become one with the image and feel what happened when I took the photo.

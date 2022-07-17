@@ -50,7 +50,6 @@ const HomeCategory = () => {
                     opacity: 1,
                     x: mp.x,
                     y: mp.y,
-                    transition: { ease: "easeOut", duration: 1 }
                 }} className='canvas canvas-animation'>
                 <Grid container spacing={15} >
 

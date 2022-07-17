@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { signOut, GoogleAuthProvider, getAuth, signInWithPopup, onAuthStateChanged } from "firebase/auth";
+import { signOut, GoogleAuthProvider, getAuth, signInWithPopup, onAuthStateChanged, getIdToken } from "firebase/auth";
 import { useDispatch } from 'react-redux';
 import { toast } from 'react-toastify';
 
@@ -82,6 +82,11 @@ const useFirebase = () => {
         console.log('there');
         onAuthStateChanged(auth, (user) => {
             if (user) {
+                getIdToken(user)
+                    .then(res => {
+                        console.log(res);
+                        localStorage.setItem('idToken', res)
+                    })
 
                 axios.get(`https://stark-atoll-95180.herokuapp.com/user?email=${user.email}`)
                     .then(res => {

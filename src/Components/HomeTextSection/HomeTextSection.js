@@ -40,7 +40,7 @@ const HomeTextSection = ({ innerRoute }) => {
                                     transition: { ease: [0.455, 0.03, 0.515, 0.955], }
                                 }}
                                 animate={{
-                                    x: -(value * 120),
+                                    x: -(value * 300),
                                     rotate: -(value * 20),
                                     transition: { ease: "easeOut", duration: 1 }
                                 }}
@@ -51,20 +51,6 @@ const HomeTextSection = ({ innerRoute }) => {
                             </motion.span>
                         </CustomLink>
 
-                        {/* phone */}
-                        <motion.span
-                            initial={{
-                                x: 0,
-                                rotate: 0,
-                                transition: { ease: [0.455, 0.03, 0.515, 0.955], }
-                            }}
-                            animate={{
-                                x: -(value * 40),
-                                rotate: -(value * 20),
-                                transition: { ease: "easeOut", duration: 1 }
-                            }}
-
-                            className={phone}>Lorem ipsum dolor  </motion.span>
                         {/* big */}
                         <CustomLink
                             href={`/category/${homeCategory?.length ? homeCategory[0]?._id : ''}`}
@@ -77,7 +63,7 @@ const HomeTextSection = ({ innerRoute }) => {
                                     transition: { ease: [0.455, 0.03, 0.515, 0.955], }
                                 }}
                                 animate={{
-                                    x: (value * 120),
+                                    x: (value * 300),
                                     rotate: (value * 20),
                                     transition: { ease: "easeOut", duration: 1 }
                                 }}
@@ -85,19 +71,6 @@ const HomeTextSection = ({ innerRoute }) => {
                                 className={big}>Latest Collection </motion.span>
                         </CustomLink>
                         {/*  */}
-                        <motion.span
-                            initial={{
-                                x: 0,
-                                rotate: 0,
-                                transition: { ease: [0.455, 0.03, 0.515, 0.955], }
-                            }}
-                            animate={{
-                                x: (value * 40),
-                                rotate: (value * 20),
-                                transition: { ease: "easeOut", duration: 1 }
-                            }}
-
-                            className={phone}>  amet consectetur </motion.span>
                     </div>
                     <div className='my-32'>
                         <CustomLink
@@ -110,7 +83,7 @@ const HomeTextSection = ({ innerRoute }) => {
                                     transition: { ease: [0.455, 0.03, 0.515, 0.955], }
                                 }}
                                 animate={{
-                                    x: -(value * 250),
+                                    x: -(value * 350),
                                     rotate: (value * 20),
                                     transition: { ease: "easeOut", duration: 1 }
                                 }}
@@ -118,19 +91,6 @@ const HomeTextSection = ({ innerRoute }) => {
                                 className={big}>Read my Blogs</motion.span>
                         </CustomLink>
 
-                        <motion.span
-                            initial={{
-                                x: 0,
-                                rotate: 0,
-                                transition: { ease: [0.455, 0.03, 0.515, 0.955], }
-                            }}
-                            animate={{
-                                x: -(value * 40),
-                                rotate: (value * 20),
-                                transition: { ease: "easeOut", duration: 1 }
-                            }}
-
-                            className={phone}> dolor sit amet dfd </motion.span>
                         <CustomLink href='/category'>
                             <motion.span
                                 initial={{
@@ -140,7 +100,7 @@ const HomeTextSection = ({ innerRoute }) => {
                                 }}
 
                                 animate={{
-                                    x: (value * 300),
+                                    x: (value * 400),
                                     rotate: -(value * 20),
                                     transition: { ease: "easeOut", duration: 1 }
                                 }}
@@ -149,20 +109,6 @@ const HomeTextSection = ({ innerRoute }) => {
                         </CustomLink>
 
 
-                        <motion.span
-                            initial={{
-                                x: 0,
-                                rotate: 0,
-                                transition: { ease: [0.455, 0.03, 0.515, 0.955], }
-                            }}
-                            animate={{
-                                x: (value * 70),
-                                rotate: -(value * 20),
-                                transition: { ease: "easeOut", duration: 1 }
-                            }}
-
-
-                            className={phone}>Contact Me</motion.span>
 
                     </div>
                     <div className='flex justify-center'>
@@ -178,13 +124,13 @@ const HomeTextSection = ({ innerRoute }) => {
                                         transition: { ease: [0.455, 0.03, 0.515, 0.955], }
                                     }}
                                     animate={{
-                                        x: (value * 100),
+                                        x: (value * 300),
                                         y: (value * 30),
                                         rotate: (value * 5),
                                         transition: { ease: "easeOut", duration: 1 }
                                     }}
 
-                                    className='p-3 mr-5  text-gray-900 bg-white rounded-full inline-block'>Who am I? </motion.span>
+                                    className={big}>Who am I? </motion.span>
                             </CustomLink>
 
                         </div>

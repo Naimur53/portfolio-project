@@ -63,14 +63,14 @@ const BannerText = ({ innerRoute }) => {
     return (
         <motion.div className=' mt-5 font-bold' >
             <motion.div initial='initial' animate='animate' exit='initial' variants={stagger} >
-                <div className='text-4xl md:text-6xl block overflow-hidden py-2 font-light' >
+                <div className='text-4xl text-heading md:text-6xl block overflow-hidden py-2 font-light' >
                     <motion.div variants={twing}>
 
                         Hi
                     </motion.div>
 
                 </div>
-                <div className='mt-3 text-4xl md:text-6xl block overflow-hidden font-thin text-gray-200' >
+                <div className='mt-3 text-4xl md:text-6xl block overflow-hidden font-thin text-heading' >
                     <motion.div className='inline-block py-2 ' variants={twing}>
 
                         I
@@ -79,17 +79,17 @@ const BannerText = ({ innerRoute }) => {
 
                         am
                     </motion.div>
-                    <motion.div className='inline-block font-light	 ml-3 text-gray-400 py-2' variants={twing}>
+                    <motion.div className='inline-block font-light	 ml-3 text-subTitles py-2' variants={twing}>
 
                         John
                     </motion.div>
-                    <motion.div className='inline-block ml-3    text-gray-400 font-light	 py-2' variants={twing}>
+                    <motion.div className='inline-block ml-3    text-subTitles font-light	 py-2' variants={twing}>
 
                         Baggen
                     </motion.div>
 
                 </div>
-                <div className='mt-3  block overflow-hidden  text-2xl md:text-5xl font-thin text-gray-300' >
+                <div className='mt-3  block overflow-hidden  text-2xl md:text-5xl font-thin text-heading ' >
                     <motion.div className='inline-block  py-2' variants={twing}>
                         Passionated
                     </motion.div>
@@ -102,7 +102,7 @@ const BannerText = ({ innerRoute }) => {
 
                 </div>
                 <div className='mt-5  '>
-                    <motion.div className='inline-block  text-xl  ' variants={smallToBig}>
+                    <motion.div className='inline-block  text-xl ' variants={smallToBig}>
                         <MgButton buttonProps={{ onClick: () => handleClick() }} text='Watch Gallery'></MgButton>
                     </motion.div>
 

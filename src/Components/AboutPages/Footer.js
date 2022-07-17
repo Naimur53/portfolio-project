@@ -69,8 +69,8 @@ const Footer = () => {
 
                         </Grid>
                     </Grid>
-                    <div className='mt-10'>
-                        <Image alt='brand images' className='w-full' priority layout='raw' width={500} height={200} src='https://i.ibb.co/M6ccNSY/footer-zw-brands3-removebg-preview.png'></Image>
+                    <div className='mt-10 flex justify-center'>
+                        <Image alt='brand images' priority layout='raw' width={900} height={500} src='https://i.ibb.co/vk9RfDF/image004.jpg'></Image>
                     </div>
                 </Grid>
                 <Grid item xs={12} md={6}>
