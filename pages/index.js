@@ -75,16 +75,45 @@ export default function Home() {
           offset={1}
           speed={.3}>
           <HomeTextSection innerRoute={innerRoute}></HomeTextSection>
+
+        </ParallaxLayer>
+        <ParallaxLayer
+          offset={1}
+          speed={.5}
+          style={{ zIndex: '-1' }}
+        >
+          <div
+            className="bg-lather h-full w-full">
+
+          </div>
         </ParallaxLayer>
         <ParallaxLayer
           offset={2}
           speed={.5}
           sticky={{ start: 2, end: 4 }}
         >
-          <Container className="">
+          <AboutMe innerRoute={innerRoute}></AboutMe>
 
-            <AboutMe innerRoute={innerRoute}></AboutMe>
-          </Container>
+        </ParallaxLayer>
+        <ParallaxLayer
+          offset={2}
+          speed={.5}
+          style={{ zIndex: '-1' }}
+        >
+          <div
+            className="bg-light-dot h-full w-full">
+
+          </div>
+        </ParallaxLayer>
+        <ParallaxLayer
+          offset={3}
+          speed={.5}
+          style={{ zIndex: '-1' }}
+        >
+          <div
+            className="bg-dot-wev  h-full w-full">
+
+          </div>
         </ParallaxLayer>
 
         <ParallaxLayer

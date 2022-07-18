@@ -31,7 +31,7 @@ const CategoryDetails = ({ data }) => {
             }}>
             <Box
                 sx={{ height: '50vh', }}
-                className='relative overflow-hidden'
+                className='relative overflow-hidden font-family-Helvetica font-thin'
             >
 
                 {
@@ -68,8 +68,8 @@ const CategoryDetails = ({ data }) => {
             </Box>
             <Container>
                 <div className='text-center py-5'>
-                    <h2 className='text-2xl mb-5 mt-5 text-yellow-500'>{data.title}</h2>
-                    <p className='text-gray-400'>
+                    <h2 className='text-2xl mb-5 mt-5 text-heading'>{data.title}</h2>
+                    <p className='text-contentText'>
                         {data.description}
                     </p>
                 </div>

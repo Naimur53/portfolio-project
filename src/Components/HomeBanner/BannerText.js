@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import MgButton from '../SmallComponents/MgButton';
 import { Router, useRouter } from 'next/router';
+import CustomLink from '../SmallComponents/CustomLink';
 let easing = [0.6, -0.05, 0.01, 0.99];
 
 const stagger = {
@@ -103,7 +104,10 @@ const BannerText = ({ innerRoute }) => {
                 </div>
                 <div className='mt-5  '>
                     <motion.div className='inline-block  text-xl ' variants={smallToBig}>
-                        <MgButton buttonProps={{ onClick: () => handleClick() }} text='Watch Gallery'></MgButton>
+                        <CustomLink href='/category'>
+
+                            <MgButton text='Watch Gallery'></MgButton>
+                        </CustomLink>
                     </motion.div>
 
                 </div>

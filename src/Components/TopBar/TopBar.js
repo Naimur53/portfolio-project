@@ -24,6 +24,7 @@ import fetcher from '../../util/fatcher';
 import PhoneCollection from './PhoneCollection';
 import { useSelector } from 'react-redux';
 import { allData } from '../../dataSlice/dataSlice';
+import CustomLink from '../SmallComponents/CustomLink';
 const pages = ['home', 'aboutme', 'dashboard', 'blogs',];
 const TopBar = () => {
 
@@ -233,27 +234,27 @@ const TopBar = () => {
                             <motion.div className=' flex' variants={stagger}  >
                                 <motion.div className='px-5' variants={fadeInUp}
                                 >
-                                    <Link href={'/'}>
+                                    <CustomLink href={'/'}>
                                         <Button
 
                                             sx={{ py: 0, color: 'white', display: 'block' }}
                                         >
                                             Home
                                         </Button>
-                                    </Link>
+                                    </CustomLink>
 
                                 </motion.div>
 
                                 <motion.div className='pr-5' variants={fadeInUp}
                                 >
-                                    <Link href={'/aboutme'}>
+                                    <CustomLink href={'/aboutme'}>
                                         <Button
 
                                             sx={{ py: 0, color: 'white', display: 'block' }}
                                         >
                                             About me
                                         </Button>
-                                    </Link>
+                                    </CustomLink>
 
                                 </motion.div>
                                 <motion.div className='menu-collection-wrap-main pr-5' variants={fadeInUp}
@@ -269,38 +270,38 @@ const TopBar = () => {
                                 </motion.div>
                                 <motion.div className='pr-5' variants={fadeInUp}
                                 >
-                                    <Link href={'/category'}>
+                                    <CustomLink href={'/category'}>
                                         <Button
 
                                             sx={{ py: 0, color: 'white', display: 'block' }}
                                         >
                                             Gallery
                                         </Button>
-                                    </Link>
+                                    </CustomLink>
 
                                 </motion.div>
                                 <motion.div className='pr-5' variants={fadeInUp}
                                 >
-                                    <Link href={'/blogs'}>
+                                    <CustomLink href={'/blogs'}>
                                         <Button
 
                                             sx={{ py: 0, color: 'white', display: 'block' }}
                                         >
                                             Stories NL - GB
                                         </Button>
-                                    </Link>
+                                    </CustomLink>
 
                                 </motion.div>
                                 <motion.div className='pr-5' variants={fadeInUp}
                                 >
-                                    <Link href={'/dashboard'}>
+                                    <CustomLink href={'/dashboard'}>
                                         <Button
 
                                             sx={{ py: 0, color: 'white', display: 'block' }}
                                         >
                                             Dashboard
                                         </Button>
-                                    </Link>
+                                    </CustomLink>
 
                                 </motion.div>
                             </motion.div>

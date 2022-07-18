@@ -9,6 +9,7 @@ import HomeCategoryImg from './HomeCategoryImg';
 import MgButton from '../SmallComponents/MgButton';
 import { useRouter } from 'next/router';
 import HeadingText from '../AboutMe/HeadingText';
+import CustomLink from '../SmallComponents/CustomLink';
 
 const HomeCategory = () => {
     const router = useRouter()
@@ -50,6 +51,7 @@ const HomeCategory = () => {
                     opacity: 1,
                     x: mp.x,
                     y: mp.y,
+                    transition: { ease: 'easeOut', duration: 1 }
                 }} className='canvas canvas-animation'>
                 <Grid container spacing={15} >
 
@@ -81,7 +83,9 @@ const HomeCategory = () => {
                     <HeadingText isVisible title='Photo Collection '></HeadingText>
                     <HeadingText isVisible title='After traveling many Country I Found this '></HeadingText>
                     <motion.div exit={{ scaleY: 0 }} className='flex justify-center mt-5 pointer-events-auto'>
-                        <MgButton buttonProps={{ onClick: () => handleClick() }} text='Watch more'></MgButton>
+                        <CustomLink href='/category'>
+                            <MgButton text='Watch more'></MgButton>
+                        </CustomLink>
                     </motion.div>
                 </motion.div>
 

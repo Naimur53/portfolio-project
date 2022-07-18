@@ -6,6 +6,7 @@ import MainHeading from '../SmallComponents/MainHeading';
 import MgButton from '../SmallComponents/MgButton';
 import HomeBlogImages from './HomeBlogImages';
 import HeadingText from '../AboutMe/HeadingText';
+import CustomLink from '../SmallComponents/CustomLink';
 
 const HomeBlog = () => {
     const route = useRouter();
@@ -24,7 +25,12 @@ const HomeBlog = () => {
                             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sunt facilis odio voluptatibus, inventore, voluptatem odit non veniam qui, magnam distinctio aut! Laborum maiores quod soluta harum enim ducimus, alias molestias!
                         </p>
                         <motion.div exit={{ scaleY: 0 }} className='inline-block my-5   '  >
-                            <MgButton buttonProps={{ onClick: () => handleClick() }} text='See All Blogs'> </MgButton>
+                            <CustomLink
+                                href='/blogs'
+                            >
+
+                                <MgButton text='See All Blogs'> </MgButton>
+                            </CustomLink>
                         </motion.div>
 
                     </motion.div>

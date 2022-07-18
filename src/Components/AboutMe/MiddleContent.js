@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import React from 'react';
 
-const MiddleContent = ({ isVisible, text }) => {
+const MiddleContent = ({ isVisible, delay, text }) => {
     const popIn = {
         initial: {
             opacity: 0,
@@ -34,6 +34,7 @@ const MiddleContent = ({ isVisible, text }) => {
             opacity: 1,
             transition: {
                 delay: 0.5,
+                delayChildren: delay ? delay : 0,
                 staggerChildren: 0.08
             }
         }
