@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { allData } from '../../dataSlice/dataSlice';
 import { motion } from 'framer-motion';
 import CustomLink from '../SmallComponents/CustomLink';
+import TextSlider from './TextSlider';
 const HomeTextSection = ({ innerRoute }) => {
     const { scrollValue, homeCategory, homeBlog } = useSelector(allData);
     const [value, setValue] = useState(0);
@@ -12,21 +13,10 @@ const HomeTextSection = ({ innerRoute }) => {
     const phone = 'p-3 mr-5  text-gray-900 bg-white rounded-full inline-block md:hidden';
     const big = 'p-3 mr-5 text-contentText  bg-black cursor-pointer border border-white md:inline-block hidden';
     return (
-        <div className='h-full overflow-hidden   relative flex font-family-Helvetica justify-center items-center'>
-            <h2 className='text-5xl md:text-6xl 2xl:text-8xl text-center font-thin '>
-                Don’t over
-                <br />
-                organize.
-                <br />
-                Be on time and
-                <br />
-                stay until you are
-                <br />
-                completely
-                <br />
-                satisfied.
-            </h2>
-            <div className='absolute inset-0  flex justify-center items-center font-family-Helvetica'>
+        <div className='h-full overflow-hidden     relative   font-family-Helvetica justify-center items-center'>
+
+            <TextSlider></TextSlider>
+            <div style={{ zIndex: '1000' }} className=' absolute inset-0 pointer-events-none flex justify-center items-center font-family-Helvetica'>
                 <div>
                     <div>
                         {/* big */}

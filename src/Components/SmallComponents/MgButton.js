@@ -4,8 +4,8 @@ const MgButton = ({ text, buttonProps }) => {
     const container = useRef()
     const [mp, setMp] = useState({ x: 0, y: 0 })
     const handleMouseMove = (e) => {
-        let x = e.clientX - container.current.getBoundingClientRect().left
-        let y = e.clientY - container.current.getBoundingClientRect().top
+        let x = e.clientX - container.current?.getBoundingClientRect().left
+        let y = e.clientY - container.current?.getBoundingClientRect().top
         setMp({ x: (x / 5) - 12, y: (y / 3) - 10 });
 
         // canvasRef.current.style.transform = `translate3d(-${x / 1.5}px,-${y * 2}px,0px) scaleX(1) `;

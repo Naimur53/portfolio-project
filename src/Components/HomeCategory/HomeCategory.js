@@ -18,8 +18,8 @@ const HomeCategory = () => {
     const canvasRef = useRef()
     const container = useRef()
     const handleMouseMove = e => {
-        let x = e.clientX - container.current.getBoundingClientRect().left
-        let y = e.clientY - container.current.getBoundingClientRect().top
+        let x = e.clientX - container.current?.getBoundingClientRect().left
+        let y = e.clientY - container.current?.getBoundingClientRect().top
         setMp({ x: -(x / 1.5), y: -(y * 2) });
         // canvasRef.current.style.transform = `translate3d(-${x / 1.5}px,-${y * 2}px,0px) scaleX(1) `;
         // 

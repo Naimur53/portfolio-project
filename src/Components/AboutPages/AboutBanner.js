@@ -31,7 +31,7 @@ const AboutBanner = () => {
 
                 <MainHeading title='TODAY&apos;S SHOT IS BETTER THAN YESTERDAYS.'></MainHeading>
             </div>
-            <div className='text-5xl mt-5 text-5xl '>
+            <div className='text-5xl mt-5   '>
 
                 <MainHeading title='THAT&apos;S WHY I LOVE TOMORROW.'></MainHeading>
             </div>

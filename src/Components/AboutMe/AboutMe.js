@@ -46,12 +46,19 @@ const AboutMe = ({ innerRoute }) => {
     }, [currentValue])
     console.log(progress);
     const handleMouseMove = e => {
-        let x = e.clientX - container.current.getBoundingClientRect().left
+        if (container.current) {
+
+            let x = e.clientX - container.current?.getBoundingClientRect().left;
+
+        }
         eleRef.current.style.left = ` ${x}px`;
         e.stopPropagation();
     }
     const mouseEnter = e => {
-        let x = e.clientX - container.current.getBoundingClientRect().left
+        if (container.current) {
+
+        }
+        let x = e.clientX - container.current?.getBoundingClientRect().left
         eleRef.current.style.transition = `all .3s ease-out`;
         eleRef.current.style.left = ` ${x}px`;
         setTimeout(() => {
@@ -61,6 +68,7 @@ const AboutMe = ({ innerRoute }) => {
         e.stopPropagation();
     }
     const mouseLeave = e => {
+
         eleRef.current.style.transition = `all .7s ease-out`;
         // eleRef.current.style.left = `100%`;
         e.stopPropagation();
