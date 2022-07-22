@@ -10,7 +10,7 @@ const HomeTextSection = ({ innerRoute }) => {
         setValue(scrollValue.toFixed(2))
     }, [scrollValue])
     const phone = 'p-3 mr-5  text-gray-900 bg-white rounded-full inline-block md:hidden';
-    const big = 'p-3 mr-5 text-contentText rounded-full bg-black cursor-pointer border border-white md:inline-block hidden';
+    const big = 'p-3 mr-5 text-contentText  bg-black cursor-pointer border border-white md:inline-block hidden';
     return (
         <div className='h-full overflow-hidden   relative flex font-family-Helvetica justify-center items-center'>
             <h2 className='text-5xl md:text-6xl 2xl:text-8xl text-center font-thin '>

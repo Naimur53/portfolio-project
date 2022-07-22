@@ -30,18 +30,17 @@ const CategoryDetails = ({ data }) => {
                 opacity: 0
             }}>
             <Box
-                sx={{ height: '50vh', }}
-                className='relative overflow-hidden font-family-Helvetica font-thin'
+                sx={{ height: '100vh', backgroundImage: `url(${data?.thumbnail})` }}
+
+                className='relative overflow-hidden font-family-Helvetica font-thin  bg-cover bg-center'
             >
 
-                {
+                {/* {
                     data.thumbnail && <Image onClick={() => setIsOpen(true)} className='w-full ' priority layout='raw' src={data.thumbnail} height={500} width={500} alt='photo'></Image>
-                }
+                } */}
                 <motion.div
 
-                    style={{
-                        background: 'linear-gradient(to bottom,  rgba(0,0,0,0.6) 0%,rgba(19,19,19,.9) 100%)'
-                    }}
+
                     className='absolute inset-0  flex justify-center items-center'
 
                 >
@@ -74,7 +73,7 @@ const CategoryDetails = ({ data }) => {
                     </p>
                 </div>
                 <div className='relative overflow-hidden'>
-                    <Grid container spacing={2}>
+                    <Grid container spacing={0}>
                         {
                             [1, 2, 3, 4].map((element, i) => {
                                 const len = data.photos?.length / 4;

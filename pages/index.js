@@ -15,6 +15,7 @@ import ContactMe from "../src/Components/ContactMe/ContactMe";
 import HomeTextSection from "../src/Components/HomeTextSection/HomeTextSection";
 import Head from '../src/Components/Head/Head'
 import Footer from "../src/Components/AboutPages/Footer";
+import ParallaxLayerBackground from "../src/Components/ParallaxLayerBackground/ParallaxLayerBackground";
 
 export default function Home() {
   const dispatch = useDispatch()
@@ -44,77 +45,39 @@ export default function Home() {
           speed={.3}  >
           <HomeBanner innerRoute={innerRoute}></HomeBanner>
         </ParallaxLayer>
-        <ParallaxLayer
+        <ParallaxLayerBackground
           offset={0}
           speed={.5}
           style={{ zIndex: '-1' }}
-        >
-          <div
-            className="banner-wrap h-full w-full">
-            <div className='w-full flex items-end  h-full relative'>
-
-              <Image className='w-full mt-5' src='https://i.ibb.co/g3d0nbF/Adobe-Stock-477001574.jpg' width={700} height={100} alt='background web' priority layout='raw'></Image>
-
-              <motion.div
-                className='bg-black absolute inset-0'
-                initial={{
-                  x: ' 0%'
-                }}
-                animate={{
-                  x: '100%',
-                  transition: { type: 'ease', delay: 1, duration: 1 }
-                }}
-              >
-
-              </motion.div>
-
-            </div>
-          </div>
-        </ParallaxLayer>
+        />
         <ParallaxLayer
           offset={1}
           speed={.3}>
           <HomeTextSection innerRoute={innerRoute}></HomeTextSection>
 
         </ParallaxLayer>
-        <ParallaxLayer
+        <ParallaxLayerBackground
           offset={1}
           speed={.5}
           style={{ zIndex: '-1' }}
-        >
-          <div
-            className="bg-lather h-full w-full">
-
-          </div>
-        </ParallaxLayer>
+        />
         <ParallaxLayer
           offset={2}
           speed={.5}
           sticky={{ start: 2, end: 4 }}
         >
           <AboutMe innerRoute={innerRoute}></AboutMe>
-
         </ParallaxLayer>
-        <ParallaxLayer
+        <ParallaxLayerBackground
           offset={2}
           speed={.5}
           style={{ zIndex: '-1' }}
-        >
-          <div
-            className="bg-light-dot h-full w-full">
-
-          </div>
-        </ParallaxLayer>
-        <ParallaxLayer
+        />
+        <ParallaxLayerBackground
           offset={3}
           speed={.5}
           style={{ zIndex: '-1' }}
-        >
-          <div
-            className="bg-dot-wev  h-full w-full">
-
-          </div>
-        </ParallaxLayer>
+        />
 
         <ParallaxLayer
           offset={5}
@@ -139,16 +102,11 @@ export default function Home() {
             <div  ></div>
           </div>
         </ParallaxLayer>
-        <ParallaxLayer
+        <ParallaxLayerBackground
           offset={9}
-          speed={.1}
-        >
-          <div className="bg-lather relative h-full shadow-overlay  ">
-            <div className="h-8 absolute top-0 left-0 right-0 bg-black shadow-overlay"></div>
-            <div className="h-8 absolute bottom-0 left-0 right-0 bg-black shadow-overlay"></div>
-          </div>
-
-        </ParallaxLayer>
+          speed={.5}
+          style={{ zIndex: '-1' }}
+        />
         <ParallaxLayer
           offset={9}
           speed={.3}
@@ -161,17 +119,12 @@ export default function Home() {
         >
           <ContactMe></ContactMe>
         </ParallaxLayer>
-        <ParallaxLayer
+
+        <ParallaxLayerBackground
           offset={10}
           speed={.5}
-          style={{
-          }}
-        >
-          <div className="bg-dot-wev relative h-full shadow-overlay  ">
-            <div className="h-8 absolute top-0 left-0 right-0 bg-black shadow-overlay"></div>
-          </div>
-
-        </ParallaxLayer>
+          style={{ zIndex: '-1' }}
+        />
         <ParallaxLayer
           offset={10}
           speed={.3}

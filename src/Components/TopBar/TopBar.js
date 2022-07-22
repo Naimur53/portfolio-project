@@ -150,8 +150,8 @@ const TopBar = () => {
 
     return (
         <motion.div initial='initial' animate='animate' className='overflow-hidden   ' exit={{ opacity: 0 }}>
-            <AppBar position="fixed" sx={{ background: 'black' }} className='  shadow-none' >
-                <Container maxWidth="xl" className=' bg-black shadow-none' >
+            <AppBar position="fixed" sx={{ background: 'rgba(0,0,0,.3)' }} className='  shadow-none' >
+                <Container maxWidth="xl" className=' bg-transparent shadow-none' >
                     <Toolbar disableGutters>
                         <motion.div
                             initial={{

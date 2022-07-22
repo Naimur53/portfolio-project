@@ -47,12 +47,12 @@ const CategoryCard = ({ admin, i, _id, thumbnail, title, description, categoryNa
     }
 
     return (
-        <motion.div className={loading ? 'grayscale' : ''} initial="initial" animate="animate" exit='initial' variants={popIn} >
+        <motion.div className={loading ? 'grayscale pb-2' : 'pb-2'} initial="initial" animate="animate" exit='initial' variants={popIn} >
             <div className="category-card-wrap cursor-pointer overflow-hidden">
                 <Link href={'/category/' + _id}>
-                    <div className='relative'>
-                        <div className='relative' >
-                            <Image className='w-full cursor-pointer category-card-img h-auto' src={thumbnail} height={500} width={400} alt={title}></Image>
+                    <div className='relative h-full'>
+                        <div className='relative ' >
+                            <Image className='w-full cursor-pointer category-card-img h-auto' src={thumbnail} layout='raw' width={1000} height={1000} alt={title}></Image>
                             <div style={{ background: '#0000009a' }} className='absolute category-text-wrap backdrop-blur-sm  flex items-end inset-0 z-10' >
                                 <div className=' p-4'>
                                     <h1 className='text-lg  text-white' >{title.slice(0, 100)}</h1>

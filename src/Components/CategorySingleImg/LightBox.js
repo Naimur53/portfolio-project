@@ -13,7 +13,8 @@ const LightBox = ({ isVisible, url, onClose, index, elementNum, allImage }) => {
 
     const [i, setI] = useState(allImage.findIndex(single => single === url));
     const [Preview, setPreview] = useState(
-        allImage.map(single => <Image key={single} className=' h-auto w-auto ' priority layout='raw' src={single} height={500} width={1000}
+        allImage.map(single => <Image key={single} className=' image ' priority src={single} layout="fill"
+            objectFit="contain"
             placeholder="blur"
             blurDataURL={'https://i.ibb.co/7KfTV5K/pexels-photo.jpg'} alt='photo'></Image>)
     )
@@ -46,7 +47,7 @@ const LightBox = ({ isVisible, url, onClose, index, elementNum, allImage }) => {
                     exit={{ opacity: 0 }}
                     className='h-screen z-large p-5 relative bg-black'
                 >
-                    <div className='h-full  flex justify-center  items-center md:items-stretch'>
+                    <div style={{ position: 'relative', height: '100%' }}>
                         {
                             Preview[i]
                         }

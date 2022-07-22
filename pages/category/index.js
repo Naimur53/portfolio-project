@@ -20,9 +20,19 @@ const AllCategory = ({ data }) => {
                 </div>
                 <Grid container spacing={2}>
                     {
-                        data.map((single, i) => <Grid item md={6} lg={3} xs={12} key={single._id}>
-                            <CategoryCard i={i} {...single}></CategoryCard>
+                        data?.map((res, i) => <Grid key={i} item xs={12} md={4}>
+                            <CategoryCard i={i}  {...res}></CategoryCard>
                         </Grid>)
+
+                        // // [1, 2, 3, 4].map((element, i) => {
+                        // //     const len = data.length / 4;
+
+                        // //     return <Grid key={i} item md={3}   >
+                        // //         {
+                        // //             data.slice(len * i, len * element).map((res, i) => <CategoryCard i={i} key={i} {...res}></CategoryCard>)
+                        // //         }
+                        // //     </Grid>
+                        // })
                     }
                 </Grid>
                 <Footer></Footer>

@@ -20,7 +20,7 @@ const CategorySingleImg = ({ url, index, elementNum, allImage }) => {
         }
     }
     return (
-        <motion.div variants={pop} initial='initial' exit='initial' animate='animate' className='pb-4 grid-item cursor-pointer overflow-hidden cate-single-wrap'>
+        <motion.div variants={pop} initial='initial' exit='initial' animate='animate' className='border border-white   cursor-pointer overflow-hidden cate-single-wrap'>
             <div className='overflow-hidden relative'>
 
                 <Image onClick={() => setIsOpen(true)} className='w-full singleImg' priority layout='raw' src={url} height={200} width={200} alt='photo'></Image>
