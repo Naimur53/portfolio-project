@@ -88,7 +88,7 @@ const AboutMe = ({ innerRoute }) => {
         <motion.div exit={{ opacity: 0 }} ref={container} className='  relative   h-screen'>
             <div className="py-14 px-2 h-full">
                 <Container sx={{ height: '100%' }}  >
-                    <Grid container spacing={4} className='h-full '>
+                    {/* <Grid container spacing={4} className='h-full '>
                         <Grid item md={6} xs={12} className=' h-1/2 md:h-full'>
                             <div className='flex flex-col h-full  relative justify-center'>
                                 <RightContent isVisible={value.content1} url='https://i.ibb.co/BtbKgFL/20190320-WEST-AFRICA-FROM-GUNJUR-TO-BASSE-2964-2.jpg'></RightContent>
@@ -96,7 +96,6 @@ const AboutMe = ({ innerRoute }) => {
                                 <RightContent isVisible={value.content3} url='https://i.ibb.co/60JhsKh/20190320-SABATY-YAYA-BAYO-THE-DOCUMENTARY-008-9-1.jpg'></RightContent>
                                 <RightContent isVisible={value.content4} url='https://i.ibb.co/ByV09Fk/20191118-MOROCCO-DESERT-108-1-2-1.jpg'></RightContent>
                             </div>
-
                         </Grid>
                         <Grid item md={6} xs={12} className='h-1/2 md:h-full'>
                             <div className='h-full flex items-center'>
@@ -158,14 +157,85 @@ const AboutMe = ({ innerRoute }) => {
                             </div>
                         </Grid>
 
-                    </Grid>
+                    </Grid> */}
+                    <div className='flex flex-col justify-evenly h-screen'>
+                        <div className=' p-10 bg-red- 50'>
+                            <div className='flex flex-col h-full  relative justify-center'>
+                                <RightContent isVisible={value.content1} url='https://i.ibb.co/BtbKgFL/20190320-WEST-AFRICA-FROM-GUNJUR-TO-BASSE-2964-2.jpg'></RightContent>
+                                <RightContent isVisible={value.content2} url='https://i.ibb.co/DCSnXLn/photo-1605379399642-870262d3d051-2-1.jpg'></RightContent>
+                                <RightContent isVisible={value.content3} url='https://i.ibb.co/60JhsKh/20190320-SABATY-YAYA-BAYO-THE-DOCUMENTARY-008-9-1.jpg'></RightContent>
+                                <RightContent isVisible={value.content4} url='https://i.ibb.co/ByV09Fk/20191118-MOROCCO-DESERT-108-1-2-1.jpg'></RightContent>
+                            </div>
+                        </div>
+                        <div className='    '>
+                            <div className=' pt-5 justify-center flex items-center'>
+                                <div className='w-full md:w-1/2'>
+                                    <div className='  h-16  overflow-hidden  '>
+
+                                        <HeadingText title='Nikon Photographer' isVisible={value.content1}></HeadingText>
+                                        <HeadingText title='Web designer' isVisible={value.content2}></HeadingText>
+                                        <HeadingText title='Film Maker' isVisible={value.content3}></HeadingText>
+                                        <HeadingText title='Curious  Traveler' isVisible={value.content4}></HeadingText>
+                                    </div>
+                                    <div className=' h-30 md:h-28 mt-2 md:mt-0 text-gray-300 overflow-hidden  '>
+                                        <MiddleContent
+                                            isVisible={value.content1}
+                                            text='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores nihil earum consectetur ipsum, nobis deserunt blanditiis dolorem? Obcaecati in accusantium facere blanditiis, praesentium ab maiores tempore nam amet ipsam explicabo.'
+
+
+                                        ></MiddleContent>
+                                        <MiddleContent
+                                            isVisible={value.content2}
+                                            text='hi arum consectetur ipsum, nobis deserunt blanditiis dolorem? Obcaecati in accusantium facere blanditiis, praesentium ab maiores tempore nam amet ipsam explicabo.'
+
+
+                                        ></MiddleContent>
+                                        <MiddleContent
+                                            isVisible={value.content3}
+                                            text='A filmmaker is in charge of making, leading, and developing movie productions. It is a career that allows an individual to use their leadership as well as creative thinking skills to lead and direct major motion pictures or made-for-television films.
+                                    '
+                                        ></MiddleContent>
+                                        <MiddleContent
+                                            isVisible={value.content4}
+                                            text='Travel is the movement of people between distant geographical locations. Travel can be done by foot, bicycle, automobile, train, boat, bus, airplane, ship or other means, with or without luggage, and can be one way or round trip
+                                    '
+                                        ></MiddleContent>
+
+                                    </div>
+
+
+
+                                    <div className='flex justify-between items-center  text-xl mt-3 md:mt-0 w-52' >
+                                        <div className='pr-4  text-gray-400'>
+                                            {
+                                                value.content1 ? 1 : value.content2 ? 2 : value.content3 ? 3 : 4
+                                            }
+                                        </div>
+
+                                        <LinearProgress className='w-full rounded-lg' variant="determinate" sx={{
+                                            background: 'rgb(17 24 39) ', '& .MuiLinearProgress-bar1Determinate': {
+                                                backgroundColor: 'rgb(107 114 128 )',
+                                            }
+                                        }} value={progress} />
+                                        <div onClick={() => innerRoute(4)} className='pl-4 cursor-pointer'>
+                                            4
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                    </div>
                 </Container>
             </div>
             <motion.div
                 initial='initial'
                 variants={last}
                 animate={value.content5 ? "animate" : 'initial'}
-                className='absolute bg-black  pointer-events-none inset-0 py-10 '
+                className='absolute  bg-black  pointer-events-none inset-0 py-10 '
 
             >
 

@@ -35,6 +35,6 @@
 }
 
 .glass-bg {
-    background: rgba(255, 255, 255, 0.097);
-    backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.036);
+    backdrop-filter: blur(10px);
 }

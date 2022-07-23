@@ -47,8 +47,8 @@ const RightContent = ({ isVisible, url }) => {
                     >
 
                         <motion.div
-                            variants={twing} className='flex justify-center items-center bg-center   bg-cover w-full'>
-                            <Image className='w-full  ' priority src={url} layout='raw' height={500} width={500} alt='photo'></Image>
+                            variants={twing} className='flex justify-center items-center bg-center   bg-cover w-96 2xl:w-1/2 '>
+                            <Image className='w-96 md:w-full  ' priority src={url} layout='raw' height={500} width={500} alt='photo'></Image>
 
                         </motion.div>
                     </motion.div>

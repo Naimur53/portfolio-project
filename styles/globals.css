@@ -134,6 +134,7 @@ a {
 
 .font-family-Helvetica {
   font-family: 'Helvetica', sans-serif;
+  letter-spacing: 0.05em;
 }
 
 .font-family-allerta {

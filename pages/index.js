@@ -45,11 +45,39 @@ export default function Home() {
           speed={.3}  >
           <HomeBanner innerRoute={innerRoute}></HomeBanner>
         </ParallaxLayer>
-        <ParallaxLayerBackground
+        <ParallaxLayer
           offset={0}
-          speed={.5}
+          speed={.3}
           style={{ zIndex: '-1' }}
-        />
+        >
+          <div
+            className="banner-wrap h-full w-full">
+            <div className='w-full flex h-full items-end   '>
+              <div className="relative w-full">
+
+
+                <Image className='w-full mt-15  ' src='https://i.ibb.co/0cjqwrp/GRID-for-movement-on-background-5.png' width={700} height={100} alt='background web' priority layout='raw'></Image>
+
+                <motion.div
+                  className=' absolute inset-0'
+                  style={{ background: 'rgba(0,0,0,.9)' }}
+
+                  initial={{
+                    x: ' 0%'
+                  }}
+                  animate={{
+                    x: '100%',
+                    transition: { type: 'ease', duration: 1, delay: 1.3 }
+                  }}
+                >
+
+                </motion.div>
+              </div>
+
+
+            </div>
+          </div>
+        </ParallaxLayer >
         <ParallaxLayer
           offset={1}
           speed={.3}>

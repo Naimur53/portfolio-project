@@ -8,14 +8,14 @@ const AboutQuote = () => {
             <Container>
                 <div className='py-10 mb-5 text-center'>
                     {/* <DescriptionText text=""></DescriptionText> */}
-                    <h1 className='text-4xl font-family-Helvetica'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit</h1>
-                    <h2 className='text-xl font-thin mt-2'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta tempora nobis non quaerat autem.  </h2>
+                    <h1 className='text-4xl font-thin font-family-Helvetica'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit</h1>
+                    <h2 className='text-xl mt-2  font-family-roboto text-subTitles'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta tempora nobis non quaerat autem.  </h2>
                 </div>
                 <Grid container spacing={4} className=' '>
                     {
                         qoutes.map((single, i) => <Grid key={i} item xs={12} md={6}>
                             <div className='bg-gra   h-full font-thin text-2xl font-family-mono border border-gradient border-gray-800 rounded-md  p-5'>
-                                <blockquote>{single}</blockquote>
+                                <blockquote>&quot;{single}&quot;</blockquote>
                             </div>
 
                         </Grid>)

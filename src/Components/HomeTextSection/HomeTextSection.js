@@ -90,7 +90,7 @@ const HomeTextSection = ({ innerRoute }) => {
                                 }}
 
                                 animate={{
-                                    x: (value * 400),
+                                    x: (window.innerWidth >= 1600 ? value * 500 : value * 400),
                                     rotate: -(value * 20),
                                     transition: { ease: "easeOut", duration: 1 }
                                 }}

@@ -15,28 +15,46 @@ const ParallaxLayerBackground = ({ offset, speed, style }) => {
         >
             <div
                 style={{
-                    backgroundImage: 'url(https://i.ibb.co/K6Jgp1K/Background.jpg)'
+                    backgroundImage: 'url(https://i.ibb.co/RDC3Vh4/e-Ugu-V6-Yo-2.png)'
 
                 }}
                 className="banner-wrap h-full w-full">
-                <div ref={ref} className='w-full flex items-end  h-full relative'>
-
-                    <Image className='w-full mt-15  ' src='https://i.ibb.co/Y0wzDQY/GRID-for-movement-on-background.png' width={700} height={100} alt='background web' priority layout='raw'></Image>
-
+                <div ref={ref} className='w-full flex h-full items-end   '>
                     <motion.div
-                        className='bg-black absolute inset-0'
-                        initial={{
-                            x: ' 0%'
-                        }}
-                        animate={inView ? {
-                            x: '100%',
-                            transition: { type: 'ease', duration: 1 }
-                        } : {
-                            x: ' 0%'
-                        }}
+
+                        className="relative w-full"
+
+                    // initial={{
+                    //     width: '0%'
+                    // }}
+                    // animate={inView ? {
+                    //     width: '100%',
+                    //     transition: { type: 'ease', duration: 1 }
+                    // } : {
+                    //     width: '0%'
+                    // }}
+
                     >
 
+                        <Image className='w-full mt-15  ' src='https://i.ibb.co/0cjqwrp/GRID-for-movement-on-background-5.png' width={700} height={100} alt='background web' priority layout='raw'></Image>
+
+                        <motion.div
+                            className='bg-black absolute inset-0 shadow-overlay'
+
+                            initial={{
+                                x: ' 0%'
+                            }}
+                            animate={inView ? {
+                                x: '100%',
+                                transition: { type: 'ease', duration: 1 }
+                            } : {
+                                x: ' 0%'
+                            }}
+                        >
+
+                        </motion.div>
                     </motion.div>
+
 
                 </div>
             </div>

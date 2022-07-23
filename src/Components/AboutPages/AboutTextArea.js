@@ -16,8 +16,8 @@ const AboutTextArea = () => {
             <Container className='h-full'>
                 <div className='py-10 mb-5 text-center'>
                     {/* <DescriptionText text=""></DescriptionText> */}
-                    <h1 className='text-4xl font-family-Helvetica'>MORE THAN 40 YEARS EVERY DAY LOOKING FOR PERFECTION</h1>
-                    <h2 className='text-xl font-thin mt-2'>Every situation is different. Light fascinates me. I want to take it with me. Freeze and cherish the moment. </h2>
+                    <h1 className='text-4xl font-thin font-family-Helvetica '>MORE THAN 40 YEARS EVERY DAY LOOKING FOR PERFECTION</h1>
+                    <h2 className='text-xl mt-2  font-family-roboto text-subTitles'>Every situation is different. Light fascinates me. I want to take it with me. Freeze and cherish the moment. </h2>
                 </div>
                 {/* <motion.h2
                 initial={{
@@ -33,17 +33,17 @@ const AboutTextArea = () => {
                 <Grid container spacing={4}>
                     <Grid item xs={12} md={6}>
                         <div className='font-light'>
-                            <h1 className='text-3xl mb-4 font-normal'>  Always Searching For The Shot</h1>
-                            <p className='text-xl'>I am always looking for the right camera angle. To find that, no trouble is too much for me. I see no obstacle in anything. I only have one goal; Creating capturing images.</p>
+                            <h1 className='text-3xl mb-4 text-heading font-thin font-family-Helvetica  '>  Always Searching For The Shot</h1>
+                            <p className='text-xl text-subTitles'>I am always looking for the right camera angle. To find that, no trouble is too much for me. I see no obstacle in anything. I only have one goal; Creating capturing images.</p>
                         </div>
 
 
                     </Grid>
                     <Grid item xs={12} md={6}>
                         <div className='font-light'>
-                            <h1 className='text-3xl mb-4 font-normal'> John Baggen (1958)
+                            <h1 className='text-3xl mb-4 text-heading font-thin font-family-Helvetica'> John Baggen (1958)
                             </h1>
-                            <p className='text-xl'>ince 1979 I have been an independent photographer. When I am home, advertising and industrial photography are my fields of work. But as soon as I get on a plane, the travel photographer comes to mind. Making cultures visible worldwide gives an awareness. This awareness is the engine for mutual respect. Certainly in a time when mutual respect and tolerance are drowned out by populist sounds.</p>
+                            <p className='text-xl   text-subTitles'>ince 1979 I have been an independent photographer. When I am home, advertising and industrial photography are my fields of work. But as soon as I get on a plane, the travel photographer comes to mind. Making cultures visible worldwide gives an awareness. This awareness is the engine for mutual respect. Certainly in a time when mutual respect and tolerance are drowned out by populist sounds.</p>
                         </div>
 
 
