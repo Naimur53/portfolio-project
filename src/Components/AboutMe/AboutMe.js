@@ -158,7 +158,7 @@ const AboutMe = ({ innerRoute }) => {
                         </Grid>
 
                     </Grid> */}
-                    <div className='flex flex-col justify-evenly h-screen'>
+                    <div className='flex flex-col justify-evenly 2xl:justify-center h-screen'>
                         <div className=' p-10 bg-red- 50'>
                             <div className='flex flex-col h-full  relative justify-center'>
                                 <RightContent isVisible={value.content1} url='https://i.ibb.co/BtbKgFL/20190320-WEST-AFRICA-FROM-GUNJUR-TO-BASSE-2964-2.jpg'></RightContent>
@@ -205,23 +205,25 @@ const AboutMe = ({ innerRoute }) => {
 
 
 
-                                    <div className='flex justify-between items-center  text-xl mt-3 md:mt-0 w-52' >
-                                        <div className='pr-4  text-gray-400'>
-                                            {
-                                                value.content1 ? 1 : value.content2 ? 2 : value.content3 ? 3 : 4
-                                            }
-                                        </div>
+                                    {
+                                        value.content1 || value.content2 || value.content3 || value.content4 ? <div className='flex justify-between items-center  text-xl mt-3 md:mt-0 w-52' >
+                                            <div className='pr-4  text-gray-400'>
+                                                {
+                                                    value.content1 ? 1 : value.content2 ? 2 : value.content3 ? 3 : 4
+                                                }
+                                            </div>
 
-                                        <LinearProgress className='w-full rounded-lg' variant="determinate" sx={{
-                                            background: 'rgb(17 24 39) ', '& .MuiLinearProgress-bar1Determinate': {
-                                                backgroundColor: 'rgb(107 114 128 )',
-                                            }
-                                        }} value={progress} />
-                                        <div onClick={() => innerRoute(4)} className='pl-4 cursor-pointer'>
-                                            4
+                                            <LinearProgress className='w-full rounded-lg' variant="determinate" sx={{
+                                                background: 'rgb(17 24 39) ', '& .MuiLinearProgress-bar1Determinate': {
+                                                    backgroundColor: 'rgb(107 114 128 )',
+                                                }
+                                            }} value={progress} />
+                                            <div onClick={() => innerRoute(4)} className='pl-4 cursor-pointer'>
+                                                4
 
-                                        </div>
-                                    </div>
+                                            </div>
+                                        </div> : <div></div>
+                                    }
                                 </div>
 
                             </div>
@@ -235,7 +237,7 @@ const AboutMe = ({ innerRoute }) => {
                 initial='initial'
                 variants={last}
                 animate={value.content5 ? "animate" : 'initial'}
-                className='absolute  bg-black  pointer-events-none inset-0 py-10 '
+                className='absolute  bg-transparent  pointer-events-none inset-0 py-10 '
 
             >
 

@@ -18,7 +18,7 @@ const ParallaxLayerBackground = ({ offset, speed, style }) => {
                     backgroundImage: 'url(https://i.ibb.co/RDC3Vh4/e-Ugu-V6-Yo-2.png)'
 
                 }}
-                className="banner-wrap h-full w-full">
+                className="banner-wrap bg-cover h-full w-full">
                 <div ref={ref} className='w-full flex h-full items-end   '>
                     <motion.div
 

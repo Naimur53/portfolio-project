@@ -103,10 +103,10 @@ const BannerText = ({ innerRoute }) => {
 
                 </div>
                 <div className='mt-5  '>
-                    <motion.div className='inline-block  text-xl ' variants={smallToBig}>
+                    <motion.div className='inline-block  text-xl text-contentText' variants={smallToBig}>
                         <CustomLink href='/category'>
 
-                            <MgButton text='Watch Gallery'></MgButton>
+                            <MgButton text='Visit my gallery'></MgButton>
                         </CustomLink>
                     </motion.div>
 

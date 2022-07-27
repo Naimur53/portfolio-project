@@ -29,7 +29,7 @@ const HomeBlog = () => {
                                 href='/blogs'
                             >
 
-                                <MgButton text='See All Blogs'> </MgButton>
+                                <MgButton text='See my blogs'> </MgButton>
                             </CustomLink>
                         </motion.div>
 

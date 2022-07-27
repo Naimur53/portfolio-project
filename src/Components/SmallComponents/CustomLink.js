@@ -4,7 +4,7 @@ import React from 'react';
 const CustomLink = ({ children, href }) => {
     return (
         <Link href={href} passHref>
-            <a >
+            <a className='pointer-events-auto' >
                 {children}
             </a>
 

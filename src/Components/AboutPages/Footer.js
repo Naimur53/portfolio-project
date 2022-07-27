@@ -68,9 +68,13 @@ const Footer = () => {
                             </div>
 
                         </Grid>
+                        <Grid item xs={12}>
+
+                        </Grid>
                     </Grid>
-                    <div className='mt-10 flex justify-center'>
-                        <Image alt='brand images' priority layout='raw' width={900} height={500} src='https://i.ibb.co/vk9RfDF/image004.jpg'></Image>
+                    <div className='mt-5 relative '>
+
+                        <Image alt='brand images' objectFit='contain' width={1000} height={100} priority layout='responsive' src='https://i.ibb.co/vk9RfDF/image004.jpg'></Image>
                     </div>
                 </Grid>
                 <Grid item xs={12} md={6}>

@@ -7,15 +7,14 @@ import { Container, Grid, Typography, Button } from "@mui/material";
 import { useDispatch } from 'react-redux';
 import { useEffect, useRef } from 'react';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax'
-import CheckBanner from "../src/Components/HomeBanner/CheckBanner";
 import Image from "next/image";
 import AboutMe from "../src/Components/AboutMe/AboutMe";
 import HomeBlog from "../src/Components/HomeBlog/HomeBlog";
-import ContactMe from "../src/Components/ContactMe/ContactMe";
 import HomeTextSection from "../src/Components/HomeTextSection/HomeTextSection";
 import Head from '../src/Components/Head/Head'
 import Footer from "../src/Components/AboutPages/Footer";
 import ParallaxLayerBackground from "../src/Components/ParallaxLayerBackground/ParallaxLayerBackground";
+import ContactSections from "../src/Components/ContactSections/ContactSections";
 
 export default function Home() {
   const dispatch = useDispatch()
@@ -42,12 +41,12 @@ export default function Home() {
       <Parallax ref={parallaxRef} pages={11}>
         <ParallaxLayer
           offset={0}
-          speed={.3}  >
+          speed={.1}  >
           <HomeBanner innerRoute={innerRoute}></HomeBanner>
         </ParallaxLayer>
         <ParallaxLayer
           offset={0}
-          speed={.3}
+          speed={.1}
           style={{ zIndex: '-1' }}
         >
           <div
@@ -80,13 +79,13 @@ export default function Home() {
         </ParallaxLayer >
         <ParallaxLayer
           offset={1}
-          speed={.3}>
+          speed={.1}>
           <HomeTextSection innerRoute={innerRoute}></HomeTextSection>
 
         </ParallaxLayer>
         <ParallaxLayerBackground
           offset={1}
-          speed={.5}
+          speed={.1}
           style={{ zIndex: '-1' }}
         />
         <ParallaxLayer
@@ -103,6 +102,11 @@ export default function Home() {
         />
         <ParallaxLayerBackground
           offset={3}
+          speed={.5}
+          style={{ zIndex: '-1' }}
+        />
+        <ParallaxLayerBackground
+          offset={4}
           speed={.5}
           style={{ zIndex: '-1' }}
         />
@@ -135,7 +139,7 @@ export default function Home() {
           speed={.5}
           style={{ zIndex: '-1' }}
         />
-        <ParallaxLayer
+        {/* <ParallaxLayer
           offset={9}
           speed={.3}
           style={{
@@ -146,28 +150,26 @@ export default function Home() {
 
         >
           <ContactMe></ContactMe>
+        </ParallaxLayer> */}
+        <ParallaxLayer
+          offset={9}
+          speed={.3}
+          sticky={{ start: 9, end: 10 }}
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+
+        >
+          <ContactSections></ContactSections>
         </ParallaxLayer>
 
         <ParallaxLayerBackground
           offset={10}
-          speed={.5}
+          speed={.1}
           style={{ zIndex: '-1' }}
         />
-        <ParallaxLayer
-          offset={10}
-          speed={.3}
-          style={{
-          }}
-        >
-          <div className="h-full fl ex  items-center">
-
-            <Container>
-              <Footer></Footer>
-            </Container>
-          </div>
-
-
-        </ParallaxLayer>
 
       </Parallax >
     </>
