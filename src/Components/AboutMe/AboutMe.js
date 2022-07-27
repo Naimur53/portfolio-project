@@ -159,7 +159,7 @@ const AboutMe = ({ innerRoute }) => {
 
                     </Grid> */}
                     <div className='flex flex-col justify-evenly 2xl:justify-center h-screen'>
-                        <div className=' p-10 bg-red- 50'>
+                        <div className=' p-10 bg-red- 50 2xl:mb-40'>
                             <div className='flex flex-col h-full  relative justify-center'>
                                 <RightContent isVisible={value.content1} url='https://i.ibb.co/BtbKgFL/20190320-WEST-AFRICA-FROM-GUNJUR-TO-BASSE-2964-2.jpg'></RightContent>
                                 <RightContent isVisible={value.content2} url='https://i.ibb.co/DCSnXLn/photo-1605379399642-870262d3d051-2-1.jpg'></RightContent>
@@ -167,7 +167,7 @@ const AboutMe = ({ innerRoute }) => {
                                 <RightContent isVisible={value.content4} url='https://i.ibb.co/ByV09Fk/20191118-MOROCCO-DESERT-108-1-2-1.jpg'></RightContent>
                             </div>
                         </div>
-                        <div className='    '>
+                        <div className=''>
                             <div className=' pt-5 justify-center flex items-center'>
                                 <div className='w-full md:w-1/2'>
                                     <div className='  h-16  overflow-hidden  '>
