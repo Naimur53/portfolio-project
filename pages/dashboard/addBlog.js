@@ -167,16 +167,16 @@ const AddBlog = () => {
         <>
             <form className=' ' onSubmit={handleSubmit(onSubmit)}>
                 <div>
-                    <h2 className='text-2xl text-center mb-5'>Create a main section of blog</h2>
+                    <h2 className='text-2xl text-white text-center mb-5'>Create a main section of blog</h2>
                     <Grid container spacing={4}>
                         <Grid item xs={12} md={6}>
-                            <input className="w-full p-3 rounded-lg  bg-gray-900 placeholder:text-slate-400" placeholder="Enter Title"  {...register("heading", { required: true })} />
+                            <input className="w-full p-3 rounded-lg  bg-gray-900 placeholder:text-slate-400 text-white" placeholder="Enter Title"  {...register("heading", { required: true })} />
                         </Grid>
                         <Grid item xs={12} md={6}>
-                            <input className="w-full p-3 rounded-lg  bg-gray-900 placeholder:text-slate-400" placeholder="Location"  {...register("address", { required: true })} />
+                            <input className="w-full p-3 rounded-lg  bg-gray-900 placeholder:text-slate-400 text-white" placeholder="Location"  {...register("address", { required: true })} />
                         </Grid>
                         <Grid item xs={12} md={6}>
-                            <textarea  {...register("description", { required: true })} className='w-full dashboard-scrollBar p-3 rounded-lg  bg-gray-900 placeholder:text-slate-400' placeholder='Enter description' cols="30" rows="6"></textarea>
+                            <textarea  {...register("description", { required: true })} className='w-full dashboard-scrollBar p-3 rounded-lg  bg-gray-900 placeholder:text-slate-400 text-white' placeholder='Enter description' cols="30" rows="6"></textarea>
                         </Grid>
                         <Grid item xs={12} md={6}>
                             <Box
@@ -197,7 +197,7 @@ const AddBlog = () => {
                     </Grid>
                 </div>
                 <div>
-                    <h2 className=' my-5 text-center text-2xl'>Add sections</h2>
+                    <h2 className=' my-5 text-center text-2xl text-white'>Add sections</h2>
                     <Grid container spacing={4}>
 
                         {
@@ -216,7 +216,7 @@ const AddBlog = () => {
                 <button type='submit' id='submit' className=' hidden '>submit</button>
             </form>
             <div>
-                <h2 className=' my-5 text-center text-2xl'>Add tags </h2>
+                <h2 className=' my-5 text-center text-2xl text-white'>Add tags </h2>
                 <div className='my-5   '>
                     {
                         watch('tags')?.map((tag, i) => <span className='inline-block mb-2 p-2 border rounded-full mr-2' key={i}>
@@ -228,12 +228,12 @@ const AddBlog = () => {
                         )
                     }
                 </div>
-                <input className="w-full p-3 rounded-lg  bg-gray-900 placeholder:text-slate-400" onKeyDown={addTags} placeholder='Enter tags and press enter ' />
+                <input className="w-full p-3 rounded-lg text-white bg-gray-900 placeholder:text-slate-400" onKeyDown={addTags} placeholder='Enter tags and press enter ' />
             </div>
             {
                 imgLoading || photosLoading || videoLoading ? <button
                     className='bg-red-400 text-black rounded-md px-5 text-xl py-2 my-5 inline-block '
-                >wait until loading</button> : <label htmlFor="submit" className='bg-yellow-400 text-black rounded-md px-5 text-xl py-2 my-5 inline-block '>submit</label>
+                >wait until loading</button> : <label htmlFor="submit" className='bg-contentText text-black rounded-md px-5 text-xl py-2 my-5 inline-block '>submit</label>
             }
 
 

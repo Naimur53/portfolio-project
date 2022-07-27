@@ -24,6 +24,7 @@ const TextSlider = () => {
         zIndex: '999'
 
     }
+    const textStyle = 'text-4xl md:text-5xl 2xl:text-5xl text-center font-thin ';
     return (
         <Container sx={{ height: '100%' }} className=' relative'>
             <Swiper
@@ -53,7 +54,7 @@ const TextSlider = () => {
                 <SwiperSlide className=' flex justify-center items-center' >
                     <h2
 
-                        className='text-5xl md:text-6xl 2xl:text-8xl text-center font-thin '>
+                        className={textStyle}>
                         Don’t over
                         <br />
                         organize.
@@ -70,7 +71,7 @@ const TextSlider = () => {
                 <SwiperSlide className=' flex justify-center items-center' >
                     <h2
 
-                        className='text-5xl md:text-6xl 2xl:text-8xl text-center font-thin '>
+                        className={textStyle}>
                         Today’s shot is
                         <br />
                         better than
@@ -88,7 +89,7 @@ const TextSlider = () => {
                 <SwiperSlide className=' flex justify-center items-center'>
                     <h2
 
-                        className='text-5xl md:text-6xl 2xl:text-8xl text-center font-thin '>
+                        className={textStyle}>
                         Every photographer
                         <br />
                         has a camera.
@@ -105,7 +106,7 @@ const TextSlider = () => {
                 <SwiperSlide className=' flex justify-center items-center'>
                     <h2
 
-                        className='text-5xl md:text-6xl 2xl:text-8xl text-center font-thin '>
+                        className={textStyle}>
                         Taking’ a picture is
                         <br />  a form of theft.
                         <br />
@@ -118,7 +119,7 @@ const TextSlider = () => {
 
                     <h2
 
-                        className='text-5xl md:text-6xl 2xl:text-8xl text-center font-thin mt-5 '>
+                        className={textStyle}>
                         To capture the moment
                         <br />
                         you must see the light
@@ -127,7 +128,7 @@ const TextSlider = () => {
                     </h2>
                 </SwiperSlide>
             </Swiper>
-            <div className="mt-4  z-10 absolute left-10 bottom-20 ">
+            <div className="mt-4  z-10 absolute left-1/2 bottom-32 -translate-x-1/2  ">
 
                 <div className=''>
                     <button className='mr-5 text-contentText hover:text-white' onClick={() => my_swiper.slidePrev()}>

@@ -100,7 +100,7 @@ const DashboardLayout = ({ children, window }) => {
                             <ListItemIcon sx={{ m: 0, p: 0, color: 'rgb(249 250 251)' }}  >
                                 <RemoveRedEyeIcon />
                             </ListItemIcon>
-                            <h2>overview</h2>
+                            <h2>Overview</h2>
                         </ListItemButton>
                     </Link>
                 </ListItem>
@@ -131,7 +131,7 @@ const DashboardLayout = ({ children, window }) => {
                             <ListItemIcon sx={{ m: 0, p: 0, color: 'rgb(249 250 251)' }}  >
                                 <DriveFileRenameOutlineIcon />
                             </ListItemIcon>
-                            <h2>Write a Blog</h2>
+                            <h2>Write a blog</h2>
                         </ListItemButton>
                     </Link>
                 </ListItem>
@@ -155,7 +155,7 @@ const DashboardLayout = ({ children, window }) => {
                             <ListItemIcon sx={{ m: 0, p: 0, color: 'rgb(249 250 251)' }} >
                                 <CategoryIcon />
                             </ListItemIcon>
-                            <h2>All Category</h2>
+                            <h2>All category</h2>
                         </ListItemButton>
                     </Link>
                 </ListItem>
@@ -171,7 +171,7 @@ const DashboardLayout = ({ children, window }) => {
                             <ListItemIcon sx={{ m: 0, p: 0, color: 'rgb(249 250 251)' }} >
                                 <InboxIcon />
                             </ListItemIcon>
-                            <h2>all blogs</h2>
+                            <h2>All blogs</h2>
                         </ListItemButton>
                     </Link>
                 </ListItem>

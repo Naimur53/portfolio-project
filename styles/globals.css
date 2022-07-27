@@ -329,7 +329,7 @@ a {
 }
 
 .css-hfutr2-MuiSvgIcon-root-MuiSelect-icon {
-  color: white;
+  color: white !important;
 }
 
 .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input.css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {

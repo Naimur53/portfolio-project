@@ -58,98 +58,100 @@ const Dashboard = (props) => {
         </div>
     }
     return (
-        <Grid container spacing={2}>
-            <Grid item xs={12} md={3}>
-                <Box sx={{ p: 2, background: 'rgb(17 24 39)' }} >
-                    <Box sx={{
-                        display: 'flex',
-                        justifyContent: "space-between",
-                        alignItems: 'center'
-                    }}>
-                        <h2 className="text-xl text-white">Loves</h2>
-                        <IconButton
-                            sx={{
-                                background: 'hsl(215deg 69% 90%)',
-                                color: 'hsl(215deg 70% 71%)'
-                            }}
-                        > <FavoriteIcon></FavoriteIcon></IconButton>
+        <div>
+            <Grid container spacing={2}>
+                <Grid item xs={12} md={3}>
+                    <Box sx={{ p: 2, background: 'rgb(17 24 39)' }} >
+                        <Box sx={{
+                            display: 'flex',
+                            justifyContent: "space-between",
+                            alignItems: 'center'
+                        }}>
+                            <h2 className="text-xl text-white">Loves</h2>
+                            <IconButton
+                                sx={{
+                                    background: 'hsl(215deg 69% 90%)',
+                                    color: 'hsl(215deg 70% 71%)'
+                                }}
+                            > <FavoriteIcon></FavoriteIcon></IconButton>
+                        </Box>
+                        <h2 variant='h5' className='text-center p-4 text-white text-4xl' gutterBottom><CountUp end={blogLC.love} /></h2>
+                        <h2 className="text-red-500">Total Love Of Blog</h2>
                     </Box>
-                    <h2 variant='h5' className='text-center p-4 text-white text-4xl' gutterBottom><CountUp end={blogLC.love} /></h2>
-                    <h2 className="text-red-500">Total Love Of Blog</h2>
-                </Box>
-            </Grid>
-            <Grid item xs={12} md={3}>
-                <Box sx={{ p: 2, background: 'rgb(17 24 39)' }} >
-                    <Box sx={{
-                        display: 'flex',
-                        justifyContent: "space-between",
-                        alignItems: 'center'
-                    }}>
-                        <h2 className="text-xl text-white">Comments</h2>
-                        <IconButton
-                            sx={{
-                                background: 'hsl(215deg 69% 90%)',
-                                color: 'hsl(215deg 70% 71%)'
-                            }}
-                        > <CommentIcon></CommentIcon></IconButton>
+                </Grid>
+                <Grid item xs={12} md={3}>
+                    <Box sx={{ p: 2, background: 'rgb(17 24 39)' }} >
+                        <Box sx={{
+                            display: 'flex',
+                            justifyContent: "space-between",
+                            alignItems: 'center'
+                        }}>
+                            <h2 className="text-xl text-white">Comments</h2>
+                            <IconButton
+                                sx={{
+                                    background: 'hsl(215deg 69% 90%)',
+                                    color: 'hsl(215deg 70% 71%)'
+                                }}
+                            > <CommentIcon></CommentIcon></IconButton>
+                        </Box>
+                        <h2 className='text-center text-white p-4 text-4xl' gutterBottom><CountUp end={blogLC.comment} /></h2>
+                        <h2 className="text-green-500">Total Comments</h2>
                     </Box>
-                    <h2 className='text-center text-white p-4 text-4xl' gutterBottom><CountUp end={blogLC.comment} /></h2>
-                    <h2 className="text-green-500">Total Comments</h2>
-                </Box>
-            </Grid>
-            <Grid item xs={12} md={3}>
-                <Box sx={{ p: 2, background: 'rgb(17 24 39)' }}>
-                    <Box sx={{
-                        display: 'flex',
-                        justifyContent: "space-between",
-                        alignItems: 'center'
-                    }}>
-                        <h2 className="text-xl text-white">Categories</h2>
-                        <IconButton
-                            sx={{
-                                background: 'hsl(215deg 69% 90%)',
-                                color: 'hsl(215deg 70% 71%)'
-                            }}
-                        > <CategoryIcon></CategoryIcon></IconButton>
+                </Grid>
+                <Grid item xs={12} md={3}>
+                    <Box sx={{ p: 2, background: 'rgb(17 24 39)' }}>
+                        <Box sx={{
+                            display: 'flex',
+                            justifyContent: "space-between",
+                            alignItems: 'center'
+                        }}>
+                            <h2 className="text-xl text-white">Categories</h2>
+                            <IconButton
+                                sx={{
+                                    background: 'hsl(215deg 69% 90%)',
+                                    color: 'hsl(215deg 70% 71%)'
+                                }}
+                            > <CategoryIcon></CategoryIcon></IconButton>
+                        </Box>
+                        <h2 className='text-center text-4xl p-4 text-white' variant='h5' gutterBottom><CountUp end={categories} /></h2>
+                        <h2 className="text-green-500">All Categories</h2>
                     </Box>
-                    <h2 className='text-center text-4xl p-4 text-white' variant='h5' gutterBottom><CountUp end={categories} /></h2>
-                    <h2 className="text-green-500">All Categories</h2>
-                </Box>
-            </Grid>
-            <Grid item xs={12} md={3}>
-                <Box sx={{ p: 2, background: 'rgb(17 24 39)' }}>
-                    <Box sx={{
-                        display: 'flex',
-                        justifyContent: "space-between",
-                        alignItems: 'center'
-                    }}>
-                        <h2 className="text-xl text-white">Users</h2>
-                        <IconButton
-                            sx={{
-                                background: 'hsl(215deg 69% 90%)',
-                                color: 'hsl(215deg 70% 71%)'
-                            }}
-                        > <ConnectWithoutContactIcon></ConnectWithoutContactIcon></IconButton>
-                    </Box>
-                    <h2 className='text-center p-4 text-4xl text-white' variant='h5' gutterBottom><CountUp end={users} /></h2>
-                    <h2 className="text-red-500">Total User Login</h2>
+                </Grid>
+                <Grid item xs={12} md={3}>
+                    <Box sx={{ p: 2, background: 'rgb(17 24 39)' }}>
+                        <Box sx={{
+                            display: 'flex',
+                            justifyContent: "space-between",
+                            alignItems: 'center'
+                        }}>
+                            <h2 className="text-xl text-white">Users</h2>
+                            <IconButton
+                                sx={{
+                                    background: 'hsl(215deg 69% 90%)',
+                                    color: 'hsl(215deg 70% 71%)'
+                                }}
+                            > <ConnectWithoutContactIcon></ConnectWithoutContactIcon></IconButton>
+                        </Box>
+                        <h2 className='text-center p-4 text-4xl text-white' variant='h5' gutterBottom><CountUp end={users} /></h2>
+                        <h2 className="text-red-500">Total User Login</h2>
 
-                </Box>
-            </Grid>
+                    </Box>
+                </Grid>
 
-            <Grid item xs={12} md={7}>
-                <RecentMomentChart data={last7Post}></RecentMomentChart>
+                <Grid item xs={12} md={7}>
+                    <RecentMomentChart data={last7Post}></RecentMomentChart>
+                </Grid>
+                <Grid item xs={12} md={5}>
+                    <RoundedServiceCart info={
+                        {
+                            blogLC,
+                            users,
+                            categories,
+                        }
+                    } ></RoundedServiceCart>
+                </Grid>
             </Grid>
-            <Grid item xs={12} md={5}>
-                <RoundedServiceCart info={
-                    {
-                        blogLC,
-                        users,
-                        categories,
-                    }
-                } ></RoundedServiceCart>
-            </Grid>
-        </Grid>
+        </div>
 
     )
 };

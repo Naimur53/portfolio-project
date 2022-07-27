@@ -4,22 +4,17 @@ import axios from 'axios';
 import DashboardLayout from '../../../src/Layouts/DashboardLayout';
 import BlogCard from '../../../src/Components/BlogCard/BlogCard';
 import { toast } from 'react-toastify';
-
+import fetcher from '../../../src/util/fatcher';
+import useSWR from 'swr'
 const AllBlogs = () => {
-    const [blogs, setBlogs] = useState([])
-    const [loading, setLoading] = useState(true)
 
-    useEffect(() => {
-        axios.get('https://stark-atoll-95180.herokuapp.com/blog')
-            .then(res => {
-                setBlogs(res.data);
-                setLoading(false)
-
-            })
-    }, [])
-    if (loading) {
+    const { data: blogs, error } = useSWR(
+        "https://stark-atoll-95180.herokuapp.com/blog",
+        fetcher
+    );
+    if (!blogs?.length) {
         return <div className='flex justify-center'>
-            <CircularProgress color='inherit'></CircularProgress>
+            <CircularProgress sx={{ color: 'white' }}></CircularProgress>
         </div>
     }
     console.log(blogs);
@@ -60,7 +55,7 @@ const AllBlogs = () => {
     return (
         <Grid container spacing={2}>
             {
-                blogs?.map(singleBlog => <Grid item key={singleBlog._id} xs={12} md={4}><BlogCard admin  {...singleBlog} handleDelete={handleDelete}></BlogCard></Grid>)
+                blogs?.map(singleBlog => <Grid item key={singleBlog._id} xs={12} md={3}><BlogCard admin  {...singleBlog} handleDelete={handleDelete}></BlogCard></Grid>)
             }
         </Grid>
     );

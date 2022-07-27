@@ -98,9 +98,9 @@ const ChooseDropdown = () => {
     }
     return (
         <>
-            <div className='text-center mb-5'>
-                <h2 className='text-2xl'>Choose Category</h2>
-                <p>Select category to show on collection route</p>
+            <div className='text-center text-white mb-5'>
+                <h2 className='text-2xl text-white'>Choose Category</h2>
+                <p className='text-white'>Select category to show on collection dropdown</p>
             </div>
             <Grid container spacing={2}>
                 {
@@ -112,7 +112,7 @@ const ChooseDropdown = () => {
                     {
                         postLoading ? <div className='flex justify-center'>
                             <CircularProgress color='inherit'></CircularProgress>
-                        </div> : selected.length ? <button onClick={addToNavigation} className='w-full bg-yellow-400 p-2 text-black rounded-md '>Add To Navigation</button> : <div></div>
+                        </div> : selected.length ? <button onClick={addToNavigation} className='w-full bg-contentText p-2 text-black rounded-md '>Add To Navigation</button> : <div></div>
                     }
                 </Grid>
             </Grid>

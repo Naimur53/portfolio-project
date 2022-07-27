@@ -1,22 +1,20 @@
 import { CircularProgress, Grid } from '@mui/material';
+import { data } from 'autoprefixer';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import CategoryCard from '../../src/Components/CategoryCard/CategoryCard';
 import DashboardLayout from '../../src/Layouts/DashboardLayout';
-
+import fetcher from '../../src/util/fatcher';
+import useSWR from "swr";
 const AllCategory = () => {
-    const [allData, setAllData] = useState([]);
-    const [loading, setLoading] = useState(true);
-    useEffect(() => {
-        axios.get('https://stark-atoll-95180.herokuapp.com/category')
-            .then(res => {
-                setAllData(res.data)
-                setLoading(false)
-            })
-    }, [])
-    if (loading) {
+
+    const { data: allData, error } = useSWR(
+        "https://stark-atoll-95180.herokuapp.com/category",
+        fetcher
+    );
+    if (!allData?.length) {
         return <div className='flex justify-center'>
-            <CircularProgress color='inherit'></CircularProgress>
+            <CircularProgress sx={{ color: 'white' }}></CircularProgress>
         </div>
 
     }

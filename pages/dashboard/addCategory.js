@@ -196,7 +196,7 @@ const AddCategory = ({ uniqCategory }) => {
 
     return (
         <div>
-            <h2 className="text-2xl capitalize text-center my-5">Add a new category of your image</h2>
+            <h2 className="text-2xl text-white capitalize text-center my-5">Add a new category of your image</h2>
             <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col  justify-center'>
 
 
@@ -207,6 +207,9 @@ const AddCategory = ({ uniqCategory }) => {
                             inputValue !== 'new' ? <TextField
                                 label='Choose Category'
                                 id='choose-category'
+                                sx={{
+                                    color: 'white',
+                                }}
                                 className='w-full bg-gray-900 placeholder:text-white text-white focus:border-white focus:outline-none'
                                 value={inputValue}
                                 select
@@ -218,20 +221,20 @@ const AddCategory = ({ uniqCategory }) => {
                                 {
                                     uniqCategory?.map(single => <MenuItem key={single} value={single} >{single}</MenuItem>)
                                 }
-                            </TextField> : <input className="w-full p-3 rounded-lg  bg-gray-900 placeholder:text-slate-400" placeholder="Category Name"  {...register("categoryName", { required: true })} />
+                            </TextField> : <input className="w-full p-3 rounded-lg text-white  bg-gray-900 placeholder:text-slate-400" placeholder="Category Name"  {...register("categoryName", { required: true })} />
                         }
 
                     </Grid>
 
                     <Grid xs={12} md={6} item>
 
-                        <input className="w-full p-3 rounded-lg  bg-gray-900 placeholder:text-slate-400" placeholder="Title"  {...register("title", { required: true })} />
+                        <input className="w-full p-3 rounded-lg text-white  bg-gray-900 placeholder:text-slate-400" placeholder="Title"  {...register("title", { required: true })} />
 
                     </Grid>
                     {
                         inputValue !== 'new' && <Grid xs={12} md={12} item>
 
-                            <input className="w-full p-3 rounded-lg  bg-gray-900 placeholder:text-slate-400" placeholder="Sub Category name"  {...register("subCategory", { required: true })} />
+                            <input className="w-full p-3 rounded-lg text-white  bg-gray-900 placeholder:text-slate-400" placeholder="Sub Category name"  {...register("subCategory", { required: true })} />
 
                         </Grid>
                     }
@@ -244,7 +247,7 @@ const AddCategory = ({ uniqCategory }) => {
                         >
                             <input onChange={handleThumbnailFile} type="file" accept="image/*" id='thumbnailFile' className="hidden" />
                             {
-                                thumbnailLoading ? <CircularProgress color="inherit"></CircularProgress> : <label htmlFor='thumbnailFile' className="bg-black/[.7] text-white p-2 rounded-md">Choose Thumbnail</label>
+                                thumbnailLoading ? <CircularProgress color="inherit"></CircularProgress> : <label htmlFor='thumbnailFile' className="bg-black/[.7] text-white p-2 rounded-md cursor-pointer">Choose Thumbnail</label>
                             }
 
                         </Box>
@@ -259,7 +262,7 @@ const AddCategory = ({ uniqCategory }) => {
                             <div className="absolute pointer-events-none inset-0 flex justify-center items-center">
                                 <input onChange={handlePhotosUpload} type="file" id='url' accept="image/*" className="hidden" multiple={true} />
                                 {
-                                    imgLoading ? <div className='z-10 w-full h-full flex justify-center items-center backdrop-blur-sm'> <CircularProgress color="inherit"></CircularProgress></div> : watch('photos')?.length ? <div></div> : <label htmlFor='url' className="z-10 bg-black/[.7] text-white p-2  rounded-md pointer-events-auto">Choose Images</label>
+                                    imgLoading ? <div className='z-10 w-full h-full flex justify-center items-center backdrop-blur-sm'> <CircularProgress color="inherit"></CircularProgress></div> : watch('photos')?.length ? <div></div> : <label htmlFor='url' className="z-10 bg-black/[.7] text-white p-2  rounded-md pointer-events-auto cursor-pointer">Choose Images</label>
                                 }
                             </div>
                             <div className="pr-2">
@@ -291,7 +294,7 @@ const AddCategory = ({ uniqCategory }) => {
                     </Grid>
                     <Grid xs={12} item>
 
-                        <input className="w-full p-3 rounded-lg  bg-gray-900 placeholder:text-slate-400" placeholder="Enter Short description"  {...register("description", { required: true })} />
+                        <input className="w-full p-3 rounded-lg text-white  bg-gray-900 placeholder:text-slate-400" placeholder="Enter Short description"  {...register("description", { required: true })} />
 
                     </Grid>
 
@@ -300,7 +303,7 @@ const AddCategory = ({ uniqCategory }) => {
 
                 {
                     !imgLoading && !thumbnailLoading ? <div className="mt-5">
-                        <input className="bg-yellow-400 px-4 rounded-md text-black p-2" type="submit" />
+                        <input className="bg-contentText cursor-pointer px-4 rounded-md text-black p-2" type="submit" />
                     </div> : <div className="mt-5">
                         <span className="bg-red-400 rounded-md text-black p-2"  >Loading Images</span>
                     </div>

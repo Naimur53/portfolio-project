@@ -10,8 +10,7 @@ const HomeTextSection = ({ innerRoute }) => {
     useEffect(() => {
         setValue(scrollValue.toFixed(2))
     }, [scrollValue])
-    const phone = 'p-3 mr-5  text-gray-900 bg-white rounded-full inline-block md:hidden';
-    const big = 'p-3 mr-5 text-contentText  bg-black cursor-pointer border border-white md:inline-block hidden';
+    const big = 'p-3 mr-5 w-48 text-center md:inline-block  text-contentText  bg-black cursor-pointer border border-white  hidden';
     return (
         <div style={{ zIndex: '10000' }} className='h-full overflow-hidden     relative   font-family-Helvetica justify-center items-center'>
 
@@ -23,6 +22,7 @@ const HomeTextSection = ({ innerRoute }) => {
                         href={`/blogs/${homeBlog?.length ? homeBlog[0]?._id : ''}`}
                     >
                         <motion.span
+
                             initial={{
                                 x: 0,
                                 y: 0,
@@ -30,7 +30,7 @@ const HomeTextSection = ({ innerRoute }) => {
                             }}
                             animate={{
                                 // x: window.innerWidth >= 1600 ? -(value * 20) : -(value * 300),
-                                y: value * 20,
+                                y: value * 40,
                                 // rotate: -(value * 20),
                                 transition: { ease: "easeOut", duration: 1 }
                             }}
@@ -55,7 +55,7 @@ const HomeTextSection = ({ innerRoute }) => {
                             animate={{
                                 // x: window.innerWidth >= 1600 ? (value * 500) : (value * 300),
                                 // rotate: (value * 20),
-                                y: value * 40,
+                                y: value * 20,
                                 transition: { ease: "easeOut", duration: 1 }
                             }}
 
@@ -75,7 +75,7 @@ const HomeTextSection = ({ innerRoute }) => {
                         animate={{
                             // x: window.innerWidth >= 1600 ? -(value * 500) : -(value * 350),
                             // rotate: (value * 20),
-                            y: value * 20,
+                            y: value * 40,
                             transition: { ease: "easeOut", duration: 1 }
                         }}
 
@@ -93,7 +93,7 @@ const HomeTextSection = ({ innerRoute }) => {
                         animate={{
                             // x: (window.innerWidth >= 1600 ? value * 500 : value * 400),
                             // rotate: -(value * 20),
-                            y: value * 40,
+                            y: value * 20,
                             transition: { ease: "easeOut", duration: 1 }
                         }}
 
@@ -114,7 +114,7 @@ const HomeTextSection = ({ innerRoute }) => {
                         }}
                         animate={{
                             // x: window.innerWidth >= 1600 ? (value * 500) : (value * 300),
-                            y: value * 20,
+                            y: value * 40,
                             transition: { ease: "easeOut", duration: 1 }
                         }}
 

@@ -67,12 +67,13 @@ const CategoryCard = ({ admin, i, _id, thumbnail, title, description, categoryNa
 
                     </div>
                 </Link>
-                {
-                    admin && <div>
-                        {loading ? <CircularProgress /> : <button onClick={() => handleDelete()} className='bg-red-900 px-5 py-2 mt-2 rounded  text-white'>Delete</button>}
-                    </div>
-                }
+
             </div>
+            {
+                admin && <div className='mt-2'>
+                    {loading ? <CircularProgress /> : <button onClick={() => handleDelete()} className='bg-red-900 px-5 py-2 mt-2 rounded  text-white'>Delete</button>}
+                </div>
+            }
         </motion.div>
     );
 };
