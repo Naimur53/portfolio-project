@@ -6,12 +6,18 @@ import BlogCard from '../../../src/Components/BlogCard/BlogCard';
 import { toast } from 'react-toastify';
 import fetcher from '../../../src/util/fatcher';
 import useSWR from 'swr'
+import { useSelector } from 'react-redux';
+import { allData } from '../../../src/dataSlice/dataSlice';
 const AllBlogs = () => {
-
-    const { data: blogs, error } = useSWR(
+    const { user } = useSelector(allData)
+    const [blogs, setBlogs] = useState([])
+    const { data, error } = useSWR(
         "https://stark-atoll-95180.herokuapp.com/blog",
         fetcher
     );
+    useEffect(() => {
+        setBlogs(data)
+    }, [data])
     if (!blogs?.length) {
         return <div className='flex justify-center'>
             <CircularProgress sx={{ color: 'white' }}></CircularProgress>
@@ -22,12 +28,17 @@ const AllBlogs = () => {
         if (window.confirm("Are you sure to Delete this blog?")) {
             console.log(id);
             setDeleteLoading(true)
-            axios.delete(`https://stark-atoll-95180.herokuapp.com/blog/delete?id=${id}`)
+            axios.delete(`https://stark-atoll-95180.herokuapp.com/blog/delete?id=${id}`, {
+                headers: {
+                    authorization: 'Bearer ' + localStorage.getItem('idToken')
+                },
+                data: {
+                    user: user?.email
+                }
+            })
                 .then(res => {
+                    setBlogs(be => be._id !== id)
                     setDeleteLoading(false);
-                    // remove blog card 
-                    setBlogs(blogs.filter(single => single._id !== id))
-
                     toast.success('successfully delete', {
                         position: "bottom-right",
                         autoClose: 5000,
@@ -39,7 +50,7 @@ const AllBlogs = () => {
                     });
                 }).catch(e => {
                     setDeleteLoading(false)
-                    toast.error('Unknown error happen on deleting blog', {
+                    toast.error('Unknown error happen on deleting blog and message is ' + e.message, {
                         position: "bottom-right",
                         autoClose: 5000,
                         hideProgressBar: false,

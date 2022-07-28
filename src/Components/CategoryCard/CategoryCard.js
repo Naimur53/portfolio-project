@@ -7,7 +7,7 @@ import axios from 'axios';
 import { CircularProgress } from '@mui/material';
 import { allData } from '../../dataSlice/dataSlice';
 
-const CategoryCard = ({ admin, i, _id, thumbnail, title, description, categoryName, photos, subCategory }) => {
+const CategoryCard = ({ admin, i, _id, thumbnail, title, description, categoryName, photos, subCategory, setAlldata }) => {
     const [loading, setLoading] = useState(false);
     console.log(i);
     const { user } = useSelector(allData)
@@ -24,6 +24,7 @@ const CategoryCard = ({ admin, i, _id, thumbnail, title, description, categoryNa
                     }
                 })
                     .then(res => {
+                        setAlldata(be => be._id !== _id)
                         setLoading(false)
                     })
 

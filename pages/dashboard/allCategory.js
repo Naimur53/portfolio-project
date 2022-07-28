@@ -7,11 +7,14 @@ import DashboardLayout from '../../src/Layouts/DashboardLayout';
 import fetcher from '../../src/util/fatcher';
 import useSWR from "swr";
 const AllCategory = () => {
-
-    const { data: allData, error } = useSWR(
+    const [allData, setAlldata] = useState([])
+    const { data, error } = useSWR(
         "https://stark-atoll-95180.herokuapp.com/category",
         fetcher
     );
+    useEffect(() => {
+        setAlldata(data)
+    }, [data])
     if (!allData?.length) {
         return <div className='flex justify-center'>
             <CircularProgress sx={{ color: 'white' }}></CircularProgress>
@@ -25,7 +28,7 @@ const AllCategory = () => {
             <Grid container spacing={2}>
                 {
                     allData.map((single, i) => <Grid key={single._id} item xs={12} md={4}>
-                        <CategoryCard admin i={i} {...single}></CategoryCard>
+                        <CategoryCard admin i={i} setAlldata={setAlldata} {...single}></CategoryCard>
 
                     </Grid>)
                 }

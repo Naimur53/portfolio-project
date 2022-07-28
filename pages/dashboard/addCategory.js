@@ -93,7 +93,7 @@ const AddCategory = ({ uniqCategory }) => {
                 });
             })
         console.log(data);
-        // reset();
+        reset();
     }
     // handle multiple img upload 
     const handleChangeUrl = watch('url')
