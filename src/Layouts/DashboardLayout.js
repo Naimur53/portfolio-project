@@ -202,7 +202,7 @@ const DashboardLayout = ({ children, window }) => {
     };
     const container = window !== undefined ? () => window().document.body : undefined;
     if (!loading && !user?.isAdmin) {
-        router.push('/')
+        router.push('/login')
         return <div className="h-screen flex justify-center items-center">
             <h2 className="text-xl text-white">
                 Authorizing...

@@ -29,7 +29,7 @@ const pages = ['home', 'aboutme', 'dashboard', 'blogs',];
 const TopBar = () => {
 
     const [open, setOpen] = useState(null);
-    const { collection } = useSelector(allData)
+    const { collection, user } = useSelector(allData)
     // const { data, error } = useSWR(
     //     "https://stark-atoll-95180.herokuapp.com/chooseMenu",
     //     fetcher
@@ -134,17 +134,19 @@ const TopBar = () => {
                 </Link>
 
             </motion.div>
-            <motion.div variants={fadeEnter}
-            >
-                <Link href={'/dashboard'}>
-                    <span
-                        className='w-full border  flex justify-center mb-3 py-2 border-gray-700 rounded-sm hover:border-yellow-300 text-white'
-                    >
-                        Dashboard
-                    </span>
-                </Link>
+            {
+                user.isAdmin && <motion.div variants={fadeEnter}
+                >
+                    <Link href={'/dashboard'}>
+                        <span
+                            className='w-full border  flex justify-center mb-3 py-2 border-gray-700 rounded-sm hover:border-yellow-300 text-white'
+                        >
+                            Dashboard
+                        </span>
+                    </Link>
 
-            </motion.div>
+                </motion.div>
+            }
         </motion.div>
     )
 
@@ -292,18 +294,20 @@ const TopBar = () => {
                                     </CustomLink>
 
                                 </motion.div>
-                                <motion.div className='pr-5' variants={fadeInUp}
-                                >
-                                    <CustomLink href={'/dashboard'}>
-                                        <Button
+                                {
+                                    user.isAdmin && <motion.div className='pr-5' variants={fadeInUp}
+                                    >
+                                        <CustomLink href={'/dashboard'}>
+                                            <Button
 
-                                            sx={{ py: 0, color: 'white', display: 'block' }}
-                                        >
-                                            Dashboard
-                                        </Button>
-                                    </CustomLink>
+                                                sx={{ py: 0, color: 'white', display: 'block' }}
+                                            >
+                                                Dashboard
+                                            </Button>
+                                        </CustomLink>
 
-                                </motion.div>
+                                    </motion.div>
+                                }
                             </motion.div>
                         </Box>
                     </Toolbar>
