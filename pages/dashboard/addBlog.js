@@ -8,13 +8,14 @@ import CreateBlogSection from '../../src/Components/CreateBlogSection/CreateBlog
 import ClearIcon from '@mui/icons-material/Clear';
 import { Box } from '@mui/system';
 import { toast } from 'react-toastify';
-
+import { allData } from '../../src/dataSlice/dataSlice';
+import { useSelector } from 'react-redux';
 
 const AddBlog = () => {
     const [imgLoading, setImgLoading] = useState(false);
     const [photosLoading, setPhotosLoading] = useState(false);
     const [videoLoading, setVideoLoading] = useState(false);
-
+    const { user } = useSelector(allData)
 
     const [numSection, setNumSection] = useState([{ num: 1, complete: false }])
     const { register, unregister, handleSubmit, reset, setValue, watch, formState: { errors } } = useForm({ shouldUnregister: false });
@@ -44,28 +45,34 @@ const AddBlog = () => {
         })
         // create main data for post 
         const mainData = { img, tags, heading, description, address, sections };
-        console.log(mainData, data);
-        // axios.post('https://stark-atoll-95180.herokuapp.com/blog', mainData).then(res => toast.success('Successfully post the blog', {
-        //     position: "bottom-right",
-        //     autoClose: 5000,
-        //     hideProgressBar: false,
-        //     closeOnClick: true,
-        //     pauseOnHover: true,
-        //     draggable: true,
-        //     progress: undefined,
-        // }))
-        //     .catch(e => {
-        //         toast.error('Something bad happened when post the blog', {
-        //             position: "bottom-right",
-        //             autoClose: 5000,
-        //             hideProgressBar: false,
-        //             closeOnClick: true,
-        //             pauseOnHover: true,
-        //             draggable: true,
-        //             progress: undefined,
-        //         });
-        //     })
-        // reset()
+        axios.post('https://stark-atoll-95180.herokuapp.com/blog', { mainData, user: user?.email }, {
+            headers: {
+                authorization: 'Bearer ' + localStorage.getItem('idToken')
+            },
+        }).then(res => {
+            console.log(res);
+            toast.success('Successfully post the blog', {
+                position: "bottom-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+            })
+        })
+            .catch(e => {
+                toast.error('Something bad happened when post the blog', {
+                    position: "bottom-right",
+                    autoClose: 5000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+            })
+        reset()
     }
 
     // handle main section img upload 

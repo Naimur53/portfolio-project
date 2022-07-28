@@ -33,7 +33,7 @@ const BlogCard = ({ _id, heading, index, description, img, love, comment, date, 
                     <div>
                         <small className=' pt-2 font-light text-gray-400 flex items-center'><EventAvailableIcon fontSize='small'></EventAvailableIcon><span className='ml-2 italic  text-[16px]'>{new Date(date).toDateString()}</span></small>
 
-                        <Link href={`/blogs/${_id}`} ><span className='uppercase cursor-pointer title text-2xl text-gray-300 font-family-mono font-semibold'>{heading}</span></Link>
+                        <Link href={`/blogs/${_id}`} ><span className='uppercase cursor-pointer title text-2xl text-gray-300 font-family-mono font-semibold hover:text-white'>{heading}</span></Link>
                     </div>
                 </div>
                 {

@@ -37,7 +37,6 @@ const LightBox = ({ isVisible, url, onClose, index, elementNum, allImage }) => {
             setI(0)
         }
     }
-    console.log(i);
     return (
         <AnimatePresence>
             {isVisible && (

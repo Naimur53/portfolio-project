@@ -15,12 +15,12 @@ const CategoryCard = ({ admin, i, _id, thumbnail, title, description, categoryNa
         if (user?.email) {
             if (window.confirm('Are you sure to delete this category')) {
                 setLoading(true);
-                axios.delete(`http://localhost:5000/category?id=${_id}`, {
+                axios.delete(`https://stark-atoll-95180.herokuapp.com/category?id=${_id}`, {
                     headers: {
                         authorization: 'Bearer ' + localStorage.getItem('idToken')
                     },
                     data: {
-                        user: user.email
+                        user: user?.email
                     }
                 })
                     .then(res => {
@@ -71,7 +71,13 @@ const CategoryCard = ({ admin, i, _id, thumbnail, title, description, categoryNa
             </div>
             {
                 admin && <div className='mt-2'>
-                    {loading ? <CircularProgress /> : <button onClick={() => handleDelete()} className='bg-red-900 px-5 py-2 mt-2 rounded  text-white'>Delete</button>}
+                    {loading ? <CircularProgress /> : <div className=''>
+                        <button onClick={() => handleDelete()} className='text-red-500 border border-red-500 mr-4 px-4 p-2 mt-2 '>Delete</button>
+                        <Link href={'/dashboard/updateCategory/' + _id}>
+                            <button className='text-green-500 border border-green-500 mr-4 px-4 p-2 mt-2'>Update</button>
+                        </Link>
+
+                    </div>}
                 </div>
             }
         </motion.div>

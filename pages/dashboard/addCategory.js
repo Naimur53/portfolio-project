@@ -12,10 +12,13 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import { useSelector } from 'react-redux';
+import { allData } from "../../src/dataSlice/dataSlice";
 const AddCategory = ({ uniqCategory }) => {
     const { register, handleSubmit, reset, setValue, watch, formState: { errors } } = useForm();
     const [thumbnailLoading, setThumbnailLoading] = useState(false);
     const [imgLoading, setImgLoading] = useState(false);
+    const { user } = useSelector(allData);
     const [inputValue, setInputValue] = useState('');
     console.log(watch('categoryName'));
     const onSubmit = data => {
@@ -61,7 +64,11 @@ const AddCategory = ({ uniqCategory }) => {
         }
 
         // sending to api
-        axios.post('https://stark-atoll-95180.herokuapp.com/category', data)
+        axios.post('https://stark-atoll-95180.herokuapp.com/category', { mainData: data, user: user?.email }, {
+            headers: {
+                authorization: 'Bearer ' + localStorage.getItem('idToken')
+            },
+        })
             .then(res => {
                 console.log(res, 'success');
                 toast.success('Category successfully added', {
@@ -86,7 +93,7 @@ const AddCategory = ({ uniqCategory }) => {
                 });
             })
         console.log(data);
-        reset();
+        // reset();
     }
     // handle multiple img upload 
     const handleChangeUrl = watch('url')
