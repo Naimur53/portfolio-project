@@ -24,9 +24,9 @@ const SingleRecent = ({ data, index }) => {
                         }}></Avatar>
                     </div>
                     <div className='font-family-mono'>
-                        <h1 className='text-sm   text-gray-300'>{data.heading}</h1>
-                        <h1 className='text-sm  text-gray-400'>Malysiha Bankok</h1>
-                        <h3 className='font-light text-xs text-gray-400'>{new Date(data.date).toDateString()}</h3>
+                        <h1 className='text-sm   text-heading'>{data.heading}</h1>
+                        <h2 className='text-sm my-1 text-subTitles'>Malysiha Bankok</h2>
+                        <h3 className='text-xs text-contentText'>{new Date(data.date).toDateString()}</h3>
                     </div>
                 </div>
                 <hr className='border-gray-800' />

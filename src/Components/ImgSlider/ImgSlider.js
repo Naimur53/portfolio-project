@@ -29,14 +29,13 @@ const ImgSlider = ({ data }) => {
             <div>
                 <Swiper
                     spaceBetween={50}
-                    modules={[EffectCreative, Autoplay, Navigation]}
+                    modules={[Autoplay, Navigation]}
                     loop={true}
                     autoplay={{
                         delay: 2500,
                         duration: 2400,
                         disableOnInteraction: false,
                     }}
-                    effect={"creative"}
                     creativeEffect={{
                         prev: {
                             shadow: true,
@@ -60,12 +59,15 @@ const ImgSlider = ({ data }) => {
                         set_my_swiper(ev)
                     }}
                 >
-                    {
-                        data.map((single, i) => <SwiperSlide key={i}>
-                            <Image src={single.url} height={618} width={1060} alt='d'></Image>
+                    <div >
+                        {
+                            data.map((single, i) => <SwiperSlide key={i}>
+                                <Image src={single.url} height={400} className='w-full' width={500} layout="raw"
+                                    alt='d'></Image>
 
-                        </SwiperSlide>)
-                    }
+                            </SwiperSlide>)
+                        }
+                    </div>
                 </Swiper>
             </div>
             <Stack justifyContent='space-between' direction='row' sx={{

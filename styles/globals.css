@@ -125,7 +125,8 @@ a {
 }
 
 .font-family-mono {
-  font-family: 'Roboto Mono', monospace;
+  font-family: 'Helvetica', sans-serif;
+  letter-spacing: 0.05em;
 }
 
 .font-family-roboto {
@@ -286,8 +287,8 @@ a {
 
 /* blog card  */
 
-.title:hover {
-  background-size: 100% 64px;
+.blog-single-card-wrap:hover .title {
+  background-size: 100% 58px;
   color: currentColor;
 }
 
@@ -297,7 +298,7 @@ a {
   background-image: linear-gradient(#ff020200 calc(100% - 38px), currentColor 2px);
   background-image: -ms-linear-gradient(transparent 95%, currentColor 2px);
   transition: .6s cubic-bezier(.215, .61, .355, 1);
-  background-size: 0px 64px;
+  background-size: 0px 58px;
   display: inline;
 }
 

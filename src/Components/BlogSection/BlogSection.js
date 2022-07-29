@@ -27,21 +27,21 @@ const BlogSection = ({ data }) => {
 
                     {
                         img.map(single => <Grid key={single.url} item md={6} xs={12}>
-                            <Image src={single.url} height={618} width={1060} alt='d'></Image>
-                            <em className='text-gray-400 '>{single.title}</em>
+                            <Image src={single.url} height={618} layout='raw' className='w-full' width={1060} alt='d'></Image>
+                            <em className='text-contentText '>{single.title}</em>
                         </Grid>)
                     }
 
                 </Grid> : <>
                     {img.map(single => <>
-                        <Image key={single.url} src={single.url} height={618} width={1060} alt='d'></Image>
-                        <em className='text-gray-400 '>{single.title}</em></>)}
+                        <Image key={single.url} layout='raw' className='w-full' src={single.url} height={618} width={1060} alt='d'></Image>
+                        <em className='text-contentText '>{single.title}</em></>)}
                 </> : video ? <video preload="metadata" controls src={video + '#t=2'}></video> : <></>
             }
 
-            <div className='mt-5 text-gray-300'>
-                <h1 className='text-2xl mb-2 text-gray-200 '>{title}</h1>
-                <div className='text-gray-300 font-light'>
+            <div className='mt-5 '>
+                <h1 className='text-2xl mb-2 text-heading '>{title}</h1>
+                <div className='text-contentText '>
 
                     {
                         Des

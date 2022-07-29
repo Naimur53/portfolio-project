@@ -18,14 +18,14 @@ const MainSection = () => {
                         }}></Avatar>
                     </div>
                     <div className='border-l border-gray-800 pl-3'>
-                        <h1 className='text-sm text-gray-400 '>AUTHOR: MR JOHN</h1>
-                        <h3 className='text-sm font-light text-gray-400'>{new Date(blogDetails.date).toDateString()}</h3>
+                        <h1 className='text-sm text-hading'>Author: John Baggen</h1>
+                        <h3 className='text-sm font-light text-contentText'>{new Date(blogDetails.date).toDateString()}</h3>
                     </div>
                 </div>
                 <ShareLove></ShareLove>
             </div>
             <div>
-                <p className='text-gray-300 font-light'>{blogDetails.description}</p>
+                <p className='text-contentText'>{blogDetails.description}</p>
             </div>
         </>
     );

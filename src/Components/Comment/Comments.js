@@ -18,8 +18,8 @@ const Comments = ({ data, small }) => {
                 <Grid xs={10} md={11}>
                     <div className={` ${small ? 'px-4 pb-4' : 'border p-4'} border-gray-700`}>
                         <div className={small ? '' : 'pb-4'}>
-                            <h1 className='mb-1 text-gray-400'>{data.user?.displayName}</h1>
-                            <h6 className='text-sm text-gray-400 font-light '>{data.date ? new Date(data.date).toDateString() : (
+                            <h1 className='mb-1 text-heading'>{data.user?.displayName}</h1>
+                            <h6 className='text-sm text-subTitles'>{data.date ? new Date(data.date).toDateString() : (
                                 new Date(data.time).toLocaleTimeString()
                                 + " " + new Date(data.time).toDateString()
                             )}</h6>
@@ -28,7 +28,7 @@ const Comments = ({ data, small }) => {
                             !small && <hr className='border-gray-800' />
                         }
 
-                        <div className={`${small ? 'mt-2 text-sm' : 'mt-5'} text-gray-300`}>
+                        <div className={`${small ? 'mt-2 text-sm' : 'mt-5'} text-contentText`}>
                             <p>{small ? data.comment?.slice(0, 100) : data.comment}</p>
                         </div>
                     </div>
