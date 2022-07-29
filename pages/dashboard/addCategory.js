@@ -214,21 +214,11 @@ const AddCategory = ({ uniqCategory }) => {
                             inputValue !== 'new' ? <TextField
                                 label='Choose Category'
                                 id='choose-category'
-
-                                style={{ color: 'red' }}
                                 className='w-full bg-gray-900 placeholder:text-white  focus:border-white focus:outline-none'
                                 value={inputValue}
                                 select
                                 onChange={handleChange}
-                                MenuProps={{
-                                    sx: {
-                                        "&& .MuiMenuItem-root": {
-                                            backgroundColor: "red",
-                                            color: "orange"
-                                        }
-                                    }
-
-                                }}
+                                style={{ color: 'white' }}
                             >
                                 <MenuItem value='new'>
                                     <em>Add new category</em>
