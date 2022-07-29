@@ -137,10 +137,10 @@ const CreateBlogSection = ({ errors, unregister, handleComplete, setPhotosLoadin
     return (
         <>
             <Grid item xs={12} md={12}>
-                <input className="w-full p-3 rounded-lg  bg-gray-900 placeholder:text-slate-400" placeholder="Enter Title"  {...register(`title${singleSec.num}`, { required: true })} />
+                <input className="w-full p-3 rounded-lg text-white  bg-gray-900 placeholder:text-slate-400" placeholder="Enter Title"  {...register(`title${singleSec.num}`, { required: true })} />
             </Grid>
             <Grid item xs={12} md={6}>
-                <textarea className='w-full p-3 rounded-lg  bg-gray-900 placeholder:text-slate-400' cols="30" placeholder='Enter Description' {...register(`description${singleSec.num}`, { required: true })} rows="6"></textarea>
+                <textarea className='w-full p-3 rounded-lg text-white bg-gray-900 placeholder:text-slate-400' cols="30" placeholder='Enter Description' {...register(`description${singleSec.num}`, { required: true })} rows="6"></textarea>
             </Grid>
             <Grid item xs={12} md={6}>
                 {/* hidden input tags */}

@@ -336,6 +336,10 @@ a {
   color: white;
 }
 
+#choose-category {
+  color: white !important;
+}
+
 .css-11u53oe-MuiSelect-select-MuiInputBase-input-MuiOutlinedInput-input {
   outline-color: white !important;
 }

@@ -226,7 +226,7 @@ const AddBlog = () => {
                 <h2 className=' my-5 text-center text-2xl text-white'>Add tags </h2>
                 <div className='my-5   '>
                     {
-                        watch('tags')?.map((tag, i) => <span className='inline-block mb-2 p-2 border rounded-full mr-2' key={i}>
+                        watch('tags')?.map((tag, i) => <span className='inline-block text-white mb-2 p-2 border rounded-full mr-2' key={i}>
                             #{tag}
                             <IconButton onClick={() => handleDeleteTags(i)} sx={{ p: 0, mx: .5 }}>
                                 <ClearIcon sx={{ fontSize: '20px', color: 'red', p: 0 }}></ClearIcon>
