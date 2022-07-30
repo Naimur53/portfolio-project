@@ -37,7 +37,7 @@ const ChooseDropdown = () => {
     }, [])
     if (loading) {
         return <div className=' flex justify-center items-center'>
-            <CircularProgress color='inherit'></CircularProgress>
+            <CircularProgress sx={{ color: 'white' }} color='inherit'></CircularProgress>
         </div>
 
     }
@@ -111,7 +111,7 @@ const ChooseDropdown = () => {
                 <Grid item xs={12}>
                     {
                         postLoading ? <div className='flex justify-center'>
-                            <CircularProgress color='inherit'></CircularProgress>
+                            <CircularProgress sx={{ color: 'white' }} color='inherit'></CircularProgress>
                         </div> : selected.length ? <button onClick={addToNavigation} className='w-full bg-contentText p-2 text-black rounded-md '>Add To Navigation</button> : <div></div>
                     }
                 </Grid>

@@ -252,7 +252,7 @@ const AddCategory = ({ uniqCategory }) => {
                         >
                             <input onChange={handleThumbnailFile} type="file" accept="image/*" id='thumbnailFile' className="hidden" />
                             {
-                                thumbnailLoading ? <CircularProgress color="inherit"></CircularProgress> : <label htmlFor='thumbnailFile' className="bg-black/[.7] text-white p-2 rounded-md cursor-pointer">Choose Thumbnail</label>
+                                thumbnailLoading ? <CircularProgress sx={{ color: 'white' }} color="inherit"></CircularProgress> : <label htmlFor='thumbnailFile' className="bg-black/[.7] text-white p-2 rounded-md cursor-pointer">Choose Thumbnail</label>
                             }
 
                         </Box>
@@ -267,7 +267,7 @@ const AddCategory = ({ uniqCategory }) => {
                             <div className="absolute pointer-events-none inset-0 flex justify-center items-center">
                                 <input onChange={handlePhotosUpload} type="file" id='url' accept="image/*" className="hidden" multiple={true} />
                                 {
-                                    imgLoading ? <div className='z-10 w-full h-full flex justify-center items-center backdrop-blur-sm'> <CircularProgress color="inherit"></CircularProgress></div> : watch('photos')?.length ? <div></div> : <label htmlFor='url' className="z-10 bg-black/[.7] text-white p-2  rounded-md pointer-events-auto cursor-pointer">Choose Images</label>
+                                    imgLoading ? <div className='z-10 w-full h-full flex justify-center items-center backdrop-blur-sm'> <CircularProgress sx={{ color: 'white' }} color="inherit"></CircularProgress></div> : watch('photos')?.length ? <div></div> : <label htmlFor='url' className="z-10 bg-black/[.7] text-white p-2  rounded-md pointer-events-auto cursor-pointer">Choose Images</label>
                                 }
                             </div>
                             <div className="pr-2">

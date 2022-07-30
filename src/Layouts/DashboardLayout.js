@@ -44,7 +44,7 @@ const DashboardLayout = ({ children, window }) => {
 
     if (loading) {
         return <div className="h-screen items-center flex justify-center">
-            <CircularProgress color='inherit'></CircularProgress>
+            <CircularProgress sx={{ color: 'white' }} color='inherit'></CircularProgress>
         </div>
     }
 

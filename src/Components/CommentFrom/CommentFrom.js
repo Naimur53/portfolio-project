@@ -85,7 +85,7 @@ const CommentFrom = () => {
 
                     {
                         loading ? <div className="flex">
-                            <CircularProgress color="inherit"></CircularProgress>
+                            <CircularProgress sx={{ color: 'white' }} color="inherit"></CircularProgress>
                         </div> : <div onClick={handleClick}>
                             <div className='g-sign-in-button'>
                                 <div className='content-wrapper'>

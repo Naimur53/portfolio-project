@@ -72,7 +72,7 @@ const CategoryCard = ({ admin, i, _id, thumbnail, title, description, categoryNa
             </div>
             {
                 admin && <div className='mt-2'>
-                    {loading ? <CircularProgress /> : <div className=''>
+                    {loading ? <CircularProgress sx={{ color: 'white' }} /> : <div className=''>
                         <button onClick={() => handleDelete()} className='text-red-500 border border-red-500 mr-4 px-4 p-2 mt-2 '>Delete</button>
                         <Link href={'/dashboard/updateCategory/' + _id}>
                             <button className='text-green-500 border border-green-500 mr-4 px-4 p-2 mt-2'>Update</button>

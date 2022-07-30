@@ -54,7 +54,7 @@ const Dashboard = (props) => {
     }, [])
     if (loading) {
         return <div className="flex justify-center">
-            <CircularProgress color="inherit"></CircularProgress>
+            <CircularProgress sx={{ color: 'white' }} color="inherit"></CircularProgress>
         </div>
     }
     return (

@@ -16,7 +16,7 @@ const Login = () => {
     const { user, loading } = useSelector(allData)
     if (loading) {
         return <div className='h-screen flex justify-center items-center'>
-            <CircularProgress color='inherit'></CircularProgress>
+            <CircularProgress sx={{ color: 'white' }}></CircularProgress>
         </div>
     }
 

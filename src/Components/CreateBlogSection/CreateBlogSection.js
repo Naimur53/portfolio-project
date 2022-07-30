@@ -153,7 +153,7 @@ const CreateBlogSection = ({ errors, unregister, handleComplete, setPhotosLoadin
                 >
 
                     {
-                        photosLoading || videoLoading ? <CircularProgress color="inherit"></CircularProgress> : <div>
+                        photosLoading || videoLoading ? <CircularProgress sx={{ color: 'white' }} color="inherit"></CircularProgress> : <div>
                             {
                                 !watch(`video${singleSec.num}`)?.length ? <label className='text-red-500  underline p-4 inline-block  cursor-pointer ' htmlFor={'photosFile' + singleSec.num}>{
                                     watch(`img${singleSec.num}`)?.length ? "Change Images" : "Add Images"
