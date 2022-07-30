@@ -8,7 +8,7 @@ const BlogPageBanner = (props) => {
         <div
             style={
                 {
-                    background: `linear-gradient(to bottom,  rgba(0,0,0,0.6) 0%,rgba(19,19,19,1) 100%),url(${props.default ? "https://demo.themetorium.net/html/agatha/dark/assets/img/headings/heading-10.jpg" : blogDetails.img})`,
+                    background: `linear-gradient(to bottom,  rgba(0,0,0,0.3) 0%,rgba(19,19,19,1) 100%),url(${props.default ? "https://demo.themetorium.net/html/agatha/dark/assets/img/headings/heading-10.jpg" : blogDetails.img})`,
                     backgroundPosition: 'center',
                     backgroundSize: 'cover',
                     backgroundAttachment: 'fixed',
