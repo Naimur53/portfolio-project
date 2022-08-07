@@ -82,7 +82,8 @@ const AddCategory = ({ uniqCategory }) => {
                 });
             })
             .catch(err => {
-                toast.error('Failed to add Category', {
+                console.log(err);
+                toast.error('Failed to add Category, Error message is' + err.message, {
                     position: "bottom-right",
                     autoClose: 5000,
                     hideProgressBar: false,
