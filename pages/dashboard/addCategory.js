@@ -95,6 +95,8 @@ const AddCategory = ({ uniqCategory }) => {
             })
         console.log(data);
         reset();
+
+
     }
     // handle multiple img upload 
     const handleChangeUrl = watch('url')
