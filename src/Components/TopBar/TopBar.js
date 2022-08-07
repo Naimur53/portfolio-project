@@ -25,6 +25,7 @@ import PhoneCollection from './PhoneCollection';
 import { useSelector } from 'react-redux';
 import { allData } from '../../dataSlice/dataSlice';
 import CustomLink from '../SmallComponents/CustomLink';
+import Image from 'next/image';
 const pages = ['home', 'aboutme', 'dashboard', 'blogs',];
 const TopBar = () => {
 
@@ -129,7 +130,7 @@ const TopBar = () => {
                     <span
                         className='w-full border  flex justify-center mb-3 py-2 border-gray-700 rounded-sm hover:border-yellow-300 text-white'
                     >
-                        Stories NL - GB
+                        Blog&apos;s
                     </span>
                 </Link>
 
@@ -167,10 +168,11 @@ const TopBar = () => {
 
                                 }
                             }}
-                            className='flex'
+                            className='flex '
+
 
                         >
-
+                            {/* 
                             <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
                             <Typography
                                 variant="h6"
@@ -187,11 +189,15 @@ const TopBar = () => {
                                     textDecoration: 'none',
                                 }}
                             >
+                            https://i.ibb.co/YjW1ZF3/huisstijl-JBP-1000.png
+https://i.ibb.co/kMjgnHb/huisstijl-JBP-500.png
+https://i.ibb.co/MV6YcKV/huisstijl-JBP-750.png
                                 LOGO
-                            </Typography>
+                            </Typography> */}
+                            <Image width={200} height={200} layout='raw' src="https://i.ibb.co/kMjgnHb/huisstijl-JBP-500.png" alt='logo'></Image>
                         </motion.div>
 
-                        <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+                        <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, justifyContent: 'end' }} >
                             <IconButton
                                 size="large"
                                 aria-label="account of current user"
@@ -213,26 +219,8 @@ const TopBar = () => {
                                 </Box>
                             </Drawer>
                         </Box>
-                        <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-                        <Typography
-                            variant="h5"
-                            noWrap
-                            component="a"
-                            href=""
-                            sx={{
-                                mr: 2,
-                                display: { xs: 'flex', md: 'none' },
-                                flexGrow: 1,
-                                fontFamily: 'monospace',
-                                fontWeight: 700,
-                                letterSpacing: '.3rem',
-                                color: 'inherit',
-                                textDecoration: 'none',
-                            }}
-                        >
-                            LOGO
-                        </Typography>
-                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'end' }}>
+
+                        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'end', }}>
                             <motion.div className=' flex' variants={stagger}  >
                                 <motion.div className='px-5' variants={fadeInUp}
                                 >
@@ -242,19 +230,6 @@ const TopBar = () => {
                                             sx={{ py: 0, color: 'white', display: 'block' }}
                                         >
                                             Home
-                                        </Button>
-                                    </CustomLink>
-
-                                </motion.div>
-
-                                <motion.div className='pr-5' variants={fadeInUp}
-                                >
-                                    <CustomLink href={'/aboutme'}>
-                                        <Button
-
-                                            sx={{ py: 0, color: 'white', display: 'block' }}
-                                        >
-                                            About me
                                         </Button>
                                     </CustomLink>
 
@@ -270,6 +245,19 @@ const TopBar = () => {
                                     </Button>
                                     <Collection data={collection}></Collection>
                                 </motion.div>
+                                <motion.div className='pr-5' variants={fadeInUp}
+                                >
+                                    <CustomLink href={'/aboutme'}>
+                                        <Button
+
+                                            sx={{ py: 0, color: 'white', display: 'block' }}
+                                        >
+                                            About me
+                                        </Button>
+                                    </CustomLink>
+
+                                </motion.div>
+
                                 <motion.div className='pr-5' variants={fadeInUp}
                                 >
                                     <CustomLink href={'/category'}>
@@ -289,7 +277,7 @@ const TopBar = () => {
 
                                             sx={{ py: 0, color: 'white', display: 'block' }}
                                         >
-                                            Stories NL - GB
+                                            Blog&apos;s
                                         </Button>
                                     </CustomLink>
 

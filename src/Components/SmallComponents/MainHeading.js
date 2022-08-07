@@ -12,7 +12,7 @@ const MainHeading = ({ title }) => {
                     y: 0,
                     transition: { ease: [0.455, 0.03, 0.515, 0.955], duration: 0.85 }
                 }}
-                className=' font-family-Helvetica font-thin text-heading'>{title}</motion.h2>
+                className=' font-family-Helvetica font-thin text-heading text-center'>{title}</motion.h2>
         </div >
     );
 };

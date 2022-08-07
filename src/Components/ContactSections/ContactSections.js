@@ -14,7 +14,7 @@ const ContactSections = () => {
             <AnimatePresence>
 
                 {
-                    !(scrollValue >= 9.9) ? <ContactMe></ContactMe> : <Container>
+                    !(scrollValue >= 4.5) ? <ContactMe></ContactMe> : <Container>
                         <motion.div initial={{ opacity: 0 }} exit={'initial'} animate={{ opacity: 1 }}>
 
                             <Footer></Footer>

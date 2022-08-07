@@ -74,7 +74,7 @@ const Footer = () => {
                     </Grid>
                     <div className='mt-5 relative '>
 
-                        <Image alt='brand images' objectFit='contain' width={1000} height={100} priority layout='responsive' src='https://i.ibb.co/vk9RfDF/image004.jpg'></Image>
+                        <Image alt='brand images' objectFit='contain' width={1000} height={100} priority layout='responsive' src='https://i.ibb.co/8g0H8R9/Footer-image-1.jpg'></Image>
                     </div>
                 </Grid>
                 <Grid item xs={12} md={6}>

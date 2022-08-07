@@ -2,7 +2,6 @@ import { Container, Grid } from '@mui/material';
 import { useRouter } from 'next/router';
 import React from 'react';
 import { motion } from 'framer-motion'
-import MainHeading from '../SmallComponents/MainHeading';
 import MgButton from '../SmallComponents/MgButton';
 import HomeBlogImages from './HomeBlogImages';
 import HeadingText from '../AboutMe/HeadingText';

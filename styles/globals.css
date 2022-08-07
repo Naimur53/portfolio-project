@@ -78,7 +78,7 @@
 
 @font-face {
   font-family: 'Helvetica';
-  src: url('/font/HelveticaNeueLTCom-Th');
+  src: url('/font/Helvetica Neue Medium Extended');
   font-style: medium;
   font-weight: normal;
   font-display: swap;
@@ -86,17 +86,26 @@
 
 @font-face {
   font-family: 'Helvetica';
-  src: url('/font/Helvetica Neue W01 87 Hv Cn Obl.ttf');
+  src: url('/font/HelveticaNeueLTCom-Th.ttf');
   font-style: medium;
   font-weight: bold;
   font-display: swap;
 }
+
 
 @font-face {
   font-family: 'Helvetica';
   src: url('/font/Helvetica Neue UltraLight.ttf');
   font-style: medium;
   font-weight: 100;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Helvetica';
+  src: url('/font/HelveticaNeueLTCom-Th.ttf');
+  font-style: medium;
+  font-weight: 400;
   font-display: swap;
 }
 
@@ -130,7 +139,7 @@ a {
 }
 
 .font-family-roboto {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Helvetica', sans-serif;
 }
 
 .font-family-Helvetica {
@@ -139,7 +148,8 @@ a {
 }
 
 .font-family-allerta {
-  font-family: 'Megrim';
+  font-family: 'Helvetica', sans-serif;
+  letter-spacing: 0.05em;
 }
 
 /* preloader  */

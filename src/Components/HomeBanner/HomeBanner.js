@@ -57,7 +57,7 @@ const HomeBanner = ({ innerRoute }) => {
 
                         >
 
-                            <Image className='w-full' width={400} height={400} priority layout='raw' src='https://i.ibb.co/thLdxj3/Nikon-D5.png' alt='john photo' ></Image>
+                            <Image className='w-full' width={400} height={400} priority layout='raw' src='https://i.ibb.co/V91Rhq8/20220806-Nikon-D5.png' alt='john photo' ></Image>
                         </motion.div>
                     </Grid>
                 </Grid>

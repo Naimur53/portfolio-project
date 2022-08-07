@@ -28,7 +28,7 @@ const Comments = ({ data, small }) => {
                             !small && <hr className='border-gray-800' />
                         }
 
-                        <div className={`${small ? 'mt-2 text-sm' : 'mt-5'} text-contentText`}>
+                        <div className={`${small ? 'mt-2 text-sm' : 'mt-5'} text-subTitles text-xl`}>
                             <p>{small ? data.comment?.slice(0, 100) : data.comment}</p>
                         </div>
                     </div>

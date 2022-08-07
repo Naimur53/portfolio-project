@@ -4,12 +4,21 @@ import React from 'react';
 const AboutQuote = () => {
     const qoutes = ['Photography is a profession.Not everyone with a camera is a photographer.', 'It is not the camera that takes the photo, it is the vision of the person behind the camera.', 'Take the photo that you had in mind.The real photographer doesn’t like lucky shots.', 'Today’s shot is better than the one yesterday.That’s why i love tomorrow']
     return (
-        <div className='overflow-hidden h-full glass-bg  '>
+        <div className='overflow-hidden h-full '>
             <Container>
                 <div className='py-10 mb-5 text-center'>
                     {/* <DescriptionText text=""></DescriptionText> */}
-                    <h1 className='text-4xl font-thin font-family-Helvetica'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit</h1>
-                    <h2 className='text-xl mt-2  font-family-roboto text-subTitles'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta tempora nobis non quaerat autem.  </h2>
+                    <h1 className='text-4xl font-thin font-family-Helvetica text-center'> My deeply rooted statements</h1>
+                    <h1 className='text-4xl font-thin font-family-Helvetica text-center mt-2'>They are not empty sayings for the sake of good cheer.
+                    </h1>
+                    <h2 className='text-xl mt-5   font-family-roboto text-contentText'>
+                        My statements are based on the more than 40 years of experience.
+                        <br />
+                        They are not empty phrases. Behind every statement there is an experience that I am
+                        <br />
+                        happy to explain and discuss when asked.
+
+                    </h2>
                 </div>
                 <Grid container spacing={4} className=' '>
                     {

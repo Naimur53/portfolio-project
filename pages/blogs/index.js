@@ -9,24 +9,26 @@ const Blogs = ({ blogs }) => {
     console.log(blogs);
     return (
 
-        <div >
+        <div className='bg-cover' style={{ backgroundImage: 'url(https://i.ibb.co/n7xmh1M/NEW-Background.jpg)', minHeight: '100vh' }} >
             <Head title='John Blogs'></Head>
             <BlogPageBanner default></BlogPageBanner>
-            <Container maxWidth='lg' className='bg-transparent-black flex flex-col justify-center items-center   py-10'>
-                <Grid container sx={{
+            <Container maxWidth='lg' className=' flex flex-col justify-center items-center   py-10'>
+                {/* <Grid container sx={{
                     flexDirection: { xs: 'column-reverse', md: 'row' }
                 }} spacing={2}>
                     <Grid item xs={12} md={4}>
                         <BlogLeft></BlogLeft>
                     </Grid>
                     <Grid item xs={12} md={8}>
-                        <Grid container spacing={4}>
-                            {
-                                blogs?.map((singleBlog, i) => <Grid item key={singleBlog._id} xs={12} md={4}><BlogCard index={i} {...singleBlog}></BlogCard></Grid>)
-                            }
-                        </Grid>
+                        
                     </Grid>
 
+                </Grid> */}
+                <Grid container spacing={4}>
+
+                    {
+                        blogs?.map((singleBlog, i) => <Grid item key={singleBlog._id} xs={12} md={4}><BlogCard index={i} {...singleBlog}></BlogCard></Grid>)
+                    }
                 </Grid>
             </Container>
         </div>

@@ -9,6 +9,7 @@ import AboutTextArea from '../src/Components/AboutPages/AboutTextArea';
 import Footer from '../src/Components/AboutPages/Footer';
 import Middle from '../src/Components/AboutPages/Middle';
 import MiddleVideo from '../src/Components/AboutPages/MiddleVideo';
+import ParallaxLayerBackground from '../src/Components/ParallaxLayerBackground/ParallaxLayerBackground';
 import { addScrollValue, allData } from '../src/dataSlice/dataSlice';
 
 const Aboutme = () => {
@@ -65,12 +66,22 @@ const Aboutme = () => {
 
                 <AboutTextArea></AboutTextArea>
             </ParallaxLayer>
+            <ParallaxLayerBackground
+                offset={1}
+                speed={.5}
+                url='https://i.ibb.co/n7xmh1M/NEW-Background.jpg'
+                style={{ zIndex: '-1' }}
+            />
+            <ParallaxLayerBackground
+                offset={5}
+                speed={.5}
+                url='https://i.ibb.co/n7xmh1M/NEW-Background.jpg'
+                style={{ zIndex: '-1' }}
+            />
             <ParallaxLayer
                 offset={5}
                 speed={.5}
             >
-
-
                 <AboutQuote></AboutQuote>
             </ParallaxLayer>
             <ParallaxLayer
@@ -84,6 +95,12 @@ const Aboutme = () => {
                     <Footer></Footer>
                 </Container>
             </ParallaxLayer>
+            <ParallaxLayerBackground
+                offset={6}
+                speed={.5}
+                url='https://i.ibb.co/n7xmh1M/NEW-Background.jpg'
+                style={{ zIndex: '-1' }}
+            />
 
 
 

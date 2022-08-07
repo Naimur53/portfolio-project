@@ -18,16 +18,16 @@ const AboutBanner = () => {
     }
     return (
         <Box className='font-family-Helvetica '>
-            <div className='inline-block overflow-hidden'>
+            <div className='  overflow-hidden'>
 
                 <motion.h1
                     initial='initial'
                     animate='animate'
                     exit='initial'
                     variants={leftIn}
-                    className='mb-5 text-2xl font-light font-family-mono'>I&apos;m John</motion.h1>
+                    className='mb-5 text-5xl font-light text-center font-family-mono'>I am John</motion.h1>
             </div>
-            <div className='text-5xl'>
+            <div className='text-5xl text-center'>
 
                 <MainHeading title='TODAY&apos;S SHOT IS BETTER THAN YESTERDAYS.'></MainHeading>
             </div>

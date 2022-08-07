@@ -12,12 +12,15 @@ const AboutTextArea = () => {
 
     }, [scrollValue])
     return (
-        <div className='overflow-hidden mt-10 h-full glass-bg '>
+        <div className='overflow-hidden mt-10 h-full  '>
             <Container className='h-full'>
-                <div className='py-10 mb-5 text-center'>
+                <div className='py-10 mb-5 text-center px-20'>
                     {/* <DescriptionText text=""></DescriptionText> */}
-                    <h1 className='text-4xl font-thin font-family-Helvetica '>MORE THAN 40 YEARS EVERY DAY LOOKING FOR PERFECTION</h1>
-                    <h2 className='text-xl mt-2  font-family-roboto text-subTitles'>Every situation is different. Light fascinates me. I want to take it with me. Freeze and cherish the moment. </h2>
+                    <h1 className='text-4xl font-thin text-center font-family-Helvetica '>MORE THAN 40 YEARS EVERY DAY LOOKING FOR PERFECTION</h1>
+                    <div className='flex justify-center'>
+
+                        <h2 className='text-xl mt-3 w-1/2 text-center  font-family-roboto text-contentText'>Every situation is different. Light fascinates me. I want to take it with me. Freeze and cherish the moment. </h2>
+                    </div>
                 </div>
                 {/* <motion.h2
                 initial={{
@@ -34,7 +37,18 @@ const AboutTextArea = () => {
                     <Grid item xs={12} md={6}>
                         <div className='font-light'>
                             <h1 className='text-3xl mb-4 text-heading font-thin font-family-Helvetica  '>  Always Searching For The Shot</h1>
-                            <p className='text-xl text-subTitles'>I am always looking for the right camera angle. To find that, no trouble is too much for me. I see no obstacle in anything. I only have one goal; Creating capturing images.</p>
+                            <p className='text-xl text-subTitles'>
+                                I am always looking for the right camera angle.
+                                <br />
+                                To find that, no trouble is too much for me.
+                                <br />
+                                I see no obstacle in anything.
+                                <br />
+                                I only have one goal.
+                                <br />
+                                Creating and capturing images.
+
+                            </p>
                         </div>
 
 
@@ -43,7 +57,12 @@ const AboutTextArea = () => {
                         <div className='font-light'>
                             <h1 className='text-3xl mb-4 text-heading font-thin font-family-Helvetica'> John Baggen (1958)
                             </h1>
-                            <p className='text-xl   text-subTitles'>ince 1979 I have been an independent photographer. When I am home, advertising and industrial photography are my fields of work. But as soon as I get on a plane, the travel photographer comes to mind. Making cultures visible worldwide gives an awareness. This awareness is the engine for mutual respect. Certainly in a time when mutual respect and tolerance are drowned out by populist sounds.</p>
+                            <p className='text-xl   text-subTitles'>
+                                I have been a self-employed photographer since 1977. When I&apos;m at home, advertising and industrial photography are my areas of work. But as soon as I get on a journey, the social anthropological photographer comes to life. Making cultures visible worldwide creates an awareness. This awareness is the engine of mutual respect. Especially in a time when mutual respect and tolerance are drowned out by populist noises.
+                                <br />
+                                I want to photograph that which we may fear we will not find in ten or fifteen years&apos; time. I do it for the world and my children and grandchildren.
+
+                            </p>
                         </div>
 
 

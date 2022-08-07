@@ -38,7 +38,7 @@ export default function Home() {
       <Head
         title="John Baggen"
       ></Head>
-      <Parallax ref={parallaxRef} pages={11}>
+      <Parallax ref={parallaxRef} pages={6}>
         <ParallaxLayer
           offset={0}
           speed={.1}  >
@@ -53,10 +53,7 @@ export default function Home() {
             className="banner-wrap h-full w-full">
             <div className='w-full flex h-full items-end   '>
               <div className="relative w-full">
-
-
                 <Image className='w-full mt-15  ' src='https://i.ibb.co/0cjqwrp/GRID-for-movement-on-background-5.png' width={700} height={100} alt='background web' priority layout='raw'></Image>
-
                 <motion.div
                   className=' absolute inset-0'
                   style={{ background: 'rgba(0,0,0,.9)' }}
@@ -72,8 +69,6 @@ export default function Home() {
 
                 </motion.div>
               </div>
-
-
             </div>
           </div>
         </ParallaxLayer >
@@ -86,12 +81,13 @@ export default function Home() {
         <ParallaxLayerBackground
           offset={1}
           speed={.1}
+          url='https://i.ibb.co/n7xmh1M/NEW-Background.jpg'
           style={{ zIndex: '-1' }}
         />
         <ParallaxLayer
           offset={2}
           speed={.5}
-          sticky={{ start: 2, end: 4 }}
+          sticky={{ start: 2, end: 3 }}
         >
           <AboutMe innerRoute={innerRoute}></AboutMe>
         </ParallaxLayer>
@@ -105,21 +101,21 @@ export default function Home() {
           speed={.5}
           style={{ zIndex: '-1' }}
         />
-        <ParallaxLayerBackground
+        {/* <ParallaxLayerBackground
           offset={4}
           speed={.5}
           style={{ zIndex: '-1' }}
-        />
+        /> */}
 
-        <ParallaxLayer
+        {/* <ParallaxLayer
           offset={5}
           factor={1.3}
           speed={.5}
         >
           <HomeCategory></HomeCategory>
-        </ParallaxLayer>
+        </ParallaxLayer> */}
 
-        <ParallaxLayer
+        {/* <ParallaxLayer
           offset={6}
           speed={5}
           sticky={{ start: 6, end: 8 }}
@@ -133,9 +129,9 @@ export default function Home() {
             <div  ></div>
             <div  ></div>
           </div>
-        </ParallaxLayer>
+        </ParallaxLayer> */}
         <ParallaxLayerBackground
-          offset={9}
+          offset={4}
           speed={.5}
           style={{ zIndex: '-1' }}
         />
@@ -152,9 +148,9 @@ export default function Home() {
           <ContactMe></ContactMe>
         </ParallaxLayer> */}
         <ParallaxLayer
-          offset={9}
+          offset={4}
           speed={.3}
-          sticky={{ start: 9, end: 10 }}
+          sticky={{ start: 4, end: 5 }}
           style={{
             display: 'flex',
             justifyContent: 'center',
@@ -166,8 +162,8 @@ export default function Home() {
         </ParallaxLayer>
 
         <ParallaxLayerBackground
-          offset={10}
-          speed={.1}
+          offset={5}
+          speed={.3}
           style={{ zIndex: '-1' }}
         />
 

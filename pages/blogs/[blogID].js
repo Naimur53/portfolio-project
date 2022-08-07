@@ -13,19 +13,20 @@ const SingleBlog = () => {
     const { blogDetails } = useSelector(allData);
     const dispatch = useDispatch();
     return (
-        <div >
+        <div className='bg-cover' style={{ backgroundImage: 'url(https://i.ibb.co/n7xmh1M/NEW-Background.jpg)', minHeight: '100vh' }}>
             <Head title={blogDetails.heading?.slice(0, 20)} keywords={blogDetails.tags}></Head>
             <BlogPageBanner></BlogPageBanner>
-            <Container className='bg-transparent-black overflow-hidden flex flex-col justify-center items-center  py-10'>
-                <Grid container className='md:flex-row flex-col-reverse w-full' spacing={2}>
+            <Container className='  overflow-hidden flex flex-col justify-center items-center  py-10'>
+                {/* <Grid container className='md:flex-row flex-col-reverse w-full' spacing={2}>
                     <Grid xs={12} md={4}>
                         <BlogLeft></BlogLeft>
                     </Grid>
                     <Grid xs={12} md={8}>
-                        <BlogRight></BlogRight>
+                       
                     </Grid>
 
-                </Grid>
+                </Grid> */}
+                <BlogRight></BlogRight>
             </Container>
         </div>
     );

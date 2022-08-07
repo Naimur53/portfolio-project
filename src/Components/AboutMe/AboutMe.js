@@ -20,27 +20,29 @@ const AboutMe = ({ innerRoute }) => {
     useEffect(() => {
         console.log(currentValue);
         if (currentValue >= 4) {
-            setValue({ content5: true, content6: true })
+            setValue({ content6: true, content5: true })
+
         }
         else if (currentValue >= 3.5) {
-            setValue({ content5: true })
+            setValue({ content6: true, content5: true })
         }
         else if (currentValue >= 3) {
-            setValue({ content4: true })
+            setValue({ content5: true })
 
         }
         else if (currentValue >= 2.5) {
+            setValue({ content4: true })
 
-            setValue({ content3: true, })
         }
-        else if (currentValue >= 2.1) {
-            setValue({ content2: true, })
+        else if (currentValue >= 2.2) {
+            setValue({ content3: true, })
+            // setValue({ content2: true, })
         }
         else {
             setValue({ content1: true, })
         }
-        if (currentValue < 3.5) {
-            setProgress((currentValue - 2) * 72)
+        if (currentValue <= 4) {
+            setProgress((currentValue - 2) * 110)
 
         }
     }, [currentValue])
@@ -162,7 +164,7 @@ const AboutMe = ({ innerRoute }) => {
                         <div className=' p-10 bg-red- 50 2xl:mb-40'>
                             <div className='flex flex-col h-full  relative justify-center'>
                                 <RightContent isVisible={value.content1} url='https://i.ibb.co/BtbKgFL/20190320-WEST-AFRICA-FROM-GUNJUR-TO-BASSE-2964-2.jpg'></RightContent>
-                                <RightContent isVisible={value.content2} url='https://i.ibb.co/DCSnXLn/photo-1605379399642-870262d3d051-2-1.jpg'></RightContent>
+                                {/* <RightContent isVisible={value.content2} url='https://i.ibb.co/DCSnXLn/photo-1605379399642-870262d3d051-2-1.jpg'></RightContent> */}
                                 <RightContent isVisible={value.content3} url='https://i.ibb.co/60JhsKh/20190320-SABATY-YAYA-BAYO-THE-DOCUMENTARY-008-9-1.jpg'></RightContent>
                                 <RightContent isVisible={value.content4} url='https://i.ibb.co/ByV09Fk/20191118-MOROCCO-DESERT-108-1-2-1.jpg'></RightContent>
                             </div>
@@ -173,32 +175,27 @@ const AboutMe = ({ innerRoute }) => {
                                     <div className='  h-16  overflow-hidden  '>
 
                                         <HeadingText title='Nikon Photographer' isVisible={value.content1}></HeadingText>
-                                        <HeadingText title='Web designer' isVisible={value.content2}></HeadingText>
+                                        {/* <HeadingText title='Web designer' isVisible={value.content2}></HeadingText> */}
                                         <HeadingText title='Film Maker' isVisible={value.content3}></HeadingText>
-                                        <HeadingText title='Curious  Traveler' isVisible={value.content4}></HeadingText>
+                                        <HeadingText title='Global friendships' isVisible={value.content4}></HeadingText>
                                     </div>
-                                    <div className=' h-30 md:h-28 mt-2 md:mt-0 text-gray-300 overflow-hidden  '>
+                                    <div className=' h-30 md:h-32 mt-2 md:mt-0 text-gray-300 overflow-hidden  '>
                                         <MiddleContent
                                             isVisible={value.content1}
-                                            text='Lorem ipsum, dolor sit amet consectetur adipisicing elit. Asperiores nihil earum consectetur ipsum, nobis deserunt blanditiis dolorem? Obcaecati in accusantium facere blanditiis, praesentium ab maiores tempore nam amet ipsam explicabo.'
-
-
-                                        ></MiddleContent>
-                                        <MiddleContent
-                                            isVisible={value.content2}
-                                            text='hi arum consectetur ipsum, nobis deserunt blanditiis dolorem? Obcaecati in accusantium facere blanditiis, praesentium ab maiores tempore nam amet ipsam explicabo.'
+                                            text={`People often ask me, "John, I'd like to buy a new camera. What do you recommend? I then explain to them that it doesn't matter which camera they buy. It is not the camera that takes the picture but the man or woman holding it. It is the vision of the photographer, the way he or she controls the light and the passion with which he or she photographs. 
+                                            `}
 
 
                                         ></MiddleContent>
                                         <MiddleContent
                                             isVisible={value.content3}
-                                            text='A filmmaker is in charge of making, leading, and developing movie productions. It is a career that allows an individual to use their leadership as well as creative thinking skills to lead and direct major motion pictures or made-for-television films.
-                                    '
+                                            text={`Sometimes film is just a little stronger than photography. You can show everything more in their context. That's when I deploy my Nikon as a film camera. I greatly enjoy making short films of the subjects I get in front of my lens in addition to photography. 
+                                            `}
+
                                         ></MiddleContent>
                                         <MiddleContent
                                             isVisible={value.content4}
-                                            text='Travel is the movement of people between distant geographical locations. Travel can be done by foot, bicycle, automobile, train, boat, bus, airplane, ship or other means, with or without luggage, and can be one way or round trip
-                                    '
+                                            text={`During our travels we make many friendships. People in the often very remote village usually do not speak those languages that I myself master. Therefore, we always look for someone who knows the region and speaks not only the regional language but also, for example, English.`}
                                         ></MiddleContent>
 
                                     </div>
