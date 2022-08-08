@@ -8,16 +8,15 @@ import Link from 'next/link';
 import CategorySingleImg from '../../src/Components/CategorySingleImg/CategorySingleImg';
 import CategoryLayout from '../../src/Components/CategoryLayout/CategoryLayout';
 
-const CategoryDetails = ({ data }) => {
+const CategoryDetails = ({ data, error }) => {
     const router = useRouter()
+
     useEffect(() => {
-        if (!data._id && !data.categoryName) {
+        if (error) {
             router.push('/404')
-            return
+
         }
-
-    }, [data, router])
-
+    }, [error, router])
 
     return (
         <motion.div initial={{
@@ -59,7 +58,7 @@ const CategoryDetails = ({ data }) => {
                             }} className='text-6xl font-family-Helvetica text-center '>
 
                             {
-                                data.subCategory ? <span>{data.categoryName} - {data.subCategory}</span> : <span>{data.categoryName}</span>
+                                data?.subCategory ? <span>{data?.categoryName} - {data?.subCategory}</span> : <span>{data?.categoryName}</span>
                             }
                         </motion.h2>
                     </div>
@@ -68,20 +67,20 @@ const CategoryDetails = ({ data }) => {
             <div className='bg-cover' style={{ backgroundImage: 'url(https://i.ibb.co/n7xmh1M/NEW-Background.jpg)' }}>
                 <Container>
                     <div className='text-center my-20 py-5'>
-                        <h2 className='text-4xl mb-5 mt-5 text-heading'>{data.title}</h2>
+                        <h2 className='text-4xl mb-5 mt-5 text-heading'>{data?.title}</h2>
                         <p className='text-contentText'>
-                            {data.description}
+                            {data?.description}
                         </p>
                     </div>
                     <div className='relative overflow-hidden'>
                         <Grid container spacing={0}>
                             {
                                 [1, 2, 3, 4].map((element, i) => {
-                                    const len = data.photos?.length / 4;
+                                    const len = data?.photos?.length / 4;
 
                                     return <Grid key={i} item md={3} >
                                         {
-                                            data.photos?.slice(len * i, len * element).map((res, i) => <CategorySingleImg allImage={data} elementNum={element} key={res} url={res} index={i}></CategorySingleImg>)
+                                            data?.photos?.slice(len * i, len * element).map((res, i) => <CategorySingleImg allImage={data} elementNum={element} key={res} url={res} index={i}></CategorySingleImg>)
                                         }
                                     </Grid>
                                 })
@@ -100,10 +99,20 @@ export default CategoryDetails;
 export async function getServerSideProps({ params }) {
     const res = await fetch(`https://stark-atoll-95180.herokuapp.com/singleCategory?id=${params.id}`)
     const data = await res.json();
-    return {
-        props: {
-            data,
-        },
-    };
+    console.log(data);
+    if (!data) {
+        return {
+            props: {
+                error: true
+            }
+        }
+    } else {
+
+        return {
+            props: {
+                data,
+            },
+        };
+    }
 
 }

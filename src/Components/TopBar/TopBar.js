@@ -23,18 +23,23 @@ import useSWR from 'swr'
 import fetcher from '../../util/fatcher';
 import PhoneCollection from './PhoneCollection';
 import { useSelector } from 'react-redux';
-import { allData } from '../../dataSlice/dataSlice';
+import { addCollection, allData } from '../../dataSlice/dataSlice';
 import CustomLink from '../SmallComponents/CustomLink';
 import Image from 'next/image';
+import { useDispatch } from 'react-redux';
 const pages = ['home', 'aboutme', 'dashboard', 'blogs',];
 const TopBar = () => {
 
     const [open, setOpen] = useState(null);
     const { collection, user } = useSelector(allData)
-    // const { data, error } = useSWR(
-    //     "https://stark-atoll-95180.herokuapp.com/chooseMenu",
-    //     fetcher
-    // );
+    const dispatch = useDispatch()
+    const { data, error } = useSWR(
+        "https://stark-atoll-95180.herokuapp.com/chooseMenu",
+        fetcher
+    );
+    useEffect(() => {
+        dispatch(addCollection(data))
+    }, [data])
     const handleOpenNavMenu = (event) => {
         setOpen(!open);
     };
