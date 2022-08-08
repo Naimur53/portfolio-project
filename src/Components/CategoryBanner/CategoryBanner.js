@@ -3,7 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion'
 const CategoryBanner = () => {
     return (
-        <Box className='flex justify-center  bg-center pb-5 mt-10 '>
+        <Box className='flex justify-center   bg-center pb-5 mt-10 '>
             <div className=' text-center inline-block   wrap '>
                 <Box sx={{ fontSize: { md: "200px", xs: '70px' } }} className='word relative font-bold'>GALLERY
 
@@ -14,6 +14,7 @@ const CategoryBanner = () => {
 
 
             </div>
+
 
         </Box>
     );

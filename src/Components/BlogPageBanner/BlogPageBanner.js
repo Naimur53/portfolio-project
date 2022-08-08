@@ -38,21 +38,38 @@ const BlogPageBanner = (props) => {
                                 Funny stories, serious experience, <br />
                                 photographic topics, <br />
                                 you can find them all on my blog page.
-                            </motion.h1> : <motion.h1
-                                exit={{
-                                    y: '100%'
-                                }}
-                                initial={{
-                                    y: '100%'
-                                }}
-                                animate={{
-                                    y: 0,
-                                    transition: { duration: .7, }
-                                }} className='text-xl md:text-3xl text-center font-family-mono font-thin'>
-                                {
-                                    blogDetails.heading
-                                }
-                            </motion.h1>
+                            </motion.h1> : <div>
+                                <motion.h1
+                                    exit={{
+                                        y: '100%'
+                                    }}
+                                    initial={{
+                                        y: '100%'
+                                    }}
+                                    animate={{
+                                        y: 0,
+                                        transition: { duration: .7, }
+                                    }} className='text-xl md:text-3xl text-center text-heading font-family-mono font-thin'>
+                                    {
+                                        blogDetails.heading
+                                    }
+                                </motion.h1>
+                                <motion.h2
+                                    exit={{
+                                        y: '100%'
+                                    }}
+                                    initial={{
+                                        y: '100%'
+                                    }}
+                                    animate={{
+                                        y: 0,
+                                        transition: { duration: .7, }
+                                    }} className='text-xl text-center text-subTitles font-family-mono font-thin'>
+                                    {
+                                        blogDetails.address
+                                    }
+                                </motion.h2>
+                            </div>
                         }
 
                     </div>

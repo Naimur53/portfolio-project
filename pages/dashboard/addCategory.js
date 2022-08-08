@@ -83,15 +83,28 @@ const AddCategory = ({ uniqCategory }) => {
             })
             .catch(err => {
                 console.log(err);
-                toast.error('Failed to add Category, Error message is' + err.message, {
-                    position: "bottom-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
+                if (e.response?.data?.error === 'UnAuthorize') {
+
+                    toast.error('UnAuthorize try to reload or re-login to the site ' + e.message, {
+                        position: "bottom-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
+                } else {
+                    toast.error('Something bad happened when add category' + e.message, {
+                        position: "bottom-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
+                }
             })
         console.log(data);
         reset();

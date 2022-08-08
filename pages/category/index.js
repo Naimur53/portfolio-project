@@ -8,14 +8,14 @@ import Footer from '../../src/Components/AboutPages/Footer';
 const AllCategory = ({ data }) => {
     return (
         <>
-            <CategoryBanner></CategoryBanner>
 
+            <CategoryBanner></CategoryBanner>
             <Container>
-                <div className="flex justify-center ">
-                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className='  w-1/2 mb-10'>
+                <div className="flex justify-center pl-4 md:pl-40">
+                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className='  text-left mb-10'>
                         <h2 className='font-family-Helvetica mb-3 text-5xl text-heading font-thin'>May I asked you to take time</h2>
-                        <h4 className='text-2xl mt-5 mb-6'>I don&apos;t like The Swiper</h4>
-                        <p>I have taken the time to take my photos. I did it with passion and endless patience. May I also ask you to take the time to look at my work. Preferably not on your smart phone but if it can’t be otherwise … Try to become one with the image and feel what happened when I took the photo.</p>
+                        <h4 className='text-2xl font-thin text-subTitles mt-5 mb-6'>I don&apos;t like The Swiper</h4>
+                        <p className='font-thin text-xl text-contentText'>I have taken the time to take my photos. I did it with passion and endless patience. May I also ask you to take the time to look at my work. Preferably not on your smart phone but if it can’t be otherwise … Try to become one with the image and feel what happened when I took the photo.</p>
                     </motion.div>
                 </div>
                 <Grid container spacing={2}>

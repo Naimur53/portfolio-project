@@ -15,7 +15,7 @@ const ParallaxLayerBackground = ({ offset, url, speed, style }) => {
         >
             <div
                 style={{
-                    backgroundImage: url ? `url(${url})` : 'url(https://i.ibb.co/RDC3Vh4/e-Ugu-V6-Yo-2.png)'
+                    backgroundImage: url ? `url(${url})` : 'url(https://i.ibb.co/n7xmh1M/NEW-Background.jpg)'
 
                 }}
                 className="banner-wrap bg-cover h-full w-full">

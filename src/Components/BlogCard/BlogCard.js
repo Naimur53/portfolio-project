@@ -22,39 +22,49 @@ const BlogCard = ({ _id, heading, index, description, img, love, comment, date, 
     }
     const [loading, setLoading] = useState(false);
     return (
-        <CustomLink href={`/blogs/${_id}`}>
+        <div>
 
-            <motion.div variants={pop} initial='initial' exit='initial' animate='animate' className={`font-family-mono blog-single-card-wrap ${loading ? 'grayscale' : ''}`}>
-                <div data-aos="fade-up">
-                    <div className='flex flex-col  '>
-                        <div className='relative border border-white'>
+            <CustomLink href={`/blogs/${_id}`}>
 
-                            {
-                                img && <Image height={314} width={230} layout="raw"
-                                    className='w-full' src={img} alt={heading} />
-                            }
-                            {/* <div className='absolute bg-black top-0 px-3 py-1 mt-3'>
+                <motion.div variants={pop} initial='initial' exit='initial' animate='animate' className={`font-family-mono blog-single-card-wrap ${loading ? 'grayscale' : ''}`}>
+                    <div data-aos="fade-up">
+                        <div className='flex flex-col  '>
+                            <div className='relative border border-white'>
+
+                                {
+                                    img && <Image height={314} width={230} layout="raw"
+                                        className='w-full' src={img} alt={heading} />
+                                }
+                                {/* <div className='absolute bg-black top-0 px-3 py-1 mt-3'>
                                 <h2 className='text-subTitles py-0 '>{address}</h2>
                             </div> */}
-                        </div>
-                        <div>
-                            {/* <span className=' pt-2 text-contentText  flex items-center'><EventAvailableIcon fontSize='small'></EventAvailableIcon><span className='ml-2  text-[16px]'>{new Date(date).toDateString()}</span></span> */}
+                            </div>
+                            <div>
+                                {/* <span className=' pt-2 text-contentText  flex items-center'><EventAvailableIcon fontSize='small'></EventAvailableIcon><span className='ml-2  text-[16px]'>{new Date(date).toDateString()}</span></span> */}
 
-                            <span className='uppercase cursor-pointer   text-2xl  text-heading font-family-mono  hover:text-white'>{heading}</span>
+                                <span className=' text-subTitles cursor-pointer block text-xl mt-2  text-heading font-family-mono  hover:text-white'>{heading}</span>
+                            </div>
                         </div>
+
+
                     </div>
+                </motion.div>
+            </CustomLink>
+            {
+                admin && <div>
                     {
-                        admin && <div>
-                            {
-                                !loading && <button onClick={() => handleDelete(_id, setLoading)} className='bg-red-500 mt-5 p-2 rounded-md px-5'>Delete</button>
-                            }
+                        !loading && <div>
+                            <button onClick={() => handleDelete(_id, setLoading)} className='border border-red-500 mr-4 mt-5 p-2 rounded-md px-5'>Delete</button>
+                            <button className='border  border-green-500 mt-5 p-2 rounded-md px-5 l'>
+
+                                <CustomLink href={`/dashboard/allBlogs/${_id}`}> Update</CustomLink>
+                            </button>
                         </div>
                     }
-
-
                 </div>
-            </motion.div>
-        </CustomLink>
+            }
+
+        </div >
     );
 };
 

@@ -29,6 +29,7 @@ import CategoryIcon from '@mui/icons-material/Category';
 import AddTaskIcon from '@mui/icons-material/AddTask';
 import HomeIcon from '@mui/icons-material/Home';
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 const DashboardLayout = ({ children, window }) => {
     const [mobileOpen, setMobileOpen] = useState(false);
@@ -223,8 +224,7 @@ const DashboardLayout = ({ children, window }) => {
             >
                 <Toolbar>
                     <Box sx={{ flexGrow: 1 }}>
-                        {/* <img src="https://i.ibb.co/n8Wp01q/web-logo.png" width="120" alt="weblogo" /> */}
-                        <h2 className="text-3xl">MR.John logo</h2>
+                        <Image width={200} height={200} layout='raw' src="https://i.ibb.co/kMjgnHb/huisstijl-JBP-500.png" alt='logo'></Image>
 
                     </Box>
                     <Typography sx={{ display: { xs: "none", md: "block" } }}>

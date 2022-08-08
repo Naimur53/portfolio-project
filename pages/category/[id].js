@@ -66,8 +66,8 @@ const CategoryDetails = ({ data, error }) => {
             </Box>
             <div className='bg-cover' style={{ backgroundImage: 'url(https://i.ibb.co/n7xmh1M/NEW-Background.jpg)' }}>
                 <Container>
-                    <div className='text-center my-20 py-5'>
-                        <h2 className='text-4xl mb-5 mt-5 text-heading'>{data?.title}</h2>
+                    <div className=' my-20 py-5'>
+                        <h2 className='text-4xl font-thin mb-5 mt-5 text-heading'>{data?.title}</h2>
                         <p className='text-contentText'>
                             {data?.description}
                         </p>
@@ -85,6 +85,17 @@ const CategoryDetails = ({ data, error }) => {
                                     </Grid>
                                 })
                             }
+
+                            {/* {
+                                data?.photos?.map((res, i) => <Grid key={i} item md={3} >
+                                    <CategorySingleImg allImage={data} key={res} url={res} index={i}></CategorySingleImg>
+                                </Grid>)
+                            }
+                            <div className="flex">
+                                {
+                                    data?.photos?.map((res, i) => <CategorySingleImg allImage={data} key={res} url={res} index={i} ></CategorySingleImg>)
+                                }
+                            </div> */}
 
                         </Grid>
                     </div>

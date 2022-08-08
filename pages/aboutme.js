@@ -41,6 +41,12 @@ const Aboutme = () => {
                     </div>
                 </Container>
             </ParallaxLayer>
+            <ParallaxLayerBackground
+                offset={0}
+                speed={.5}
+                url='https://i.ibb.co/n7xmh1M/NEW-Background.jpg'
+                style={{ zIndex: '-1' }}
+            />
             <ParallaxLayer
                 offset={0}
                 speed={.5}

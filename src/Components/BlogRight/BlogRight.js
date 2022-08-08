@@ -17,7 +17,7 @@ const BlogRight = () => {
 
     return (
         <div>
-            <MainSection ></MainSection>
+            <MainSection  ></MainSection>
             {
                 blogDetails.sections?.map(data => <BlogSection key={data.title} data={data}></BlogSection>)
             }
