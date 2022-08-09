@@ -49,7 +49,7 @@ const MiddleContent = ({ isVisible, delay, text }) => {
                     animate='animate'
                 >
                     {
-                        <div className=''>
+                        <div className='font-thin text-subTitles'>
                             <motion.p
                                 variants={sentence}
                             >

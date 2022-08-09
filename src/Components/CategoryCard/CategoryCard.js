@@ -56,7 +56,7 @@ const CategoryCard = ({ admin, i, _id, thumbnail, title, description, categoryNa
                             <Image className='w-full cursor-pointer category-card-img h-auto' src={thumbnail} layout='raw' width={1000} height={1000} alt={title}></Image>
                             <div style={{ background: '#0000009a' }} className='absolute category-text-wrap backdrop-blur-sm  flex items-end inset-0 z-10' >
                                 <div className=' p-4'>
-                                    <h1 className='text-lg  text-white' >{title.slice(0, 100)}</h1>
+                                    <h1 className='text-lg font-thin  text-white' >{description?.length >= 250 ? description.slice(0, 250) + '...see more' : description.slice(0, 250)}</h1>
                                 </div>
                             </div>
                         </div>

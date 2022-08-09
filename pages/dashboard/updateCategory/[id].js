@@ -160,7 +160,46 @@ const UpdateCategory = () => {
 
 
     }
+    const createArray = len => {
+        const demo = Array.from(Array(len).keys());
+        console.log(demo);
+        let myArray = [];
+        const findNum = (num) => {
+            if (myArray.indexOf(num) !== -1) {
+                // alert("Yes, the value exists!")
+                const random = Math.floor(Math.random() * len + 1);
+                return findNum(random)
+            }
+            else {
+                // alert("No, the value is absent.")
+                return num;
+            }
 
+        }
+        demo.forEach(element => {
+            const randomNum = Math.floor(Math.random() * len + 1);
+            const num = findNum(randomNum)
+            myArray = [...myArray, num];
+
+        })
+        console.log(myArray);
+        const mixedUpArray = [];
+        myArray.forEach((ele, i) => {
+            mixedUpArray[i] = data?.photos[ele - 1];
+        })
+        console.log(mixedUpArray);
+        return mixedUpArray;
+    }
+    const changeLayout = () => {
+        const getNewArray = createArray(data?.photos.length)
+        setData(pre => {
+            return {
+                ...pre,
+                photos: getNewArray
+
+            }
+        })
+    }
     return (
         <div>
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -214,6 +253,7 @@ const UpdateCategory = () => {
                     {
                         selected.length ? <span onClick={() => handleDelete()} className="text-center  pointer-events-auto cursor-pointer text-red-500 ml-4 border-b border-red-500 mr-4  mt-2  ">Delete Selected image</span> : <span className="text-center grayscale pointer-events-auto cursor-pointer text-red-500 border-b border-red-500 ml-4  mt-2  ">Delete Selected image</span>
                     }
+                    <button type='button' onClick={() => changeLayout()} className='text-center  pointer-events-auto cursor-pointer text-pink-500 ml-4 border-b border-pink-500 mr-4  mt-2'>Change Layout</button>
 
                 </div>
                 <Grid container>
