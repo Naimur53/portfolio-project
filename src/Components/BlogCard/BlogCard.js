@@ -42,7 +42,7 @@ const BlogCard = ({ _id, heading, index, description, img, love, comment, date, 
                             <div>
                                 {/* <span className=' pt-2 text-contentText  flex items-center'><EventAvailableIcon fontSize='small'></EventAvailableIcon><span className='ml-2  text-[16px]'>{new Date(date).toDateString()}</span></span> */}
 
-                                <span className=' text-subTitles cursor-pointer block text-xl mt-2  text-heading font-family-mono  hover:text-white'>{heading}</span>
+                                <span className=' text-subTitles cursor-pointer block text-xl mt-2    font-family-mono  hover:text-white'>{heading}</span>
                             </div>
                         </div>
 
@@ -54,8 +54,8 @@ const BlogCard = ({ _id, heading, index, description, img, love, comment, date, 
                 admin && <div>
                     {
                         !loading && <div>
-                            <button onClick={() => handleDelete(_id, setLoading)} className='border border-red-500 mr-4 mt-5 p-2 rounded-md px-5'>Delete</button>
-                            <button className='border  border-green-500 mt-5 p-2 rounded-md px-5 l'>
+                            <button onClick={() => handleDelete(_id, setLoading)} className='border border-red-500 text-red-500 mr-4 mt-5 p-2  marker:px-5'>Delete</button>
+                            <button className='border  text-green-500 border-green-500 mt-5 p-2  px-5 l'>
 
                                 <CustomLink href={`/dashboard/allBlogs/${_id}`}> Update</CustomLink>
                             </button>

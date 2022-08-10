@@ -147,15 +147,29 @@ const UpdateCategory = () => {
             })
             .catch(e => {
                 setUploadLoading(false)
-                toast.error('Something bad happened to update and error massage is ' + e.message, {
-                    position: "bottom-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
+                console.log(e.response?.data?.error);
+                if (e.response?.data?.error === 'UnAuthorize') {
+
+                    toast.error('UnAuthorize try to reload or re-login to the site ' + e.message, {
+                        position: "bottom-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
+                } else {
+                    toast.error('Something bad happened when post the blog' + e.message, {
+                        position: "bottom-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
+                }
             })
 
 

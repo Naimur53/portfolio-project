@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import axios from 'axios';
 import { CircularProgress } from '@mui/material';
 import { allData } from '../../dataSlice/dataSlice';
-
+import { toast } from 'react-toastify';
 const CategoryCard = ({ admin, i, _id, thumbnail, title, description, categoryName, photos, subCategory, setAlldata }) => {
     const [loading, setLoading] = useState(false);
     console.log(i);
@@ -26,6 +26,41 @@ const CategoryCard = ({ admin, i, _id, thumbnail, title, description, categoryNa
                     .then(res => {
                         setAlldata(be => be._id !== _id)
                         setLoading(false)
+                        toast.success(' Successfully Updated', {
+                            position: "bottom-right",
+                            autoClose: 5000,
+                            hideProgressBar: false,
+                            closeOnClick: true,
+                            pauseOnHover: true,
+                            draggable: true,
+                            progress: undefined,
+                        });
+                    })
+                    .catch(e => {
+                        setLoading(false)
+                        console.log(e.response?.data?.error);
+                        if (e.response?.data?.error === 'UnAuthorize') {
+
+                            toast.error('UnAuthorize try to reload or re-login to the site ' + e.message, {
+                                position: "bottom-right",
+                                autoClose: 5000,
+                                hideProgressBar: false,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: true,
+                                progress: undefined,
+                            });
+                        } else {
+                            toast.error('Something bad happened when post the blog' + e.message, {
+                                position: "bottom-right",
+                                autoClose: 5000,
+                                hideProgressBar: false,
+                                closeOnClick: true,
+                                pauseOnHover: true,
+                                draggable: true,
+                                progress: undefined,
+                            });
+                        }
                     })
 
             }

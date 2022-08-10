@@ -37,7 +37,7 @@ const Blogs = ({ blogs }) => {
         </div>
     );
 };
-export async function getStaticProps() {
+export async function getServerSideProps() {
     // Call an external API endpoint to get posts
     const res = await fetch('https://stark-atoll-95180.herokuapp.com/blog')
     const blogs = await res.json()
