@@ -9,27 +9,11 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 const Footer = () => {
-    const info = ['John Baggen Photography ', 'Havenstraat 19a', '6171 ED Stein', 'The Netherlands', 'E-mail: info@johnbaggen.com', 'Phone: +31 6 5153 1805']
 
 
-
-
-
-
-
-    const logos = ['https://i.ibb.co/bNXkjFn/footer-zw-brands3-4.jpg', 'https://i.ibb.co/b61SvDD/footer-zw-brands3-5.jpg', 'https://i.ibb.co/nmdm6Xd/footer-zw-brands3-1.jpg', 'https://i.ibb.co/mBkbcDL/footer-zw-brands3-2.jpg', ' https://i.ibb.co/5X0nQLZ/apple-logo-eps-logo-vector.png', 'https://i.ibb.co/CPhzYnt/footer-zw-brands3-3.jpg',]
     return (
         <div className='overflow-hidden mt-10 h-full '>
-            {/* <div className='mt-10 text-center flex justify-center items-center flex-col'>
-                <div>
-                    {
-                        info.map(single => <h2 key={single}>{single}</h2>)
-                    }
-                </div>
-                <div className='mt-10'>
-                    <Image alt='brand images' className='w-full' priority layout='raw' width={500} height={200} src='https://i.ibb.co/NyYk8Tr/footer-zw-brands3.jpg'></Image>
-                </div>
-            </div> */}
+
             <Grid container spacing={2}>
                 <Grid item xs={12} md={12}>
                     <Grid container spacing={4}>
