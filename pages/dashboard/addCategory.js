@@ -261,15 +261,17 @@ const AddCategory = ({ uniqCategory }) => {
                     }
                     <Grid xs={12} md={6} item>
                         <Box
-                            className='h-40 bg-gray-900 bg-center bg-cover flex justify-center items-center'
+                            className='h-40 bg-gray-900 bg-center bg-cover flex justify-center items-center relative'
                             sx={{
                                 backgroundImage: `url("${watch('thumbnail')}")`
                             }}
                         >
-                            <input onChange={handleThumbnailFile} type="file" accept="image/*" id='thumbnailFile' className="hidden" />
-                            {
-                                thumbnailLoading ? <CircularProgress sx={{ color: 'white' }} color="inherit"></CircularProgress> : <label htmlFor='thumbnailFile' className="bg-black/[.7] text-white p-2 rounded-md cursor-pointer">Choose Thumbnail</label>
-                            }
+                            <input onChange={handleThumbnailFile} type="file" accept="image/*" id='thumbnailFile' className=" z-20 w-full h-full opacity-0" />
+                            <div className="absolute inset-0 flex justify-center items-center">
+                                {
+                                    thumbnailLoading ? <CircularProgress sx={{ color: 'white' }} color="inherit"></CircularProgress> : <label htmlFor='thumbnailFile' className="bg-black/[.7] text-white p-2 rounded-md cursor-pointer">Choose Thumbnail</label>
+                                }
+                            </div>
 
                         </Box>
 
@@ -280,18 +282,20 @@ const AddCategory = ({ uniqCategory }) => {
 
                         >
 
-                            <div className="absolute pointer-events-none inset-0 flex justify-center items-center">
-                                <input onChange={handlePhotosUpload} type="file" id='url' accept="image/*" className="hidden" multiple={true} />
-                                {
-                                    imgLoading ? <div className='z-10 w-full h-full flex justify-center items-center backdrop-blur-sm'> <CircularProgress sx={{ color: 'white' }} color="inherit"></CircularProgress></div> : watch('photos')?.length ? <div></div> : <label htmlFor='url' className="z-10 bg-black/[.7] text-white p-2  rounded-md pointer-events-auto cursor-pointer">Choose Images</label>
-                                }
+                            <div className="absolute pointer-events-none inset-0 flex justify-center items-center ">
+                                <input onChange={handlePhotosUpload} type="file" id='url' accept="image/*" className="z-50 pointer-events-auto h-full w-full opacity-0" multiple={true} />
+                                <div className="absolute inset-0 flex justify-center items-center">
+                                    {
+                                        imgLoading ? <div className='z-10 w-full h-full flex justify-center items-center backdrop-blur-sm'> <CircularProgress sx={{ color: 'white' }} color="inherit"></CircularProgress></div> : watch('photos')?.length ? <div></div> : <label htmlFor='url' className="z-10 bg-black/[.7] text-white p-2  rounded-md pointer-events-auto cursor-pointer">Choose Images</label>
+                                    }
+                                </div>
                             </div>
                             <div className="pr-2">
                                 {
                                     watch('photos')?.length ? <Grid container spacing={2}>
                                         <Grid item xs={3}  >
                                             <div className="p-1 h-full">
-                                                <label htmlFor='url' className="flex justify-center items-center h-full w-full bg-black/[.7] p-2 text-white  rounded-md text-center pointer-events-auto">
+                                                <label htmlFor='url' className="flex justify-center items-center h-full w-full bg-black/[.7] p-2 text-white  rounded-md text-center pointer-events-none">
                                                     <div className='flex items-center flex-col '>
                                                         <Tooltip title="Change image" arrow>
                                                             <AddAPhotoIcon></AddAPhotoIcon>

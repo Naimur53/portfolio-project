@@ -202,15 +202,17 @@ const AddBlog = () => {
                         </Grid>
                         <Grid item xs={12} md={6}>
                             <Box
-                                className='h-40 bg-gray-900 bg-center bg-cover flex justify-center items-center'
+                                className='h-40 bg-gray-900 bg-center bg-cover flex justify-center items-center relative'
                                 sx={{
                                     backgroundImage: `url("${watch('img')}")`
                                 }}
                             >
-                                <input onChange={handleMainImg} type="file" accept="image/*" id='mainImg' className='hidden' />
-                                {
-                                    imgLoading ? <CircularProgress color="inherit" sx={{ color: 'white' }}></CircularProgress> : <label htmlFor='mainImg' className="bg-black/[.7] text-white p-2 rounded-md cursor-pointer">{watch('img')?.length ? "Change Thumbnail" : 'Choose Thumbnail'}</label>
-                                }
+                                <input onChange={handleMainImg} type="file" accept="image/*" id='mainImg' className='w-full h-full z-20 opacity-0' />
+                                <div className='absolute inset-0 flex justify-center items-center'>
+                                    {
+                                        imgLoading ? <CircularProgress color="inherit" sx={{ color: 'white' }}></CircularProgress> : <label htmlFor='mainImg' className="bg-black/[.7] text-white p-2 rounded-md cursor-pointer">{watch('img')?.length ? "Change Thumbnail" : 'Choose Thumbnail'}</label>
+                                    }
+                                </div>
 
                             </Box>
                         </Grid>
