@@ -34,7 +34,7 @@ const RightContent = ({ isVisible, url }) => {
         }
     }
     return (
-        <div className='absolute  inset-0 flex justify-center   flex-col'>
+        <div className='absolute  inset-0 flex justify-center   flex-col items-center'>
             <AnimatePresence className='' initial={true}>
                 {isVisible && (
                     <motion.div
@@ -43,11 +43,11 @@ const RightContent = ({ isVisible, url }) => {
                         animate='animate'
                         exit='initial'
                         variants={main}
-                        className='font-family-Helvetica font-bold h-screen flex justify-center items-center'
+                        className='font-family-Helvetica font-bold h-screen flex justify-center w-full items-center'
                     >
 
                         <motion.div
-                            variants={twing} className='flex justify-center items-center bg-center   bg-cover w-96 2xl:w-1/2 '>
+                            variants={twing} className='flex justify-center items-center bg-center   bg-cover w-96 2xl:w-full '>
                             <Image className='w-96 md:w-full  ' priority src={url} layout='raw' height={500} width={500} alt='photo'></Image>
 
                         </motion.div>

@@ -92,7 +92,7 @@ const AboutMe = ({ innerRoute }) => {
                 <Container sx={{ height: '100%' }}  >
                     <Grid container spacing={4} className='h-full '>
                         <Grid item md={6} xs={12} className=' h-1/2 md:h-full'>
-                            <div className='flex flex-col h-full  relative justify-center'>
+                            <div className='flex flex-col h-full  relative justify-center  items-center'>
                                 <RightContent isVisible={value.content1} url='https://i.ibb.co/BtbKgFL/20190320-WEST-AFRICA-FROM-GUNJUR-TO-BASSE-2964-2.jpg'></RightContent>
                                 <RightContent isVisible={value.content2} url='https://i.ibb.co/DCSnXLn/photo-1605379399642-870262d3d051-2-1.jpg'></RightContent>
                                 <RightContent isVisible={value.content3} url='https://i.ibb.co/60JhsKh/20190320-SABATY-YAYA-BAYO-THE-DOCUMENTARY-008-9-1.jpg'></RightContent>
@@ -108,7 +108,7 @@ const AboutMe = ({ innerRoute }) => {
                                         <HeadingText title='Film Maker' isVisible={value.content3}></HeadingText>
                                         <HeadingText title='Global friendships' isVisible={value.content4}></HeadingText>
                                     </div>
-                                    <div className=' h-36 md:h-1/2    text-gray-300 overflow-hidden  '>
+                                    <div className=' h-36 md:h-auto    text-gray-300 overflow-hidden 2xl:h-auto pb-5'>
                                         <MiddleContent
                                             isVisible={value.content1}
                                             text={`People often ask me, "John, I'd like to buy a new camera. What do you recommend? I then explain to them that it doesn't matter which camera they buy. It is not the camera that takes the picture but the man or woman holding it. It is the vision of the photographer, the way he or she controls the light and the passion with which he or she photographs. But if you are going to take the step of buying another camera, for God's sake buy a Nikon. Nikon is always one step ahead of the others. With a Nikon you become a member of one big family. Nikon takes care of the photographer like a mother takes care of her children. That always gives me peace of mind. No matter where I am in the world, I can always count on Nikon.
