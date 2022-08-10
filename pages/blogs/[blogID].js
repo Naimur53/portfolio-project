@@ -8,6 +8,7 @@ import { wrapper } from '../../src/store/store';
 import { useDispatch, useSelector } from 'react-redux';
 import Head from '../../src/Components/Head/Head';
 import BlogPageBanner from '../../src/Components/BlogPageBanner/BlogPageBanner';
+import Footer from '../../src/Components/AboutPages/Footer';
 
 const SingleBlog = () => {
     const { blogDetails } = useSelector(allData);
@@ -28,6 +29,7 @@ const SingleBlog = () => {
                 </Grid> */}
                 <BlogRight></BlogRight>
             </Container>
+            <Container><Footer></Footer></Container>
         </div>
     );
 };

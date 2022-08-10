@@ -173,7 +173,7 @@ const TopBar = () => {
 
                                 }
                             }}
-                            className='flex '
+                            className='h-16 '
 
 
                         >
@@ -199,20 +199,36 @@ https://i.ibb.co/kMjgnHb/huisstijl-JBP-500.png
 https://i.ibb.co/MV6YcKV/huisstijl-JBP-750.png
                                 LOGO
                             </Typography> */}
-                            <Image width={200} height={200} layout='raw' src="https://i.ibb.co/kMjgnHb/huisstijl-JBP-500.png" alt='logo'></Image>
+                            <Image width={200} height={200} layout='raw' src="https://i.ibb.co/kMjgnHb/huisstijl-JBP-500.png" className='mt-1' alt='logo'></Image>
                         </motion.div>
 
                         <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' }, justifyContent: 'end' }} >
-                            <IconButton
-                                size="large"
-                                aria-label="account of current user"
-                                aria-controls="menu-appbar"
-                                aria-haspopup="true"
-                                onClick={handleOpenNavMenu}
-                                color="inherit"
+
+                            <motion.div
+                                initial={{
+                                    x: '120%'
+                                }}
+                                animate={{
+                                    x: '0%',
+                                    transition: {
+                                        type: 'easeOut',
+                                        duration: .7
+
+                                    }
+                                }}
                             >
-                                <MenuIcon />
-                            </IconButton>
+                                <IconButton
+                                    size="large"
+                                    aria-label="account of current user"
+                                    aria-controls="menu-appbar"
+                                    aria-haspopup="true"
+                                    onClick={handleOpenNavMenu}
+                                    color="inherit"
+                                >
+                                    <MenuIcon />
+                                </IconButton>
+
+                            </motion.div>
                             <Drawer
                                 anchor={'left'}
                                 open={open}

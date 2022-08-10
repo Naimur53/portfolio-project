@@ -5,6 +5,7 @@ import BlogLeft from '../../src/Components/BlogLeft/BlogLeft';
 import BlogCard from '../../src/Components/BlogCard/BlogCard';
 import Head from '../../src/Components/Head/Head';
 import BlogPageBanner from '../../src/Components/BlogPageBanner/BlogPageBanner';
+import Footer from '../../src/Components/AboutPages/Footer';
 const Blogs = ({ blogs }) => {
     console.log(blogs);
     return (
@@ -31,6 +32,8 @@ const Blogs = ({ blogs }) => {
                     }
                 </Grid>
             </Container>
+            <Container><Footer></Footer></Container>
+
         </div>
     );
 };

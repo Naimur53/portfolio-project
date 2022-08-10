@@ -68,19 +68,50 @@ const Aboutme = () => {
                 offset={1}
                 speed={.5}
             >
+                <div className="h-full hidden md:block">
 
+                    <AboutTextArea></AboutTextArea>
+                </div>
 
-                <AboutTextArea></AboutTextArea>
+            </ParallaxLayer>
+            <ParallaxLayer
+                offset={1}
+                speed={.5}
+                factor={2}
+            >
+
+                <div className="h-full block md:hidden">
+
+                    <AboutTextArea></AboutTextArea>
+                </div>
             </ParallaxLayer>
             <ParallaxLayerBackground
                 offset={1}
                 speed={.5}
+                className='hidden md:block'
+                url='https://i.ibb.co/n7xmh1M/NEW-Background.jpg'
+                style={{ zIndex: '-1' }}
+            />
+            <ParallaxLayerBackground
+                offset={1}
+                className='block md:hidden'
+                factor={2}
+                speed={.5}
+                url='https://i.ibb.co/n7xmh1M/NEW-Background.jpg'
+                style={{ zIndex: '-1' }}
+            />
+            <ParallaxLayerBackground
+                offset={5}
+                className='hidden md:block'
+                speed={.5}
                 url='https://i.ibb.co/n7xmh1M/NEW-Background.jpg'
                 style={{ zIndex: '-1' }}
             />
             <ParallaxLayerBackground
                 offset={5}
                 speed={.5}
+                className='block md:hidden'
+                factor={2}
                 url='https://i.ibb.co/n7xmh1M/NEW-Background.jpg'
                 style={{ zIndex: '-1' }}
             />
@@ -88,18 +119,32 @@ const Aboutme = () => {
                 offset={5}
                 speed={.5}
             >
-                <AboutQuote></AboutQuote>
+                <div className="h-full hidden md:block">
+
+                    <AboutQuote></AboutQuote>
+                </div>
+            </ParallaxLayer>
+            <ParallaxLayer
+                offset={5}
+                speed={.5}
+                factor={2}
+            >
+                <div className="h-full block md:hidden">
+
+                    <AboutQuote></AboutQuote>
+                </div>
             </ParallaxLayer>
             <ParallaxLayer
                 offset={6}
                 speed={.5}
-                factor={.5}
             >
 
-                <Container>
+                <div className="h-full flex items-center">
+                    <Container>
 
-                    <Footer></Footer>
-                </Container>
+                        <Footer></Footer>
+                    </Container>
+                </div>
             </ParallaxLayer>
             <ParallaxLayerBackground
                 offset={6}

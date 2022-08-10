@@ -8,10 +8,10 @@ const AboutQuote = () => {
             <Container>
                 <div className='py-10 mb-5 text-center'>
                     {/* <DescriptionText text=""></DescriptionText> */}
-                    <h1 className='text-4xl font-thin font-family-Helvetica text-center'> My deeply rooted statements</h1>
-                    <h1 className='text-4xl font-thin font-family-Helvetica text-center mt-2'>They are not empty sayings for the sake of good cheer.
+                    <h1 className='text-3xl md:text-5xl font-thin font-family-Helvetica text-center'> My deeply rooted statements</h1>
+                    <h1 className='text-3xl md:text-5xl font-thin font-family-Helvetica text-center mt-2'>They are not empty sayings for the sake of good cheer.
                     </h1>
-                    <h2 className='text-xl mt-5   font-family-roboto text-contentText'>
+                    <h2 className='text-xl  mt-5   font-family-roboto text-contentText'>
                         My statements are based on the more than 40 years of experience.
                         <br />
                         They are not empty phrases. Behind every statement there is an experience that I am

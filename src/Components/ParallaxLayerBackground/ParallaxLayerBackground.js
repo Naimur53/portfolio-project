@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 import { motion, } from 'framer-motion'
 import { useInView } from 'react-intersection-observer';
 import Image from 'next/image';
-const ParallaxLayerBackground = ({ offset, url, speed, style }) => {
+const ParallaxLayerBackground = ({ className, factor, offset, url, speed, style }) => {
 
     const [ref, inView] = useInView()
     console.log({ offset, inView });
@@ -12,13 +12,14 @@ const ParallaxLayerBackground = ({ offset, url, speed, style }) => {
             offset={offset}
             speed={speed}
             style={style}
+            factor={factor ? factor : 1}
         >
             <div
                 style={{
                     backgroundImage: url ? `url(${url})` : 'url(https://i.ibb.co/n7xmh1M/NEW-Background.jpg)'
 
                 }}
-                className="banner-wrap bg-cover h-full w-full">
+                className={className ? "banner-wrap bg-cover h-full w-full" + className : "banner-wrap bg-cover h-full w-full"}>
                 <div ref={ref} className='w-full flex h-full items-end   '>
                     {
                         <motion.div

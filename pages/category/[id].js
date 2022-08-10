@@ -7,6 +7,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link';
 import CategorySingleImg from '../../src/Components/CategorySingleImg/CategorySingleImg';
 import CategoryLayout from '../../src/Components/CategoryLayout/CategoryLayout';
+import Footer from '../../src/Components/AboutPages/Footer';
 
 const CategoryDetails = ({ data, error }) => {
     const router = useRouter()
@@ -103,6 +104,9 @@ const CategoryDetails = ({ data, error }) => {
                 </Container>
             </div>
             {/* */}
+            <Container>
+                <Footer></Footer>
+            </Container>
         </motion.div >
     );
 };
