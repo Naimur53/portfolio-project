@@ -3,7 +3,7 @@ import React from 'react';
 
 const SingleCollection = ({ categoryName, thumbnail, _id, dropdown }) => {
     return (
-        <li className='relative  cursor-pointer block '>
+        <li className='relative font-thin text-white cursor-pointer block '>
             <Link href={'/category/' + _id} ><span className=' block p-2 hover:bg-yellow-600'>{categoryName}</span></Link>
             {
                 <ul className='backdrop-blur bg-black'>

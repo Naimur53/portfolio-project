@@ -23,9 +23,11 @@
     top: 0px;
     left: 200px;
     opacity: 0;
+    visibility: hidden;
     transition: .3s;
 }
 
-.menu-collection-wrap ul li:hover ul {
+.menu-collection-wrap ul li:hover>ul {
     opacity: 1;
+    visibility: visible;
 }
