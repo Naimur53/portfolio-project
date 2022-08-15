@@ -39,7 +39,7 @@ const TopBar = () => {
     );
     useEffect(() => {
         dispatch(addCollection(data))
-    }, [data])
+    }, [data, dispatch, user])
     const handleOpenNavMenu = (event) => {
         setOpen(!open);
     };
