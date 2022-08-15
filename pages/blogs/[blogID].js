@@ -29,8 +29,10 @@ const SingleBlog = () => {
         <div className='bg-cover' style={{ backgroundImage: 'url(https://i.ibb.co/n7xmh1M/NEW-Background.jpg)', minHeight: '100vh' }}>
             <Head title={blogDetails?.heading?.slice(0, 20)} keywords={blogDetails?.tags}></Head>
             <BlogPageBanner></BlogPageBanner>
-            <Container className='  overflow-hidden flex flex-col justify-center items-center  py-10'>
-                {/* <Grid container className='md:flex-row flex-col-reverse w-full' spacing={2}>
+            <div className='bg-chak'>
+
+                <Container className='  overflow-hidden flex flex-col justify-center items-center  py-10'>
+                    {/* <Grid container className='md:flex-row flex-col-reverse w-full' spacing={2}>
                     <Grid xs={12} md={4}>
                         <BlogLeft></BlogLeft>
                     </Grid>
@@ -39,9 +41,10 @@ const SingleBlog = () => {
                     </Grid>
 
                 </Grid> */}
-                <BlogRight></BlogRight>
-            </Container>
-            <Container><Footer></Footer></Container>
+                    <BlogRight></BlogRight>
+                    <Footer></Footer>
+                </Container>
+            </div>
         </div>
     );
 };

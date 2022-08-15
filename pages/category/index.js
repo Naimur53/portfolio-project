@@ -7,10 +7,10 @@ import Footer from '../../src/Components/AboutPages/Footer';
 
 const AllCategory = ({ data }) => {
     return (
-        <>
+        <div className='bg-chak '>
 
             <CategoryBanner></CategoryBanner>
-            <Container>
+            <Container >
                 <div className="flex justify-center pl-4 md:pl-40">
                     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className='  text-left mb-10'>
                         <h2 className='font-family-Helvetica mb-3 text-5xl text-heading font-thin'>May I asked you to take time</h2>
@@ -37,7 +37,7 @@ const AllCategory = ({ data }) => {
                 </Grid>
                 <Footer></Footer>
             </Container>
-        </>
+        </div>
     );
 };
 

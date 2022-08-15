@@ -372,6 +372,10 @@ a {
   background-size: cover;
 }
 
+.bg-chak {
+  background-image: url('https://i.ibb.co/n7xmh1M/NEW-Background.jpg');
+}
+
 .bg-light-dot {
   background-image: url('https://i.ibb.co/GV0GFL8/Adobe-Stock-88204615.jpg');
   background-size: cover;
