@@ -65,29 +65,30 @@ const CategoryDetails = ({ data, error }) => {
                     </div>
                 </motion.div>
             </Box>
-            <div className='bg-cover' style={{ backgroundImage: 'url(https://i.ibb.co/n7xmh1M/NEW-Background.jpg)' }}>
-                <Container>
-                    <div className=' my-20 py-5'>
-                        <h2 className='text-4xl font-thin mb-5 mt-5 text-heading'>{data?.title}</h2>
-                        <p className='text-contentText'>
-                            {data?.description}
-                        </p>
-                    </div>
-                    <div className='relative overflow-hidden'>
-                        <Grid container spacing={0}>
-                            {
-                                [1, 2, 3, 4].map((element, i) => {
-                                    const len = data?.photos?.length / 4;
+            <div className="bg-chak">
+                <div  >
+                    <Container>
+                        <div className=' my-20 py-5'>
+                            <h2 className='text-4xl font-thin mb-5 mt-5 text-heading'>{data?.title}</h2>
+                            <p className='text-contentText'>
+                                {data?.description}
+                            </p>
+                        </div>
+                        <div className='relative overflow-hidden'>
+                            <Grid container spacing={0}>
+                                {
+                                    [1, 2, 3, 4].map((element, i) => {
+                                        const len = data?.photos?.length / 4;
 
-                                    return <Grid key={i} item md={3} >
-                                        {
-                                            data?.photos?.slice(len * i, len * element).map((res, i) => <CategorySingleImg allImage={data} elementNum={element} key={res} url={res} index={i}></CategorySingleImg>)
-                                        }
-                                    </Grid>
-                                })
-                            }
+                                        return <Grid key={i} item md={3} >
+                                            {
+                                                data?.photos?.slice(len * i, len * element).map((res, i) => <CategorySingleImg allImage={data} elementNum={element} key={res} url={res} index={i}></CategorySingleImg>)
+                                            }
+                                        </Grid>
+                                    })
+                                }
 
-                            {/* {
+                                {/* {
                                 data?.photos?.map((res, i) => <Grid key={i} item md={3} >
                                     <CategorySingleImg allImage={data} key={res} url={res} index={i}></CategorySingleImg>
                                 </Grid>)
@@ -98,15 +99,16 @@ const CategoryDetails = ({ data, error }) => {
                                 }
                             </div> */}
 
-                        </Grid>
-                    </div>
+                            </Grid>
+                        </div>
 
+                    </Container>
+                </div>
+                {/* */}
+                <Container>
+                    <Footer></Footer>
                 </Container>
             </div>
-            {/* */}
-            <Container>
-                <Footer></Footer>
-            </Container>
         </motion.div >
     );
 };
