@@ -121,11 +121,11 @@ const UpdateBlog = () => {
             const singleSection = {
                 ...data.sections[i],
                 description: mainData['description' + i],
-                title: mainData['title' + i]
+                title: mainData['title' + i],
+                url: mainData['url' + i],
             }
             createSection = [...createSection, singleSection]
         });
-        console.log(createSection);
 
         const create = {
             ...data,

@@ -2,7 +2,8 @@ import { Grid } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
 import ImgSlider from '../ImgSlider/ImgSlider';
-
+import CustomLink from '../SmallComponents/CustomLink';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 const BlogSection = ({ data }) => {
     const { description, img, title, video } = data
     let Des = [];
@@ -40,7 +41,13 @@ const BlogSection = ({ data }) => {
             }
 
             <div className='mt-5 '>
-                <h1 className='text-2xl mb-2 text-heading '>{title}</h1>
+                {
+                    data.url ? <div className='hover:underline'>
+                        <CustomLink href={data.url}>
+                            <h1 className='text-2xl mb-2 text-heading '>{title} <OpenInNewIcon></OpenInNewIcon></h1>
+                        </CustomLink>
+                    </div> : <h1 className='text-2xl mb-2 text-heading '>{title}</h1>
+                }
                 <div className='text-contentText '>
 
                     {

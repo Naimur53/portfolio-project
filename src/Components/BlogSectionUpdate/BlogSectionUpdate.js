@@ -5,7 +5,7 @@ import React from 'react';
 import { useState } from 'react';
 import ImgSlider from '../ImgSlider/ImgSlider';
 
-const BlogSectionUpdate = ({ register, description, img, title, index, setData, video }) => {
+const BlogSectionUpdate = ({ register, description, img, title, index, setData, url, video }) => {
     const [photosLoading, setPhotosLoading] = useState(false);
     const [videoLoading, setVideoLoading] = useState(false);
     const handleChange = (value, i) => {
@@ -172,6 +172,7 @@ const BlogSectionUpdate = ({ register, description, img, title, index, setData, 
 
             </div>
             <input type="text" defaultValue={title} {...register(`title${index}`, { required: true })} className='  text-2xl mt-4  mb-2 text-heading  bg-transparent   border-white block w-full px-4  py-2' />
+            <input type="text" placeholder='Enter url (optional)' defaultValue={url} {...register(`url${index}`)} className="w-full p-3 my-5 rounded-lg  bg-gray-900 placeholder:text-slate-400 text-white" />
             <input onChange={handlePhotosFile} className='hidden' id={'photosFile' + index} type="file" accept="image/*" multiple={true} />
             <input onChange={handleVideoUpload} className='hidden' type="file" id={'file' + index} accept="video/*" />
             <textarea type="text" defaultValue={description} {...register(`description${index}`, { required: true })} className=' mb-2 text-heading  bg-transparent   border-white block w-full px-4  py-2' cols='10' rows='5' />

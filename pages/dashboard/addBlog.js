@@ -15,16 +15,18 @@ const AddBlog = () => {
     const [imgLoading, setImgLoading] = useState(false);
     const [photosLoading, setPhotosLoading] = useState(false);
     const [videoLoading, setVideoLoading] = useState(false);
+    const [postLoading, setPostLoading] = useState(false);
     const { user } = useSelector(allData)
 
     const [numSection, setNumSection] = useState([{ num: 1, complete: false }])
     const { register, unregister, handleSubmit, reset, setValue, watch, formState: { errors } } = useForm({ shouldUnregister: false });
     // default
-    const createObj = (title, description, img, video) => {
-        return { title, description, img, video }
+    const createObj = (title, url, description, img, video) => {
+        return { title, url, description, img, video }
     }
     console.log('errors', errors);
     const onSubmit = data => {
+
         const { tags, img, heading, description, address, tagsRaw } = data
         if (!tags) {
             toast.error('Add tags for submit', {
@@ -41,10 +43,12 @@ const AddBlog = () => {
 
         // create section field
         const sections = numSection.map(ele => {
-            return createObj(data['title' + ele.num], data['description' + ele.num], data['img' + ele.num], data['video' + ele.num])
+            return createObj(data['title' + ele.num], data['url' + ele.num], data['description' + ele.num], data['img' + ele.num], data['video' + ele.num])
         })
         // create main data for post 
         const mainData = { img, tags, heading, description, address, sections };
+        console.log(mainData);
+        setPostLoading(true)
         axios.post('https://stark-atoll-95180.herokuapp.com/blog', { mainData, user: user?.email }, {
             headers: {
                 authorization: 'Bearer ' + localStorage.getItem('idToken')
@@ -60,11 +64,14 @@ const AddBlog = () => {
                 draggable: true,
                 progress: undefined,
             })
+            setPostLoading(false)
             reset()
 
         })
             .catch(e => {
                 console.log(e.response?.data?.error);
+                setPostLoading(false)
+
                 if (e.response?.data?.error === 'UnAuthorize') {
 
                     toast.error('UnAuthorize try to reload or re-login to the site ' + e.message, {
@@ -99,18 +106,18 @@ const AddBlog = () => {
             old[num - 1] = { num, complete: true }
             setNumSection(old);
         }
-        ``
     }
     const handleDelete = (num) => {
         console.log(num);
         //unregister that filed 
-        const fields = ['title', 'description', 'img', 'video']
+        const fields = ['title', 'description', 'img', 'video', 'url']
         fields.forEach((field, i) => {
 
             setValue(field + num, '');
         })
         setValue(`title${num}`, '');
         setValue(`description${num}`, '');
+        setValue(`url${num}`, '');
         setValue(`img${num}`, []);
         setValue(`video${num}`, []);
 
@@ -119,6 +126,7 @@ const AddBlog = () => {
             pre.filter(preNum => preNum.num !== num).forEach((element, i) => {
                 console.log(i);
                 setValue(`title${i + 1}`, watch(`title${element.num}`))
+                setValue(`url${i + 1}`, watch(`url${element.num}`))
                 setValue(`description${i + 1}`, watch(`description${element.num}`))
                 setValue(`photosFile${i + 1}`, watch(`photosFile${element.num}`))
                 setValue(`file${i + 1}`, watch(`file${element.num}`))
@@ -255,7 +263,7 @@ const AddBlog = () => {
                 <input className="w-full p-3 rounded-lg text-white bg-gray-900 placeholder:text-slate-400" onKeyDown={addTags} placeholder='Enter tags and press enter ' />
             </div>
             {
-                imgLoading || photosLoading || videoLoading ? <button
+                imgLoading || photosLoading || videoLoading || postLoading ? <button
                     className='bg-red-400 text-black rounded-md px-5 text-xl py-2 my-5 inline-block '
                 >wait until loading</button> : <label htmlFor="submit" className='bg-contentText text-black rounded-md px-5 text-xl py-2 my-5 inline-block '>submit</label>
             }

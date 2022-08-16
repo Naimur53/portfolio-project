@@ -146,7 +146,7 @@ const AboutMe = ({ innerRoute }) => {
                                         value.content1 || value.content2 || value.content3 || value.content4 ? <div className='flex justify-between items-center  text-xl mt-3 md:mt-0 w-52' >
                                             <div className='pr-4  text-gray-400'>
                                                 {
-                                                    value.content1 ? 1 : value.content2 ? 2 : value.content3 ? 3 : 4
+                                                    value.content1 ? 1 : value.content2 ? 2 : value.content3 ? 2 : value.content4 ? 3 : 3
                                                 }
                                             </div>
 

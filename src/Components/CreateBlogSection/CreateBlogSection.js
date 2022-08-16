@@ -174,6 +174,10 @@ const CreateBlogSection = ({ errors, unregister, handleComplete, setPhotosLoadin
 
                 </Box>
             </Grid>
+            <Grid item xs={12}>
+                <input className="w-full p-3 rounded-lg text-white  bg-gray-900 placeholder:text-slate-400" placeholder="Enter Url (optional)"  {...register(`url${singleSec.num}`)} />
+
+            </Grid>
             <div className='w-full flex justify-center items-center mt-5'>
                 <Tooltip title='Delete upper section'>
                     <span className='bg-gray-900 rounded-full'>
