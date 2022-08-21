@@ -36,7 +36,7 @@ const Aboutme = () => {
                 factor={1}
             >
                 <Container className='h-screen'  >
-                    <div className='h-full  flex items-center'>
+                    <div className='h-full justify-center flex items-center'>
                         <AboutBanner></AboutBanner>
                     </div>
                 </Container>

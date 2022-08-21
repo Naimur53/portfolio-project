@@ -92,11 +92,11 @@ const AboutMe = ({ innerRoute }) => {
                 <Container sx={{ height: '100%' }}  >
                     <Grid container spacing={4} className='h-full '>
                         <Grid item md={6} xs={12} className=' h-1/2 md:h-full'>
-                            <div className='flex flex-col h-full  relative justify-center  items-center'>
+                            <div className='flex flex-col h-full w-full relative justify-center  items-center'>
                                 <RightContent isVisible={value.content1} url='https://i.ibb.co/BtbKgFL/20190320-WEST-AFRICA-FROM-GUNJUR-TO-BASSE-2964-2.jpg'></RightContent>
                                 <RightContent isVisible={value.content2} url='https://i.ibb.co/DCSnXLn/photo-1605379399642-870262d3d051-2-1.jpg'></RightContent>
                                 <RightContent isVisible={value.content3} url='https://i.ibb.co/60JhsKh/20190320-SABATY-YAYA-BAYO-THE-DOCUMENTARY-008-9-1.jpg'></RightContent>
-                                <RightContent isVisible={value.content4} url='https://i.ibb.co/ByV09Fk/20191118-MOROCCO-DESERT-108-1-2-1.jpg'></RightContent>
+                                <RightContent isVisible={value.content4} url='https://i.ibb.co/DpMw1zV/20161022-AIT-BEN-HABBOU-268-round.jpg'></RightContent>
                             </div>
                         </Grid>
                         <Grid item md={6} xs={12} className='h-1/2 md:h-full'>

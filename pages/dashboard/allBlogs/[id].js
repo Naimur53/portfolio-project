@@ -72,7 +72,7 @@ const UpdateBlog = () => {
             body.append('image', file[0]);
             axios({
                 method: 'post',
-                url: 'https://api.imgbb.com/1/upload',
+                url: 'https://stark-atoll-95180.herokuapp.com/uplaodImage',
                 data: body
             })
                 .then(res => {

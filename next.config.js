@@ -5,7 +5,7 @@ const nextConfig = {
   experimental: { images: { layoutRaw: true }, externalDir: true },
 
   images: {
-    domains: ["i.ibb.co", 'lh3.googleusercontent.com'],
+    domains: ["i.ibb.co", 'lh3.googleusercontent.com', 'res.cloudinary.com'],
   },
 }
 

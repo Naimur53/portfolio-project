@@ -24,11 +24,11 @@ const AboutBanner = () => {
             </div>
             <div className='text-3xl md:text-5xl text-center'>
 
-                <MainHeading title='TODAY&apos;S SHOT IS BETTER THAN YESTERDAYS.'></MainHeading>
+                <MainHeading title='Today&apos;s shot is better than yesterdays.'></MainHeading>
             </div>
             <div className='text-3xl md:text-5xl mt-5   '>
 
-                <MainHeading title='THAT&apos;S WHY I LOVE TOMORROW.'></MainHeading>
+                <MainHeading title='That&apos;s why I love tomorrow.'></MainHeading>
             </div>
 
         </Box>

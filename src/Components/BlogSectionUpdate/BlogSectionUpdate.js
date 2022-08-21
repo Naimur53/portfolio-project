@@ -53,7 +53,7 @@ const BlogSectionUpdate = ({ register, description, img, title, index, setData, 
                 body.append('image', singleFile)
                 return axios({
                     method: 'post',
-                    url: 'https://api.imgbb.com/1/upload',
+                    url: 'https://stark-atoll-95180.herokuapp.com/uplaodImage',
                     data: body
                 })
             })

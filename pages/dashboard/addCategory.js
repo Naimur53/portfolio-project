@@ -145,11 +145,10 @@ const AddCategory = ({ uniqCategory }) => {
         if (file.length) {
             setThumbnailLoading(true)
             let body = new FormData()
-            body.set('key', process.env.NEXT_PUBLIC_IMAGEBB_API)
             body.append('image', file[0]);
             axios({
                 method: 'post',
-                url: 'https://api.imgbb.com/1/upload',
+                url: 'https://stark-atoll-95180.herokuapp.com/uplaodImage',
                 data: body
             })
                 .then(res => {
@@ -176,6 +175,46 @@ const AddCategory = ({ uniqCategory }) => {
 
     }
     //photos upload
+    // const handlePhotosUpload = (e) => {
+    //     const file = e.target.files
+    //     console.log('file', file);
+    //     if (file.length) {
+    //         setImgLoading(true)
+    //         const main = Object.values(file).map(singleFile => {
+    //             console.log();
+    //             let body = new FormData()
+    //             body.set('key', process.env.NEXT_PUBLIC_IMAGEBB_API)
+    //             body.append('image', singleFile)
+    //             return axios({
+    //                 method: 'post',
+    //                 url: 'https://api.imgbb.com/1/upload',
+    //                 data: body
+    //             })
+    //         })
+    //         Promise.all(main).then(res => {
+    //             console.log('all', res);
+    //             const allUrl = res.map(singleRes => singleRes.data.data?.url)
+    //             setValue('photos', allUrl);
+    //             console.log('url', allUrl);
+    //             setImgLoading(false);
+
+    //         }).catch(e => {
+    //             setValue('photos', []);
+    //             setValue('url', [])
+    //             console.log(e);
+    //             toast.error('Something bad happened to upload multiple image', {
+    //                 position: "bottom-right",
+    //                 autoClose: 5000,
+    //                 hideProgressBar: false,
+    //                 closeOnClick: true,
+    //                 pauseOnHover: true,
+    //                 draggable: true,
+    //                 progress: undefined,
+    //             });
+    //             setImgLoading(false);
+    //         })
+    //     }
+    // }
     const handlePhotosUpload = (e) => {
         const file = e.target.files
         console.log('file', file);
@@ -184,17 +223,17 @@ const AddCategory = ({ uniqCategory }) => {
             const main = Object.values(file).map(singleFile => {
                 console.log();
                 let body = new FormData()
-                body.set('key', process.env.NEXT_PUBLIC_IMAGEBB_API)
                 body.append('image', singleFile)
                 return axios({
                     method: 'post',
-                    url: 'https://api.imgbb.com/1/upload',
+                    url: 'https://stark-atoll-95180.herokuapp.com/uplaodImage',
                     data: body
                 })
             })
             Promise.all(main).then(res => {
                 console.log('all', res);
                 const allUrl = res.map(singleRes => singleRes.data.data?.url)
+                setImgLoading(false)
                 setValue('photos', allUrl);
                 console.log('url', allUrl);
                 setImgLoading(false);
@@ -203,7 +242,7 @@ const AddCategory = ({ uniqCategory }) => {
                 setValue('photos', []);
                 setValue('url', [])
                 console.log(e);
-                toast.error('Something bad happened to upload multiple image', {
+                toast.error('Something bad happened to upload multiple image' + e.message, {
                     position: "bottom-right",
                     autoClose: 5000,
                     hideProgressBar: false,
@@ -215,7 +254,8 @@ const AddCategory = ({ uniqCategory }) => {
                 setImgLoading(false);
             })
         }
-    }
+
+    };
 
     return (
         <div>

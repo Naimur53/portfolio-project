@@ -165,11 +165,10 @@ const AddBlog = () => {
         if (file.length) {
             setImgLoading(true)
             let body = new FormData()
-            body.set('key', process.env.NEXT_PUBLIC_IMAGEBB_API)
             body.append('image', file[0]);
             axios({
                 method: 'post',
-                url: 'https://api.imgbb.com/1/upload',
+                url: 'https://stark-atoll-95180.herokuapp.com/uplaodImage',
                 data: body
             })
                 .then(res => {

@@ -16,7 +16,7 @@ const AboutTextArea = () => {
             <Container className='h-full'>
                 <div className='py-10 md:mb-5 text-center px-2 md:px-20'>
                     {/* <DescriptionText text=""></DescriptionText> */}
-                    <h1 className='text-3xl md:text-5xl font-thin text-center font-family-Helvetica '>MORE THAN 40 YEARS EVERY DAY LOOKING FOR PERFECTION</h1>
+                    <h1 className='text-3xl  md:text-5xl font-thin text-center font-family-Helvetica '>More than 40 years every day looking for perfection</h1>
                     <div className='flex justify-center'>
 
                         <h2 className='text-xl mt-3 w-full px-2 md:w-1/2 text-center  font-family-roboto text-contentText'>Every situation is different. Light fascinates me. I want to take it with me. Freeze and cherish the moment. </h2>
@@ -36,8 +36,8 @@ const AboutTextArea = () => {
                 <Grid container spacing={4}>
                     <Grid item xs={12} md={6}>
                         <div className='font-light'>
-                            <h1 className='text-3xl mb-4 text-heading font-thin font-family-Helvetica  '>  Always Searching For The Shot</h1>
-                            <p className='text-xl text-subTitles'>
+                            <h1 className='text-3xl  md:text-5xl  mb-4 text-heading font-thin font-family-Helvetica  '>  Always searching for the shot</h1>
+                            <p className='font-thin text-subTitles '>
                                 I am always looking for the right camera angle.
                                 <br />
                                 To find that, no trouble is too much for me.
@@ -54,10 +54,10 @@ const AboutTextArea = () => {
 
                     </Grid>
                     <Grid item xs={12} md={6}>
-                        <div className='font-light'>
-                            <h1 className='text-3xl mb-4 text-heading font-thin font-family-Helvetica'> John Baggen (1958)
+                        <div className='font-thin'>
+                            <h1 className='text-3xl md:text-5xl   mb-4 text-heading font-thin font-family-Helvetica'> John Baggen (1958)
                             </h1>
-                            <p className='text-xl   text-subTitles'>
+                            <p className='font-thin text-subTitles '>
                                 I have been a self-employed photographer since 1977. When I&apos;m at home, advertising and industrial photography are my areas of work. But as soon as I get on a journey, the social anthropological photographer comes to life. Making cultures visible worldwide creates an awareness. This awareness is the engine of mutual respect. Especially in a time when mutual respect and tolerance are drowned out by populist noises.
                                 <br />
                                 I want to photograph that which we may fear we will not find in ten or fifteen years&apos; time. I do it for the world and my children and grandchildren.
