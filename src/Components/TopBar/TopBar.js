@@ -80,7 +80,7 @@ const TopBar = () => {
             >
                 <Link href={'/'}>
                     <span
-                        className='w-full border  flex justify-center mb-3 py-2 border-gray-700 rounded-sm hover:border-yellow-300 text-white'
+                        className='w-full border  block pl-5   mb-3 py-2 border-gray-700 rounded-sm hover:border-yellow-300 text-white'
                     >
                         Home
                     </span>
@@ -93,7 +93,7 @@ const TopBar = () => {
                 <Link href={'/aboutme'}>
                     <span
 
-                        className='w-full border  flex justify-center mb-3 py-2 border-gray-700 rounded-sm hover:border-yellow-300 text-white'
+                        className='w-full border  block pl-5  mb-3 py-2 border-gray-700 rounded-sm hover:border-yellow-300 text-white'
                     >
                         About me
                     </span>
@@ -122,7 +122,7 @@ const TopBar = () => {
             >
                 <Link href={'/category'}>
                     <span
-                        className='w-full border  flex justify-center mb-3 py-2 border-gray-700 rounded-sm hover:border-yellow-300 text-white'
+                        className='w-full border  block pl-5 mb-3 py-2 border-gray-700 rounded-sm hover:border-yellow-300 text-white'
                     >
                         Gallery
                     </span>
@@ -133,7 +133,7 @@ const TopBar = () => {
             >
                 <Link href={'/blogs'}>
                     <span
-                        className='w-full border  flex justify-center mb-3 py-2 border-gray-700 rounded-sm hover:border-yellow-300 text-white'
+                        className='w-full border block pl-5  mb-3 py-2 border-gray-700 rounded-sm hover:border-yellow-300 text-white'
                     >
                         Blog&apos;s
                     </span>
@@ -145,7 +145,7 @@ const TopBar = () => {
                 >
                     <Link href={'/dashboard'}>
                         <span
-                            className='w-full border  flex justify-center mb-3 py-2 border-gray-700 rounded-sm hover:border-yellow-300 text-white'
+                            className='w-full border block pl-5  mb-3 py-2 border-gray-700 rounded-sm hover:border-yellow-300 text-white'
                         >
                             Dashboard
                         </span>
