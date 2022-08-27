@@ -76,7 +76,7 @@ const Middle = () => {
                 className='   flex justify-center     h-full w-full items-center '>
                 <motion.div initial='initial' className='  p-2  flex flex-col justify-center items-center' animate='animate' variants={roundImage}>
 
-                    <Image className='middle-image w-screen-30 hidden lg:block' src='https://i.ibb.co/BtbKgFL/20190320-WEST-AFRICA-FROM-GUNJUR-TO-BASSE-2964-2.jpg' width={400} height={400} alt='John photos' layout='raw' priority></Image>
+                    <Image className='middle-image w-screen-30 hidden lg:block' src='https://i.ibb.co/5T9bVxH/20190320-WEST-AFRICA-FROM-GUNJUR-TO-BASS-2964-1.jpg' width={400} height={400} alt='John photos' layout='raw' priority></Image>
 
                     <Image className='middle-image md:hidden block ' src='https://i.ibb.co/BtbKgFL/20190320-WEST-AFRICA-FROM-GUNJUR-TO-BASSE-2964-2.jpg' width={400} height={400} alt='John photos' layout='raw' priority></Image>
 
