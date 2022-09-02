@@ -22,12 +22,9 @@ const ChooseDropdown = () => {
         //     })
         Promise.all([axios.get('https://stark-atoll-95180.herokuapp.com/category?short=true'), axios.get(' https://stark-atoll-95180.herokuapp.com/chooseMenu')])
             .then(res => {
-                console.log(res);
                 const fullCategory = res[0].data;
                 setFullCategories(fullCategory);
                 const chooseData = res[1].data;
-                console.log(fullCategory,);
-                console.log(chooseData,);
                 const filterCategory = fullCategory.filter(single => !single.subCategory)
                 setAllCategory(filterCategory)
                 setBeforeMenu(chooseData)
@@ -42,11 +39,9 @@ const ChooseDropdown = () => {
 
     }
     const handleAdd = data => {
-        console.log(data);
         setSelected([...selected, data])
     }
     const handleRemove = (data) => {
-        console.log('remove', data);
         const without = selected.filter(single => single._id !== data._id)
         setSelected(without)
     }
@@ -65,7 +60,6 @@ const ChooseDropdown = () => {
 
 
             });
-            console.log('mainCategory', mainData);
             axios.post('https://stark-atoll-95180.herokuapp.com/chooseMenu', mainData)
                 .then(res => {
                     setPostLoading(false)
@@ -82,7 +76,6 @@ const ChooseDropdown = () => {
                 })
                 .catch(e => {
                     setLoading(false)
-                    console.log(e.response?.data?.error);
                     if (e.response?.data?.error === 'UnAuthorize') {
 
                         toast.error('UnAuthorize try to reload or re-login to the site ' + e.message, {

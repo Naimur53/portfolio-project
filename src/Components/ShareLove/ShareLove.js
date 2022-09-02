@@ -21,11 +21,11 @@ const ShareLove = () => {
             dispatch(addLove(user))
             axios.put(`https://stark-atoll-95180.herokuapp.com/blog/love?id=${blogDetails._id}`, user)
                 .then(res => {
-                    console.log(res);
+
                 })
         }
     }
-    console.log(blogDetails.love)
+
     return (
         <div className="flex justify-between">
             <div onClick={handleShare} className="text-gray-300 flex hover:text-white transition-colors cursor-pointer mr-4">

@@ -8,17 +8,20 @@ import CreateBlogSection from '../../src/Components/CreateBlogSection/CreateBlog
 import ClearIcon from '@mui/icons-material/Clear';
 import { Box } from '@mui/system';
 import { toast } from 'react-toastify';
-import { allData } from '../../src/dataSlice/dataSlice';
+import { allData, setLoading } from '../../src/dataSlice/dataSlice';
 import { useSelector } from 'react-redux';
-import useSWR from 'swr'
 import fetcher from '../../src/util/fatcher';
-const AddBlog = () => {
+import useSWR from 'swr'
+const AddBio = () => {
     const [imgLoading, setImgLoading] = useState(false);
     const [photosLoading, setPhotosLoading] = useState(false);
     const [videoLoading, setVideoLoading] = useState(false);
     const [postLoading, setPostLoading] = useState(false);
-    const { user } = useSelector(allData)
-
+    const { user } = useSelector(allData);
+    const { data: preBio, error } = useSWR(
+        "https://stark-atoll-95180.herokuapp.com/bio",
+        fetcher
+    );
     const [numSection, setNumSection] = useState([{ num: 1, complete: false }])
     const { register, unregister, handleSubmit, reset, setValue, watch, formState: { errors } } = useForm({ shouldUnregister: false });
     // default
@@ -27,33 +30,22 @@ const AddBlog = () => {
     }
     const onSubmit = data => {
 
-        const { tags, img, heading, description, address, tagsRaw } = data
-        if (!tags) {
-            toast.error('Add tags for submit', {
-                position: "bottom-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-            });
-            return;
-        }
+        const { img, heading, description, } = data
+
 
         // create section field
         const sections = numSection.map(ele => {
             return createObj(data['title' + ele.num], data['url' + ele.num], data['description' + ele.num], data['img' + ele.num], data['video' + ele.num])
         })
         // create main data for post 
-        const mainData = { img, tags, heading, description, address, sections };
+        const mainData = { img, heading, description, sections };
         setPostLoading(true)
-        axios.post('https://stark-atoll-95180.herokuapp.com/blog', { mainData, user: user?.email }, {
+        axios[preBio?._id ? 'put' : 'post'](`https://stark-atoll-95180.herokuapp.com/bio?id=${preBio?._id}`, { mainData, user: user?.email }, {
             headers: {
                 authorization: 'Bearer ' + localStorage.getItem('idToken')
             },
         }).then(res => {
-            toast.success('Successfully post the blog', {
+            toast.success('Successfully add bio', {
                 position: "bottom-right",
                 autoClose: 5000,
                 hideProgressBar: false,
@@ -63,6 +55,9 @@ const AddBlog = () => {
                 progress: undefined,
             })
             setPostLoading(false)
+            if (!preBio?._id) {
+                location?.reload()
+            }
             reset()
             setNumSection([{ num: 1, complete: false }])
 
@@ -82,7 +77,7 @@ const AddBlog = () => {
                         progress: undefined,
                     });
                 } else {
-                    toast.error('Something bad happened when post the blog' + e.message, {
+                    toast.error('Something bad happened when add bio' + e.message, {
                         position: "bottom-right",
                         autoClose: 5000,
                         hideProgressBar: false,
@@ -131,88 +126,32 @@ const AddBlog = () => {
             return newRe;
         })
     }
-    const addTags = e => {
-        if (e.key === 'Enter') {
-            if (watch('tags')) {
 
-                setValue('tags', [...watch('tags'), e.target.value])
-            }
-            else {
-                setValue('tags', [e.target.value])
 
-            }
-            e.target.value = '';
-        }
+
+    if (!preBio) {
+        return <div className='h-screen flex justify-center items-center'>
+            <CircularProgress sx={{ color: 'white' }} ></CircularProgress>
+        </div>
     }
-    const handleDeleteTags = (i) => {
-        const without = watch('tags').filter((tag, index) => index !== i)
-        setValue('tags', without)
-
+    if (error) {
+        return <div className='h-screen flex justify-center items-center'>
+            <CircularProgress sx={{ color: 'white' }} ></CircularProgress>
+        </div>
     }
-
-    const handleMainImg = (e) => {
-        const file = e.target.files;
-        if (file.length) {
-            setImgLoading(true)
-            let body = new FormData()
-            body.append('image', file[0]);
-            axios({
-                method: 'post',
-                url: 'https://stark-atoll-95180.herokuapp.com/uplaodImage',
-                data: body
-            })
-                .then(res => {
-                    setValue('img', res.data.data.url)
-                })
-                .catch(e => {
-                    setValue('img', '')
-                    setValue('mainImg', '')
-                    toast.error('Unknown error happen on image upload', {
-                        position: "bottom-right",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                    });
-                })
-                .finally(() => setImgLoading(false))
-        }
-
-    }
-
     return (
         <>
             <form className=' ' onSubmit={handleSubmit(onSubmit)}>
                 <div>
                     <h2 className='text-2xl text-white text-center mb-5'>Create a main section of blog</h2>
                     <Grid container spacing={4}>
-                        <Grid item xs={12} md={6}>
+                        <Grid item xs={12} md={12}>
                             <input className="w-full p-3 rounded-lg  bg-gray-900 placeholder:text-slate-400 text-white" placeholder="Enter Title"  {...register("heading", { required: true })} />
-                        </Grid>
-                        <Grid item xs={12} md={6}>
-                            <input className="w-full p-3 rounded-lg  bg-gray-900 placeholder:text-slate-400 text-white" placeholder="Location"  {...register("address", { required: true })} />
                         </Grid>
                         <Grid item xs={12} md={6}>
                             <textarea  {...register("description", { required: true })} className='w-full dashboard-scrollBar p-3 rounded-lg  bg-gray-900 placeholder:text-slate-400 text-white' placeholder='Enter description' cols="30" rows="6"></textarea>
                         </Grid>
-                        <Grid item xs={12} md={6}>
-                            <Box
-                                className='h-40 bg-gray-900 bg-center bg-cover flex justify-center items-center relative'
-                                sx={{
-                                    backgroundImage: `url("${watch('img')}")`
-                                }}
-                            >
-                                <input onChange={handleMainImg} type="file" accept="image/*" id='mainImg' className='w-full h-full z-20 opacity-0' />
-                                <div className='absolute inset-0 flex justify-center items-center'>
-                                    {
-                                        imgLoading ? <CircularProgress color="inherit" sx={{ color: 'white' }}></CircularProgress> : <label htmlFor='mainImg' className="bg-black/[.7] text-white p-2 rounded-md cursor-pointer">{watch('img')?.length ? "Change Thumbnail" : 'Choose Thumbnail'}</label>
-                                    }
-                                </div>
 
-                            </Box>
-                        </Grid>
 
 
                     </Grid>
@@ -236,21 +175,7 @@ const AddBlog = () => {
 
                 <button type='submit' id='submit' className=' hidden '>submit</button>
             </form>
-            <div>
-                <h2 className=' my-5 text-center text-2xl text-white'>Add tags </h2>
-                <div className='my-5   '>
-                    {
-                        watch('tags')?.map((tag, i) => <span className='inline-block text-white mb-2 p-2 border rounded-full mr-2' key={i}>
-                            #{tag}
-                            <IconButton onClick={() => handleDeleteTags(i)} sx={{ p: 0, mx: .5 }}>
-                                <ClearIcon sx={{ fontSize: '20px', color: 'red', p: 0 }}></ClearIcon>
-                            </IconButton>
-                        </span>
-                        )
-                    }
-                </div>
-                <input className="w-full p-3 rounded-lg text-white bg-gray-900 placeholder:text-slate-400" onKeyDown={addTags} placeholder='Enter tags and press enter ' />
-            </div>
+
             {
                 imgLoading || photosLoading || videoLoading || postLoading ? <button
                     className='bg-red-400 text-black rounded-md px-5 text-xl py-2 my-5 inline-block '
@@ -261,6 +186,5 @@ const AddBlog = () => {
         </>
     );
 };
-AddBlog.Layout = DashboardLayout;
-
-export default AddBlog;
+AddBio.Layout = DashboardLayout;
+export default AddBio;

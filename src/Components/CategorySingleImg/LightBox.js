@@ -26,7 +26,7 @@ const LightBox = ({ isVisible, url, onClose, index, elementNum, allImage }) => {
         else {
             setI(allImage?.length - 1)
         }
-        // console.log('pre', { index, elementNum, len }, allImage[(elementNum * len) - index]);
+        // 
 
     }
     const handleNext = () => {

@@ -11,7 +11,7 @@ const ContactForm = () => {
 
         axios.post('https://stark-atoll-95180.herokuapp.com/sendMail', { ...data, subject: `${data.displayName} try to contact you` })
             .then(res => {
-                console.log(res);
+
                 if (res.data.res !== 'error') {
                     toast.success('Message Send Successfully', {
                         position: "bottom-right",

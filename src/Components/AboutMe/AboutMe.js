@@ -18,7 +18,7 @@ const AboutMe = ({ innerRoute }) => {
     const container = useRef()
     const currentValue = scrollValue.toFixed(1)
     useEffect(() => {
-        console.log(currentValue);
+
         if (currentValue >= 4) {
             setValue({ content6: true, content5: true })
 
@@ -46,7 +46,7 @@ const AboutMe = ({ innerRoute }) => {
 
         }
     }, [currentValue])
-    console.log(progress);
+
     const handleMouseMove = e => {
         if (container.current) {
 

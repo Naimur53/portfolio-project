@@ -6,11 +6,11 @@ import { useSelector } from 'react-redux';
 import { allData } from '../../dataSlice/dataSlice';
 import ShareLove from '../ShareLove/ShareLove';
 
-const MainSection = () => {
+const MainSection = ({ bio }) => {
     const { blogDetails } = useSelector(allData);
     return (
         <>
-            <div className='block md:flex justify-between items-center pb-5 md:pb-0'>
+            {!bio && <div className='block md:flex justify-between items-center pb-5 md:pb-0'>
                 <div className='pb-5 flex mt-5'>
                     <div className='mr-4'>
                         <Avatar src='https://i.ibb.co/5LwPHgJ/20190320-WEST-AFRICA-FROM-GUNJUR-TO-BASSE-2964-removebg-preview.png' alt="blog " sx={{
@@ -23,7 +23,7 @@ const MainSection = () => {
                     </div>
                 </div>
                 <ShareLove></ShareLove>
-            </div>
+            </div>}
             <div>
                 <p className='text-contentText'>{blogDetails.description}</p>
             </div>

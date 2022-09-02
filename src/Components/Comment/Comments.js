@@ -3,7 +3,7 @@ import Image from 'next/image';
 import React from 'react';
 
 const Comments = ({ data, small }) => {
-    console.log(data)
+
     return (
         <div className='mb-5 font-family-mono'>
             <Grid container >

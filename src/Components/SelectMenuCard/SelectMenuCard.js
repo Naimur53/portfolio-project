@@ -19,7 +19,7 @@ const SelectMenuCard = ({ thumbnail, selected, categoryName, _id, handleAdd, han
 
     const handleClick = () => {
         const result = selected.find(single => single._id === _id)
-        console.log('click', result);
+
         if (result?._id) {
             handleRemove({ thumbnail, categoryName, _id })
         } else {

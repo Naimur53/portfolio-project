@@ -10,7 +10,7 @@ const BlogSection = ({ data }) => {
     if (description.length >= 300) {
         const lines = description.split('.')
         const len = Math.ceil(lines.length / 10)
-        console.log(len);
+
         for (let i = 1; i <= len; i++) {
             Des = [...Des,
             <p className='mt-4' key={i}>{lines.slice(i == 1 ? 0 : i, i * 10).join('.')}</p>

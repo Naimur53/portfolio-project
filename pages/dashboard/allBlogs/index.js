@@ -23,10 +23,10 @@ const AllBlogs = () => {
             <CircularProgress sx={{ color: 'white' }}></CircularProgress>
         </div>
     }
-    console.log(blogs);
+
     const handleDelete = (id, setDeleteLoading) => {
         if (window.confirm("Are you sure to Delete this blog?")) {
-            console.log(id);
+
             setDeleteLoading(true)
             axios.delete(`https://stark-atoll-95180.herokuapp.com/blog/delete?id=${id}`, {
                 headers: {
@@ -50,7 +50,7 @@ const AllBlogs = () => {
                     });
                 }).catch(e => {
                     setDeleteLoading(false)
-                    console.log(e.response?.data?.error);
+
                     if (e.response?.data?.error === 'UnAuthorize') {
 
                         toast.error('UnAuthorize try to reload or re-login to the site ' + e.message, {

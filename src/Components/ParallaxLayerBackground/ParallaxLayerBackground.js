@@ -6,7 +6,7 @@ import Image from 'next/image';
 const ParallaxLayerBackground = ({ className, factor, offset, url, speed, style }) => {
 
     const [ref, inView] = useInView()
-    console.log({ offset, inView });
+
     return (
         <ParallaxLayer
             offset={offset}
@@ -19,7 +19,7 @@ const ParallaxLayerBackground = ({ className, factor, offset, url, speed, style 
                     backgroundImage: url ? `url(${url})` : 'url(https://i.ibb.co/n7xmh1M/NEW-Background.jpg)'
 
                 }}
-                className={className ? "banner-wrap bg-cover h-full w-full" + className : "banner-wrap bg-cover h-full w-full"}>
+                className={className ? "banner-wrap bg-cover h-full w-full pointer-events-none" + className : "banner-wrap bg-cover h-full w-full pointer-events-none"}>
                 <div ref={ref} className='w-full flex h-full items-end   '>
                     {
                         <motion.div

@@ -52,7 +52,8 @@ const Aboutme = () => {
                 speed={.5}
                 sticky={{ start: 0, end: 6 }}
                 style={{
-                    zIndex: -1
+                    zIndex: -1,
+                    pointerEvents: "none"
                 }}
             >
                 <Middle></Middle>
@@ -67,8 +68,9 @@ const Aboutme = () => {
             <ParallaxLayer
                 offset={1}
                 speed={.5}
+                style={{ pointerEvents: 'none' }}
             >
-                <div className="h-full hidden md:block">
+                <div className="h-full pointer-events-auto hidden md:block">
 
                     <AboutTextArea></AboutTextArea>
                 </div>
@@ -78,9 +80,10 @@ const Aboutme = () => {
                 offset={1}
                 speed={.5}
                 factor={2}
+                style={{ pointerEvents: 'none' }}
             >
 
-                <div className="h-full block md:hidden">
+                <div className="h-full  block md:hidden">
 
                     <AboutTextArea></AboutTextArea>
                 </div>
@@ -88,7 +91,7 @@ const Aboutme = () => {
             <ParallaxLayerBackground
                 offset={1}
                 speed={.5}
-                className='hidden md:block'
+                className='hidden pointer-events-none md:block'
                 url='https://i.ibb.co/n7xmh1M/NEW-Background.jpg'
                 style={{ zIndex: '-1' }}
             />

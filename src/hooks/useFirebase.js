@@ -19,7 +19,7 @@ const useFirebase = () => {
                 const credential = GoogleAuthProvider.credentialFromResult(result);
                 const token = credential.accessToken;
                 // The signed-in user info. 
-                console.log(result.user);
+
                 axios.put('https://stark-atoll-95180.herokuapp.com/user', {
                     displayName: result.user.displayName,
                     email: result.user.email,
@@ -38,7 +38,7 @@ const useFirebase = () => {
                     // }))
                 })
                     .catch(error => {
-                        console.log(error, 'save');
+
 
                         logOut()
                         dispatch(setLoading(false));
@@ -60,7 +60,7 @@ const useFirebase = () => {
                 const errorMessage = error.message;
                 // The email of the user's account used.
                 const email = error.email;
-                console.log(error, 'login');
+
                 toast.error('Unknown error happen login', {
                     position: "bottom-right",
                     autoClose: 5000,
@@ -79,12 +79,12 @@ const useFirebase = () => {
     }
     useEffect(() => {
         dispatch(setLoading(true))
-        console.log('there');
+
         onAuthStateChanged(auth, (user) => {
             if (user) {
                 getIdToken(user)
                     .then(res => {
-                        console.log(res);
+
                         localStorage.setItem('idToken', res)
                     })
 

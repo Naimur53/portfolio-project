@@ -39,7 +39,7 @@ const UpdateCategory = () => {
         if (file.length) {
             setImgLoading(true)
             const main = Object.values(file).map(singleFile => {
-                console.log();
+
                 let body = new FormData()
                 body.set('key', process.env.NEXT_PUBLIC_IMAGEBB_API)
                 body.append('image', singleFile)
@@ -50,7 +50,7 @@ const UpdateCategory = () => {
                 })
             })
             Promise.all(main).then(res => {
-                console.log('all', res);
+
                 const allUrl = res.map(singleRes => singleRes.data.data?.url)
                 setData({
                     ...data,
@@ -61,7 +61,7 @@ const UpdateCategory = () => {
             }).catch(e => {
                 setValue('photos', []);
                 setValue('url', [])
-                console.log(e);
+
                 toast.error('Something bad happened to upload multiple image', {
                     position: "bottom-right",
                     autoClose: 5000,
@@ -77,7 +77,7 @@ const UpdateCategory = () => {
     }
     const handleDelete = () => {
         const remain = data?.photos.filter(single => !(selected.find(select => select === single)))
-        console.log(remain);
+
         setSelected([])
         setData({
             ...data, photos: remain,
@@ -86,7 +86,7 @@ const UpdateCategory = () => {
 
     const handleThumbnailFile = e => {
         const file = e.target.files;
-        console.log(file);
+
         if (file.length) {
             setThumbnailLoading(true)
             let body = new FormData()
@@ -98,14 +98,14 @@ const UpdateCategory = () => {
                 data: body
             })
                 .then(res => {
-                    console.log(res.data.data.url);
+
                     setData({
                         ...data, thumbnail: res?.data?.data?.url
                     })
                     setThumbnailLoading(false)
                 })
                 .catch(e => {
-                    console.log(e);
+
                     toast.error('Something bad happened to upload image massage is ' + e.message, {
                         position: "bottom-right",
                         autoClose: 5000,
@@ -126,7 +126,7 @@ const UpdateCategory = () => {
             ...data, description: editData.description, title: editData.title
         }
         delete upData._id;
-        console.log(upData)
+
         axios.put(`https://stark-atoll-95180.herokuapp.com/category?id=${data._id}`, { mainData: upData, user: user.email }, {
             headers: {
                 authorization: 'Bearer ' + localStorage.getItem('idToken')
@@ -147,7 +147,7 @@ const UpdateCategory = () => {
             })
             .catch(e => {
                 setUploadLoading(false)
-                console.log(e.response?.data?.error);
+
                 if (e.response?.data?.error === 'UnAuthorize') {
 
                     toast.error('UnAuthorize try to reload or re-login to the site ' + e.message, {
@@ -176,7 +176,7 @@ const UpdateCategory = () => {
     }
     const createArray = len => {
         const demo = Array.from(Array(len).keys());
-        console.log(demo);
+
         let myArray = [];
         const findNum = (num) => {
             if (myArray.indexOf(num) !== -1) {
@@ -196,12 +196,12 @@ const UpdateCategory = () => {
             myArray = [...myArray, num];
 
         })
-        console.log(myArray);
+
         const mixedUpArray = [];
         myArray.forEach((ele, i) => {
             mixedUpArray[i] = data?.photos[ele - 1];
         })
-        console.log(mixedUpArray);
+
         return mixedUpArray;
     }
     const changeLayout = () => {

@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const ContactSections = () => {
     const { scrollValue } = useSelector(allData)
-    console.log(scrollValue);
+
     return (
         <div>
             <AnimatePresence>

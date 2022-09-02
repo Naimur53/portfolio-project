@@ -46,7 +46,6 @@ export async function getServerSideProps() {
     // Fetch data from external API
     const res = await fetch(`https://stark-atoll-95180.herokuapp.com/category?normal=true`)
     const data = await res.json()
-    console.log('server', res);
 
     // Pass data to the page via props
     return { props: { data } }

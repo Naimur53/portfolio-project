@@ -29,7 +29,6 @@ const Dashboard = (props) => {
         const allUrl = [axios.get('https://stark-atoll-95180.herokuapp.com/totalUser'), axios.get('https://stark-atoll-95180.herokuapp.com/totalCategories'), axios.get('https://stark-atoll-95180.herokuapp.com/blogTotalLC'), axios.get('https://stark-atoll-95180.herokuapp.com/last7blog'), axios.get('https://stark-atoll-95180.herokuapp.com/blogCount')]
         Promise.all(allUrl)
             .then(res => {
-                console.log(res);
                 setUsers(res[0].data?.user)
                 setCategories(res[1].data?.categories)
                 const allBlogLC = res[2].data;

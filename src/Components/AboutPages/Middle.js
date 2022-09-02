@@ -39,7 +39,7 @@ const Middle = () => {
         }
     }
     useEffect(() => {
-        console.log(scrollValue);
+
         const scroll = scrollValue.toFixed(1)
         if (scroll >= 4) {
             setPath('ellipse(16% 23% at 50% 50%)')
@@ -69,7 +69,7 @@ const Middle = () => {
 
         }
     }, [scrollValue])
-    console.log(path);
+
     return (
         <div className=' h-full flex justify-center cursor-pointer  items-center'>
             <motion.div initial='initial' animate='animate' variants={rounding}

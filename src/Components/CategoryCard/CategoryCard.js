@@ -9,7 +9,7 @@ import { allData } from '../../dataSlice/dataSlice';
 import { toast } from 'react-toastify';
 const CategoryCard = ({ admin, i, _id, thumbnail, title, description, categoryName, photos, subCategory, setAlldata }) => {
     const [loading, setLoading] = useState(false);
-    console.log(i);
+
     const { user } = useSelector(allData)
     const handleDelete = () => {
         if (user?.email) {
@@ -38,7 +38,7 @@ const CategoryCard = ({ admin, i, _id, thumbnail, title, description, categoryNa
                     })
                     .catch(e => {
                         setLoading(false)
-                        console.log(e.response?.data?.error);
+
                         if (e.response?.data?.error === 'UnAuthorize') {
 
                             toast.error('UnAuthorize try to reload or re-login to the site ' + e.message, {

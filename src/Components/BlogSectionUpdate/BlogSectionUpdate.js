@@ -11,7 +11,7 @@ const BlogSectionUpdate = ({ register, description, img, title, index, setData, 
     const handleChange = (value, i) => {
         setData(pre => {
             pre.sections[index].img[i].title = value;
-            console.log(pre.sections[index].img, 'dfdffd');
+
             return {
                 ...pre,
             }
@@ -23,7 +23,7 @@ const BlogSectionUpdate = ({ register, description, img, title, index, setData, 
         console.error('dfdfdfkdj fkldjfdkljf')
         setData(pre => {
             delete pre.sections[index].img
-            console.log(pre.sections[index].img, 'dfdffd');
+
             return {
                 ...pre,
                 section: [...pre.sections]
@@ -34,7 +34,7 @@ const BlogSectionUpdate = ({ register, description, img, title, index, setData, 
     const handleDeleteVideo = () => {
         setData(pre => {
             delete pre.sections[index].video
-            console.log(pre.sections[index].img, 'dfdffd');
+
             return {
                 ...pre,
                 section: [...pre.sections]
@@ -44,7 +44,7 @@ const BlogSectionUpdate = ({ register, description, img, title, index, setData, 
     }
     const handlePhotosFile = e => {
         const file = e.target.files;
-        // console.log('file', Object.values(file), process.env.NEXT_PUBLIC_IMAGEBB_API);
+        // 
         if (file?.length) {
             setPhotosLoading(true)
             const main = Object.values(file).map(singleFile => {
@@ -59,7 +59,7 @@ const BlogSectionUpdate = ({ register, description, img, title, index, setData, 
             })
             Promise.all(main)
                 .then(res => {
-                    console.log('all', res);
+
                     const allUrl = res.map(singleRes => {
                         return {
                             url: singleRes.data.data?.url,
@@ -105,7 +105,7 @@ const BlogSectionUpdate = ({ register, description, img, title, index, setData, 
                 }
             })
                 .then(res => {
-                    console.log(res, 'success');
+
                     setVideoLoading(false)
                     setData(pre => {
                         pre.sections[index].video = res.data.url;
@@ -124,7 +124,7 @@ const BlogSectionUpdate = ({ register, description, img, title, index, setData, 
                         draggable: true,
                         progress: undefined,
                     });
-                    console.log('video upload error', e);
+
                 })
         }
 

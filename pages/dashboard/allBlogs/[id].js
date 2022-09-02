@@ -33,7 +33,7 @@ const UpdateBlog = () => {
 
 
 
-    console.log(data);
+
     if (!data?._id) {
         return <div className='flex justify-center' >
             <CircularProgress color='inherit' sx={{ color: 'white' }}></CircularProgress>
@@ -44,7 +44,7 @@ const UpdateBlog = () => {
 
     const addTags = e => {
         if (e.key === 'Enter') {
-            console.log('add tages ', e.target.value);
+
             if (watch('tags')) {
 
                 setValue('tags', [...watch('tags'), e.target.value])
@@ -57,14 +57,14 @@ const UpdateBlog = () => {
         }
     }
     const handleDeleteTags = (i) => {
-        console.log(i);
+
         const without = watch('tags').filter((tag, index) => index !== i)
         setValue('tags', without)
 
     }
     const handleMainImg = (e) => {
         const file = e.target.files;
-        console.log(file);
+
         if (file.length) {
             setImgLoading(true)
             let body = new FormData()
@@ -76,7 +76,7 @@ const UpdateBlog = () => {
                 data: body
             })
                 .then(res => {
-                    console.log(res.data.data.url);
+
                     setData(pre => {
                         return {
                             ...pre,
@@ -135,13 +135,13 @@ const UpdateBlog = () => {
 
             sections: createSection,
         }
-        console.log(create);
+
         axios.put(`https://stark-atoll-95180.herokuapp.com/blog?id=${data._id}`, { mainData: create, user: user?.email }, {
             headers: {
                 authorization: 'Bearer ' + localStorage.getItem('idToken')
             },
         }).then(res => {
-            console.log(res);
+
             setUpLoading(false)
             toast.success('Successfully post the blog', {
                 position: "bottom-right",
@@ -157,7 +157,7 @@ const UpdateBlog = () => {
             .catch(e => {
                 setUpLoading(false)
 
-                console.log(e.response?.data?.error);
+
                 if (e.response?.data?.error === 'UnAuthorize') {
 
                     toast.error('UnAuthorize try to reload or re-login to the site ' + e.message, {

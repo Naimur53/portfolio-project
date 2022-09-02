@@ -11,7 +11,7 @@ const CommentFrom = () => {
     const { blogDetails, user } = useSelector(allData)
     const dispatch = useDispatch()
     const { google, loading, logOut } = useFirebase()
-    // console.log(google);
+    // 
     const onSubmit = data => {
 
         //verify
@@ -31,10 +31,10 @@ const CommentFrom = () => {
             user,
             comment,
         }
-        console.log(mainData);
+
         axios.put(`https://stark-atoll-95180.herokuapp.com/blog/comment?id=${blogDetails._id}`, mainData)
             .then(res => {
-                console.log(res);
+
             })
         dispatch(addComments({ ...mainData, date: new Date() }))
 
@@ -43,7 +43,7 @@ const CommentFrom = () => {
         reset()
     }
     const handleClick = () => {
-        console.log('done');
+
         google()
     }
     useEffect(() => {

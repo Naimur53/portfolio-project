@@ -10,7 +10,7 @@ const MiddleVideo = () => {
     const [value, setValue] = useState({ visible: false, path: false });
     const video = useRef()
     useEffect(() => {
-        console.log(scrollValue);
+
         const scroll = scrollValue.toFixed(1)
         if (scroll >= 2.6) {
 

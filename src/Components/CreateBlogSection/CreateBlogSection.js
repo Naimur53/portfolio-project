@@ -32,13 +32,13 @@ const CreateBlogSection = ({ errors, unregister, handleComplete, setPhotosLoadin
 
 
     }, [watch(`file${singleSec.num}`)])
-    console.log(videoLoading);
+
     //handle complete 
     useEffect(() => {
         if (
             watch(`title${singleSec.num}`) && watch(`description${singleSec.num}`)
         ) {
-            console.log("complete");
+
             handleComplete(singleSec.num, true);
         }
     }, [watch(`title${singleSec.num}`), watch(`description${singleSec.num}`), watch(`photosFile${singleSec.num}`), watch(`file${singleSec.num}`)]);
@@ -47,7 +47,7 @@ const CreateBlogSection = ({ errors, unregister, handleComplete, setPhotosLoadin
     // photos file upload 
     const handlePhotosFile = e => {
         const file = e.target.files;
-        // console.log('file', Object.values(file), process.env.NEXT_PUBLIC_IMAGEBB_API);
+        // 
         if (file?.length) {
             setPhotosLoading(true)
             const main = Object.values(file).map(singleFile => {
@@ -62,7 +62,7 @@ const CreateBlogSection = ({ errors, unregister, handleComplete, setPhotosLoadin
             })
             Promise.all(main)
                 .then(res => {
-                    console.log('all', res);
+
                     const allUrl = res.map(singleRes => {
                         return {
                             url: singleRes.data.data?.url,
@@ -70,7 +70,7 @@ const CreateBlogSection = ({ errors, unregister, handleComplete, setPhotosLoadin
                         }
                     })
                     setValue(`img${singleSec.num}`, allUrl);
-                    console.log('url', allUrl);
+
 
                 })
                 .catch(e => {
@@ -85,7 +85,7 @@ const CreateBlogSection = ({ errors, unregister, handleComplete, setPhotosLoadin
                     });
                     setValue(`img${singleSec.num}`, []);
                     setValue(`photosFile${singleSec.num}`, []);
-                    console.log('error');
+
                 })
                 .finally(() => {
                     setPhotosLoading(false);
@@ -107,7 +107,7 @@ const CreateBlogSection = ({ errors, unregister, handleComplete, setPhotosLoadin
                 }
             })
                 .then(res => {
-                    console.log(res, 'success');
+
                     setValue(`video${singleSec.num}`, res.data.url)
                     setVideoLoading(false)
                 })
@@ -121,7 +121,7 @@ const CreateBlogSection = ({ errors, unregister, handleComplete, setPhotosLoadin
                         draggable: true,
                         progress: undefined,
                     });
-                    console.log('video upload error', e);
+
                     setValue(`file${singleSec.num}`, []);
                     setValue(`video${singleSec.num}`, '');
                     setVideoLoading(false)

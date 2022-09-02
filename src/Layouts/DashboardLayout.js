@@ -30,6 +30,7 @@ import AddTaskIcon from '@mui/icons-material/AddTask';
 import HomeIcon from '@mui/icons-material/Home';
 import { useRouter } from "next/router";
 import Image from "next/image";
+import DynamicFeedIcon from '@mui/icons-material/DynamicFeed';
 
 const DashboardLayout = ({ children, window }) => {
     const [mobileOpen, setMobileOpen] = useState(false);
@@ -41,7 +42,7 @@ const DashboardLayout = ({ children, window }) => {
     useEffect(() => {
 
     }, [loading, router, user])
-    console.log(loading, user)
+
 
     if (loading) {
         return <div className="h-screen items-center flex justify-center">
@@ -133,6 +134,36 @@ const DashboardLayout = ({ children, window }) => {
                                 <DriveFileRenameOutlineIcon />
                             </ListItemIcon>
                             <h2>Write a blog</h2>
+                        </ListItemButton>
+                    </Link>
+                </ListItem>
+                <ListItem disablePadding>
+                    <Link href="/dashboard/addBio">
+                        <ListItemButton
+                            sx={{
+                                py: 2,
+                                background: router.pathname == "/dashboard/addBio" ? "black" : ""
+                            }}
+                        >
+                            <ListItemIcon sx={{ m: 0, p: 0, color: 'rgb(249 250 251)' }}  >
+                                <DriveFileRenameOutlineIcon />
+                            </ListItemIcon>
+                            <h2>Add Bio</h2>
+                        </ListItemButton>
+                    </Link>
+                </ListItem>
+                <ListItem disablePadding>
+                    <Link href="/dashboard/updateBio">
+                        <ListItemButton
+                            sx={{
+                                py: 2,
+                                background: router.pathname == "/dashboard/updateBio" ? "black" : ""
+                            }}
+                        >
+                            <ListItemIcon sx={{ m: 0, p: 0, color: 'rgb(249 250 251)' }}  >
+                                <DynamicFeedIcon />
+                            </ListItemIcon>
+                            <h2>Update Bio</h2>
                         </ListItemButton>
                     </Link>
                 </ListItem>

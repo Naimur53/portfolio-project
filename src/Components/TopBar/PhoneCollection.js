@@ -5,7 +5,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 
 const PhoneCollection = ({ data }) => {
-    console.log('phone collection', data);
+
     return (
         <div>
             {

@@ -7,7 +7,6 @@ import Head from '../../src/Components/Head/Head';
 import BlogPageBanner from '../../src/Components/BlogPageBanner/BlogPageBanner';
 import Footer from '../../src/Components/AboutPages/Footer';
 const Blogs = ({ blogs }) => {
-    console.log(blogs);
     return (
 
         <div className='bg-cover' style={{ backgroundImage: 'url(https://i.ibb.co/n7xmh1M/NEW-Background.jpg)', minHeight: '100vh' }} >

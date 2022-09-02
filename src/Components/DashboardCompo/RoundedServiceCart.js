@@ -45,7 +45,7 @@ const RoundedServiceCart = ({ info }) => {
                 animate={true}
                 cornerRadius={3}
                 tooltip={(e) => {
-                    console.log(e);
+
                     return <div className='flex bg-black text-white items-center p-2'>
                         <div className='w-4 mr-4 h-4' style={{ background: e.datum.color }}>
                         </div>

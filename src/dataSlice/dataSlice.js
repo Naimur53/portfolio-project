@@ -49,7 +49,7 @@ export const dataSlice = createSlice({
     },
     extraReducers: {
         [HYDRATE]: (state, action) => {
-            console.log('HYDRATE...', action.payload);
+
             state.user = action.payload.data.user
             state.loading = action.payload.data.loading
             state.homeCategory = action.payload.data.homeCategory;
