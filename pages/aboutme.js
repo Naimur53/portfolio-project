@@ -68,6 +68,7 @@ const Aboutme = () => {
             <ParallaxLayer
                 offset={1}
                 speed={.5}
+                factor={2}
                 style={{ pointerEvents: 'none' }}
             >
                 <div className="h-full pointer-events-auto hidden md:block">
@@ -79,7 +80,7 @@ const Aboutme = () => {
             <ParallaxLayer
                 offset={1}
                 speed={.5}
-                factor={2}
+                factor={1.5}
                 style={{ pointerEvents: 'none' }}
             >
 
@@ -91,14 +92,15 @@ const Aboutme = () => {
             <ParallaxLayerBackground
                 offset={1}
                 speed={.5}
-                className='hidden pointer-events-none md:block'
+                factor={2}
+                className='hidden pointer-events-none md:block '
                 url='https://i.ibb.co/n7xmh1M/NEW-Background.jpg'
                 style={{ zIndex: '-1' }}
             />
             <ParallaxLayerBackground
                 offset={1}
-                className='block md:hidden'
-                factor={2}
+                className='block md:hidden  '
+                factor={1.5}
                 speed={.5}
                 url='https://i.ibb.co/n7xmh1M/NEW-Background.jpg'
                 style={{ zIndex: '-1' }}

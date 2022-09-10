@@ -5,11 +5,12 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 
 const PhoneCollection = ({ data }) => {
+    console.log({ PhoneCollection: data });
 
     return (
         <div>
             {
-                data.map(single => {
+                data ? data?.map(single => {
                     if (single.dropdown?.length !== 0) {
                         return (
                             <Accordion
@@ -34,7 +35,7 @@ const PhoneCollection = ({ data }) => {
                     return (
                         <Link href={'/category/' + single._id} key={single._id}><span className='w-full border  flex justify-center mb-3 py-2 border-gray-700 rounded-sm hover:border-yellow-300 text-white'>{single.categoryName}</span></Link>
                     )
-                })
+                }) : <div></div>
             }
         </div>
     );

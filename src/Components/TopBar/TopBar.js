@@ -38,6 +38,7 @@ const TopBar = () => {
         fetcher
     );
     useEffect(() => {
+        console.log('datacome', data);
         dispatch(addCollection(data))
     }, [data, dispatch, user])
     const handleOpenNavMenu = (event) => {
