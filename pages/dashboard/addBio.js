@@ -4,7 +4,6 @@ import axios from 'axios';
 import { useForm } from 'react-hook-form';
 import DashboardLayout from '../../src/Layouts/DashboardLayout'
 import { useEffect, useState } from 'react';
-import CreateBlogSection from '../../src/Components/CreateBlogSection/CreateBlogSection';
 import ClearIcon from '@mui/icons-material/Clear';
 import { Box } from '@mui/system';
 import { toast } from 'react-toastify';
@@ -12,6 +11,7 @@ import { allData, setLoading } from '../../src/dataSlice/dataSlice';
 import { useSelector } from 'react-redux';
 import fetcher from '../../src/util/fatcher';
 import useSWR from 'swr'
+import CreateAddBioSection from '../../src/Components/CreateAddBioSection/CreateAddBioSection';
 const AddBio = () => {
     const [imgLoading, setImgLoading] = useState(false);
     const [photosLoading, setPhotosLoading] = useState(false);
@@ -25,8 +25,8 @@ const AddBio = () => {
     const [numSection, setNumSection] = useState([{ num: 1, complete: false }])
     const { register, unregister, handleSubmit, reset, setValue, watch, formState: { errors } } = useForm({ shouldUnregister: false });
     // default
-    const createObj = (title, url, description, img, video) => {
-        return { title, url, description, img, video }
+    const createObj = (title, url, description, img, video, column) => {
+        return { title, url, description, img, video, column }
     }
     const onSubmit = data => {
 
@@ -35,7 +35,7 @@ const AddBio = () => {
 
         // create section field
         const sections = numSection.map(ele => {
-            return createObj(data['title' + ele.num], data['url' + ele.num], data['description' + ele.num], data['img' + ele.num], data['video' + ele.num])
+            return createObj(data['title' + ele.num], data['url' + ele.num], data['description' + ele.num], data['img' + ele.num], data['video' + ele.num], data['column' + ele.num])
         })
         // create main data for post 
         const mainData = { img, heading, description, sections };
@@ -110,6 +110,7 @@ const AddBio = () => {
         setValue(`url${num}`, '');
         setValue(`img${num}`, []);
         setValue(`video${num}`, []);
+        setValue(`column${num}`, false);
 
         setNumSection(pre => {
             pre.filter(preNum => preNum.num !== num).forEach((element, i) => {
@@ -119,6 +120,7 @@ const AddBio = () => {
                 setValue(`photosFile${i + 1}`, watch(`photosFile${element.num}`))
                 setValue(`file${i + 1}`, watch(`file${element.num}`))
                 setValue(`img${i + 1}`, watch(`img${element.num}`))
+                setValue(`column${i + 1}`, watch(`column${element.num}`))
             });
             const newRe = pre.filter(preNum => preNum.num !== num).map((ele, i) => {
                 return { num: ++i, complete: ele.complete }
@@ -143,7 +145,7 @@ const AddBio = () => {
         <>
             <form className=' ' onSubmit={handleSubmit(onSubmit)}>
                 <div>
-                    <h2 className='text-2xl text-white text-center mb-5'>Create a main section of blog</h2>
+                    <h2 className='text-2xl text-white text-center mb-5'>Create a main section of Bio</h2>
                     <Grid container spacing={4}>
                         <Grid item xs={12} md={12}>
                             <input className="w-full p-3 rounded-lg  bg-gray-900 placeholder:text-slate-400 text-white" placeholder="Enter Title"  {...register("heading", { required: true })} />
@@ -161,7 +163,7 @@ const AddBio = () => {
                     <Grid container spacing={4}>
 
                         {
-                            numSection.map(singleSec => <CreateBlogSection videoLoading={videoLoading} setVideoLoading={setVideoLoading} handleDelete={handleDelete} errors={errors} key={singleSec.num} singleSec={singleSec} unregister={unregister} handleComplete={handleComplete} setPhotosLoading={setPhotosLoading} photosLoading={photosLoading} register={register} watch={watch} setValue={setValue}  ></CreateBlogSection>)
+                            numSection.map(singleSec => <CreateAddBioSection videoLoading={videoLoading} setVideoLoading={setVideoLoading} handleDelete={handleDelete} errors={errors} key={singleSec.num} singleSec={singleSec} unregister={unregister} handleComplete={handleComplete} setPhotosLoading={setPhotosLoading} photosLoading={photosLoading} register={register} watch={watch} setValue={setValue}  ></CreateAddBioSection>)
                         }
 
                     </Grid>

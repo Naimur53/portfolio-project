@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import useSWR from 'swr';
 import { useSelector } from 'react-redux'
 import { useRouter } from 'next/router';
-import { Avatar, CircularProgress, IconButton } from '@mui/material';
+import { Avatar, CircularProgress, IconButton, Container } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import ClearIcon from '@mui/icons-material/Clear';
 import { toast } from 'react-toastify';
@@ -11,6 +11,7 @@ import fetcher from '../../src/util/fatcher';
 import { allData } from '../../src/dataSlice/dataSlice';
 import BlogSectionUpdate from '../../src/Components/BlogSectionUpdate/BlogSectionUpdate';
 import DashboardLayout from '../../src/Layouts/DashboardLayout';
+import BioSectionUpdate from '../../src/Components/BioSectionUpdate/BioSectionUpdate';
 const UpdateBio = () => {
     const { user } = useSelector(allData)
     const { data: res, error } = useSWR(
@@ -50,6 +51,7 @@ const UpdateBio = () => {
                 description: mainData['description' + i],
                 title: mainData['title' + i],
                 url: mainData['url' + i],
+                column: mainData['column' + i],
             }
             createSection = [...createSection, singleSection]
         });
@@ -105,7 +107,7 @@ const UpdateBio = () => {
             })
     }
     return (
-        <div>
+        <Container>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div>
                     <input type="text" {...register("heading", { required: true })} defaultValue={data.heading} className=' text bg-transparent   text-xl md:text-3xl text-center text-heading font-family-mono font-thin border-white block w-full px-4  py-2' />
@@ -116,7 +118,7 @@ const UpdateBio = () => {
 
                 </div>
                 {
-                    data?.sections.map((single, i) => <BlogSectionUpdate key={i} setData={setData} index={i} register={register} {...single}></BlogSectionUpdate>)
+                    data?.sections.map((single, i) => <BioSectionUpdate key={i} setData={setData} watch={watch} index={i} register={register} {...single}></BioSectionUpdate>)
                 }
                 <div>
 
@@ -128,7 +130,7 @@ const UpdateBio = () => {
             {
                 upLoading ? <CircularProgress color='inherit' sx={{ color: 'white' }}></CircularProgress> : <label htmlFor="submit" className='text-yellow-500 inline-block px-4 py-2 mt-5 border border-yellow-500' type='submit'>Update blog</label>
             }
-        </div>
+        </Container>
     );
 };
 UpdateBio.Layout = DashboardLayout;

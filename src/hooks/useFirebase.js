@@ -9,7 +9,7 @@ import axios from 'axios';
 const useFirebase = () => {
     initializeAppAuthentication()
     const dispatch = useDispatch();
-    const [user, setUser] = useState({});
+    const [currentUser, setCurrentUser] = useState({});
     const provider = new GoogleAuthProvider();
     const auth = getAuth();
     const google = () => {
@@ -77,17 +77,23 @@ const useFirebase = () => {
                 // ...
             });
     }
-    useEffect(() => {
-        dispatch(setLoading(true))
 
+
+    const getJWT = (user) => {
+        getIdToken(user)
+            .then(res => {
+
+                localStorage.setItem('idToken', res)
+            })
+
+
+    }
+    useEffect(() => {
+        dispatch(setLoading(true));
         onAuthStateChanged(auth, (user) => {
             if (user) {
-                getIdToken(user)
-                    .then(res => {
-
-                        localStorage.setItem('idToken', res)
-                    })
-
+                setCurrentUser(user);
+                getJWT(user);
                 axios.get(`https://stark-atoll-95180.herokuapp.com/user?email=${user.email}`)
                     .then(res => {
                         dispatch(addUser(res.data))
@@ -101,6 +107,19 @@ const useFirebase = () => {
 
         });
     }, [auth, dispatch]);
+    useEffect(() => {
+        const callJwt = setInterval(() => {
+            console.log('iam geting the jwtoken ');
+            if (currentUser?.email) {
+                getJWT(currentUser)
+            }
+        }, 60000 * 2.5)
+        return () => {
+            console.log('delete');
+            clearInterval(callJwt)
+        }
+    }, [currentUser])
+
     const logOut = () => {
         signOut(auth).then(() => {
             // Sign-out successful.
@@ -110,7 +129,7 @@ const useFirebase = () => {
         });
     }
     return {
-        user,
+        currentUser,
         google,
         logOut
     };

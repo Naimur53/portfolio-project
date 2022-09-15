@@ -1,3 +1,4 @@
+
 import { Button, CircularProgress, Container, Drawer, Grid, IconButton, TextField, Tooltip } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
@@ -5,16 +6,10 @@ import Image from 'next/image';
 import CloseIcon from '@mui/icons-material/Close';
 import { Box } from '@mui/system';
 import { toast } from 'react-toastify';
-
-// const a = {
-//     title: "The disappointment comes at home. ",
-//     img: [{ title: 'Ait Ben Haddou  Morocco: A first attempt under poor light conditions', url: 'https://i.ibb.co/hVm9s2y/20161021-AIT-BEN-HABBOU-351-Pano-1200x406.jpg' }],
-//     video: "",
-//     description: "I have a few golden rules. One of these rules, ‘Don’t try to organize, be on time and stay until you are completely satisfied.’ So I was on time. Sunset was expected around 7:30 and I was there at five. Camera tripod set up and the Nikon D5 on it. New pack of Marlboro in my pocket for the usual ‘Time killing smoking’. Slowly, bit by bit I see the light change. At that moment the light plan starts in my head. I take in some reference points. When the sun goes down there …. that is my moment. I do some spot measurements and light up another Marlboro. Just wait, this is going to be all right."
-// }
-
-
-const CreateBlogSection = ({ errors, unregister, handleComplete, setPhotosLoading, photosLoading, singleSec, register, setValue, watch, handleDelete, setVideoLoading, videoLoading }) => {
+import FormGroup from '@mui/material/FormGroup';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Switch from '@mui/material/Switch';
+const CreateAddBioSection = ({ errors, unregister, handleComplete, setPhotosLoading, photosLoading, singleSec, register, setValue, watch, handleDelete, setVideoLoading, videoLoading }) => {
     let handleChange = watch(`photosFile${singleSec.num}`);
     const [isOpen, setIsOpen] = useState(false);
     const [isOpenVideo, setIsOpenVideo] = useState(false);
@@ -120,11 +115,18 @@ const CreateBlogSection = ({ errors, unregister, handleComplete, setPhotosLoadin
         old[i].title = value;
         setValue(`img${singleSec.num}`, old)
     }
+    console.log(watch(`column${singleSec.num}`));
     return (
         <>
             <Grid item xs={12} md={12}>
+                <FormGroup>
+                    <FormControlLabel control={<Switch color="warning"  {...register(`column${singleSec.num}`,)} />} label={watch(`column${singleSec.num}`) ? 'Tow Columns' : 'One Column'} />
+                </FormGroup>
+            </Grid>
+            <Grid item xs={12} md={12}>
                 <input className="w-full p-3 rounded-lg text-white  bg-gray-900 placeholder:text-slate-400" placeholder="Enter Title"  {...register(`title${singleSec.num}`, { required: true })} />
             </Grid>
+
             <Grid item xs={12} md={6}>
                 <textarea className='w-full p-3 rounded-lg text-white bg-gray-900 placeholder:text-slate-400' cols="30" placeholder='Enter Description' {...register(`description${singleSec.num}`, { required: true })} rows="6"></textarea>
             </Grid>
@@ -213,4 +215,5 @@ const CreateBlogSection = ({ errors, unregister, handleComplete, setPhotosLoadin
     );
 };
 
-export default CreateBlogSection;
+
+export default CreateAddBioSection;

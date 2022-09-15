@@ -27,20 +27,24 @@ import { addCollection, allData } from '../../dataSlice/dataSlice';
 import CustomLink from '../SmallComponents/CustomLink';
 import Image from 'next/image';
 import { useDispatch } from 'react-redux';
+import axios from 'axios';
 const pages = ['home', 'aboutme', 'dashboard', 'blogs',];
 const TopBar = () => {
 
     const [open, setOpen] = useState(null);
     const { collection, user } = useSelector(allData)
     const dispatch = useDispatch()
-    const { data, error } = useSWR(
-        "https://stark-atoll-95180.herokuapp.com/chooseMenu",
-        fetcher
-    );
+    // const { data, error } = useSWR(
+    //     "https://stark-atoll-95180.herokuapp.com/chooseMenu",
+    //     fetcher
+    // );
     useEffect(() => {
-        console.log('datacome', data);
-        dispatch(addCollection(data))
-    }, [data, dispatch, user])
+        axios.get("https://stark-atoll-95180.herokuapp.com/chooseMenu")
+            .then(({ data }) => {
+
+                dispatch(addCollection(data))
+            })
+    }, [dispatch, user])
     const handleOpenNavMenu = (event) => {
         setOpen(!open);
     };
@@ -115,6 +119,7 @@ const TopBar = () => {
                         <h1 className='text-white'>Collection</h1>
                     </AccordionSummary>
                     <AccordionDetails>
+
                         <PhoneCollection data={collection}></PhoneCollection>
                     </AccordionDetails>
                 </Accordion>

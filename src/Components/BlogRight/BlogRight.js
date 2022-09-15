@@ -19,7 +19,7 @@ const BlogRight = ({ bio }) => {
         <div >
             <MainSection bio={bio} ></MainSection>
             {
-                blogDetails.sections?.map(data => <BlogSection key={data.title} data={data}></BlogSection>)
+                blogDetails.sections?.map(data => <BlogSection bio={bio} key={data.title} data={data}></BlogSection>)
             }
             {
                 !bio && <div>
