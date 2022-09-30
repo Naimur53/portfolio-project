@@ -52,6 +52,7 @@ const UpdateBio = () => {
                 title: mainData['title' + i],
                 url: mainData['url' + i],
                 column: mainData['column' + i],
+                reverse: mainData['reverse' + i],
             }
             createSection = [...createSection, singleSection]
         });

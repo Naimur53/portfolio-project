@@ -132,63 +132,79 @@ const BioSectionUpdate = ({ register, description, img, title, index, setData, u
     return (
         <div className='mt-10'>
             <Grid container spacing={4}>
-                <Grid xs={12}>
+                <Grid item xs={12} md={6}>
                     <FormGroup>
-                        <FormControlLabel control={<Switch color="warning"  {...register(`column${index}`,)} />} label={watch(`column${index}`) ? 'Tow Columns' : 'One Column'} />
+                        <FormControlLabel sx={{ color: 'white' }} control={<Switch defaultValue={column} color="warning"  {...register(`column${index}`,)} />} label={watch(`column${index}`) ? 'Tow Columns' : 'One Column'} />
                     </FormGroup>
 
                 </Grid>
-                <Grid xs={12} item md={watch(`column${index}`) ? 6 : 12}>
-                    <div className='relative py-10'>
+                <Grid item xs={12} md={6}>
+                    <FormGroup>
+                        <FormControlLabel sx={{ color: 'white' }} control={<Switch color="warning"  {...register(`reverse${index}`,)} />} label={watch(`reverse${index}`) ? 'Reverse' : 'No Reverse'} />
+                    </FormGroup>
+                </Grid>
+                <Grid item xs={12} md={12}>
+                    <Grid container spacing={2}
+                        sx={{
+                            flexDirection: watch(`column${index}`) ? watch(`reverse${index}`) ? 'row-reverse' : 'row' : watch(`reverse${index}`) ? 'column-reverse' : 'column'
+                        }}
+                    >
+                        <Grid xs={12} item md={watch(`column${index}`) ? 6 : 12}>
+                            <div className='relative py-10'>
 
-                        <div className="absolute inset-0 bg-black/[.6] flex justify-center items-center z-50 pointer-events-none">
-                            {
-                                img?.length || video ? photosLoading || videoLoading ? <CircularProgress color='inherit' sx={{ color: 'white' }}></CircularProgress> : img?.length ? <div>
-                                    <label htmlFor={'photosFile' + index} className='border-b pointer-events-auto border-green-400 text-green-400 cursor-pointer mr-4 '>Change image</label>
-                                    <button onClick={() => handleDeleteImages()} className='border-b pointer-events-auto border-red-400 text-red-400 '>Delete Images</button>
-                                </div> : <div>
-                                    <label htmlFor={'file' + index} className='border-b pointer-events-auto border-green-400 text-green-400 cursor-pointer mr-4 '>Change video</label>
-                                    <button onClick={() => handleDeleteVideo()} className='border-b pointer-events-auto border-red-400 text-red-400 '>Delete video</button>
-                                </div> : <div className='py-5'>
+                                <div className="absolute inset-0 bg-black/[.6] flex justify-center items-center z-50 pointer-events-none">
                                     {
-                                        photosLoading || videoLoading ? <CircularProgress color='inherit' sx={{ color: 'white' }}></CircularProgress> : <div className='my-5 inline-block'>
-                                            <label htmlFor={'photosFile' + index} className='border-b pointer-events-auto border-green-400 text-green-400 cursor-pointer mr-4 '>Add image</label>
-                                            <label htmlFor={'file' + index} className='border-b pointer-events-auto border-red-400 text-red-400 cursor-pointer mr-4 '>Add video</label>
+                                        img?.length || video ? photosLoading || videoLoading ? <CircularProgress color='inherit' sx={{ color: 'white' }}></CircularProgress> : img?.length ? <div>
+                                            <label htmlFor={'photosFile' + index} className='border-b pointer-events-auto border-green-400 text-green-400 cursor-pointer mr-4 '>Change image</label>
+                                            <button onClick={() => handleDeleteImages()} className='border-b pointer-events-auto border-red-400 text-red-400 '>Delete Images</button>
+                                        </div> : <div>
+                                            <label htmlFor={'file' + index} className='border-b pointer-events-auto border-green-400 text-green-400 cursor-pointer mr-4 '>Change video</label>
+                                            <button onClick={() => handleDeleteVideo()} className='border-b pointer-events-auto border-red-400 text-red-400 '>Delete video</button>
+                                        </div> : <div className='py-5'>
+                                            {
+                                                photosLoading || videoLoading ? <CircularProgress color='inherit' sx={{ color: 'white' }}></CircularProgress> : <div className='my-5 inline-block'>
+                                                    <label htmlFor={'photosFile' + index} className='border-b pointer-events-auto border-green-400 text-green-400 cursor-pointer mr-4 '>Add image</label>
+                                                    <label htmlFor={'file' + index} className='border-b pointer-events-auto border-red-400 text-red-400 cursor-pointer mr-4 '>Add video</label>
+                                                </div>
+                                            }
                                         </div>
                                     }
+
                                 </div>
-                            }
 
-                        </div>
+                            </div>
+                            <input type="text" defaultValue={title} placeholder='title' {...register(`title${index}`, { required: true })} className='  text-2xl mt-4  mb-2 text-heading border  bg-transparent   border-white block w-full px-4  py-2' />
+                            <input type="text" placeholder='Enter url (optional)' defaultValue={url} {...register(`url${index}`)} className="w-full p-3 my-5 rounded-lg border bg-gray-900 placeholder:text-slate-400 text-white" />
+                            <input onChange={handlePhotosFile} className='hidden' id={'photosFile' + index} type="file" accept="image/*" multiple={true} />
+                            <input onChange={handleVideoUpload} className='hidden' type="file" id={'file' + index} accept="video/*" />
+                            <textarea type="text" defaultValue={description} placeholder='description' {...register(`description${index}`, { required: true })} className=' mb-2 text-heading  bg-transparent   border-white block w-full px-4 border py-2' cols='10' rows='5' />
 
-                    </div>
-                    <input type="text" defaultValue={title} placeholder='title' {...register(`title${index}`, { required: true })} className='  text-2xl mt-4  mb-2 text-heading  bg-transparent   border-white block w-full px-4  py-2' />
-                    <input type="text" placeholder='Enter url (optional)' defaultValue={url} {...register(`url${index}`)} className="w-full p-3 my-5 rounded-lg  bg-gray-900 placeholder:text-slate-400 text-white" />
-                    <input onChange={handlePhotosFile} className='hidden' id={'photosFile' + index} type="file" accept="image/*" multiple={true} />
-                    <input onChange={handleVideoUpload} className='hidden' type="file" id={'file' + index} accept="video/*" />
-                    <textarea type="text" defaultValue={description} placeholder='description' {...register(`description${index}`, { required: true })} className=' mb-2 text-heading  bg-transparent   border-white block w-full px-4  py-2' cols='10' rows='5' />
-
-                </Grid>
-                <Grid xs={12} item md={watch(`column${index}`) ? 6 : 12}>
-                    {
-                        img?.length ? img.length > 2 ? <ImgSlider data={img}></ImgSlider> : img.length === 2 ? <Grid container spacing={2}>
-
+                        </Grid>
+                        <Grid xs={12} item md={watch(`column${index}`) ? 6 : 12}>
                             {
-                                img.map((single, i) => <Grid key={single.url} item md={6} xs={12}>
+                                img?.length ? img.length > 2 ? <ImgSlider data={img}></ImgSlider> : img.length === 2 ? <Grid container spacing={2}>
 
-                                    <Image src={single.url} height={618} layout='raw' className='w-full' width={1060} alt='d'></Image>
-                                    <input type="text" onChange={({ target: { value } }) => handleChange(value, i)} defaultValue={single.title} placeholder='Enter title' className='  text bg-transparent  italic text-heading border-white block w-full px-4  py-2 mt-4' />
-                                </Grid>)
+                                    {
+                                        img.map((single, i) => <Grid key={single.url} item md={6} xs={12}>
+
+                                            <Image src={single.url} height={618} layout='raw' className='w-full' width={1060} alt='d'></Image>
+                                            <input type="text" onChange={({ target: { value } }) => handleChange(value, i)} defaultValue={single.title} placeholder='Enter title' className='  text bg-transparent  italic text-heading border-white block w-full px-4  py-2 mt-4' />
+                                        </Grid>)
+                                    }
+
+                                </Grid> : <>
+                                    {img.map(single => <>
+                                        <Image key={single.url} layout='raw' className='w-full' src={single.url} height={618} width={1060} alt='d'></Image>
+
+                                        <input type="text" onChange={({ target: { value } }) => handleChange(value, 0)} defaultValue={single.title} placeholder='Enter title' className=' text bg-transparent  italic   border-white mt-4 block w-full px-4  py-2 text-heading' /></>)}
+                                </> : video ? <video preload="metadata" controls src={video + '#t=2'}></video> : <></>
                             }
+                        </Grid>
 
-                        </Grid> : <>
-                            {img.map(single => <>
-                                <Image key={single.url} layout='raw' className='w-full' src={single.url} height={618} width={1060} alt='d'></Image>
+                    </Grid>
 
-                                <input type="text" onChange={({ target: { value } }) => handleChange(value, 0)} defaultValue={single.title} placeholder='Enter title' className=' text bg-transparent  italic   border-white mt-4 block w-full px-4  py-2 text-heading' /></>)}
-                        </> : video ? <video preload="metadata" controls src={video + '#t=2'}></video> : <></>
-                    }
                 </Grid>
+
 
             </Grid>
         </div>

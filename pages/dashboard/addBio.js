@@ -25,8 +25,8 @@ const AddBio = () => {
     const [numSection, setNumSection] = useState([{ num: 1, complete: false }])
     const { register, unregister, handleSubmit, reset, setValue, watch, formState: { errors } } = useForm({ shouldUnregister: false });
     // default
-    const createObj = (title, url, description, img, video, column) => {
-        return { title, url, description, img, video, column }
+    const createObj = (title, url, description, img, video, column, reverse) => {
+        return { title, url, description, img, video, column, reverse }
     }
     const onSubmit = data => {
 
@@ -35,7 +35,7 @@ const AddBio = () => {
 
         // create section field
         const sections = numSection.map(ele => {
-            return createObj(data['title' + ele.num], data['url' + ele.num], data['description' + ele.num], data['img' + ele.num], data['video' + ele.num], data['column' + ele.num])
+            return createObj(data['title' + ele.num], data['url' + ele.num], data['description' + ele.num], data['img' + ele.num], data['video' + ele.num], data['column' + ele.num], data['reverse' + ele.num])
         })
         // create main data for post 
         const mainData = { img, heading, description, sections };
@@ -111,6 +111,7 @@ const AddBio = () => {
         setValue(`img${num}`, []);
         setValue(`video${num}`, []);
         setValue(`column${num}`, false);
+        setValue(`reverse${num}`, false);
 
         setNumSection(pre => {
             pre.filter(preNum => preNum.num !== num).forEach((element, i) => {
@@ -121,6 +122,7 @@ const AddBio = () => {
                 setValue(`file${i + 1}`, watch(`file${element.num}`))
                 setValue(`img${i + 1}`, watch(`img${element.num}`))
                 setValue(`column${i + 1}`, watch(`column${element.num}`))
+                setValue(`reverse${i + 1}`, watch(`reverse${element.num}`))
             });
             const newRe = pre.filter(preNum => preNum.num !== num).map((ele, i) => {
                 return { num: ++i, complete: ele.complete }

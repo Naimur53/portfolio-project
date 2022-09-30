@@ -115,12 +115,16 @@ const CreateAddBioSection = ({ errors, unregister, handleComplete, setPhotosLoad
         old[i].title = value;
         setValue(`img${singleSec.num}`, old)
     }
-    console.log(watch(`column${singleSec.num}`));
     return (
         <>
-            <Grid item xs={12} md={12}>
+            <Grid item xs={12} md={6}>
                 <FormGroup>
-                    <FormControlLabel control={<Switch color="warning"  {...register(`column${singleSec.num}`,)} />} label={watch(`column${singleSec.num}`) ? 'Tow Columns' : 'One Column'} />
+                    <FormControlLabel sx={{ color: 'white' }} control={<Switch color="warning"  {...register(`column${singleSec.num}`,)} />} label={watch(`column${singleSec.num}`) ? 'Tow Columns' : 'One Column'} />
+                </FormGroup>
+            </Grid>
+            <Grid item xs={12} md={6}>
+                <FormGroup>
+                    <FormControlLabel sx={{ color: 'white' }} control={<Switch color="warning"  {...register(`reverse${singleSec.num}`,)} />} label={watch(`reverse${singleSec.num}`) ? 'Reverse' : 'No Reverse'} />
                 </FormGroup>
             </Grid>
             <Grid item xs={12} md={12}>

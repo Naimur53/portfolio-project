@@ -31,7 +31,7 @@ const SelectMenuCard = ({ thumbnail, selected, categoryName, _id, handleAdd, han
             <Image src={thumbnail} height={400} width={400} alt={categoryName}></Image>
             {
                 status.active && <div className='border border-blue-400 absolute flex justify-center items-center inset-0'>
-                    <div className='rounded-full  flex justify-center items-center bg-blue-500 w-20 h-20'>
+                    <div className='rounded-full text-white  flex justify-center items-center bg-blue-500 w-20 h-20'>
                         {status.num}
                     </div>
 

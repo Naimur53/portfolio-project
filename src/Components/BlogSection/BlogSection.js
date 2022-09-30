@@ -5,7 +5,7 @@ import ImgSlider from '../ImgSlider/ImgSlider';
 import CustomLink from '../SmallComponents/CustomLink';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 const BlogSection = ({ data, bio }) => {
-    const { description, img, title, video, column } = data
+    const { description, img, title, video, column, reverse } = data
     let Des = [];
     if (description.length >= 300) {
         const lines = description.split('.')
@@ -24,7 +24,12 @@ const BlogSection = ({ data, bio }) => {
     console.log(column);
     return (
         <div className='mt-10'>
-            <Grid container>
+            <Grid container
+                spacing={2}
+                sx={{
+                    flexDirection: bio ? column ? reverse ? 'row-reverse' : 'row' : reverse ? 'column-reverse' : 'column' : ''
+                }}
+            >
                 <Grid item xs={12} md={bio ? column ? 6 : 12 : 12}>
                     <div className='mt-5 '>
                         {

@@ -27,6 +27,7 @@ const ChooseDropdown = () => {
                 const chooseData = res[1].data;
                 const filterCategory = fullCategory.filter(single => !single.subCategory)
                 setAllCategory(filterCategory)
+                console.table(fullCategory)
                 setBeforeMenu(chooseData)
                 setLoading(false)
 
