@@ -109,7 +109,12 @@ const UpdateBio = () => {
     }
     return (
         <Container>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <div className='flex justify-end mb-3'>
+                {
+                    upLoading ? <CircularProgress color='inherit' sx={{ color: 'white' }}></CircularProgress> : <label htmlFor="submit" className='text-yellow-500 inline-block px-4 py-2 mt-5 border border-yellow-500' type='submit'>Update blog</label>
+                }
+            </div>
+            <form onSubmit={handleSubmit(onSubmit)} className='block   pb-10'>
                 <div>
                     <input type="text" {...register("heading", { required: true })} defaultValue={data.heading} className=' text bg-transparent   text-xl md:text-3xl text-center text-heading font-family-mono font-thin border-white block w-full px-4  py-2' />
 
@@ -128,9 +133,7 @@ const UpdateBio = () => {
 
 
             </form>
-            {
-                upLoading ? <CircularProgress color='inherit' sx={{ color: 'white' }}></CircularProgress> : <label htmlFor="submit" className='text-yellow-500 inline-block px-4 py-2 mt-5 border border-yellow-500' type='submit'>Update blog</label>
-            }
+
         </Container>
     );
 };

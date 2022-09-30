@@ -130,7 +130,7 @@ const BioSectionUpdate = ({ register, description, img, title, index, setData, u
     };
     console.log({ index, column: watch(`column${index}`) });
     return (
-        <div className='mt-10'>
+        <div className='mt-10  '>
             <Grid container spacing={4}>
                 <Grid item xs={12} md={6}>
                     <FormGroup>
@@ -146,13 +146,15 @@ const BioSectionUpdate = ({ register, description, img, title, index, setData, u
                 <Grid item xs={12} md={12}>
                     <Grid container spacing={2}
                         sx={{
+                            alignItems: 'center',
+                            justifyContent: 'start',
                             flexDirection: watch(`column${index}`) ? watch(`reverse${index}`) ? 'row-reverse' : 'row' : watch(`reverse${index}`) ? 'column-reverse' : 'column'
                         }}
                     >
-                        <Grid xs={12} item md={watch(`column${index}`) ? 6 : 12}>
-                            <div className='relative py-10'>
+                        <Grid xs={12} item sx={{ width: '100%' }} md={watch(`column${index}`) ? 6 : 12}>
+                            <div className='  py-10'>
 
-                                <div className="absolute inset-0 bg-black/[.6] flex justify-center items-center z-50 pointer-events-none">
+                                <div className="  bg-black/[.6] flex justify-center items-center z-50 pointer-events-none">
                                     {
                                         img?.length || video ? photosLoading || videoLoading ? <CircularProgress color='inherit' sx={{ color: 'white' }}></CircularProgress> : img?.length ? <div>
                                             <label htmlFor={'photosFile' + index} className='border-b pointer-events-auto border-green-400 text-green-400 cursor-pointer mr-4 '>Change image</label>
@@ -180,25 +182,27 @@ const BioSectionUpdate = ({ register, description, img, title, index, setData, u
                             <textarea type="text" defaultValue={description} placeholder='description' {...register(`description${index}`, { required: true })} className=' mb-2 text-heading  bg-transparent   border-white block w-full px-4 border py-2' cols='10' rows='5' />
 
                         </Grid>
-                        <Grid xs={12} item md={watch(`column${index}`) ? 6 : 12}>
-                            {
-                                img?.length ? img.length > 2 ? <ImgSlider data={img}></ImgSlider> : img.length === 2 ? <Grid container spacing={2}>
+                        <Grid xs={12} sx={{ width: '100%' }} item md={watch(`column${index}`) ? 6 : 12}>
+                            <div >
+                                {
+                                    img?.length ? img.length > 2 ? <ImgSlider data={img}></ImgSlider> : img.length === 2 ? <Grid container spacing={2}>
 
-                                    {
-                                        img.map((single, i) => <Grid key={single.url} item md={6} xs={12}>
+                                        {
+                                            img.map((single, i) => <Grid key={single.url} item md={6} xs={12}>
 
-                                            <Image src={single.url} height={618} layout='raw' className='w-full' width={1060} alt='d'></Image>
-                                            <input type="text" onChange={({ target: { value } }) => handleChange(value, i)} defaultValue={single.title} placeholder='Enter title' className='  text bg-transparent  italic text-heading border-white block w-full px-4  py-2 mt-4' />
-                                        </Grid>)
-                                    }
+                                                <Image src={single.url} height={618} layout='raw' className='w-full' width={1060} alt='d'></Image>
+                                                <input type="text" onChange={({ target: { value } }) => handleChange(value, i)} defaultValue={single.title} placeholder='Enter title' className='  text bg-transparent  italic text-heading border-white block w-full px-4  py-2 mt-4' />
+                                            </Grid>)
+                                        }
 
-                                </Grid> : <>
-                                    {img.map(single => <>
-                                        <Image key={single.url} layout='raw' className='w-full' src={single.url} height={618} width={1060} alt='d'></Image>
+                                    </Grid> : <>
+                                        {img.map(single => <>
+                                            <Image key={single.url} layout='raw' className='w-full' src={single.url} height={618} width={1060} alt='d'></Image>
 
-                                        <input type="text" onChange={({ target: { value } }) => handleChange(value, 0)} defaultValue={single.title} placeholder='Enter title' className=' text bg-transparent  italic   border-white mt-4 block w-full px-4  py-2 text-heading' /></>)}
-                                </> : video ? <video preload="metadata" controls src={video + '#t=2'}></video> : <></>
-                            }
+                                            <input type="text" onChange={({ target: { value } }) => handleChange(value, 0)} defaultValue={single.title} placeholder='Enter title' className=' text bg-transparent  italic   border-white mt-4 block w-full px-4  py-2 text-heading' /></>)}
+                                    </> : video ? <video preload="metadata" controls src={video + '#t=2'}></video> : <></>
+                                }
+                            </div>
                         </Grid>
 
                     </Grid>
