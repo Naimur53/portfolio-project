@@ -252,8 +252,8 @@ const UpdateCategory = () => {
 
                 </div>
                 <div className='py-5 text-center'>
-                    <input type="text" defaultValue={data.title} {...register("title", { required: true })} className='text-white bg-transparent   border-white inline-block w-full text-center py-2 mb-4 text-xl' />
-                    <textarea type="text" defaultValue={data.description} {...register("description", { required: true })} className='text-white bg-transparent   border-white inline-block w-full text-center py-2' />
+                    <input type="text" defaultValue={data.title} {...register("title", { required: true })} className='text-white border bg-transparent   border-white inline-block w-full text-center py-2 mb-4 text-xl' />
+                    <textarea type="text" defaultValue={data.description} {...register("description", { required: true })} className='text-white bg-transparent   border-white inline-block w-full border text-center py-2' />
                 </div>
                 <div className='mb-4 mr-4'>
                     <input onChange={handlePhotosUpload} type="file" id='url' accept="image/*" className="hidden" multiple={true} />

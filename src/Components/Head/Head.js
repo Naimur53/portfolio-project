@@ -15,7 +15,7 @@ const Head = ({ children, title, keywords }) => {
             <meta name="author" content="John Baggen" />
 
             <meta name="keywords" content={keywords?.join(',')} />
-            <title>{title}</title>
+            <title>{title || "John Baggen"}</title>
 
             {children}
         </NextHead>

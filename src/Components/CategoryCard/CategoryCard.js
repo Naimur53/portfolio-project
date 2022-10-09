@@ -7,7 +7,7 @@ import axios from 'axios';
 import { CircularProgress } from '@mui/material';
 import { allData } from '../../dataSlice/dataSlice';
 import { toast } from 'react-toastify';
-const CategoryCard = ({ admin, i, _id, thumbnail, title, description, categoryName, photos, subCategory, setAlldata }) => {
+const CategoryCard = ({ admin, i, _id, thumbnail, title, description, categoryName, photos, subCategory, isItSub, setAlldata }) => {
     const [loading, setLoading] = useState(false);
 
     const { user } = useSelector(allData)
@@ -85,7 +85,7 @@ const CategoryCard = ({ admin, i, _id, thumbnail, title, description, categoryNa
     return (
         <motion.div className={loading ? 'grayscale pb-2' : 'pb-2'} initial="initial" animate="animate" exit='initial' variants={popIn} >
             <div className="category-card-wrap cursor-pointer overflow-hidden">
-                <Link href={'/category/' + _id}>
+                <Link href={isItSub ? `/category/${_id}` : `/mainCategory/${categoryName}`}>
                     <div className='relative h-full'>
                         <div className='relative ' >
                             <Image className='w-full cursor-pointer category-card-img h-auto' src={thumbnail} layout='raw' width={1000} height={1000} alt={title}></Image>
