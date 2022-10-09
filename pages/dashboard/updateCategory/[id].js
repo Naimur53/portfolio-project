@@ -242,6 +242,7 @@ const UpdateCategory = () => {
                     </div>
                     <div className='flex justify-end absolute top-0 right-0 pb-4'>
                         <div>
+
                             {
                                 uploadLoading ? <CircularProgress sx={{ color: 'white' }}></CircularProgress> : imgLoading || thumbnailLoading ? <span className='p-2 bg-red-900 m-4 text-white  '>Image Loading</span> : <button type='submit' className='p-2 bg-red-900 m-4 text-white'>Update</button>
                             }
