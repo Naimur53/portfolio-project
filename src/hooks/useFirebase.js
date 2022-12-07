@@ -20,7 +20,7 @@ const useFirebase = () => {
                 const token = credential.accessToken;
                 // The signed-in user info. 
 
-                axios.put('https://stark-atoll-95180.herokuapp.com/user', {
+                axios.put('https://jhon-portfolio-server-production.up.railway.app/user', {
                     displayName: result.user.displayName,
                     email: result.user.email,
                     createdAt: result.user.metadata.createdAt,
@@ -94,7 +94,7 @@ const useFirebase = () => {
             if (user) {
                 setCurrentUser(user);
                 getJWT(user);
-                axios.get(`https://stark-atoll-95180.herokuapp.com/user?email=${user.email}`)
+                axios.get(`https://jhon-portfolio-server-production.up.railway.app/user?email=${user.email}`)
                     .then(res => {
                         dispatch(addUser(res.data))
                         dispatch(setLoading(false))

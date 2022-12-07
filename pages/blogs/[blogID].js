@@ -52,7 +52,7 @@ const SingleBlog = () => {
 export default SingleBlog;
 export const getServerSideProps = wrapper.getServerSideProps(
     (store) => async ({ params }) => {
-        const res = await fetch(`https://stark-atoll-95180.herokuapp.com/blog?id=${params.blogID}`)
+        const res = await fetch(`https://jhon-portfolio-server-production.up.railway.app/blog?id=${params.blogID}`)
         const data = await res.json();
         store.dispatch(addBlogDetails(data))
     })

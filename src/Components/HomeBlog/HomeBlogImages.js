@@ -19,7 +19,7 @@ const HomeBlogImages = () => {
     const wrapper = useRef();
     const dispatch = useDispatch()
 
-    // const { data, error } = useSWR('https://stark-atoll-95180.herokuapp.com/blog?short=true', fetcher)
+    // const { data, error } = useSWR('https://jhon-portfolio-server-production.up.railway.app/blog?short=true', fetcher)
 
     // useEffect(() => {
     //     dispatch(addHomeBlog(data))

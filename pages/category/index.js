@@ -45,7 +45,7 @@ const AllCategory = ({ data }) => {
 export default AllCategory;
 export async function getServerSideProps() {
     // Fetch data from external API
-    const res = await fetch(`https://stark-atoll-95180.herokuapp.com/category?onlyMainCategory=true`)
+    const res = await fetch(`https://jhon-portfolio-server-production.up.railway.app/category?onlyMainCategory=true`)
     const data = await res.json()
 
     // Pass data to the page via props

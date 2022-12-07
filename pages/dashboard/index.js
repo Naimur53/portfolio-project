@@ -26,7 +26,7 @@ const Dashboard = (props) => {
     const [last7Post, setLast7Post] = useState([])
     useEffect(() => {
         setLoading(true)
-        const allUrl = [axios.get('https://stark-atoll-95180.herokuapp.com/totalUser'), axios.get('https://stark-atoll-95180.herokuapp.com/totalCategories'), axios.get('https://stark-atoll-95180.herokuapp.com/blogTotalLC'), axios.get('https://stark-atoll-95180.herokuapp.com/last7blog'), axios.get('https://stark-atoll-95180.herokuapp.com/blogCount')]
+        const allUrl = [axios.get('https://jhon-portfolio-server-production.up.railway.app/totalUser'), axios.get('https://jhon-portfolio-server-production.up.railway.app/totalCategories'), axios.get('https://jhon-portfolio-server-production.up.railway.app/blogTotalLC'), axios.get('https://jhon-portfolio-server-production.up.railway.app/last7blog'), axios.get('https://jhon-portfolio-server-production.up.railway.app/blogCount')]
         Promise.all(allUrl)
             .then(res => {
                 setUsers(res[0].data?.user)

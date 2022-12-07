@@ -48,7 +48,7 @@ const AddBlog = () => {
         // create main data for post 
         const mainData = { img, tags, heading, description, address, sections };
         setPostLoading(true)
-        axios.post('https://stark-atoll-95180.herokuapp.com/blog', { mainData, user: user?.email }, {
+        axios.post('https://jhon-portfolio-server-production.up.railway.app/blog', { mainData, user: user?.email }, {
             headers: {
                 authorization: 'Bearer ' + localStorage.getItem('idToken')
             },
@@ -158,7 +158,7 @@ const AddBlog = () => {
             body.append('image', file[0]);
             axios({
                 method: 'post',
-                url: 'https://stark-atoll-95180.herokuapp.com/uplaodImage',
+                url: 'https://jhon-portfolio-server-production.up.railway.app/uplaodImage',
                 data: body
             })
                 .then(res => {

@@ -32,13 +32,13 @@ const CommentFrom = () => {
             comment,
         }
 
-        axios.put(`https://stark-atoll-95180.herokuapp.com/blog/comment?id=${blogDetails._id}`, mainData)
+        axios.put(`https://jhon-portfolio-server-production.up.railway.app/blog/comment?id=${blogDetails._id}`, mainData)
             .then(res => {
 
             })
         dispatch(addComments({ ...mainData, date: new Date() }))
 
-        axios.post('https://stark-atoll-95180.herokuapp.com/sendMail', { ...user, comment, subject: `${user?.displayName} comment on your blog name ${blogDetails.heading}` })
+        axios.post('https://jhon-portfolio-server-production.up.railway.app/sendMail', { ...user, comment, subject: `${user?.displayName} comment on your blog name ${blogDetails.heading}` })
 
         reset()
     }

@@ -52,7 +52,7 @@ const BioSectionUpdate = ({ register, description, img, title, index, setData, u
                 body.append('image', singleFile)
                 return axios({
                     method: 'post',
-                    url: 'https://stark-atoll-95180.herokuapp.com/uplaodImage',
+                    url: 'https://jhon-portfolio-server-production.up.railway.app/uplaodImage',
                     data: body
                 })
             })
@@ -98,7 +98,7 @@ const BioSectionUpdate = ({ register, description, img, title, index, setData, u
             formData.append("video", file[0]);
 
             // sending to api
-            axios.post('https://stark-atoll-95180.herokuapp.com/video', formData, {
+            axios.post('https://jhon-portfolio-server-production.up.railway.app/video', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }

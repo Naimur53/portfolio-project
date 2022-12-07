@@ -38,7 +38,7 @@ const Blogs = ({ blogs }) => {
 };
 export async function getServerSideProps() {
     // Call an external API endpoint to get posts
-    const res = await fetch('https://stark-atoll-95180.herokuapp.com/blog')
+    const res = await fetch('https://jhon-portfolio-server-production.up.railway.app/blog')
     const blogs = await res.json()
 
     // By returning { props: { posts } }, the Blog component

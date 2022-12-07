@@ -12,7 +12,7 @@ const AllBlogs = () => {
     const { user } = useSelector(allData)
     const [blogs, setBlogs] = useState([])
     const { data, error } = useSWR(
-        "https://stark-atoll-95180.herokuapp.com/blog",
+        "https://jhon-portfolio-server-production.up.railway.app/blog",
         fetcher
     );
     useEffect(() => {
@@ -28,7 +28,7 @@ const AllBlogs = () => {
         if (window.confirm("Are you sure to Delete this blog?")) {
 
             setDeleteLoading(true)
-            axios.delete(`https://stark-atoll-95180.herokuapp.com/blog/delete?id=${id}`, {
+            axios.delete(`https://jhon-portfolio-server-production.up.railway.app/blog/delete?id=${id}`, {
                 headers: {
                     authorization: 'Bearer ' + localStorage.getItem('idToken')
                 },

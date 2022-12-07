@@ -35,11 +35,11 @@ const TopBar = () => {
     const { collection, user } = useSelector(allData)
     const dispatch = useDispatch()
     // const { data, error } = useSWR(
-    //     "https://stark-atoll-95180.herokuapp.com/chooseMenu",
+    //     "https://jhon-portfolio-server-production.up.railway.app/chooseMenu",
     //     fetcher
     // );
     useEffect(() => {
-        axios.get("https://stark-atoll-95180.herokuapp.com/chooseMenu")
+        axios.get("https://jhon-portfolio-server-production.up.railway.app/chooseMenu")
             .then(({ data }) => {
 
                 dispatch(addCollection(data))

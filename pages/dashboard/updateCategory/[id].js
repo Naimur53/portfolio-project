@@ -23,7 +23,7 @@ const UpdateCategory = () => {
     const [imgLoading, setImgLoading] = useState(false);
     const [data, setData] = useState({})
     const { data: res, error } = useSWR(
-        `https://stark-atoll-95180.herokuapp.com/singleCategory?id=${id}`,
+        `https://jhon-portfolio-server-production.up.railway.app/singleCategory?id=${id}`,
         fetcher
     );
     useEffect(() => {
@@ -94,7 +94,7 @@ const UpdateCategory = () => {
             body.append('image', file[0]);
             axios({
                 method: 'post',
-                url: 'https://stark-atoll-95180.herokuapp.com/uplaodImage',
+                url: 'https://jhon-portfolio-server-production.up.railway.app/uplaodImage',
                 data: body
             })
                 .then(res => {
@@ -127,7 +127,7 @@ const UpdateCategory = () => {
         }
         delete upData._id;
 
-        axios.put(`https://stark-atoll-95180.herokuapp.com/category?id=${data._id}`, { mainData: upData, user: user.email }, {
+        axios.put(`https://jhon-portfolio-server-production.up.railway.app/category?id=${data._id}`, { mainData: upData, user: user.email }, {
             headers: {
                 authorization: 'Bearer ' + localStorage.getItem('idToken')
             },

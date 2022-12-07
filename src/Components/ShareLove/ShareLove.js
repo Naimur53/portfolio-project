@@ -19,7 +19,7 @@ const ShareLove = () => {
     const handleLove = () => {
         if (user.email) {
             dispatch(addLove(user))
-            axios.put(`https://stark-atoll-95180.herokuapp.com/blog/love?id=${blogDetails._id}`, user)
+            axios.put(`https://jhon-portfolio-server-production.up.railway.app/blog/love?id=${blogDetails._id}`, user)
                 .then(res => {
 
                 })

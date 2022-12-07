@@ -14,13 +14,13 @@ const ChooseDropdown = () => {
     const [loading, setLoading] = useState(true);
     const [postLoading, setPostLoading] = useState(false);
     useEffect(() => {
-        // axios.get('https://stark-atoll-95180.herokuapp.com/category?short=true')
+        // axios.get('https://jhon-portfolio-server-production.up.railway.app/category?short=true')
         //     .then(res => {
         //         const filterData = res.data?.filter(single => !single.subCategory)
         //         setAllCategory(filterData)
         //         setLoading(false)
         //     })
-        Promise.all([axios.get('https://stark-atoll-95180.herokuapp.com/category?short=true'), axios.get(' https://stark-atoll-95180.herokuapp.com/chooseMenu')])
+        Promise.all([axios.get('https://jhon-portfolio-server-production.up.railway.app/category?short=true'), axios.get(' https://jhon-portfolio-server-production.up.railway.app/chooseMenu')])
             .then(res => {
                 const fullCategory = res[0].data;
                 setFullCategories(fullCategory);
@@ -61,7 +61,7 @@ const ChooseDropdown = () => {
 
 
             });
-            axios.post('https://stark-atoll-95180.herokuapp.com/chooseMenu', mainData)
+            axios.post('https://jhon-portfolio-server-production.up.railway.app/chooseMenu', mainData)
                 .then(res => {
                     setPostLoading(false)
 

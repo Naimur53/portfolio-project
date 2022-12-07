@@ -16,22 +16,22 @@ const BlogLeft = () => {
     const [commentsLoading, setCommentsLoading] = useState(true);
     const [streams, setStreams] = useState([]);
     useEffect(() => {
-        axios.get('https://stark-atoll-95180.herokuapp.com/blog/mostLoved')
+        axios.get('https://jhon-portfolio-server-production.up.railway.app/blog/mostLoved')
             .then(res => {
                 setMostLoves(res.data);
                 setMostLovesLoading(false);
             })
-        axios.get('https://stark-atoll-95180.herokuapp.com/blog/comment/recent')
+        axios.get('https://jhon-portfolio-server-production.up.railway.app/blog/comment/recent')
             .then(res => {
                 setCommnets(res.data);
                 setCommentsLoading(false);
             })
-        axios.get('https://stark-atoll-95180.herokuapp.com/blog/recent')
+        axios.get('https://jhon-portfolio-server-production.up.railway.app/blog/recent')
             .then(res => {
                 setRecents(res.data);
                 setRecentLoading(false);
             })
-        axios.get('https://stark-atoll-95180.herokuapp.com/photostream')
+        axios.get('https://jhon-portfolio-server-production.up.railway.app/photostream')
             .then(res => {
                 setStreams(res.data);
             })

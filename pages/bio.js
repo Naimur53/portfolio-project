@@ -50,7 +50,7 @@ const Bio = () => {
 export default Bio;
 export const getServerSideProps = wrapper.getServerSideProps(
     (store) => async ({ params }) => {
-        const res = await fetch(`https://stark-atoll-95180.herokuapp.com/bio`)
+        const res = await fetch(`https://jhon-portfolio-server-production.up.railway.app/bio`)
         const data = await res.json();
         store.dispatch(addBlogDetails(data))
     }) 

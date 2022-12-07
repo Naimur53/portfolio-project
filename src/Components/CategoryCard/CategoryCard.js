@@ -15,7 +15,7 @@ const CategoryCard = ({ admin, i, _id, thumbnail, title, description, categoryNa
         if (user?.email) {
             if (window.confirm('Are you sure to delete this category')) {
                 setLoading(true);
-                axios.delete(`https://stark-atoll-95180.herokuapp.com/category?id=${_id}`, {
+                axios.delete(`https://jhon-portfolio-server-production.up.railway.app/category?id=${_id}`, {
                     headers: {
                         authorization: 'Bearer ' + localStorage.getItem('idToken')
                     },

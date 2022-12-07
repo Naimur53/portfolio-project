@@ -9,7 +9,7 @@ import useSWR from "swr";
 const AllCategory = () => {
     const [allData, setAlldata] = useState([])
     const { data, error } = useSWR(
-        "https://stark-atoll-95180.herokuapp.com/category",
+        "https://jhon-portfolio-server-production.up.railway.app/category",
         fetcher
     );
     useEffect(() => {

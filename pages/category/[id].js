@@ -112,7 +112,7 @@ const CategoryDetails = ({ data, error }) => {
 };
 export default CategoryDetails;
 export async function getServerSideProps({ params }) {
-    const res = await fetch(`https://stark-atoll-95180.herokuapp.com/singleCategory?id=${params.id}`)
+    const res = await fetch(`https://jhon-portfolio-server-production.up.railway.app/singleCategory?id=${params.id}`)
     const data = await res.json();
 
     if (!data) {

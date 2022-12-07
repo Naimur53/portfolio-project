@@ -19,7 +19,7 @@ const AddBio = () => {
     const [postLoading, setPostLoading] = useState(false);
     const { user } = useSelector(allData);
     const { data: preBio, error } = useSWR(
-        "https://stark-atoll-95180.herokuapp.com/bio",
+        "https://jhon-portfolio-server-production.up.railway.app/bio",
         fetcher
     );
     const [numSection, setNumSection] = useState([{ num: 1, complete: false }])
@@ -40,7 +40,7 @@ const AddBio = () => {
         // create main data for post 
         const mainData = { img, heading, description, sections };
         setPostLoading(true)
-        axios[preBio?._id ? 'put' : 'post'](`https://stark-atoll-95180.herokuapp.com/bio?id=${preBio?._id}`, { mainData, user: user?.email }, {
+        axios[preBio?._id ? 'put' : 'post'](`https://jhon-portfolio-server-production.up.railway.app/bio?id=${preBio?._id}`, { mainData, user: user?.email }, {
             headers: {
                 authorization: 'Bearer ' + localStorage.getItem('idToken')
             },

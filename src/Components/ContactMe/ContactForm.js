@@ -9,7 +9,7 @@ const ContactForm = () => {
     const { register, unregister, handleSubmit, reset, setValue, watch, formState: { errors } } = useForm();
     const onSubmit = data => {
 
-        axios.post('https://stark-atoll-95180.herokuapp.com/sendMail', { ...data, subject: `${data.displayName} try to contact you` })
+        axios.post('https://jhon-portfolio-server-production.up.railway.app/sendMail', { ...data, subject: `${data.displayName} try to contact you` })
             .then(res => {
 
                 if (res.data.res !== 'error') {
