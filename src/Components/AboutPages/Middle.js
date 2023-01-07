@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import { useState } from 'react';
 const Middle = () => {
     const { scrollValue } = useSelector(allData);
+    console.log(scrollValue)
     const [rotateValue, setRotateValue] = useState(0);
     const [value, setValue] = useState({
         content1: false,

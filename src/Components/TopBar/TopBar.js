@@ -116,7 +116,7 @@ const TopBar = () => {
                         aria-controls="panel1a-content"
                         id="panel1a-header"
                     >
-                        <h1 className='text-white'>Collection</h1>
+                        <h1 className='text-white'>Portfolio</h1>
                     </AccordionSummary>
                     <AccordionDetails>
 
@@ -267,7 +267,7 @@ https://i.ibb.co/MV6YcKV/huisstijl-JBP-750.png
 
                                         sx={{ py: 0, color: 'white', display: 'block' }}
                                     >
-                                        Collection
+                                        Portfolio
 
                                     </Button>
                                     <Collection data={collection}></Collection>

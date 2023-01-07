@@ -141,7 +141,8 @@ const Aboutme = () => {
             </ParallaxLayer>
             <ParallaxLayer
                 offset={6}
-                speed={.5}
+                factor={1}
+                speed={.3}
             >
 
                 <div className="h-full flex items-center">
