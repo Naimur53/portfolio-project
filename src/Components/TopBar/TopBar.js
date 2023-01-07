@@ -124,7 +124,7 @@ const TopBar = () => {
                     </AccordionDetails>
                 </Accordion>
             </motion.div>
-            <motion.div variants={fadeEnter}
+            {/* <motion.div variants={fadeEnter}
             >
                 <Link href={'/category'}>
                     <span
@@ -134,7 +134,7 @@ const TopBar = () => {
                     </span>
                 </Link>
 
-            </motion.div>
+            </motion.div> */}
             <motion.div variants={fadeEnter}
             >
                 <Link href={'/blogs'}>
@@ -285,7 +285,7 @@ https://i.ibb.co/MV6YcKV/huisstijl-JBP-750.png
 
                                 </motion.div>
 
-                                <motion.div className='pr-5' variants={fadeInUp}
+                                {/* <motion.div className='pr-5' variants={fadeInUp}
                                 >
                                     <CustomLink href={'/category'}>
                                         <Button
@@ -296,7 +296,7 @@ https://i.ibb.co/MV6YcKV/huisstijl-JBP-750.png
                                         </Button>
                                     </CustomLink>
 
-                                </motion.div>
+                                </motion.div> */}
                                 <motion.div className='pr-5' variants={fadeInUp}
                                 >
                                     <CustomLink href={'/blogs'}>
