@@ -87,7 +87,7 @@ const TopBar = () => {
                     <span
                         className='w-full border  block pl-5   mb-3 py-2 border-gray-700 rounded-sm hover:border-yellow-300 text-white'
                     >
-                        Home
+                        HOME
                     </span>
                 </Link>
 
@@ -95,35 +95,30 @@ const TopBar = () => {
 
             <motion.div variants={fadeEnter}
             >
-                <Link href={'/aboutme'}>
+                <Link href={'https://beta20.johnweb.nl/'}>
                     <span
 
                         className='w-full border  block pl-5  mb-3 py-2 border-gray-700 rounded-sm hover:border-yellow-300 text-white'
                     >
-                        About me
+                        PORTFOLIO
                     </span>
                 </Link>
 
             </motion.div>
+
             <motion.div variants={fadeEnter}
             >
-                <Accordion
-                    sx={{ background: 'black' }}
-                    className='w-full border    mb-3  bg-black border-gray-700 rounded-sm hover:border-yellow-300 text-white'
-                >
-                    <AccordionSummary
-                        expandIcon={<ExpandMoreIcon sx={{ color: 'white', }} />}
-                        aria-controls="panel1a-content"
-                        id="panel1a-header"
-                    >
-                        <h1 className='text-white'>Portfolio</h1>
-                    </AccordionSummary>
-                    <AccordionDetails>
+                <Link href={'https://beta20.johnweb.nl/biografie/'}>
+                    <span
 
-                        <PhoneCollection data={collection}></PhoneCollection>
-                    </AccordionDetails>
-                </Accordion>
+                        className='w-full border  block pl-5  mb-3 py-2 border-gray-700 rounded-sm hover:border-yellow-300 text-white'
+                    >
+                        BIO
+                    </span>
+                </Link>
+
             </motion.div>
+
             {/* <motion.div variants={fadeEnter}
             >
                 <Link href={'/category'}>
@@ -137,11 +132,22 @@ const TopBar = () => {
             </motion.div> */}
             <motion.div variants={fadeEnter}
             >
-                <Link href={'/blogs'}>
+                <Link href={'https://beta20.johnweb.nl/blog/'}>
                     <span
                         className='w-full border block pl-5  mb-3 py-2 border-gray-700 rounded-sm hover:border-yellow-300 text-white'
                     >
-                        Blog&apos;s
+                        BLOG
+                    </span>
+                </Link>
+
+            </motion.div>
+            <motion.div variants={fadeEnter}
+            >
+                <Link href={'https://beta20.johnweb.nl/contact/'}>
+                    <span
+                        className='w-full border block pl-5  mb-3 py-2 border-gray-700 rounded-sm hover:border-yellow-300 text-white'
+                    >
+                        CONTACT
                     </span>
                 </Link>
 
@@ -263,23 +269,26 @@ https://i.ibb.co/MV6YcKV/huisstijl-JBP-750.png
                                 </motion.div>
                                 <motion.div className='menu-collection-wrap-main pr-5' variants={fadeInUp}
                                 >
-                                    <Button
+                                    <CustomLink href={'https://beta20.johnweb.nl/'}>
 
-                                        sx={{ py: 0, color: 'white', display: 'block' }}
-                                    >
-                                        Portfolio
-
-                                    </Button>
-                                    <Collection data={collection}></Collection>
-                                </motion.div>
-                                <motion.div className='pr-5' variants={fadeInUp}
-                                >
-                                    <CustomLink href={'/aboutme'}>
                                         <Button
 
                                             sx={{ py: 0, color: 'white', display: 'block' }}
                                         >
-                                            About me
+                                            Portfolio
+
+                                        </Button>
+                                    </CustomLink>
+                                    {/* <Collection data={collection}></Collection> */}
+                                </motion.div>
+                                <motion.div className='pr-5' variants={fadeInUp}
+                                >
+                                    <CustomLink href={'https://beta20.johnweb.nl/biografie/'}>
+                                        <Button
+
+                                            sx={{ py: 0, color: 'white', display: 'block' }}
+                                        >
+                                            Bio
                                         </Button>
                                     </CustomLink>
 
@@ -299,12 +308,24 @@ https://i.ibb.co/MV6YcKV/huisstijl-JBP-750.png
                                 </motion.div> */}
                                 <motion.div className='pr-5' variants={fadeInUp}
                                 >
-                                    <CustomLink href={'/blogs'}>
+                                    <CustomLink href={'https://beta20.johnweb.nl/blog/'}>
                                         <Button
 
                                             sx={{ py: 0, color: 'white', display: 'block' }}
                                         >
-                                            Blog&apos;s
+                                            Blog
+                                        </Button>
+                                    </CustomLink>
+
+                                </motion.div>
+                                <motion.div className='pr-5' variants={fadeInUp}
+                                >
+                                    <CustomLink href={'https://beta20.johnweb.nl/contact/'}>
+                                        <Button
+
+                                            sx={{ py: 0, color: 'white', display: 'block' }}
+                                        >
+                                            CONTACT
                                         </Button>
                                     </CustomLink>
 
