@@ -38,7 +38,7 @@ const ParallaxLayerBackground = ({ className, factor, offset, url, speed, style 
 
                         >
 
-                            <Image className='w-full mt-15  ' src='https://i.ibb.co/0cjqwrp/GRID-for-movement-on-background-5.png' width={700} height={100} alt='background web' priority layout='raw'></Image>
+                            <Image className='w-full mt-15  ' src='https://i.ibb.co/R0ngLrJ/Adobe-Stock-477001574-kopi-ren.png' width={700} height={100} alt='background web' priority layout='raw'></Image>
 
                             <motion.div
                                 className='bg-black absolute inset-0 shadow-overlay'
