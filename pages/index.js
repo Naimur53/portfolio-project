@@ -52,7 +52,7 @@ export default function Home() {
             className="banner-wrap h-full w-full">
             <div className='w-full flex h-full items-end   '>
               <div className="relative w-full">
-                <Image className='w-full mt-15  ' src='https://i.ibb.co/R0ngLrJ/Adobe-Stock-477001574-kopi-ren.png' width={700} height={100} alt='background web' priority layout='raw'></Image>
+                <img className='w-full mt-15  ' src='https://i.ibb.co/R0ngLrJ/Adobe-Stock-477001574-kopi-ren.png' width={700} height={100} alt='background web' priority layout='raw'></img>
                 <motion.div
                   className=' absolute inset-0'
                   style={{ background: 'rgba(0,0,0,.9)' }}
