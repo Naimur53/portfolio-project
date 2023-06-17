@@ -97,7 +97,7 @@ const BannerText = ({ innerRoute }) => {
             Photograph
           </motion.div>
           <motion.div className="inline-block ml-3 py-2" variants={twing}>
-            {"Dinosaur"}
+            &apos;Dinosaur&apos;
           </motion.div>
           <motion.div className="inline-block ml-3 py-2" variants={twing}>
             Pro since 1977
